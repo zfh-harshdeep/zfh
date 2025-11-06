@@ -1,0 +1,31 @@
+# Turn on the rewrite engine
+RewriteEngine On
+
+# ---------------------------------------------------------------------
+# Serve .html file when the extension is removed
+# ---------------------------------------------------------------------
+
+# 1. Only process GET or POST requests
+RewriteCond %{REQUEST_METHOD} ^(GET|POST)$
+
+# 2. Skip if the request is for an existing file
+RewriteCond %{REQUEST_FILENAME} !-f
+
+# 3. Skip if the request is for an existing directory
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# 4. Check if a .html version of the requested file exists
+RewriteCond %{REQUEST_FILENAME}.html -f
+
+# 5. Internally rewrite to the .html file
+RewriteRule ^(.*)$ $1.html [L]
+
+# ---------------------------------------------------------------------
+# Optional: Redirect users who type the .html URL to the clean version
+# ---------------------------------------------------------------------
+
+# 1. Check if the request includes ".html"
+RewriteCond %{THE_REQUEST} \s/+([^\s]+)\.html [NC]
+
+# 2. Redirect to the clean URL (without .html)
+RewriteRule ^ %1 [R=301,L]
