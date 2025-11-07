@@ -50,9 +50,7 @@
 
         /* Class to shrink and move the container */
         .move-up-and-shrink {
-            /* NEW: Reduced height from h-24 to h-20 (80px) */
             height: 80px; 
-            /* NEW: Removed the translateY to just shrink the space */
         }
 
         /* Loading Spinner */
@@ -110,13 +108,11 @@
     </header>
 
     <!-- Main Success Content -->
-    <!-- NEW: Reduced vertical padding from py-24 to py-12 for mobile -->
     <main class="py-12 sm:py-24 md:py-32">
         <div class="container mx-auto px-6 max-w-4xl">
             <div class="flex flex-col items-center text-center">
                 
                 <!-- Animation Container -->
-                <!-- NEW: Reduced height from h-40 to h-32 (128px) -->
                 <div id="animation-container" class="flex items-center justify-center h-32">
                     <!-- Loading Spinner (Visible by default) -->
                     <div id="loader" class="loader"></div>
@@ -131,40 +127,33 @@
                 <!-- Main Content (Hidden by default, will fade in) -->
                 <div id="main-content" class="hidden fade-in w-full">
                     <!-- Heading -->
-                    <!-- NEW: Reduced font size and top margin for mobile -->
                     <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-gray-200 mt-4 sm:mt-8">Payment Successful!</h1>
-                    <!-- NEW: Reduced font size and margins for mobile -->
                     <p class="mt-2 sm:mt-4 text-base sm:text-lg text-gray-400 mb-4 sm:mb-8">Your blueprint is on its way. Let the hustle begin.</p>
                     
                     <!-- Motivational Quote -->
-                    <!-- NEW: Reduced margin from my-12 to my-6 for mobile -->
                     <div class="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-gray-800 max-w-2xl mx-auto">
                         <p class="text-lg sm:text-xl italic text-gray-300">"The journey of a thousand miles begins with a single step."</l>
                         <p class="text-xs sm:text-sm text-gray-500 mt-2">- Laozi</p>
                     </div>
                     
-                    <!-- NEW: Reduced top margin from mt-10 to mt-6 for mobile -->
                     <p class="mt-6 text-sm text-gray-400 max-w-lg mx-auto">
                         Check your inbox for the attached ebook.
                         If it doesn't arrive, you can also download it directly below.
                     </p>
 
                     <!-- Primary Download Button -->
-                    <!-- NEW: Reduced font size and top margin for mobile -->
                     <a href="[YOUR_DIGITAL_DOWNLOAD_LINK_HERE]" 
                        class="mt-6 sm:mt-8 bg-accent text-white font-bold py-3 px-10 text-base sm:text-lg rounded-md hover-bg-accent transition-colors shadow-lg shadow-accent/20 inline-block">
                         Download Your Blueprint
                     </a>
 
                     <!-- New Return to Home CTA -->
-                    <!-- NEW: Reduced top margin from mt-6 to mt-4 for mobile -->
                     <a href="/" 
                        class="mt-4 text-sm accent-color hover:underline block">
                         Return to Home Page
                     </a>
 
                     <!-- Support Link -->
-                    <!-- NEW: Reduced top margin from mt-24 to mt-12 for mobile -->
                     <p class="mt-12 sm:mt-24 text-sm text-gray-500 max-w-lg mx-auto">
                         Having an issue? If you haven't received the email or can't download,
                         please email <a href="mailto:zerofundedhustle@gmail.com" class="accent-color hover:underline">zerofundedhustle@gmail.com</a>
@@ -176,7 +165,6 @@
     </main>
 
     <!-- Footer -->
-    <!-- NEW: Reduced top margin from mt-24 to mt-12 for mobile -->
     <footer class="mt-12 sm:mt-24 py-12 border-t border-gray-800">
         <div class="container mx-auto px-6 text-center text-gray-500">
             <div class="mb-6">
@@ -203,7 +191,6 @@
                 <button data-close-modal="privacy-modal" class="text-gray-500 hover:text-white text-3xl">&times;</button>
             </div>
             <div class="modal-content flex-grow overflow-y-auto p-6">
-                <!-- Modal content... -->
                 <p class="text-sm text-gray-500 mb-6">Last Updated: October 14, 2025</p>
                 <div class="space-y-4 text-gray-400">
                     <p>Welcome to <strong class="font-semibold text-gray-300">zerofundedhustle</strong> (“we,” “our,” “us”). Your privacy matters to us. This Privacy Policy explains how we collect, use, and protect your personal information when you visit <strong class="font-semibold text-gray-300">zerofundedhustle.com</strong> or make a purchase from us.</p>
@@ -227,7 +214,6 @@
                 <button data-close-modal="terms-modal" class="text-gray-500 hover:text-white text-3xl">&times;</button>
             </div>
             <div class="modal-content flex-grow overflow-y-auto p-6">
-                 <!-- Modal content... -->
                 <p class="text-sm text-gray-500 mb-6">Last Updated: October 14, 2025</p>
                 <div class="space-y-4 text-gray-400">
                     <p>By accessing or using <strong class="font-semibold text-gray-300">zerofundedhustle.com</strong>, you agree to these Terms of Use. If you don’t agree, please don’t use the site.</p>
@@ -252,7 +238,6 @@
                 <button data-close-modal="refund-modal" class="text-gray-500 hover:text-white text-3xl">&times;</button>
             </div>
             <div class="modal-content flex-grow overflow-y-auto p-6">
-                <!-- Modal content... -->
                 <p class="text-sm text-gray-500 mb-6">Last Updated: October 14, 2025</p>
                 <div class="space-y-4 text-gray-400">
                     <p>At <strong class="font-semibold text-gray-300">zerofundedhustle</strong>, our mission is to create guides that actually move people forward. That’s why we offer a 14-Day Action-Based Refund Guarantee.</p>
@@ -275,7 +260,6 @@
                 <button data-close-modal="contact-modal" class="text-gray-500 hover:text-white text-3xl">&times;</button>
             </div>
             <div class="modal-content flex-grow overflow-y-auto p-6">
-                 <!-- Modal content... -->
                  <p class="text-sm text-gray-500 mb-6">Last Updated: October 14, 2025</p>
                 <div class="space-y-4 text-gray-400">
                     <p class="text-lg">We’re here to help. If you have any questions about your purchase, need support, or just want to share feedback, reach out — we actually read every message.</p>
@@ -310,6 +294,42 @@
     <!-- Modal Popup JS (Consistent with other pages) -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+
+            // --- NEW: PAYMENT SUCCESS PAGE PROTECTION ---
+            // This script checks if the user was redirected from PayU
+            // or if they just typed 'success.html' in the URL.
+            const urlParams = new URLSearchParams(window.location.search);
+            const txnId = urlParams.get('txnid'); // PayU sends 'txnid'
+            const status = urlParams.get('status'); // PayU sends 'status'
+
+            // 1. Check if essential parameters are missing
+            if (!txnId || !status) {
+                // If no txnid or status, they didn't come from PayU. Redirect home.
+                // This prevents direct URL access.
+                // FIX: Use the full, absolute URL to prevent the error.
+                window.location.href = 'https://zerofundedhustle.com/'; 
+                return; // Stop executing any further script
+            }
+
+            // 2. Check if the payment status is not 'success'
+            if (status !== 'success') {
+                // If it's 'failure' or 'pending', redirect home.
+                // FIX: Use the full, absolute URL to prevent the error.
+                window.location.href = 'https://zerofundedhustle.com/'; // Redirect home
+                return; // Stop executing any further script
+            }
+
+            // 3. If we are here, the page load is valid.
+            console.log('Valid payment redirect detected:', { txnId, status });
+            
+            // 4. Clean the URL in the browser bar
+            // This removes the ?txnid=... and makes the URL look clean.
+            // Note: We use the full path to be safe.
+            const cleanUrl = window.location.protocol + "//" + window.location.host + window.location.pathname;
+            window.history.replaceState({}, '', cleanUrl);
+            // --- END OF PROTECTION SCRIPT ---
+
+
             // --- MODAL POPUP LOGIC ---
             const modals = {
                 'privacy-modal': document.getElementById('privacy-modal'),
@@ -380,9 +400,9 @@
             const loader = document.getElementById('loader');
             const tickContainer = document.getElementById('tick-container');
             const mainContent = document.getElementById('main-content');
-            const animationContainer = document.getElementById('animation-container'); // Added this
+            const animationContainer = document.getElementById('animation-container'); 
 
-            if (loader && tickContainer && mainContent && animationContainer) { // Updated this
+            if (loader && tickContainer && mainContent && animationContainer) { 
                 // 1. Show loader for 2 seconds (simulating processing)
                 setTimeout(() => {
                     // Hide loader
