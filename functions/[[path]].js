@@ -1,15 +1,9 @@
-// Cloudflare Pages Function to handle POST redirects
+// Cloudflare Pages Function - catch-all fallback
+// Specific routes like /success and /success.html are handled by their own functions
 export async function onRequest(context) {
   const { request, env } = context;
-  const url = new URL(request.url);
-
-  // Handle POST requests to success pages
-  if (url.pathname.includes('/success') && request.method === 'POST') {
-    // Redirect with 303 See Other status code
-    // This converts POST to GET automatically
-    return Response.redirect(url.href, 303);
-  }
-
-  // For all other requests, serve the static asset
+  
+  // Simply serve all static assets
+  // Specific routes with their own function files will be handled first
   return env.ASSETS.fetch(request);
 }
