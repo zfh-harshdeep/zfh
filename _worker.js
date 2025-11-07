@@ -11,8 +11,8 @@ export default {
       
       // 2. We accept the POST (no 405 error).
       // 3. We immediately tell the user's browser to redirect to the
-      //    *same URL*, but as a GET request. (Status 302 = Temporary Redirect)
-      return Response.redirect(url.href, 302);
+      //    *same URL*, but as a GET request. (Status 303 = Temporary Redirect)
+      return Response.redirect(url.href, 303);
     }
     // --- END OF FIX ---
 
@@ -30,3 +30,4 @@ export default {
     }
   },
 };
+
