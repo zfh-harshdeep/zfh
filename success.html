@@ -15,7 +15,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     
-    <!-- Site-wide Styles (copied from other pages) -->
+    <!-- Site-wide Styles -->
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -41,17 +41,18 @@
         .modal-content::-webkit-scrollbar-thumb { background-color: #30363d; border-radius: 4px; border: 2px solid #0D1117; }
         .modal-content::-webkit-scrollbar-thumb:hover { background-color: #238636; }
 
-        /* --- NEW ANIMATION STYLES --- */
+        /* --- ANIMATION STYLES --- */
         
         /* Add transition for the new move-up animation */
         #animation-container {
             transition: all 0.5s ease-out;
         }
 
-        /* New class to apply with JS to shrink and move the container */
+        /* Class to shrink and move the container */
         .move-up-and-shrink {
-            height: 100px; /* h-24, was h-40 */
-            transform: translateY(-20px);
+            /* NEW: Reduced height from h-24 to h-20 (80px) */
+            height: 80px; 
+            /* NEW: Removed the translateY to just shrink the space */
         }
 
         /* Loading Spinner */
@@ -96,27 +97,27 @@
                 opacity: 1;
             }
         }
-        /* --- END OF NEW ANIMATION STYLES --- */
+        /* --- END OF ANIMATION STYLES --- */
     </style>
 </head>
 <body class="antialiased">
 
-    <!-- Header (Consistent with other pages) -->
+    <!-- Header -->
     <header class="bg-black/30 backdrop-blur-lg sticky top-0 z-50 border-b border-gray-800">
-        <!-- Updated nav to center logo and remove button -->
         <nav class="container mx-auto px-6 py-4 flex justify-center items-center">
-            <!-- Homepage link updated to / -->
             <a href="/" class="text-2xl font-extrabold tracking-tight text-gray-200">zero<span class="accent-color">funded</span>hustle</a>
         </nav>
     </header>
 
     <!-- Main Success Content -->
-    <main class="py-24 md:py-32">
+    <!-- NEW: Reduced vertical padding from py-24 to py-12 for mobile -->
+    <main class="py-12 sm:py-24 md:py-32">
         <div class="container mx-auto px-6 max-w-4xl">
             <div class="flex flex-col items-center text-center">
                 
                 <!-- Animation Container -->
-                <div id="animation-container" class="flex items-center justify-center h-40">
+                <!-- NEW: Reduced height from h-40 to h-32 (128px) -->
+                <div id="animation-container" class="flex items-center justify-center h-32">
                     <!-- Loading Spinner (Visible by default) -->
                     <div id="loader" class="loader"></div>
                     <!-- Animated Tick (Hidden by default) -->
@@ -130,34 +131,41 @@
                 <!-- Main Content (Hidden by default, will fade in) -->
                 <div id="main-content" class="hidden fade-in w-full">
                     <!-- Heading -->
-                    <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-200 mt-8">Payment Successful!</h1>
-                    <p class="mt-4 text-lg text-gray-400">Your blueprint is on its way. Let the hustle begin.</p>
+                    <!-- NEW: Reduced font size and top margin for mobile -->
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-gray-200 mt-4 sm:mt-8">Payment Successful!</h1>
+                    <!-- NEW: Reduced font size and margins for mobile -->
+                    <p class="mt-2 sm:mt-4 text-base sm:text-lg text-gray-400 mb-4 sm:mb-8">Your blueprint is on its way. Let the hustle begin.</p>
                     
                     <!-- Motivational Quote -->
-                    <div class="mt-8 pt-8 border-t border-gray-800 max-w-2xl mx-auto">
-                        <p class="text-xl italic text-gray-300">"The journey of a thousand miles begins with a single step."</l>
-                        <p class="text-sm text-gray-500 mt-2">- Laozi</p>
+                    <!-- NEW: Reduced margin from my-12 to my-6 for mobile -->
+                    <div class="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-gray-800 max-w-2xl mx-auto">
+                        <p class="text-lg sm:text-xl italic text-gray-300">"The journey of a thousand miles begins with a single step."</l>
+                        <p class="text-xs sm:text-sm text-gray-500 mt-2">- Laozi</p>
                     </div>
                     
-                    <p class="mt-10 text-sm text-gray-400 max-w-lg mx-auto">
+                    <!-- NEW: Reduced top margin from mt-10 to mt-6 for mobile -->
+                    <p class="mt-6 text-sm text-gray-400 max-w-lg mx-auto">
                         Check your inbox for the attached ebook.
                         If it doesn't arrive, you can also download it directly below.
                     </p>
 
                     <!-- Primary Download Button -->
+                    <!-- NEW: Reduced font size and top margin for mobile -->
                     <a href="[YOUR_DIGITAL_DOWNLOAD_LINK_HERE]" 
-                       class="mt-8 bg-accent text-white font-bold py-4 px-10 rounded-md hover-bg-accent transition-colors text-lg shadow-lg shadow-accent/20 inline-block">
+                       class="mt-6 sm:mt-8 bg-accent text-white font-bold py-3 px-10 text-base sm:text-lg rounded-md hover-bg-accent transition-colors shadow-lg shadow-accent/20 inline-block">
                         Download Your Blueprint
                     </a>
 
                     <!-- New Return to Home CTA -->
+                    <!-- NEW: Reduced top margin from mt-6 to mt-4 for mobile -->
                     <a href="/" 
-                       class="mt-6 text-sm accent-color hover:underline block">
+                       class="mt-4 text-sm accent-color hover:underline block">
                         Return to Home Page
                     </a>
 
                     <!-- Support Link -->
-                    <p class="mt-24 text-sm text-gray-500 max-w-lg mx-auto">
+                    <!-- NEW: Reduced top margin from mt-24 to mt-12 for mobile -->
+                    <p class="mt-12 sm:mt-24 text-sm text-gray-500 max-w-lg mx-auto">
                         Having an issue? If you haven't received the email or can't download,
                         please email <a href="mailto:zerofundedhustle@gmail.com" class="accent-color hover:underline">zerofundedhustle@gmail.com</a>
                         with your payment screenshot and details. We're happy to help!
@@ -167,8 +175,9 @@
         </div>
     </main>
 
-    <!-- Footer (Consistent with other pages) -->
-    <footer class="mt-24 py-12 border-t border-gray-800">
+    <!-- Footer -->
+    <!-- NEW: Reduced top margin from mt-24 to mt-12 for mobile -->
+    <footer class="mt-12 sm:mt-24 py-12 border-t border-gray-800">
         <div class="container mx-auto px-6 text-center text-gray-500">
             <div class="mb-6">
                 <a href="https://www.instagram.com/zerofundedhustle" target="_blank" class="mx-3 hover:text-green-400 transition-colors">Instagram</a>
@@ -367,7 +376,7 @@
                 });
             });
 
-            // --- NEW ANIMATION LOGIC ---
+            // --- ANIMATION LOGIC ---
             const loader = document.getElementById('loader');
             const tickContainer = document.getElementById('tick-container');
             const mainContent = document.getElementById('main-content');
@@ -393,7 +402,7 @@
 
                 }, 2000); // Wait 2s for "processing"
             }
-            // --- END OF NEW ANIMATION LOGIC ---
+            // --- END OF ANIMATION LOGIC ---
         });
     </script>
     
