@@ -6,8 +6,9 @@ export default {
     // Handle POST requests to /success or /success.html
     if ((url.pathname === '/success' || url.pathname === '/success.html') && request.method === 'POST') {
       // Fetch the static success.html file
-      const successHtmlResponse = await env.ASSETS.fetch(new URL('/success.html', request.url));
-      
+      // Create a new GET request for success.html to fetch the static asset
+      const successHtmlRequest = new Request(new URL('/success.html', request.url), { method: 'GET' });
+      const successHtmlResponse = await env.ASSETS.fetch(successHtmlRequest);      
       // Return it with 200 status
       return new Response(successHtmlResponse.body, {
         status: 200,
