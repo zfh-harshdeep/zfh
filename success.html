@@ -43,6 +43,17 @@
 
         /* --- NEW ANIMATION STYLES --- */
         
+        /* Add transition for the new move-up animation */
+        #animation-container {
+            transition: all 0.5s ease-out;
+        }
+
+        /* New class to apply with JS to shrink and move the container */
+        .move-up-and-shrink {
+            height: 100px; /* h-24, was h-40 */
+            transform: translateY(-20px);
+        }
+
         /* Loading Spinner */
         .loader {
             border: 8px solid #30363d; /* Dark gray */
@@ -360,8 +371,9 @@
             const loader = document.getElementById('loader');
             const tickContainer = document.getElementById('tick-container');
             const mainContent = document.getElementById('main-content');
+            const animationContainer = document.getElementById('animation-container'); // Added this
 
-            if (loader && tickContainer && mainContent) {
+            if (loader && tickContainer && mainContent && animationContainer) { // Updated this
                 // 1. Show loader for 2 seconds (simulating processing)
                 setTimeout(() => {
                     // Hide loader
@@ -370,8 +382,12 @@
                     // Show animated tick
                     tickContainer.classList.remove('hidden');
                     
-                    // 2. After tick animation (1.5s), fade in the content
+                    // 2. After tick animation (1.5s), move tick up AND fade in content
                     setTimeout(() => {
+                        // NEW: Add the class to move the tick container up and shrink it
+                        animationContainer.classList.add('move-up-and-shrink');
+                        
+                        // Show the main content to fade in
                         mainContent.classList.remove('hidden');
                     }, 1500); // Wait 1.5s for tick to draw
 
