@@ -2,14 +2,8 @@
 export async function onRequestPost(context) {  
   const { request, env } = context;
   
-  // Fetch the success.html content
-  const htmlResponse = await env.ASSETS.fetch(new URL('/success.html', request.url));
+  // Redirect POST request to success.html page
+  return Response.redirect(new URL('/success.html', request.url), 302);
   
-  // Return it with 200 status
-  return new Response(htmlResponse.body, {
-    status: 200,
-    headers: {
-      'Content-Type': 'text/html;charset=UTF-8',
-    },
-  });
+
 }
