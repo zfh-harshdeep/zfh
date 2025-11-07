@@ -6,8 +6,8 @@ export default {
     const url = new URL(request.url);
 
     // --- THIS IS THE FIX ---
-    // 1. Check if the request is from PayU (a POST to /success)
-    if (url.pathname === '/success' && request.method === 'POST') {
+    // 1. Check if the request is from PayU (a POST to success page)
+    if (url.pathname.includes('/success') && request.method === 'POST') {
       
       // 2. We accept the POST (no 405 error).
       // 3. We immediately tell the user's browser to redirect to the
@@ -30,4 +30,5 @@ export default {
     }
   },
 };
+
 
