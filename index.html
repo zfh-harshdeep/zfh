@@ -178,14 +178,20 @@
             box-shadow: 0 0 25px 5px rgba(34, 197, 94, 0.6);
         }
         
-        /* --- TESTIMONIAL SCROLLER STYLES --- */
+        /* --- TESTIMONIAL SCROLLER STYLES (MODIFIED) --- */
         .scroller {
             max-width: 100%;
-            overflow: hidden;
+            overflow-x: scroll; /* Changed from hidden to scroll */
             -webkit-mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
             mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
             padding-top: 0.5rem; /* Fix for border clipping on hover */
             cursor: grab; /* Add grab cursor for desktop */
+            /* Remove scrollbar */
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none;  /* IE and Edge */
+        }
+        .scroller::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, and Opera */
         }
         .scroller:active {
             cursor: grabbing;
@@ -194,18 +200,11 @@
             display: flex;
             gap: 1.5rem; /* 24px */
             width: max-content; /* This is key */
-            animation: scroll-testimonial 40s linear infinite;
+            /* CSS ANIMATION REMOVED - Now handled by JavaScript */
         }
-        /* REMOVED CSS HOVER PAUSE - Now handled by JS */
         
-        @keyframes scroll-testimonial { /* Renamed keyframes */
-            from {
-                transform: translateX(0);
-            }
-            to {
-                transform: translateX(calc(-50% - 0.75rem)); /* Half of the content width + half the gap */
-            }
-        }
+        /* @keyframes scroll-testimonial REMOVED */
+        
         .scroller .testimonial-card {
             width: 350px; /* Give cards a fixed width so they don't collapse */
             flex-shrink: 0; /* Prevent cards from shrinking */
@@ -1285,7 +1284,7 @@
             let scrollbarCompensationApplied = false;
             // --- End Scrollbar Width Calculation ---
 
-            // --- Testimonial Scroller Touch & Drag Logic ---
+            // --- Testimonial Scroller Touch & Drag Logic (JS-ANIMATION-BASED) ---
             const scroller = document.querySelector('.scroller');
             if (scroller) {
                 const scrollerInner = scroller.querySelector('.scroller__inner');
@@ -1293,11 +1292,35 @@
                     let isDragging = false;
                     let startX;
                     let scrollLeft;
+                    let isAnimating = true; // Flag to control the animation loop
+                    let rafId; // To control the animation frame
+
+                    // --- NEW: JS Animation Loop ---
+                    let scrollSpeed = 0.5; // Pixels per frame. Adjust for speed.
+                    
+                    function animateScroll() {
+                        if (isAnimating) {
+                            scroller.scrollLeft += scrollSpeed;
+                            
+                            // Check if we've scrolled to the start of the duplicate content
+                            const halfwayPoint = scrollerInner.scrollWidth / 2;
+                            if (scroller.scrollLeft >= halfwayPoint) {
+                                // Reset to the beginning without the user noticing
+                                scroller.scrollLeft -= halfwayPoint;
+                            }
+                        }
+                        rafId = requestAnimationFrame(animateScroll); // Continue the loop
+                    }
+                    
+                    // Cancel any previous animation frame
+                    if (window.rafId) cancelAnimationFrame(window.rafId);
+                    window.rafId = requestAnimationFrame(animateScroll);
+                    // --- END NEW ---
 
                     // Function to pause animation
-                    const pauseAnimation = () => scrollerInner.style.animationPlayState = 'paused';
+                    const pauseAnimation = () => isAnimating = false;
                     // Function to resume animation
-                    const resumeAnimation = () => scrollerInner.style.animationPlayState = 'running';
+                    const resumeAnimation = () => isAnimating = true;
 
                     // Mouse events for desktop
                     scroller.addEventListener('mouseenter', pauseAnimation);
@@ -1309,10 +1332,15 @@
                         pauseAnimation();
                         startX = e.pageX - scroller.offsetLeft;
                         scrollLeft = scroller.scrollLeft;
+                        scroller.style.cursor = 'grabbing';
                     });
                     scroller.addEventListener('mouseup', () => {
                         isDragging = false;
-                        resumeAnimation();
+                        scroller.style.cursor = 'grab';
+                        // Only resume if mouse is still over the scroller
+                        if (scroller.matches(':hover')) {
+                            resumeAnimation();
+                        }
                     });
                     scroller.addEventListener('mousemove', (e) => {
                         if (!isDragging) return;
@@ -1332,16 +1360,17 @@
 
                     scroller.addEventListener('touchend', () => {
                         isDragging = false;
-                        resumeAnimation();
+                        resumeAnimation(); // Always resume on touch end
                     });
 
                     scroller.addEventListener('touchmove', (e) => {
                         if (!isDragging) return;
-                        e.preventDefault(); // Prevent page scroll while dragging
+                        // Check if we have touch points
+                        if (e.touches.length === 0) return;
                         const x = e.touches[0].pageX - scroller.offsetLeft;
                         const walk = (x - startX) * 2; // The '2' multiplies drag speed
                         scroller.scrollLeft = scrollLeft - walk;
-                    });
+                    }, { passive: false }); // Set passive to false to allow preventDefault (if needed, though not used here)
                 }
             }
             // --- End Testimonial Scroller Logic ---
