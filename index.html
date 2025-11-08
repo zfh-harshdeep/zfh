@@ -200,10 +200,11 @@
             display: flex;
             gap: 1.5rem; /* 24px */
             width: max-content; /* This is key */
-            /* CSS ANIMATION REMOVED - Now handled by JavaScript */
+            /* KEY FIX: 
+              CSS ANIMATION IS NOW REMOVED. 
+              JavaScript will handle the scrolling loop.
+            */
         }
-        
-        /* @keyframes scroll-testimonial REMOVED */
         
         .scroller .testimonial-card {
             width: 350px; /* Give cards a fixed width so they don't collapse */
@@ -1299,7 +1300,7 @@
                     let scrollSpeed = 0.5; // Pixels per frame. Adjust for speed.
                     
                     function animateScroll() {
-                        if (isAnimating) {
+                        if (isAnimating && !isDragging) { // Only scroll if not dragging
                             scroller.scrollLeft += scrollSpeed;
                             
                             // Check if we've scrolled to the start of the duplicate content
@@ -1337,9 +1338,11 @@
                     scroller.addEventListener('mouseup', () => {
                         isDragging = false;
                         scroller.style.cursor = 'grab';
-                        // Only resume if mouse is still over the scroller
+                        // Resume animation if mouse is still over the element
                         if (scroller.matches(':hover')) {
-                            resumeAnimation();
+                           pauseAnimation(); // Keep it paused on hover
+                        } else {
+                           resumeAnimation(); // Resume if mouse left
                         }
                     });
                     scroller.addEventListener('mousemove', (e) => {
@@ -1367,10 +1370,11 @@
                         if (!isDragging) return;
                         // Check if we have touch points
                         if (e.touches.length === 0) return;
+                        e.preventDefault(); // Prevent page scroll while dragging
                         const x = e.touches[0].pageX - scroller.offsetLeft;
                         const walk = (x - startX) * 2; // The '2' multiplies drag speed
                         scroller.scrollLeft = scrollLeft - walk;
-                    }, { passive: false }); // Set passive to false to allow preventDefault (if needed, though not used here)
+                    }, { passive: false }); // Set passive to false to allow preventDefault
                 }
             }
             // --- End Testimonial Scroller Logic ---
