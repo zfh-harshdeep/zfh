@@ -334,6 +334,9 @@
             </a>
         </nav>
     </header>
+    
+    <!-- NEW: Sticky CTA Appear Trigger -->
+    <div id="cta-appear-trigger"></div>
 
     <!-- Main Content -->
     <main>
@@ -726,7 +729,7 @@
                         </div>
                         <div class="testimonial-card text-left">
                             <div class="flex items-center mb-4">
-                                <img src="https://placehold.co/50x50/010409/E6EDF3?text=ST" alt="Sameer Tambe" class="w-12 h-12 rounded-full mr-4">
+                                <img src="https_://placehold.co/50x50/010409/E6EDF3?text=ST" alt="Sameer Tambe" class="w-12 h-12 rounded-full mr-4">
                                 <div>
                                     <p class="font-bold text-gray-200">Sameer Tambe, Pune</p>
                                     <div class="star-rating">★★★★★</div>
@@ -736,7 +739,7 @@
                         </div>
                         <div class="testimonial-card text-left">
                              <div class="flex items-center mb-4">
-                                <img src="https://placehold.co/50x50/010409/E6EDF3?text=MG" alt="Meera Gupta" class="w-12 h-12 rounded-full mr-4">
+                                <img src="https_://placehold.co/50x50/010409/E6EDF3?text=MG" alt="Meera Gupta" class="w-12 h-12 rounded-full mr-4">
                                 <div>
                                     <p class="font-bold text-gray-200">Meera Gupta, Hyderabad</p>
                                     <div class="star-rating">★★★★★</div>
@@ -746,7 +749,7 @@
                         </div>
                         <div class="testimonial-card text-left">
                              <div class="flex items-center mb-4">
-                                <img src="https::/placehold.co/50x50/010409/E6EDF3?text=VN" alt="Vikram Nair" class="w-12 h-12 rounded-full mr-4">
+                                <img src="https_::/placehold.co/50x50/010409/E6EDF3?text=VN" alt="Vikram Nair" class="w-12 h-12 rounded-full mr-4">
                                 <div>
                                     <p class="font-bold text-gray-200">Vikram Nair, Chennai</p>
                                     <div class="star-rating">★★★★★</div>
@@ -890,6 +893,9 @@
         
     </main>
 
+    <!-- NEW: Sticky CTA Hide Trigger -->
+    <div id="cta-hide-trigger"></div>
+    
     <!-- Footer -->
     <footer id="main-footer" class="mt-12 py-12 border-t border-gray-800">
         <div class="container mx-auto px-6 text-center text-gray-500">
@@ -997,7 +1003,7 @@
                     <div><h3 class="font-semibold text-gray-300">2. Products and Payments</h3><p>All prices are in INR. Payments are processed securely. As our products are digital, please refer to our Refund Policy for details on eligibility.</p></div>
                     <div><h3 class="font-semibold text-gray-300">3. Intellectual Property</h3><p>All content on this website, including the ebook, belongs to <strong class="font-semibold text-gray-300">zerofundedhustle</strong>. Purchasing an ebook gives you a personal license to read it, not to share or resell it.</p></div>
                     <div><h3 class="font-semibold text-gray-300">4. Disclaimer</h3><p>All content is for educational purposes only. We don’t guarantee specific results. Any actions you take are your responsibility.</p></div>
-                     <div><h3 class="font-semibold text-gray-300">5. Governing Law</h3><p>These terms are governed by the laws of India. Any disputes will be handled in the courts of Punjab, India.</p></div>
+                     <div><h3 class="font-semibold text-gray-300">5. Governing Law</h3><p>These terms are. governed by the laws of India. Any disputes will be handled in the courts of Punjab, India.</p></div>
                     <div><h3 class="font-semibold text-gray-300">6. Contact</h3><p>For any questions about these Terms, reach us at: Email: hello@zerofundedhustle.com</p></div>
                 </div>
             </div>
@@ -1131,59 +1137,69 @@
                 observer.observe(section);
             });
 
-            // Sticky CTA Visibility Logic (Stable Version)
+            // --- NEW: Sticky CTA Visibility (IntersectionObserver) ---
             const mobileCta = document.getElementById('mobile-cta');
             const desktopCta = document.getElementById('desktop-cta');
-            const header = document.getElementById('main-header');
-            const footer = document.getElementById('main-footer'); // Hide before footer
+            const appearTrigger = document.getElementById('cta-appear-trigger');
+            const hideTrigger = document.getElementById('cta-hide-trigger');
 
-            if (mobileCta && desktopCta && header && footer) {
-                let showBoundary, hideBoundary;
-                let isCtaVisible = false;
-
-                function updateBoundaries() {
-                    // Show CTA after scrolling past the header
-                    showBoundary = header.offsetTop + header.offsetHeight;
-                    
-                    // Hide CTA 150px *before* the footer comes into view
-                    hideBoundary = footer.offsetTop - window.innerHeight + 150; 
-                }
-
-                // Initial calculation
-                updateBoundaries();
-
-                // Recalculate boundaries if FAQ is clicked (as it changes page height)
-                if (faqContainer) {
-                    faqContainer.addEventListener('click', () => {
-                        // Wait for accordion animation to finish
-                        setTimeout(updateBoundaries, 500); 
-                    });
-                }
+            if (mobileCta && desktopCta && appearTrigger && hideTrigger) {
                 
-                // Recalculate on resize
-                window.addEventListener('resize', updateBoundaries);
+                // --- State variables ---
+                let isPastAppearTrigger = false;
+                let isBeforeHideTrigger = true;
 
-                window.addEventListener('scroll', () => {
-                    const scrollPosition = window.scrollY;
+                // --- Show/Hide Functions ---
+                function showCta() {
+                    mobileCta.classList.remove('translate-y-full');
+                    desktopCta.classList.remove('translate-y-full');
+                }
+                function hideCta() {
+                    mobileCta.classList.add('translate-y-full');
+                    desktopCta.classList.add('translate-y-full');
+                }
 
-                    // Logic to SHOW the bar
-                    if (scrollPosition > showBoundary && scrollPosition < hideBoundary) {
-                        if (!isCtaVisible) {
-                            mobileCta.classList.remove('translate-y-full');
-                            desktopCta.classList.remove('translate-y-full');
-                            isCtaVisible = true;
-                        }
-                    } 
-                    // Logic to HIDE the bar
-                    else {
-                        if (isCtaVisible) {
-                            mobileCta.classList.add('translate-y-full');
-                            desktopCta.classList.add('translate-y-full');
-                            isCtaVisible = false;
-                        }
+                // --- Main Logic Function ---
+                function checkCtaVisibility() {
+                    if (isPastAppearTrigger && isBeforeHideTrigger) {
+                        showCta();
+                    } else {
+                        hideCta();
                     }
-                }, { passive: true });
+                }
+
+                // --- Observer 1: Tracks the TOP boundary ---
+                const appearObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        // if entry isIntersecting, we are AT THE TOP, so we are NOT past the trigger
+                        isPastAppearTrigger = !entry.isIntersecting;
+                        checkCtaVisibility();
+                    });
+                }, { 
+                    root: null,
+                    threshold: 0 
+                });
+
+                // --- Observer 2: Tracks the BOTTOM boundary ---
+                const hideObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        // if entry isIntersecting, we are AT THE BOTTOM, so we are NOT before the trigger
+                        isBeforeHideTrigger = !entry.isIntersecting;
+                        checkCtaVisibility();
+                    });
+                }, { 
+                    root: null, 
+                    threshold: 0,
+                    // Hide 150px *before* the trigger (at the footer) enters the screen
+                    rootMargin: "0px 0px -150px 0px" 
+                });
+
+                // Start observing
+                appearObserver.observe(appearTrigger);
+                hideObserver.observe(hideTrigger);
             }
+            // --- END: Sticky CTA Visibility ---
+
 
             // Lead Magnet Form Submission (On-Page)
             document.getElementById('lead-magnet-form').addEventListener('submit', function(e) {
