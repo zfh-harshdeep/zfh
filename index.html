@@ -181,11 +181,11 @@
         /* --- TESTIMONIAL SCROLLER STYLES (MODIFIED) --- */
         .scroller {
             max-width: 100%;
-            overflow-x: scroll; /* Changed from hidden to scroll */
+            overflow-x: scroll; /* Allow manual drag */
             -webkit-mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
             mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
             padding-top: 0.5rem; /* Fix for border clipping on hover */
-            cursor: grab; /* Add grab cursor for desktop */
+            cursor: grab;
             /* Remove scrollbar */
             scrollbar-width: none; /* Firefox */
             -ms-overflow-style: none;  /* IE and Edge */
@@ -200,9 +200,19 @@
             display: flex;
             gap: 1.5rem; /* 24px */
             width: max-content; /* This is key */
-            /* CSS ANIMATION IS NOW REMOVED. 
-              JavaScript will handle the scrolling loop.
-            */
+            
+            /* THIS IS THE FIX: Re-added CSS animation */
+            animation: scroll-testimonial 40s linear infinite;
+        }
+        
+        /* New keyframe for CSS animation */
+        @keyframes scroll-testimonial {
+            from {
+                transform: translateX(0);
+            }
+            to {
+                transform: translateX(calc(-50% - 0.75rem)); /* Half of the content width + half the gap */
+            }
         }
         
         .scroller .testimonial-card {
@@ -925,7 +935,31 @@
         </div>
     </div>
     
-    <!-- All Modals are here --><!-- Privacy Policy Modal --><div id="privacy-modal" class="hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4 modal-overlay opacity-0">
+    <!-- All Modals are here -->
+    
+    <!-- NEW: Lead Magnet Pop-up Modal -->
+    <div id="popup-modal" class="hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4 modal-overlay opacity-0">
+        <div class="modal-container bg-[#0D1117] border border-gray-800 rounded-lg w-full max-w-lg flex flex-col transform scale-95 opacity-0">
+            <div class="flex-shrink-0 p-6 border-b border-gray-800 flex justify-between items-center">
+                <h2 class="text-2xl font-bold text-gray-200">Want a FREE Taste of Freedom?</h2>
+                <button data-close-modal="popup-modal" class="text-gray-500 hover:text-white text-3xl">&times;</button>
+            </div>
+            <div class="modal-content flex-grow overflow-y-auto p-6 text-center">
+                <p class="text-lg text-gray-500 mb-8">Get the first two chapters of "Escape The 9-5"—including one complete business blueprint—delivered to your inbox right now.</p>
+                <form id="popup-lead-magnet-form" class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
+                    <input type="email" id="popup-lead-email" name="email" placeholder="Enter your best email..." required class="flex-grow bg-[#010409] border border-gray-700 rounded-md py-3 px-4 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500 transition">
+                    <button type="submit" class="bg-accent text-white font-bold py-3 px-6 rounded-md hover-bg-accent transition-colors">
+                        Send My Free Chapters
+                    </button>
+                </form>
+                <p id="popup-lead-success-message" class="text-green-400 mt-4 hidden">Success! Check your inbox for the free chapters.</p>
+                <p id="popup-lead-error-message" class="text-red-400 mt-4 hidden">Something went wrong. Please try again.</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Privacy Policy Modal -->
+    <div id="privacy-modal" class="hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4 modal-overlay opacity-0">
         <div class="modal-container bg-[#0D1117] border border-gray-800 rounded-lg w-full max-w-3xl max-h-[90vh] flex flex-col transform scale-95 opacity-0">
             <div class="flex-shrink-0 p-6 border-b border-gray-800 flex justify-between items-center">
                 <h2 class="text-2xl font-bold text-gray-200">Privacy Policy</h2>
@@ -948,7 +982,8 @@
         </div>
     </div>
 
-    <!-- Terms of Use Modal --><div id="terms-modal" class="hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4 modal-overlay opacity-0">
+    <!-- Terms of Use Modal -->
+    <div id="terms-modal" class="hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4 modal-overlay opacity-0">
          <div class="modal-container bg-[#0D1117] border border-gray-800 rounded-lg w-full max-w-3xl max-h-[90vh] flex flex-col transform scale-95 opacity-0">
             <div class="flex-shrink-0 p-6 border-b border-gray-800 flex justify-between items-center">
                 <h2 class="text-2xl font-bold text-gray-200">Terms of Use</h2>
@@ -972,7 +1007,8 @@
         </div>
     </div>
 
-    <!-- Refund Policy Modal --><div id="refund-modal" class="hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4 modal-overlay opacity-0">
+    <!-- Refund Policy Modal -->
+    <div id="refund-modal" class="hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4 modal-overlay opacity-0">
         <div class="modal-container bg-[#0D1117] border border-gray-800 rounded-lg w-full max-w-3xl max-h-[90vh] flex flex-col transform scale-95 opacity-0">
             <div class="flex-shrink-0 p-6 border-b border-gray-800 flex justify-between items-center">
                 <h2 class="text-2xl font-bold text-gray-200">Refund Policy</h2>
@@ -994,7 +1030,8 @@
         </div>
     </div>
 
-    <!-- Contact Us Modal --><div id="contact-modal" class="hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4 modal-overlay opacity-0">
+    <!-- Contact Us Modal -->
+    <div id="contact-modal" class="hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4 modal-overlay opacity-0">
         <div class="modal-container bg-[#0D1117] border border-gray-800 rounded-lg w-full max-w-3xl max-h-[90vh] flex flex-col transform scale-95 opacity-0">
             <div class="flex-shrink-0 p-6 border-b border-gray-800 flex justify-between items-center">
                 <h2 class="text-2xl font-bold text-gray-200">Contact Us</h2>
@@ -1148,7 +1185,7 @@
                 }, { passive: true });
             }
 
-            // Lead Magnet Form Submission
+            // Lead Magnet Form Submission (On-Page)
             document.getElementById('lead-magnet-form').addEventListener('submit', function(e) {
                 e.preventDefault();
                 
@@ -1316,6 +1353,8 @@
 
             // Modal Logic
             const modals = {
+                // Add NEW popup-modal
+                'popup-modal': document.getElementById('popup-modal'),
                 'privacy-modal': document.getElementById('privacy-modal'),
                 'terms-modal': document.getElementById('terms-modal'),
                 'refund-modal': document.getElementById('refund-modal'),
@@ -1395,119 +1434,79 @@
                     }
                 });
             });
+            
+            // --- NEW: Pop-up Modal Logic ---
+            setTimeout(() => {
+                // Check if a modal is already open
+                if (!document.querySelector('.modal-overlay:not(.hidden)')) {
+                    openModal('popup-modal');
+                }
+            }, 3000); // 3000ms = 3 seconds
 
-            // --- Advanced Testimonial Scroller (JS Animation + Touch/Drag) ---
-            // THIS IS THE FINAL, STABLE VERSION
+            // --- NEW: Pop-up Modal Form Submission ---
+            document.getElementById('popup-lead-magnet-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const email = document.getElementById('popup-lead-email').value;
+                const submitButton = this.querySelector('button[type="submit"]');
+                const successMessage = document.getElementById('popup-lead-success-message');
+                const errorMessage = document.getElementById('popup-lead-error-message');
+                const form = this;
+
+                submitButton.classList.add('button-loading');
+                submitButton.disabled = true;
+                successMessage.classList.add('hidden');
+                errorMessage.classList.add('hidden');
+                
+                const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwbnPtEGHTNZaw5jze9cVu1JDq1_Sb7q2jfcYSfu_8_2BEhCYeTZ3v0HAG0DTuk1mkR/exec';
+                
+                fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                    body: 'email=' + encodeURIComponent(email)
+                })
+                .then(response => {
+                    successMessage.classList.remove('hidden');
+                    form.style.display = 'none';
+                    // Automatically close the modal after 3 seconds on success
+                    setTimeout(() => {
+                        closeModal('popup-modal');
+                    }, 3000);
+                })
+                .catch(error => {
+                    errorMessage.textContent = 'Network error. Please try again.';
+                    errorMessage.classList.remove('hidden');
+                })
+                .finally(() => {
+                    submitButton.classList.remove('button-loading');
+                    submitButton.disabled = false;
+                });
+            });
+
+            // --- Advanced Testimonial Scroller (Hybrid CSS + JS) ---
             const scroller = document.getElementById('testimonial-scroller');
             if (scroller) {
-                let isAnimating = true;
-                let isDragging = false;
-                let startX, scrollLeft;
-                let animFrame;
-
                 const scrollerInner = scroller.querySelector('.scroller__inner');
-                const scrollSpeed = 0.5; // pixels per frame
-
-                function animateScroll() {
-                    if (!isAnimating) return; // Paused
-                    
-                    scroller.scrollLeft += scrollSpeed;
-
-                    // Check if we've scrolled past the first half
-                    if (scroller.scrollLeft >= (scrollerInner.scrollWidth / 2)) {
-                        scroller.scrollLeft = 0; // Reset to start for infinite loop
-                    }
-                    
-                    animFrame = requestAnimationFrame(animateScroll);
-                }
-
-                function pauseAnimation() {
-                    isAnimating = false;
-                    cancelAnimationFrame(animFrame);
-                }
-
-                function resumeAnimation() {
-                    // Only resume if we are not actively dragging
-                    if (!isDragging) {
-                        // Short delay to prevent immediate re-pause
-                        setTimeout(() => {
-                            isAnimating = true;
-                            animFrame = requestAnimationFrame(animateScroll);
-                        }, 50); // 50ms delay
-                    }
-                }
                 
-                // ** THIS IS THE FIX **
-                // Check if it's a touch device.
-                const isTouchDevice = () => 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+                // Function to pause CSS animation
+                const pauseAnimation = () => {
+                    scrollerInner.style.animationPlayState = 'paused';
+                };
 
-                if (isTouchDevice()) {
-                    // --- Touch Events for Mobile (ONLY) ---
-                    scroller.addEventListener('touchstart', (e) => {
-                        isDragging = true;
-                        pauseAnimation();
-                        startX = e.touches[0].pageX - scroller.offsetLeft;
-                        scrollLeft = scroller.scrollLeft;
-                    }, { passive: true });
+                // Function to resume CSS animation
+                const resumeAnimation = () => {
+                    scrollerInner.style.animationPlayState = 'running';
+                };
 
-                    scroller.addEventListener('touchend', () => {
-                        isDragging = false;
-                        resumeAnimation();
-                    });
-                    
-                    // If a page scroll happens, 'touchend' never fires.
-                    // 'touchcancel' DOES, so we resume animation here too.
-                    scroller.addEventListener('touchcancel', () => {
-                        isDragging = false;
-                        resumeAnimation();
-                    });
+                // --- Touch Events for Mobile ---
+                scroller.addEventListener('touchstart', pauseAnimation, { passive: true });
+                scroller.addEventListener('touchend', resumeAnimation, { passive: true });
+                scroller.addEventListener('touchcancel', resumeAnimation, { passive: true });
 
-                    scroller.addEventListener('touchmove', (e) => {
-                        if (!isDragging) return;
-                        e.preventDefault(); // Prevent page scroll while dragging scroller
-                        const x = e.touches[0].pageX - scroller.offsetLeft;
-                        const walk = (x - startX) * 2; // *2 for faster drag
-                        scroller.scrollLeft = scrollLeft - walk;
-                    });
-                } else {
-                    // --- Mouse Events for Desktop (ONLY) ---
-                    scroller.addEventListener('mouseenter', pauseAnimation);
-
-                    scroller.addEventListener('mousedown', (e) => {
-                        isDragging = true;
-                        pauseAnimation(); // Pause on click
-                        scroller.style.cursor = 'grabbing';
-                        startX = e.pageX - scroller.offsetLeft;
-                        scrollLeft = scroller.scrollLeft;
-                    });
-
-                    scroller.addEventListener('mouseup', () => {
-                        isDragging = false;
-                        scroller.style.cursor = 'grab';
-                        resumeAnimation();
-                    });
-                    
-                    scroller.addEventListener('mouseleave', () => {
-                         if (isDragging) {
-                            // If user drags mouse off screen and releases,
-                            // we'll count it as an end of drag.
-                            isDragging = false;
-                            scroller.style.cursor = 'grab';
-                        }
-                        resumeAnimation(); // This is the main one.
-                    });
-
-                    scroller.addEventListener('mousemove', (e) => {
-                        if (!isDragging) return;
-                        e.preventDefault();
-                        const x = e.pageX - scroller.offsetLeft;
-                        const walk = (x - startX) * 2; // *2 for faster drag
-                        scroller.scrollLeft = scrollLeft - walk;
-                    });
-                }
-
-                // Start the animation
-                animateScroll();
+                // --- Mouse Events for Desktop ---
+                scroller.addEventListener('mouseenter', pauseAnimation);
+                scroller.addEventListener('mouseleave', resumeAnimation);
             }
 
         }); 
