@@ -108,7 +108,7 @@
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
-        .feature-card, .testimonial-card, .audience-card {
+        .feature-card, .testimonial-card, .audience-card, .blueprint-card, .mistake-card { /* Added blueprint-card & mistake-card */
             background-color: #0D1117;
             border: 1px solid #30363d;
             border-radius: 0.75rem;
@@ -118,7 +118,7 @@
             display: flex;
             flex-direction: column;
         }
-        .feature-card:hover, .testimonial-card:hover, .audience-card:hover {
+        .feature-card:hover, .testimonial-card:hover, .audience-card:hover, .blueprint-card:hover, .mistake-card:hover { /* Added blueprint-card & mistake-card */
             transform: translateY(-5px);
             border-color: #238636;
         }
@@ -178,7 +178,7 @@
             box-shadow: 0 0 25px 5px rgba(34, 197, 94, 0.6);
         }
         
-        /* --- TESTIMONIAL SCROLLER STYLES (MODIFIED) --- */
+        /* --- TESTIMONIAL SCROLLER STYLES (RE-ADDED) --- */
         .scroller {
             max-width: 100%;
             overflow-x: scroll; /* Allow manual drag */
@@ -201,7 +201,7 @@
             gap: 1.5rem; /* 24px */
             width: max-content; /* This is key */
             
-            /* THIS IS THE FIX: Re-added CSS animation */
+            /* Re-added CSS animation */
             animation: scroll-testimonial 40s linear infinite;
         }
         
@@ -222,6 +222,35 @@
             user-select: none; /* Prevent text selection while dragging */
         }
         /* --- END TESTIMONIAL SCROLLER STYLES --- */
+        
+        /* --- NEW: 6-Month Timeline Styles --- */
+        .timeline-container {
+            position: relative;
+            padding-left: 2.5rem; /* Space for circles + line */
+            border-left: 3px solid #30363d; /* The main timeline bar */
+        }
+        .timeline-item {
+            position: relative;
+            padding-bottom: 3rem; /* Space between items */
+        }
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -3.35rem; /* (Circle width / 2) + padding */
+            top: 0;
+            width: 1.75rem; /* 28px */
+            height: 1.75rem; /* 28px */
+            border-radius: 50%;
+            background-color: #010409; /* Body bg */
+            border: 4px solid #238636; /* Accent color */
+        }
+        .timeline-item:last-child::before {
+            background-color: #238636; /* Fill last circle */
+        }
+        /* --- END: 6-Month Timeline Styles --- */
 
         /* --- Review Form Transition --- */
         #review-form-container {
@@ -356,6 +385,8 @@
                 <a href="https://u.payu.in/nIsRdQdIBGDX" class="glowing-btn text-lg font-bold inline-block">
                     Start Your Escape →
                 </a>
+                <!-- NEW: CTA Sub-text (Recommendation 3) -->
+                <p class="text-sm text-gray-500 mt-4">Instant Access for ₹299 • 14-Day "Do The Work" Guarantee</p>
             </div>
         </section>
 
@@ -407,7 +438,7 @@
          </section>
 
         <!-- Pain Points Section -->
-        <section class="py-24 md:py-32 section bg-[#0D1117]"> <!-- Removed border-y -->
+        <section id="pain-points-trigger" class="py-24 md:py-32 section bg-[#0D1117]"> <!-- Removed border-y, ADDED ID -->
             <div class="container mx-auto px-6 text-center">
                 <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-gray-200 mb-4">Are You Feeling Trapped?</h2>
                 <p class="text-lg text-gray-500 mb-12 max-w-2xl mx-auto">If you're nodding your head to any of these questions, you're not alone.</p>
@@ -464,29 +495,94 @@
             </div>
         </section>
         
-        <!-- "Meet Your Mentor" Section -->
+        <!-- "Meet Your Mentor" Section (SUPERCHARGED - Recommendation 3) -->
         <section class="py-24 md:py-32 section">
             <div class="container mx-auto px-6 max-w-4xl"> 
                 <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-200 mb-4 text-center">Meet Your Mentor</h2>
-                <h3 class="text-2xl md:text-3xl font-bold tracking-tight text-gray-200 mb-6 text-center">From <span class="text-red-500">-₹32 Lakhs</span> in Debt to <span class="text-green-400">+₹5 Lakh/Month</span>.</h3>
+                <h3 class="text-2xl md:text-3xl font-bold tracking-tight text-gray-200 mb-10 text-center">From <span class="text-red-500">-₹32 Lakhs</span> in Debt to <span class="text-green-400">+₹5 Lakh/Month</span>.</h3>
                 
-                <p class="text-lg text-gray-400 mb-4 text-center md:text-left">I'm Harshdeep Singh, and I want to be crystal clear about one thing from the start: I'm not one of those "gurus" who was born with a silver spoon or stumbled into overnight success. My story is <strong>messy, painful, and 100% real</strong>—just like the financial struggles you might be facing right now.</p>
-                <!-- Changed 25,000 to 27,000 in the line below -->
-                <p class="text-gray-500 mb-6 text-center md:text-left">At my lowest point, I found myself drowning in <strong>₹32 lakhs of debt</strong> from <strong>failed business ventures</strong>. The weight of that number was crushing—<strong>sleepless nights, constant anxiety, and the shame</strong> of watching my dreams turn into financial nightmares. By age 22, my "safe" 9-5 job paying <strong>₹27,000 per month</strong> couldn't even cover my EMIs, let alone provide the life I wanted for myself and my family.</p>
-                <p class="text-gray-500 mb-6 text-center md:text-left">But here's what I learned in that darkness: when no one throws you a lifeline, you <strong>build your own ladder</strong>. Through <strong>relentless trial and error</strong>—and countless more failures—I slowly pieced together a system of <strong>zero-funded businesses</strong> that didn't require quitting my job or risking money I didn't have. I started with nothing but determination and a willingness to learn from every mistake.</p>
-                <p class="text-gray-500 mb-6 text-center md:text-left">That system didn't just help me <strong>clear every rupee of debt</strong>—it transformed my life. Today, those same strategies generate a consistent <strong>₹5 lakh per month</strong>, giving me the <strong>financial freedom</strong> and peace of mind I once thought was impossible for someone like me.</p>
-                <p class="text-lg font-semibold text-gray-200 mb-6 text-center md:text-left">I'm not here to sell you dreams or empty promises. I'm here to hand you the exact, <strong>battle-tested blueprint</strong> I used to escape my financial prison. Every strategy in this book was forged in the fire of real struggle and proven to work when I had nothing left to lose. This isn't theoretical advice—it's what <strong>actually worked</strong> when my back was against the wall.</p>
-                <p class="text-lg font-semibold text-gray-200 text-center md:text-left">My mission is simple: to give you the same <strong>practical, zero-risk roadmap</strong> that transformed my life, adapted for real people with real responsibilities who deserve <strong>real results</strong>.</p>
-                <!-- End of replaced text -->
+                <div class="space-y-6 text-gray-400 text-lg md:text-xl text-left leading-relaxed">
+                    <p>I'm Harshdeep Singh, and I need to be brutally honest: I'm not a guru. I'm not going to sell you fairy tales of making millions from a beach in Bali. My story is <strong>messy, painful, and 100% real.</strong></p>
+                    
+                    <p>At 15, while my classmates worried about grades, I was building a small empire, earning <strong class="text-gray-200">over ₹2 Lakhs a month</strong> as a teenager selling gadgets on Instagram. I felt invincible. I drove fancy cars, <strong class="text-gray-200">wore watches that cost more than my friends' tuition fees,</strong> and picked up the bill at every party. I was the king of my world.</p>
+                    
+                    <p>But with no one to guide me, I became the <strong class="text-red-500">king of fools.</strong> I never tracked a single rupee. I used credit cards like magic wands, building a web of debt one emotional purchase at a time.</p>
+                    
+                    <p>The grand total of my "life is short" philosophy? <strong class="text-red-500 font-bold">Over ₹32 Lakhs in debt.</strong> Not from a failed business, but from pure, unadulterated <strong class="text-gray-200">lifestyle inflation and emotional spending.</strong> By 18, I had made over <strong class="text-gray-200">₹70 Lakhs</strong> and had nothing to show for it but a mountain of bills and crushing regret.</p>
+                    
+                    <p>At 22, my "safe" ₹27,000/month job couldn't even cover my EMIs. Rock bottom has one advantage: the ground is solid. There's nowhere to go but up.</p>
+                    
+                    <p>This book is every lesson I wish someone had handed me on Day 1. It's the blueprint I used to not only <strong class="text-green-400">clear every rupee of that debt</strong>, but build a system of zero-funded businesses that now generate a consistent <strong class="text-green-400">₹5 Lakh/month.</strong></p>
+                    
+                    <p class="text-xl font-semibold text-gray-200">I'm not here to sell you dreams. I'm here to give you the exact, battle-tested blueprint I used to escape my financial prison.</p>
+                </div>
             </div>
         </section>
+        <!-- END "Meet Your Mentor" Section -->
+
+        <!-- NEW: "My 5 Biggest Mistakes" Section (Recommendation 2) -->
+        <section class="py-24 md:py-32 section bg-[#0D1117] border-y border-gray-800">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto">
+                    <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-gray-200">I Made the Mistakes So You Don't Have To</h2>
+                    <p class="text-lg text-gray-500 mb-16">My ₹32 Lakh debt was an expensive education. This blueprint is built on the wisdom I bought with those failures. Here's what I learned...</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    <!-- Mistake Card 1 -->
+                    <div class="mistake-card text-left p-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 text-red-500 mb-4">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639l4.43-8.08a.96.96 0 011.666.023l2.25 4.5a.96.96 0 01-.023 1.666l-8.08 4.43a1.012 1.012 0 01-.639 0z" />
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M21.964 12.322a1.012 1.012 0 000-.639l-4.43-8.08a.96.96 0 00-1.666.023l-2.25 4.5a.96.96 0 00.023 1.666l8.08 4.43a1.012 1.012 0 00.639 0z" />
+                        </svg>
+                        <h3 class="font-bold text-xl text-gray-200 mb-2">1. Never Tracking My Money</h3>
+                        <p class="text-gray-500 flex-grow">I made ₹2L/month but had <20k left. It just... vanished. I was making money but not building wealth. A fool's game.</p>
+                    </div>
+                    <!-- Mistake Card 2 -->
+                    <div class="mistake-card text-left p-6">
+                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 text-red-500 mb-4">
+                           <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                         </svg>
+                        <h3 class="font-bold text-xl text-gray-200 mb-2">2. Emotional Spending Was My Drug</h3>
+                        <p class="text-gray-500 flex-grow">Stressed? I'd buy a ₹15,000 watch on impulse. The thrill was temporary, but the guilt and the bill were permanent.</p>
+                    </div>
+                    <!-- Mistake Card 3 -->
+                    <div class="mistake-card text-left p-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 text-red-500 mb-4">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941" />
+                        </svg>
+                        <h3 class="font-bold text-xl text-gray-200 mb-2">3. Lifestyle Inflation Ate My Progress</h3>
+                        <p class="text-gray-500 flex-grow">As my income went up, so did my spending. I was earning more but never getting ahead. I was running on a financial treadmill.</p>
+                    </div>
+                    <!-- Mistake Card 4 -->
+                    <div class="mistake-card text-left p-6 md:col-span-1 lg:col-span-2"> <!-- Adjusted span -->
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 text-red-500 mb-4">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h6m3-3.75l-3 3m0 0l-3-3m3 3V15m6-1.5l3 3m0 0l3-3m-3 3V15" />
+                        </svg>
+                        <h3 class="font-bold text-xl text-gray-200 mb-2">4. Treating Debt Like Magic Money</h3>
+                        <p class="text-gray-500 flex-grow">Credit cards felt like superpowers. I paid ₹15,000 in extra interest just for the 'privilege' of owning a phone immediately. Compound interest destroys you when you owe it.</p>
+                    </div>
+                    <!-- Mistake Card 5 -->
+                    <div class="mistake-card text-left p-6 md:col-span-1 lg:col-span-1"> <!-- Adjusted span -->
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 text-red-500 mb-4">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M14.25 7.756a4.5 4.5 0 10-8.5 0v6.348a4.5 4.5 0 108.5 0v-6.348z" />
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 16.5v-6.348a4.5 4.5 0 10-1.5 0v6.348a4.5 4.5 0 101.5 0z" />
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M12 12.75h.008v.008H12v-.008z" />
+                        </svg>
+                        <h3 class="font-bold text-xl text-gray-200 mb-2">5. Not Investing Early (The Costliest Mistake)</h3>
+                        <p class="text-gray-500 flex-grow">I thought investing was for "rich people." I lost 7 priceless years of compound growth. I'm giving you this guide so you don't.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END "My 5 Biggest Mistakes" Section -->
 
         <!-- Ebook Cover Section -->
         <section class="py-24 section">
             <div class="container mx-auto px-6">
                 <div class="grid md:grid-cols-2 gap-16 items-center">
                     <div class="flex justify-center md:justify-end">
-                        <img src="ebookcover.png" alt="Escape the 9-5 Ebook Cover" class="w-full max-w-sm rounded-lg ebook-glow transform hover:scale-105" onerror="this.src='https://placehold.co/400x500/0D1117/E6EDF3?text=Ebook+Cover'; this.onerror=null;">
+                        <!-- UPDATED: Recommendation 4 -->
+                        <img src="ebookcover.png" alt="Ebook cover for Escape the 9-5, the zero investment side hustle blueprint by Harshdeep Singh" class="w-full max-w-sm rounded-lg ebook-glow transform hover:scale-105" fetchpriority="high" onerror="this.src='https://placehold.co/400x500/0D1117/E6EDF3?text=Ebook+Cover'; this.onerror=null;">
                     </div>
                     <div class="text-center md:text-left">
                         <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-200 mb-4">Here Is The Exact Blueprint</h2>
@@ -537,8 +633,9 @@
                         <p class="text-gray-500 flex-grow">Create cash flow that protects you if your salary stops. Never be dependent on one income source again.</p>
                     </div>
                     <div class="feature-card text-left">
-                        <h3 class="font-bold text-xl text-gray-200 mb-2"><strong>Roadmap to ₹50k/Month in 3 Months</strong></h3>
-                        <p class="text-gray-500 flex-grow">An exact, day-by-day plan to follow. No more confusion, just clear, actionable steps.</p>
+                        <!-- UPDATED Benefit Card -->
+                        <h3 class="font-bold text-xl text-gray-200 mb-2"><strong>Roadmap to ₹100k/Month in 6 Months</strong></h3>
+                        <p class="text-gray-500 flex-grow">An exact, day-by-day plan to follow (from Chapter 9). No more confusion, just clear, actionable steps.</p>
                     </div>
                     <div class="feature-card text-left">
                         <h3 class="font-bold text-xl text-gray-200 mb-2"><strong>Free Lifetime Updates</strong></h3>
@@ -557,9 +654,100 @@
                 </div>
             </div>
         </section>
+        
+        <!-- UPDATED: "What's Inside" Section (From PDF Chapter 6) -->
+        <section class="py-24 md:py-32 section">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto">
+                    <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-gray-200">A Glimpse Inside Your Blueprint</h2>
+                    <p class="text-lg text-gray-500 mb-16">This isn't theory. It's a toolbox of 6 proven, step-by-step models I've personally used to build real income streams from scratch.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    <!-- Blueprint Cards - UPDATED -->
+                    <div class="blueprint-card text-left p-6">
+                        <h3 class="font-bold text-xl text-gray-200 mb-2">Blueprint 1: E-Commerce (The 2L/Month Hustle)</h3>
+                        <p class="text-gray-500 flex-grow">My first hustle. Find a product on IndiaMart, sell it on Instagram. I'll show you the exact math that made me ₹2 Lakhs/month as a teenager.</p>
+                    </div>
+                    <div class="blueprint-card text-left p-6">
+                        <h3 class="font-bold text-xl text-gray-200 mb-2">Blueprint 2: The Clothing Brand (No Factory)</h3>
+                        <p class="text-gray-500 flex-grow">Use AI to create viral designs and Print-on-Demand to handle all printing & shipping. Sell a culture, not just a t-shirt.</p>
+                    </div>
+                    <div class="blueprint-card text-left p-6">
+                        <h3 class="font-bold text-xl text-gray-200 mb-2">Blueprint 3: Real Estate Brokerage (0% Risk)</h3>
+                        <p class="text-gray-500 flex-grow">Connect online leads to local property dealers for a 50/50 commission. One deal can be ₹50,000. You don't need to own the asset.</p>
+                    </div>
+                    <div class="blueprint-card text-left p-6">
+                        <h3 class="font-bold text-xl text-gray-200 mb-2">Blueprint 4: The Gaming Channel Hustle</h3>
+                        <p class="text-gray-500 flex-grow">Stop just playing, start performing. The key isn't being the best player; it's being the best entertainer. Get paid to play.</p>
+                    </div>
+                    <div class="blueprint-card text-left p-6">
+                        <h3 class="font-bold text-xl text-gray-200 mb-2">Blueprint 5: The Content Creator Hustle</h3>
+                        <p class="text-gray-500 flex-grow">How I turned my journey from debt into a brand that pays ₹15k-₹50k for a single post. Your face is your fortune.</p>
+                    </div>
+                    <div class="blueprint-card text-left p-6">
+                        <h3 class="font-bold text-xl text-gray-200 mb-2">Blueprint 6: The Knowledge Hustle (Pure Profit)</h3>
+                        <p class="text-gray-500 flex-grow">Package your skills into an ebook (like this one!) or course. No inventory, no shipping. The ultimate scalable business model.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END: "What's Inside" Section -->
+
+        <!-- NEW: "6-Month Action Plan" Section (Recommendation 1) -->
+        <section class="py-24 md:py-32 section bg-[#0D1117] border-y border-gray-800">
+            <div class="container mx-auto px-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                    <!-- Column 1: Text -->
+                    <div class="text-center md:text-left">
+                        <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-gray-200">Your 6-Month Action Plan</h2>
+                        <p class="text-lg text-gray-500 mb-8">This isn't a book of ideas. It's a map. Chapter 9 gives you the exact, step-by-step sprint I used to go from a simple idea to a consistent <strong class="text-white">₹100,000/month business.</strong></p>
+                        <a href="https://u.payu.in/nIsRdQdIBGDX" class="bg-accent text-white font-bold py-3 px-8 rounded-lg text-lg hover-bg-accent transition-colors inline-block">
+                            Get The Full Map Now
+                        </a>
+                    </div>
+                    
+                    <!-- Column 2: Timeline -->
+                    <div class="max-w-md mx-auto md:max-w-none">
+                        <div class="timeline-container">
+                            <!-- Timeline Item 1 -->
+                            <div class="timeline-item">
+                                <h3 class="text-xl font-bold text-gray-200 mb-1">Month 1: Foundation & Validation</h3>
+                                <p class="text-gray-500">Your only goal: Get your first paying customer to prove the concept is real.</p>
+                            </div>
+                            <!-- Timeline Item 2 -->
+                            <div class="timeline-item">
+                                <h3 class="text-xl font-bold text-gray-200 mb-1">Month 2: Process & Testimonials</h3>
+                                <p class="text-gray-500">Deliver exceptional service, collect testimonials, and aim for ₹10,000+ in revenue.</p>
+                            </div>
+                            <!-- Timeline Item 3 -->
+                            <div class="timeline-item">
+                                <h3 class="text-xl font-bold text-gray-200 mb-1">Month 3: Traction & Optimization</h3>
+                                <p class="text-gray-500">Double down on what's working, ask for referrals, and hit ₹20,000+.</p>
+                            </div>
+                            <!-- Timeline Item 4 -->
+                            <div class="timeline-item">
+                                <h3 class="text-xl font-bold text-gray-200 mb-1">Month 4: Automation & Leverage</h3>
+                                <p class="text-gray-500">Hire a VA for 5 hours/week. Automate scheduling. Aim for ₹40,000+.</p>
+                            </div>
+                            <!-- Timeline Item 5 -->
+                            <div class="timeline-item">
+                                <h3 class="text-xl font-bold text-gray-200 mb-1">Month 5: Scaling & High-Value Offers</h3>
+                                <p class="text-gray-500">Raise your prices. Launch your first digital product. Aim for ₹75,000+.</p>
+                            </div>
+                            <!-- Timeline Item 6 -->
+                            <div class="timeline-item">
+                                <h3 class="text-xl font-bold text-gray-200 mb-1">Month 6: Systemization & Sustainability</h3>
+                                <p class="text-gray-500">Secure a high-ticket retainer client and hit your ₹100,000/month goal.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END: "6-Month Action Plan" Section -->
 
         <!-- NEW Trust Badge Scroller Section -->
-        <section class="banner-scroller border-b border-gray-800">
+        <section class="banner-scroller border-b border-gray-800"> <!-- Removed border-y, added border-b -->
              <div class="banner-scroller__inner">
                 <span>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="trust-icon"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" /></svg>
@@ -624,7 +812,7 @@
             </div>
         </section>
 
-        <!-- Testimonials Section -->
+        <!-- Testimonials Section (RE-ADDED & IMPROVED) -->
         <section class="py-24 md:py-32 section overflow-hidden">
             <div class="container mx-auto px-6 text-center">
                 <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-200 mb-16">Proof From People Just Like You.</h2>
@@ -634,10 +822,16 @@
             <div class="max-w-6xl mx-auto">
                  <div class="scroller" id="testimonial-scroller">
                      <div class="scroller__inner">
-                        <!-- Original 6 Testimonials with Full Names -->
+                        <!-- Original 6 Testimonials with IMPROVED Avatars -->
                         <div class="testimonial-card text-left">
                             <div class="flex items-center mb-4">
-                                <img src="https://placehold.co/50x50/010409/E6EDF3?text=AS" alt="Aman Sharma" class="w-12 h-12 rounded-full mr-4">
+                                <!-- IMPROVED AVATAR -->
+                                <div class="w-12 h-12 rounded-full mr-4 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-500 flex-shrink-0">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
+                                        <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.78 6.125-2.095a1.23 1.23 0 00.41-1.412A9.99 9.99 0 0010 12a9.99 9.99 0 00-6.535 2.493z" />
+                                    </svg>
+                                </div>
+                                <!-- END AVATAR -->
                                 <div>
                                     <p class="font-bold text-gray-200">Aman Sharma, Bengaluru</p>
                                     <div class="star-rating">★★★★★</div>
@@ -647,7 +841,13 @@
                         </div>
                         <div class="testimonial-card text-left">
                              <div class="flex items-center mb-4">
-                                <img src="https://placehold.co/50x50/010409/E6EDF3?text=PK" alt="Priya Kulkarni" class="w-12 h-12 rounded-full mr-4">
+                                <!-- IMPROVED AVATAR -->
+                                <div class="w-12 h-12 rounded-full mr-4 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-500 flex-shrink-0">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
+                                        <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.78 6.125-2.095a1.23 1.23 0 00.41-1.412A9.99 9.99 0 0010 12a9.99 9.99 0 00-6.535 2.493z" />
+                                    </svg>
+                                </div>
+                                <!-- END AVATAR -->
                                 <div>
                                     <p class="font-bold text-gray-200">Priya Kulkarni, Mumbai</p>
                                     <div class="star-rating">★★★★★</div>
@@ -657,7 +857,13 @@
                         </div>
                         <div class="testimonial-card text-left">
                              <div class="flex items-center mb-4">
-                                <img src="https://placehold.co/50x50/010409/E6EDF3?text=RV" alt="Rohan Verma" class="w-12 h-12 rounded-full mr-4">
+                                <!-- IMPROVED AVATAR -->
+                                <div class="w-12 h-12 rounded-full mr-4 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-500 flex-shrink-0">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
+                                        <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.78 6.125-2.095a1.23 1.23 0 00.41-1.412A9.99 9.99 0 0010 12a9.99 9.99 0 00-6.535 2.493z" />
+                                    </svg>
+                                </div>
+                                <!-- END AVATAR -->
                                 <div>
                                     <p class="font-bold text-gray-200">Rohan Verma, Delhi</p>
                                     <div class="star-rating">★★★★★</div>
@@ -667,7 +873,13 @@
                         </div>
                         <div class="testimonial-card text-left">
                             <div class="flex items-center mb-4">
-                                <img src="https://placehold.co/50x50/010409/E6EDF3?text=ST" alt="Sameer Tambe" class="w-12 h-12 rounded-full mr-4">
+                                <!-- IMPROVED AVATAR -->
+                                <div class="w-12 h-12 rounded-full mr-4 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-500 flex-shrink-0">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
+                                        <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.78 6.125-2.095a1.23 1.23 0 00.41-1.412A9.99 9.99 0 0010 12a9.99 9.99 0 00-6.535 2.493z" />
+                                    </svg>
+                                </div>
+                                <!-- END AVATAR -->
                                 <div>
                                     <p class="font-bold text-gray-200">Sameer Tambe, Pune</p>
                                     <div class="star-rating">★★★★★</div>
@@ -677,7 +889,13 @@
                         </div>
                         <div class="testimonial-card text-left">
                              <div class="flex items-center mb-4">
-                                <img src="https://placehold.co/50x50/010409/E6EDF3?text=MG" alt="Meera Gupta" class="w-12 h-12 rounded-full mr-4">
+                                <!-- IMPROVED AVATAR -->
+                                <div class="w-12 h-12 rounded-full mr-4 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-500 flex-shrink-0">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
+                                        <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.78 6.125-2.095a1.23 1.23 0 00.41-1.412A9.99 9.99 0 0010 12a9.99 9.99 0 00-6.535 2.493z" />
+                                    </svg>
+                                </div>
+                                <!-- END AVATAR -->
                                 <div>
                                     <p class="font-bold text-gray-200">Meera Gupta, Hyderabad</p>
                                     <div class="star-rating">★★★★★</div>
@@ -687,7 +905,13 @@
                         </div>
                         <div class="testimonial-card text-left">
                              <div class="flex items-center mb-4">
-                                <img src="https::/placehold.co/50x50/010409/E6EDF3?text=VN" alt="Vikram Nair" class="w-12 h-12 rounded-full mr-4">
+                                <!-- IMPROVED AVATAR -->
+                                <div class="w-12 h-12 rounded-full mr-4 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-500 flex-shrink-0">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
+                                        <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.78 6.125-2.095a1.23 1.23 0 00.41-1.412A9.99 9.99 0 0010 12a9.99 9.99 0 00-6.535 2.493z" />
+                                    </svg>
+                                </div>
+                                <!-- END AVATAR -->
                                 <div>
                                     <p class="font-bold text-gray-200">Vikram Nair, Chennai</p>
                                     <div class="star-rating">★★★★★</div>
@@ -699,7 +923,13 @@
                         <!-- DUPLICATE SET for infinite scroll -->
                         <div class="testimonial-card text-left">
                             <div class="flex items-center mb-4">
-                                <img src="https://placehold.co/50x50/010409/E6EDF3?text=AS" alt="Aman Sharma" class="w-12 h-12 rounded-full mr-4">
+                                <!-- IMPROVED AVATAR -->
+                                <div class="w-12 h-12 rounded-full mr-4 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-500 flex-shrink-0">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
+                                        <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.78 6.125-2.095a1.23 1.23 0 00.41-1.412A9.99 9.99 0 0010 12a9.99 9.99 0 00-6.535 2.493z" />
+                                    </svg>
+                                </div>
+                                <!-- END AVATAR -->
                                 <div>
                                     <p class="font-bold text-gray-200">Aman Sharma, Bengaluru</p>
                                     <div class="star-rating">★★★★★</div>
@@ -709,7 +939,13 @@
                         </div>
                         <div class="testimonial-card text-left">
                              <div class="flex items-center mb-4">
-                                <img src="https://placehold.co/50x50/010409/E6EDF3?text=PK" alt="Priya Kulkarni" class="w-12 h-12 rounded-full mr-4">
+                                <!-- IMPROVED AVATAR -->
+                                <div class="w-12 h-12 rounded-full mr-4 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-500 flex-shrink-0">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
+                                        <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.78 6.125-2.095a1.23 1.23 0 00.41-1.412A9.99 9.99 0 0010 12a9.99 9.99 0 00-6.535 2.493z" />
+                                    </svg>
+                                </div>
+                                <!-- END AVATAR -->
                                 <div>
                                     <p class="font-bold text-gray-200">Priya Kulkarni, Mumbai</p>
                                     <div class="star-rating">★★★★★</div>
@@ -719,7 +955,13 @@
                         </div>
                         <div class="testimonial-card text-left">
                              <div class="flex items-center mb-4">
-                                <img src="https://placehold.co/50x50/010409/E6EDF3?text=RV" alt="Rohan Verma" class="w-12 h-12 rounded-full mr-4">
+                                <!-- IMPROVED AVATAR -->
+                                <div class="w-12 h-12 rounded-full mr-4 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-500 flex-shrink-0">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
+                                        <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.78 6.125-2.095a1.23 1.23 0 00.41-1.412A9.99 9.99 0 0010 12a9.99 9.99 0 00-6.535 2.493z" />
+                                    </svg>
+                                </div>
+                                <!-- END AVATAR -->
                                 <div>
                                     <p class="font-bold text-gray-200">Rohan Verma, Delhi</p>
                                     <div class="star-rating">★★★★★</div>
@@ -729,7 +971,13 @@
                         </div>
                         <div class="testimonial-card text-left">
                             <div class="flex items-center mb-4">
-                                <img src="https_://placehold.co/50x50/010409/E6EDF3?text=ST" alt="Sameer Tambe" class="w-12 h-12 rounded-full mr-4">
+                                <!-- IMPROVED AVATAR -->
+                                <div class="w-12 h-12 rounded-full mr-4 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-500 flex-shrink-0">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
+                                        <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.78 6.125-2.095a1.23 1.23 0 00.41-1.412A9.99 9.99 0 0010 12a9.99 9.99 0 00-6.535 2.493z" />
+                                    </svg>
+                                </div>
+                                <!-- END AVATAR -->
                                 <div>
                                     <p class="font-bold text-gray-200">Sameer Tambe, Pune</p>
                                     <div class="star-rating">★★★★★</div>
@@ -739,7 +987,13 @@
                         </div>
                         <div class="testimonial-card text-left">
                              <div class="flex items-center mb-4">
-                                <img src="https_://placehold.co/50x50/010409/E6EDF3?text=MG" alt="Meera Gupta" class="w-12 h-12 rounded-full mr-4">
+                                <!-- IMPROVED AVATAR -->
+                                <div class="w-12 h-12 rounded-full mr-4 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-500 flex-shrink-0">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
+                                        <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.78 6.125-2.095a1.23 1.23 0 00.41-1.412A9.99 9.99 0 0010 12a9.99 9.99 0 00-6.535 2.493z" />
+                                    </svg>
+                                </div>
+                                <!-- END AVATAR -->
                                 <div>
                                     <p class="font-bold text-gray-200">Meera Gupta, Hyderabad</p>
                                     <div class="star-rating">★★★★★</div>
@@ -749,7 +1003,13 @@
                         </div>
                         <div class="testimonial-card text-left">
                              <div class="flex items-center mb-4">
-                                <img src="https_::/placehold.co/50x50/010409/E6EDF3?text=VN" alt="Vikram Nair" class="w-12 h-12 rounded-full mr-4">
+                                <!-- IMPROVED AVATAR -->
+                                <div class="w-12 h-12 rounded-full mr-4 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-500 flex-shrink-0">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
+                                        <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.78 6.125-2.095a1.23 1.23 0 00.41-1.412A9.99 9.99 0 0010 12a9.99 9.99 0 00-6.535 2.493z" />
+                                    </svg>
+                                </div>
+                                <!-- END AVATAR -->
                                 <div>
                                     <p class="font-bold text-gray-200">Vikram Nair, Chennai</p>
                                     <div class="star-rating">★★★★★</div>
@@ -761,6 +1021,7 @@
                 </div>
             </div>
         </section>
+        <!-- END Testimonials Section -->
 
         <!-- New Review Submission Section with Accordion (Styled) -->
         <section class="py-24 section bg-[#0D1117] border-y border-gray-800">
@@ -830,7 +1091,7 @@
                                 <span class="text-red-500">₹32 Lakh Debt</span> & <span class="text-gray-400">27k/month</span> → <span class="accent-color">+₹5 Lakh/Month</span>
                             </p>
                             
-                            <!-- "What You Get" Box -->
+                            <!-- "What You Get" Box (UPDATED) -->
                             <div class="mt-8 bg-[#010409] p-6 rounded-lg border border-gray-700">
                                 <h3 class="text-2xl font-bold text-white mb-4">What You Get:</h3>
                                 <ul class="space-y-3 text-gray-400">
@@ -840,7 +1101,11 @@
                                     </li>
                                     <li class="flex items-center">
                                         <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                        Roadmap to ₹50k/Month in 3 Months
+                                        The 6-Month Action Plan to ₹100k
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                        The 5 "Costly Mistakes" to Avoid
                                     </li>
                                     <li class="flex items-center">
                                         <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
@@ -1097,7 +1362,7 @@
                     </div>
                     <div class="mt-6 bg-gray-900 border border-gray-700 rounded-lg p-4">
                         <h3 class="font-semibold text-gray-300">💡 Tip</h3>
-                        <p>If you’re contacting us about an order, include your order number or the email used at checkout — it helps us resolve things faster.</p>
+                        <p>If you’re contacting us about an order, include your order number or the email used at checkout — it helps us resolve a lot faster.</p>
                     </div>
                 </div>
             </div>
@@ -1111,11 +1376,14 @@
         document.addEventListener('DOMContentLoaded', function() {
             // FAQ Data and Logic (Conversion-focused)
             const faqs = [
+                // UPDATED: Recommendation 5
                 { q: "Is this another 'get rich quick' scheme?", a: "<strong>Absolutely not.</strong> This is a 'get rich smart' blueprint. 'Get rich quick' is a fantasy that leads to debt. I was <strong>-₹32 Lakh in debt</strong> because I fell for those myths. This book is the exact opposite: real, gradual strategies to build <strong>sustainable, predictable income</strong>." },
                 { q: "How is this different from free content on YouTube?", a: "Free content gives you scattered puzzle pieces. This ebook gives you the <strong>finished picture and the instruction manual.</strong> It's a battle-tested system designed to save you 5+ years of painful, expensive trial and error. You're not just buying information; <strong>you're buying a proven roadmap and speed.</strong>" },
                 { q: "Is this REALLY for the Indian market?", a: "<strong>100% Yes.</strong> Every example, every currency figure (INR), and every strategy is tailored for the Indian context. This isn't recycled Western advice. It's built by an Indian, for the Indian hustler." },
-                { q: "I have zero money. Can I really start a business?", a: "<strong>Yes. That is the entire point of this book.</strong> I started with less than zero (massive debt!). This book focuses exclusively on businesses you can launch with <strong>₹0 investment</strong>. Your biggest asset will be your time and your hunger to win." },
-                { q: "I have a full-time job. How can I find the time?", a: "This was designed for you. The system works in <strong>focused 2-hour blocks</strong> that you can fit into your evenings or weekends. Your 9-5 is your safety net while you build your escape route. <strong>This book shows you how to build the boat before you jump off the ship.</strong>" },
+                // UPDATED: Recommendation 5
+                { q: "How to start a business with 0 investment in India?", a: "<strong>Yes. That is the entire point of this book.</strong> I started with less than zero (massive debt!). This book focuses exclusively on businesses you can launch with <strong>₹0 investment</strong>. Your biggest asset will be your time and your hunger to win." },
+                // UPDATED: Recommendation 5
+                { q: "How can I start a side hustle in India with a full time job?", a: "This was designed for you. The system works in <strong>focused 2-hour blocks</strong> that you can fit into your evenings or weekends. Your 9-5 is your safety net while you build your escape route. <strong>This book shows you how to build the boat before you jump off the ship.</strong>" },
                 { q: "What if I fail?", a: "The old way of failing is catastrophic. The new way—the ZeroFundedHustle way—is to <strong>fail smart, small, and fast.</strong> The models are designed to have virtually zero financial risk, so you can test ideas without fear of losing your savings. The real failure is staying stuck in a job you hate for the next 40 years." },
                 { q: "How quickly can I see results?", a: "I can't promise you a specific income, but I can promise you a specific plan. If you follow the 3-month roadmap and put in <strong>consistent effort</strong>, seeing your first <strong>₹10,000-₹20,000 is a very realistic goal.</strong> From there, you scale." },
                 { q: "What if I'm not a 'business person'?", a: "Neither was I. I was just a guy who was desperate to get out of a financial hole. This book breaks down everything into simple, non-jargon steps. If you can follow a recipe, you can follow this blueprint." }
@@ -1489,13 +1757,33 @@
                 });
             });
             
-            // --- NEW: Pop-up Modal Logic ---
-            setTimeout(() => {
-                // Check if a modal is already open
-                if (!document.querySelector('.modal-overlay:not(.hidden)')) {
-                    openModal('popup-modal');
-                }
-            }, 3000); // 3000ms = 3 seconds
+            // --- NEW: Scroll-Delayed Pop-up Modal Logic ---
+            const popupTriggerElement = document.getElementById('pain-points-trigger');
+            let popupTriggered = false;
+
+            if (popupTriggerElement) {
+                const popupObserver = new IntersectionObserver((entries) => {
+                    const entry = entries[0];
+                    if (entry.isIntersecting && !popupTriggered) {
+                        popupTriggered = true; // Ensure it only runs once
+                        
+                        // Wait 1.5 seconds *after* user scrolls to this section
+                        setTimeout(() => {
+                            // Check if another modal is already open before showing
+                            if (!document.querySelector('.modal-overlay:not(.hidden)')) {
+                                openModal('popup-modal');
+                            }
+                        }, 1500); // 1.5 second delay
+                        
+                        popupObserver.unobserve(entry.target); // Stop observing
+                    }
+                }, { 
+                    threshold: 0.1 // Triggers when 10% of the element is visible
+                });
+                
+                popupObserver.observe(popupTriggerElement);
+            }
+            // --- END: Scroll-Delayed Pop-up ---
 
             // --- NEW: Pop-up Modal Form Submission ---
             document.getElementById('popup-lead-magnet-form').addEventListener('submit', function(e) {
@@ -1538,7 +1826,7 @@
                 });
             });
 
-            // --- Advanced Testimonial Scroller (Hybrid CSS + JS) ---
+            // --- Advanced Testimonial Scroller (RE-ADDED) ---
             const scroller = document.getElementById('testimonial-scroller');
             if (scroller) {
                 const scrollerInner = scroller.querySelector('.scroller__inner');
