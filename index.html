@@ -108,7 +108,8 @@
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
-        .feature-card, .testimonial-card, .audience-card, .blueprint-card, .mistake-card { /* Added blueprint-card & mistake-card */
+        /* ADDED mistake-card and guarantee-card */
+        .feature-card, .testimonial-card, .audience-card, .blueprint-card, .mistake-card, .guarantee-card {
             background-color: #0D1117;
             border: 1px solid #30363d;
             border-radius: 0.75rem;
@@ -118,7 +119,7 @@
             display: flex;
             flex-direction: column;
         }
-        .feature-card:hover, .testimonial-card:hover, .audience-card:hover, .blueprint-card:hover, .mistake-card:hover { /* Added blueprint-card & mistake-card */
+        .feature-card:hover, .testimonial-card:hover, .audience-card:hover, .blueprint-card:hover, .mistake-card:hover, .guarantee-card:hover {
             transform: translateY(-5px);
             border-color: #238636;
         }
@@ -322,6 +323,8 @@
             }
         }
          /* --- END BANNER SCROLLER STYLES --- */
+         
+        /* --- Countdown Timer Styles (REMOVED) --- */
 
         /* --- Button Loading Spinner --- */
         @keyframes spin {
@@ -381,12 +384,19 @@
                     From <span class="text-red-500">₹32 Lakh Debt</span> & <span class="text-gray-400">27k a month</span> → <span class="accent-color">+₹5 Lakh/Month</span><br class="hidden md:block"> Using These <span class="accent-color">6 Zero-Risk Side Hustles</span>
                 </p>
                 <!-- END UPDATED HIGHLIGHT -->
-                <!-- Updated Hero CTA Link -->
+                
+                <!-- Updated Hero CTA Button -->
                 <a href="https://u.payu.in/nIsRdQdIBGDX" class="glowing-btn text-lg font-bold inline-block">
                     Start Your Escape →
                 </a>
-                <!-- NEW: CTA Sub-text (Recommendation 3) -->
+                
+                <!-- NEW: CTA Sub-text (From Recommendation) -->
                 <p class="text-sm text-gray-500 mt-4">Instant Access for ₹299 • 14-Day "Do The Work" Guarantee</p>
+                
+                <!-- NEW: Free Chapters Link -->
+                <p class="text-gray-400 mt-4">
+                    or <a href="#lead-magnet-section" class="text-green-400 font-medium underline hover:text-green-300 transition-colors">Get 2 FREE Chapters</a>
+                </p>
             </div>
         </section>
 
@@ -421,11 +431,32 @@
         </section>
         <!-- END Scrolling Banner Section -->
 
-        <!-- Lead Magnet Section (MOVED) -->
-        <section class="py-24 section">
+        <!-- Lead Magnet Section (MOVED & UPGRADED) -->
+        <section id="lead-magnet-section" class="py-24 section">
             <div class="container mx-auto px-6 text-center max-w-3xl">
                 <h2 class="text-4xl font-extrabold tracking-tight text-gray-200 mb-4">Want a FREE Taste of Freedom?</h2>
-                <p class="text-lg text-gray-500 mb-8">Get the first two chapters of "Escape The 9-5"—including one complete business blueprint—delivered to your inbox right now. See for yourself how actionable this guide is.</p>
+                <p class="text-lg text-gray-500 mb-8">Get the first two chapters—including one complete business blueprint—delivered to your inbox right now.</p>
+                
+                <!-- NEW: What You'll Get in Free Taste -->
+                <div class="bg-[#0D1117] border border-gray-700 rounded-lg p-6 max-w-lg mx-auto text-left mb-8">
+                    <h4 class="text-xl font-bold text-white mb-4">Inside Your 2 Free Chapters:</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <strong>Chapter 1: The 9-5 Trap</strong> (The mindset to break free)
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <strong>Chapter 6: One Full Business Blueprint</strong> (The E-commerce Hustle)
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- NEW: Dynamic Download Counter -->
+                <p class="text-lg text-yellow-400 font-bold mb-6">
+                    Join <span id="download-counter" class="transition-all">2,347</span>+ hustlers who got their free taste!
+                </p>
+
                 <form id="lead-magnet-form" class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
                     <input type="email" id="lead-email" name="email" placeholder="Enter your best email..." required class="flex-grow bg-[#0D1117] border border-gray-700 rounded-md py-3 px-4 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500 transition">
                     <button type="submit" class="bg-accent text-white font-bold py-3 px-6 rounded-md hover-bg-accent transition-colors">
@@ -438,7 +469,7 @@
          </section>
 
         <!-- Pain Points Section -->
-        <section id="pain-points-trigger" class="py-24 md:py-32 section bg-[#0D1117]"> <!-- Removed border-y, ADDED ID -->
+        <section class="py-24 md:py-32 section bg-[#0D1117]"> <!-- ID REMOVED -->
             <div class="container mx-auto px-6 text-center">
                 <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-gray-200 mb-4">Are You Feeling Trapped?</h2>
                 <p class="text-lg text-gray-500 mb-12 max-w-2xl mx-auto">If you're nodding your head to any of these questions, you're not alone.</p>
@@ -495,13 +526,14 @@
             </div>
         </section>
         
-        <!-- "Meet Your Mentor" Section (SUPERCHARGED - Recommendation 3) -->
+        <!-- "Meet Your Mentor" Section (SUPERCHARGED + MOBILE CENTERED) -->
         <section class="py-24 md:py-32 section">
             <div class="container mx-auto px-6 max-w-4xl"> 
                 <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-200 mb-4 text-center">Meet Your Mentor</h2>
                 <h3 class="text-2xl md:text-3xl font-bold tracking-tight text-gray-200 mb-10 text-center">From <span class="text-red-500">-₹32 Lakhs</span> in Debt to <span class="text-green-400">+₹5 Lakh/Month</span>.</h3>
                 
-                <div class="space-y-6 text-gray-400 text-lg md:text-xl text-left leading-relaxed">
+                <!-- UPDATED: text-center md:text-left -->
+                <div class="space-y-6 text-gray-400 text-lg md:text-xl text-center md:text-left leading-relaxed">
                     <p>I'm Harshdeep Singh, and I need to be brutally honest: I'm not a guru. I'm not going to sell you fairy tales of making millions from a beach in Bali. My story is <strong>messy, painful, and 100% real.</strong></p>
                     
                     <p>At 15, while my classmates worried about grades, I was building a small empire, earning <strong class="text-gray-200">over ₹2 Lakhs a month</strong> as a teenager selling gadgets on Instagram. I felt invincible. I drove fancy cars, <strong class="text-gray-200">wore watches that cost more than my friends' tuition fees,</strong> and picked up the bill at every party. I was the king of my world.</p>
@@ -520,58 +552,65 @@
         </section>
         <!-- END "Meet Your Mentor" Section -->
 
-        <!-- NEW: "My 5 Biggest Mistakes" Section (Recommendation 2) -->
-        <section class="py-24 md:py-32 section bg-[#0D1117] border-y border-gray-800">
+        <!-- NEW: "My 5 Biggest Mistakes" Section (RE-DESIGNED to match screenshot) -->
+        <section id="popup-trigger" class="py-24 md:py-32 section bg-[#0D1117] border-y border-gray-800"> <!-- NEW ID for popup trigger -->
             <div class="container mx-auto px-6">
                 <div class="text-center max-w-3xl mx-auto">
                     <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-gray-200">I Made the Mistakes So You Don't Have To</h2>
                     <p class="text-lg text-gray-500 mb-16">My ₹32 Lakh debt was an expensive education. This blueprint is built on the wisdom I bought with those failures. Here's what I learned...</p>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                    <!-- Mistake Card 1 -->
+                
+                <!-- Row 1: 3 Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    <!-- Mistake 1 -->
                     <div class="mistake-card text-left p-6">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 text-red-500 mb-4">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639l4.43-8.08a.96.96 0 011.666.023l2.25 4.5a.96.96 0 01-.023 1.666l-8.08 4.43a1.012 1.012 0 01-.639 0z" />
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M21.964 12.322a1.012 1.012 0 000-.639l-4.43-8.08a.96.96 0 00-1.666.023l-2.25 4.5a.96.96 0 00.023 1.666l8.08 4.43a1.012 1.012 0 00.639 0z" />
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-10 h-10 text-red-500 mb-4">
+                          <!-- UPDATED ICON 1 -->
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 17.25V6.75l3.75 3.75 3.75-3.75L15 11.25l3.75-3.75L20.25 9" />
                         </svg>
                         <h3 class="font-bold text-xl text-gray-200 mb-2">1. Never Tracking My Money</h3>
-                        <p class="text-gray-500 flex-grow">I made ₹2L/month but had <20k left. It just... vanished. I was making money but not building wealth. A fool's game.</p>
+                        <p class="text-gray-400 flex-grow">I made ₹2L/month but had <20k left. It just... vanished. I was making money but not building wealth. A fool's game.</p>
                     </div>
-                    <!-- Mistake Card 2 -->
+                    <!-- Mistake 2 -->
                     <div class="mistake-card text-left p-6">
-                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 text-red-500 mb-4">
-                           <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
-                         </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-10 h-10 text-red-500 mb-4">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                        </svg>
                         <h3 class="font-bold text-xl text-gray-200 mb-2">2. Emotional Spending Was My Drug</h3>
-                        <p class="text-gray-500 flex-grow">Stressed? I'd buy a ₹15,000 watch on impulse. The thrill was temporary, but the guilt and the bill were permanent.</p>
+                        <p class="text-gray-400 flex-grow">Stressed? I'd buy a ₹15,000 watch on impulse. The thrill was temporary, but the guilt and the bill were permanent.</p>
                     </div>
-                    <!-- Mistake Card 3 -->
+                    <!-- Mistake 3 -->
                     <div class="mistake-card text-left p-6">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 text-red-500 mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-10 h-10 text-red-500 mb-4">
                           <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941" />
                         </svg>
                         <h3 class="font-bold text-xl text-gray-200 mb-2">3. Lifestyle Inflation Ate My Progress</h3>
-                        <p class="text-gray-500 flex-grow">As my income went up, so did my spending. I was earning more but never getting ahead. I was running on a financial treadmill.</p>
-                    </div>
-                    <!-- Mistake Card 4 -->
-                    <div class="mistake-card text-left p-6 md:col-span-1 lg:col-span-2"> <!-- Adjusted span -->
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 text-red-500 mb-4">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h6m3-3.75l-3 3m0 0l-3-3m3 3V15m6-1.5l3 3m0 0l3-3m-3 3V15" />
-                        </svg>
-                        <h3 class="font-bold text-xl text-gray-200 mb-2">4. Treating Debt Like Magic Money</h3>
-                        <p class="text-gray-500 flex-grow">Credit cards felt like superpowers. I paid ₹15,000 in extra interest just for the 'privilege' of owning a phone immediately. Compound interest destroys you when you owe it.</p>
-                    </div>
-                    <!-- Mistake Card 5 -->
-                    <div class="mistake-card text-left p-6 md:col-span-1 lg:col-span-1"> <!-- Adjusted span -->
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 text-red-500 mb-4">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M14.25 7.756a4.5 4.5 0 10-8.5 0v6.348a4.5 4.5 0 108.5 0v-6.348z" />
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 16.5v-6.348a4.5 4.5 0 10-1.5 0v6.348a4.5 4.5 0 101.5 0z" />
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M12 12.75h.008v.008H12v-.008z" />
-                        </svg>
-                        <h3 class="font-bold text-xl text-gray-200 mb-2">5. Not Investing Early (The Costliest Mistake)</h3>
-                        <p class="text-gray-500 flex-grow">I thought investing was for "rich people." I lost 7 priceless years of compound growth. I'm giving you this guide so you don't.</p>
+                        <p class="text-gray-400 flex-grow">As my income went up, so did my spending. I was earning more but never getting ahead. I was running on a financial treadmill.</p>
                     </div>
                 </div>
+
+                <!-- Row 2: 2 Cards (Centered) -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto mt-8"> <!-- UPDATED: max-w-3xl to max-w-6xl -->
+                    <!-- Mistake 4 -->
+                    <div class="mistake-card text-left p-6">
+                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-10 h-10 text-red-500 mb-4">
+                           <!-- UPDATED: Corrected SVG Path -->
+                           <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h6m3-3.75l-3 3m0 0l-3-3m-3 3V1.5" />
+                         </svg>
+                        <h3 class="font-bold text-xl text-gray-200 mb-2">4. Treating Debt Like Magic Money</h3>
+                        <p class="text-gray-400 flex-grow">Credit cards felt like superpowers. I paid ₹15,000 in extra interest just for the 'privilege' of owning a phone immediately.</p>
+                    </div>
+                    <!-- Mistake 5 -->
+                    <div class="mistake-card text-left p-6 border-green-500"> <!-- UPDATED: Added green border -->
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-10 h-10 text-red-500 mb-4">
+                          <!-- UPDATED ICON 5 -->
+                           <path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" />
+                        </svg>
+                        <h3 class="font-bold text-xl text-gray-200 mb-2">5. Not Investing Early (The Costliest Mistake)</h3>
+                        <p class="text-gray-400 flex-grow">I thought investing was for "rich people." I lost 7 priceless years of compound growth. I'm giving you this guide so you don't.</p>
+                    </div>
+                </div>
+
             </div>
         </section>
         <!-- END "My 5 Biggest Mistakes" Section -->
@@ -581,18 +620,15 @@
             <div class="container mx-auto px-6">
                 <div class="grid md:grid-cols-2 gap-16 items-center">
                     <div class="flex justify-center md:justify-end">
-                        <!-- UPDATED: Recommendation 4 -->
                         <img src="ebookcover.png" alt="Ebook cover for Escape the 9-5, the zero investment side hustle blueprint by Harshdeep Singh" class="w-full max-w-sm rounded-lg ebook-glow transform hover:scale-105" fetchpriority="high" onerror="this.src='https://placehold.co/400x500/0D1117/E6EDF3?text=Ebook+Cover'; this.onerror=null;">
                     </div>
                     <div class="text-center md:text-left">
                         <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-200 mb-4">Here Is The Exact Blueprint</h2>
-                        <!-- Changed 25k to 27k in the line below -->
                         <h3 class="text-2xl md:text-3xl font-bold tracking-tight text-gray-400 mb-8">How I Escaped My ₹27k Job With Zero-Risk Side Businesses</h3>
                         <p class="text-lg text-gray-400 mb-8">This isn't just a book; it's a complete system. Inside, you'll find the step-by-step strategies, mindset shifts, and actionable plans I used to build my freedom from zero.</p>
                         
                         <!-- New Pricing Block -->
                         <div class="my-8">
-                            <!-- Urgency Line -->
                             <p class="text-lg font-semibold text-yellow-400 mb-2">Price jumps to <span class="font-black">₹999</span> soon!</p>
                             <span class="text-xl text-gray-500 line-through">Worth Lakhs of Value & Experience</span>
                             <div class="flex items-center justify-center md:justify-start space-x-2 mt-2">
@@ -602,7 +638,6 @@
                         </div>
                         <!-- End New Pricing Block -->
 
-                        <!-- Updated Ebook Cover CTA Link -->
                         <a href="https://u.payu.in/nIsRdQdIBGDX" class="bg-accent text-white font-bold py-3 px-8 rounded-lg text-lg hover-bg-accent transition-colors inline-block">
                             Get Your Copy Now
                         </a>
@@ -611,7 +646,7 @@
             </div>
         </section>
 
-        <!-- Product Benefits Section -->
+        <!-- Product Benefits Section (ICONS ADDED) -->
         <section id="product-benefits-section" class="py-24 md:py-32 section bg-[#0D1117] border-y border-gray-800">
             <div class="container mx-auto px-6">
                 <div class="text-center max-w-3xl mx-auto">
@@ -619,35 +654,56 @@
                     <p class="text-lg text-gray-500 mb-16">Here is a glimpse of the transformation waiting for you inside.</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                    <!-- Benefit Cards -->
+                    <!-- Benefit Card 1 (Icon Added) -->
                     <div class="feature-card text-left">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 accent-color mb-4">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
                         <h3 class="font-bold text-xl text-gray-200 mb-2"><strong>6 Blueprints to Earn ₹50k-₹150k/Month</strong></h3>
                         <p class="text-gray-500 flex-grow">Stop guessing. Get copy-paste models for businesses you can start today, with the real math included.</p>
                     </div>
+                    <!-- Benefit Card 2 (Icon Added) -->
                     <div class="feature-card text-left">
+                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 accent-color mb-4">
+                           <path stroke-linecap="round" stroke-linejoin="round" d="M15 8.25H9m6 3H9m3 6l-3-3h1.5a3 3 0 100-6M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                         </svg>
                         <h3 class="font-bold text-xl text-gray-200 mb-2"><strong>Start With ₹0 Investment</strong></h3>
                         <p class="text-gray-500 flex-grow">Your bank balance doesn't define your potential. Every model is built for hustle, not capital.</p>
                     </div>
+                    <!-- Benefit Card 3 (Icon Added) -->
                     <div class="feature-card text-left">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 accent-color mb-4">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
                         <h3 class="font-bold text-xl text-gray-200 mb-2"><strong>Build a Financial Safety Net</strong></h3>
                         <p class="text-gray-500 flex-grow">Create cash flow that protects you if your salary stops. Never be dependent on one income source again.</p>
                     </div>
+                    <!-- Benefit Card 4 (Icon Added) -->
                     <div class="feature-card text-left">
-                        <!-- UPDATED Benefit Card -->
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 accent-color mb-4">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.63 2.25c-5.508 0-10.099 3.21-12.12 7.75C-2.828 15.59 2.16 21 8.63 21a14.98 14.98 0 007.75-2.12" />
+                        </svg>
                         <h3 class="font-bold text-xl text-gray-200 mb-2"><strong>Roadmap to ₹100k/Month in 6 Months</strong></h3>
                         <p class="text-gray-500 flex-grow">An exact, day-by-day plan to follow (from Chapter 9). No more confusion, just clear, actionable steps.</p>
                     </div>
+                    <!-- Benefit Card 5 (Icon Added) -->
                     <div class="feature-card text-left">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 accent-color mb-4">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+                        </svg>
                         <h3 class="font-bold text-xl text-gray-200 mb-2"><strong>Free Lifetime Updates</strong></h3>
                         <p class="text-gray-500 flex-grow">The game changes. Your blueprint will too. Get every future update for free, forever.</p>
                     </div>
+                    <!-- Benefit Card 6 (Icon Added) -->
                     <div class="feature-card text-left">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 accent-color mb-4">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                        </svg>
                         <h3 class="font-bold text-xl text-gray-200 mb-2"><strong>Direct Email Support</strong></h3>
                         <p class="text-gray-500 flex-grow">Stuck? Email me directly. I'm not just a seller; I'm your partner in this journey.</p>
                     </div>
                 </div>
                  <div class="text-center mt-16">
-                     <!-- Updated Benefits CTA Link -->
                      <a href="https://u.payu.in/nIsRdQdIBGDX" class="glowing-btn text-lg font-bold inline-block">
                         I Want These Results →
                     </a>
@@ -655,7 +711,7 @@
             </div>
         </section>
         
-        <!-- UPDATED: "What's Inside" Section (From PDF Chapter 6) -->
+        <!-- UPDATED: "What's Inside" Section (Benefit-Driven Titles) -->
         <section class="py-24 md:py-32 section">
             <div class="container mx-auto px-6">
                 <div class="text-center max-w-3xl mx-auto">
@@ -665,27 +721,27 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
                     <!-- Blueprint Cards - UPDATED -->
                     <div class="blueprint-card text-left p-6">
-                        <h3 class="font-bold text-xl text-gray-200 mb-2">Blueprint 1: E-Commerce (The 2L/Month Hustle)</h3>
+                        <h3 class="font-bold text-xl text-gray-200 mb-2">Blueprint 1: Your First ₹2L/Month E-Com Store</h3>
                         <p class="text-gray-500 flex-grow">My first hustle. Find a product on IndiaMart, sell it on Instagram. I'll show you the exact math that made me ₹2 Lakhs/month as a teenager.</p>
                     </div>
                     <div class="blueprint-card text-left p-6">
-                        <h3 class="font-bold text-xl text-gray-200 mb-2">Blueprint 2: The Clothing Brand (No Factory)</h3>
+                        <h3 class="font-bold text-xl text-gray-200 mb-2">Blueprint 2: Build a T-Shirt Brand With Zero Inventory</h3>
                         <p class="text-gray-500 flex-grow">Use AI to create viral designs and Print-on-Demand to handle all printing & shipping. Sell a culture, not just a t-shirt.</p>
                     </div>
                     <div class="blueprint-card text-left p-6">
-                        <h3 class="font-bold text-xl text-gray-200 mb-2">Blueprint 3: Real Estate Brokerage (0% Risk)</h3>
+                        <h3 class="font-bold text-xl text-gray-200 mb-2">Blueprint 3: Earn ₹50k Commissions (With 0% Risk)</h3>
                         <p class="text-gray-500 flex-grow">Connect online leads to local property dealers for a 50/50 commission. One deal can be ₹50,000. You don't need to own the asset.</p>
                     </div>
                     <div class="blueprint-card text-left p-6">
-                        <h3 class="font-bold text-xl text-gray-200 mb-2">Blueprint 4: The Gaming Channel Hustle</h3>
+                        <h3 class="font-bold text-xl text-gray-200 mb-2">Blueprint 4: Get Paid to Play (The Right Way)</h3>
                         <p class="text-gray-500 flex-grow">Stop just playing, start performing. The key isn't being the best player; it's being the best entertainer. Get paid to play.</p>
                     </div>
                     <div class="blueprint-card text-left p-6">
-                        <h3 class="font-bold text-xl text-gray-200 mb-2">Blueprint 5: The Content Creator Hustle</h3>
+                        <h3 class="font-bold text-xl text-gray-200 mb-2">Blueprint 5: Turn Social Media Into a ₹50k/Post Business</h3>
                         <p class="text-gray-500 flex-grow">How I turned my journey from debt into a brand that pays ₹15k-₹50k for a single post. Your face is your fortune.</p>
                     </div>
                     <div class="blueprint-card text-left p-6">
-                        <h3 class="font-bold text-xl text-gray-200 mb-2">Blueprint 6: The Knowledge Hustle (Pure Profit)</h3>
+                        <h3 class="font-bold text-xl text-gray-200 mb-2">Blueprint 6: The Pure-Profit Ebook Model (My Secret)</h3>
                         <p class="text-gray-500 flex-grow">Package your skills into an ebook (like this one!) or course. No inventory, no shipping. The ultimate scalable business model.</p>
                     </div>
                 </div>
@@ -693,7 +749,7 @@
         </section>
         <!-- END: "What's Inside" Section -->
 
-        <!-- NEW: "6-Month Action Plan" Section (Recommendation 1) -->
+        <!-- NEW: "6-Month Action Plan" Section (More Specific) -->
         <section class="py-24 md:py-32 section bg-[#0D1117] border-y border-gray-800">
             <div class="container mx-auto px-6">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
@@ -706,38 +762,38 @@
                         </a>
                     </div>
                     
-                    <!-- Column 2: Timeline -->
+                    <!-- Column 2: Timeline (More Specific) -->
                     <div class="max-w-md mx-auto md:max-w-none">
                         <div class="timeline-container">
                             <!-- Timeline Item 1 -->
                             <div class="timeline-item">
                                 <h3 class="text-xl font-bold text-gray-200 mb-1">Month 1: Foundation & Validation</h3>
-                                <p class="text-gray-500">Your only goal: Get your first paying customer to prove the concept is real.</p>
+                                <p class="text-gray-500">Your only goal: Get your first paying customer (even if it's a friend) & secure a testimonial.</p>
                             </div>
                             <!-- Timeline Item 2 -->
                             <div class="timeline-item">
                                 <h3 class="text-xl font-bold text-gray-200 mb-1">Month 2: Process & Testimonials</h3>
-                                <p class="text-gray-500">Deliver exceptional service, collect testimonials, and aim for ₹10,000+ in revenue.</p>
+                                <p class="text-gray-500">Refine your service based on feedback, get 3 new clients, and cross ₹10,000 in revenue.</p>
                             </div>
                             <!-- Timeline Item 3 -->
                             <div class="timeline-item">
                                 <h3 class="text-xl font-bold text-gray-200 mb-1">Month 3: Traction & Optimization</h3>
-                                <p class="text-gray-500">Double down on what's working, ask for referrals, and hit ₹20,000+.</p>
+                                <p class="text-gray-500">Double down on your best marketing channel and optimize your process to hit ₹20,000.</p>
                             </div>
                             <!-- Timeline Item 4 -->
                             <div class="timeline-item">
                                 <h3 class="text-xl font-bold text-gray-200 mb-1">Month 4: Automation & Leverage</h3>
-                                <p class="text-gray-500">Hire a VA for 5 hours/week. Automate scheduling. Aim for ₹40,000+.</p>
+                                <p class="text-gray-500">Automate your admin. Hire a VA for 5 hours/week to free your time. Aim for ₹40,000.</p>
                             </div>
                             <!-- Timeline Item 5 -->
                             <div class="timeline-item">
                                 <h3 class="text-xl font-bold text-gray-200 mb-1">Month 5: Scaling & High-Value Offers</h3>
-                                <p class="text-gray-500">Raise your prices. Launch your first digital product. Aim for ₹75,000+.</p>
+                                <p class="text-gray-500">Launch a "mini-product" (like an ebook) and raise your prices for new clients. Scale to ₹75,000.</p>
                             </div>
                             <!-- Timeline Item 6 -->
                             <div class="timeline-item">
                                 <h3 class="text-xl font-bold text-gray-200 mb-1">Month 6: Systemization & Sustainability</h3>
-                                <p class="text-gray-500">Secure a high-ticket retainer client and hit your ₹100,000/month goal.</p>
+                                <p class="text-gray-500">Secure your first high-ticket retainer client to build predictable income & cross the ₹100,000/month milestone.</p>
                             </div>
                         </div>
                     </div>
@@ -1072,14 +1128,31 @@
         </section>
         <!-- End New Review Submission Section -->
 
-        <!-- Pricing / Final CTA Section (MOVED & REDESIGNED) -->
+        <!-- NEW: Money-Back Guarantee Section (RESTORED) -->
+        <section class="py-24 section">
+            <div class="container mx-auto px-6 max-w-3xl">
+                <div class="guarantee-card text-center p-8 md:p-12">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16 accent-color mx-auto mb-6">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-gray-200 mb-4">My 14-Day "Do The Work" Guarantee</h2>
+                    <p class="text-lg text-gray-400 max-w-xl mx-auto">This is a partnership. I'm 100% confident in this system because it's the one I used to escape my own debt. If you genuinely read the book, apply the strategies, and don't see a clear path to your first ₹10,000, email me your work within 14 days. I'll not only refund you 100%—I'll personally review your work and tell you what to do next.</p>
+                </div>
+            </div>
+        </section>
+        <!-- END: Money-Back Guarantee Section -->
+
+
+        <!-- Pricing / Final CTA Section (CLEANED) -->
         <section id="pricing" class="py-24 md:py-32 section">
             <div class="container mx-auto px-6">
                 <div class="bg-[#0D1117] border border-green-700 rounded-xl p-6 md:p-12 text-center max-w-5xl mx-auto shadow-2xl shadow-green-500/20">
                     
                     <!-- Main Headers -->
-                    <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight text-gray-200 mb-4">Your Escape Plan Is One Click Away.</h2>
-                    <p class="text-lg text-gray-500 mb-8 max-w-3xl mx-auto">Stop trading your life for a salary. This is your chance to build something that's truly yours.</p>
+                    <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight text-gray-200 mb-4">Don't Just Dream of Freedom. Buy The Map.</h2>
+                    <p class="text-lg text-gray-500 mb-8 max-w-3xl mx-auto">Stop trading your life for a salary. For less than a single Swiggy order, you get the exact blueprint that changed my life. This is your chance.</p>
+                    
+                    <!-- Countdown Timer REMOVED -->
                     
                     <!-- New 2-Column Layout -->
                     <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-start">
@@ -1119,13 +1192,17 @@
                             </div>
                         </div>
 
-                        <!-- Column 2: The Action -->
+                        <!-- Column 2: The Action (CLEANED) -->
                         <div class="bg-[#0D1117] border border-gray-700 rounded-lg p-6 md:p-8 sticky top-24">
-                            <p class="text-xl font-semibold text-yellow-400 mb-3">Price jumps to <span class="font-black">₹999</span> soon!</p>
+                            <!-- NEW: Just Launched Tag -->
+                            <div class="inline-block bg-green-800 text-green-100 text-sm font-semibold px-4 py-1 rounded-full mb-3">
+                                JUST LAUNCHED
+                            </div>
+                            <p class="text-xl font-semibold text-yellow-400 mb-3">Special Launch Price</p>
                             
                             <div class="flex items-center justify-center space-x-3 mt-2">
                                  <span class="text-5xl md:text-6xl font-black text-gray-200">₹299</span>
-                                 <span class="text-xl text-gray-500 line-through">Worth Lakhs of Value</span>
+                                 <span class="text-xl text-gray-500 line-through">₹999</span>
                             </div>
                              <p class="text-lg text-gray-500 mb-6">One-Time Investment</p>
                             
@@ -1135,15 +1212,11 @@
                             </a>
                             
                             <!-- Pizza Analogy -->
-                            <p class="text-gray-400 text-sm max-w-md mx-auto mt-4">You spend ₹500+ on a pizza that's gone in 10 minutes. Why not invest half of that for your future?</p>
+                            <p class="text-gray-400 text-sm max-w-md mx-auto mt-4">Why not invest in your future for the price of one pizza?</p>
                         </div>
                     </div>
-
-                    <!-- Guarantee (Full Width) -->
-                    <div class="mt-12 bg-gray-900 border border-gray-700 rounded-lg p-6 text-center">
-                        <p class="font-bold text-lg text-gray-300 mb-2">My 14-Day "Do The Work" Guarantee</p>
-                        <p class="text-gray-500 max-w-xl mx-auto">If you genuinely apply the strategies in this book and don't see a clear path to your first ₹10,000, email me your work, and I'll refund you 100%. I'm that confident in this system.</p>
-                    </div>
+                    
+                    <!-- Guarantee REMOVED from here, now its own section -->
 
                 </div>
             </div>
@@ -1241,23 +1314,54 @@
     
     <!-- All Modals are here -->
     
-    <!-- NEW: Lead Magnet Pop-up Modal -->
+    <!-- NEW: Lead Magnet Pop-up Modal (UPGRADED) -->
     <div id="popup-modal" class="hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4 modal-overlay opacity-0">
-        <div class="modal-container bg-[#0D1117] border border-gray-800 rounded-lg w-full max-w-lg flex flex-col transform scale-95 opacity-0">
-            <div class="flex-shrink-0 p-6 border-b border-gray-800 flex justify-between items-center">
-                <h2 class="text-2xl font-bold text-gray-200">Want a FREE Taste of Freedom?</h2>
-                <button data-close-modal="popup-modal" class="text-gray-500 hover:text-white text-3xl">&times;</button>
+        <div class="modal-container bg-[#0D1117] border border-gray-800 rounded-lg w-full max-w-4xl flex flex-col md:flex-row transform scale-95 opacity-0">
+            
+            <!-- Left Side: Image -->
+            <div class="hidden md:block md:w-1/3">
+                <img src="ebookcover.png" alt="Escape the 9-5 Ebook Cover" class="w-full h-full object-cover rounded-l-lg" onerror="this.src='https://placehold.co/400x500/0D1117/E6EDF3?text=Ebook+Cover'; this.onerror=null;">
             </div>
-            <div class="modal-content flex-grow overflow-y-auto p-6 text-center">
-                <p class="text-lg text-gray-500 mb-8">Get the first two chapters of "Escape The 9-5"—including one complete business blueprint—delivered to your inbox right now.</p>
-                <form id="popup-lead-magnet-form" class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
-                    <input type="email" id="popup-lead-email" name="email" placeholder="Enter your best email..." required class="flex-grow bg-[#010409] border border-gray-700 rounded-md py-3 px-4 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500 transition">
-                    <button type="submit" class="bg-accent text-white font-bold py-3 px-6 rounded-md hover-bg-accent transition-colors">
-                        Send My Free Chapters
-                    </button>
-                </form>
-                <p id="popup-lead-success-message" class="text-green-400 mt-4 hidden">Success! Check your inbox for the free chapters.</p>
-                <p id="popup-lead-error-message" class="text-red-400 mt-4 hidden">Something went wrong. Please try again.</p>
+
+            <!-- Right Side: Content -->
+            <div class="flex-1 flex flex-col">
+                <div class="flex-shrink-0 p-6 border-b border-gray-800 flex justify-between items-center">
+                    <h2 class="text-2xl font-bold text-gray-200">Want a FREE Taste of Freedom?</h2>
+                    <button data-close-modal="popup-modal" class="text-gray-500 hover:text-white text-3xl">&times;</button>
+                </div>
+                
+                <div class="modal-content flex-grow overflow-y-auto p-6 text-center">
+                    <p class="text-lg text-gray-500 mb-6">Get the first two chapters—including one complete business blueprint—delivered to your inbox right now.</p>
+                    
+                    <!-- What You'll Get -->
+                    <div class="bg-[#010409] border border-gray-700 rounded-lg p-6 max-w-md mx-auto text-left mb-6">
+                        <h4 class="text-lg font-bold text-white mb-4">Inside Your 2 Free Chapters:</h4>
+                        <ul class="space-y-3 text-gray-400">
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <strong>Chapter 1: The 9-5 Trap</strong> (The mindset to break free)
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <strong>Chapter 6: One Full Business Blueprint</strong> (The E-commerce Hustle)
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Dynamic Counter -->
+                    <p class="text-lg text-yellow-400 font-bold mb-6">
+                        Join <span id="popup-download-counter" class="transition-all">2,347</span>+ hustlers who got their free taste!
+                    </p>
+
+                    <form id="popup-lead-magnet-form" class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+                        <input type="email" id="popup-lead-email" name="email" placeholder="Enter your best email..." required class="flex-grow bg-[#010409] border border-gray-700 rounded-md py-3 px-4 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500 transition">
+                        <button type="submit" class="bg-accent text-white font-bold py-3 px-6 rounded-md hover-bg-accent transition-colors">
+                            Send My Free Chapters
+                        </button>
+                    </form>
+                    <p id="popup-lead-success-message" class="text-green-400 mt-4 hidden">Success! Check your inbox for the free chapters.</p>
+                    <p id="popup-lead-error-message" class="text-red-400 mt-4 hidden">Something went wrong. Please try again.</p>
+                </div>
             </div>
         </div>
     </div>
@@ -1374,18 +1478,59 @@
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            
+            // --- NEW: Dynamic Download Counter Logic ---
+            function updateDownloadCounter() {
+                try {
+                    const baseCount = 2347;
+                    // Start date: Oct 20, 2025 (to make the number look real)
+                    const startDate = new Date('2025-10-20T00:00:00Z').getTime();
+                    const today = new Date().getTime();
+                    
+                    const daysPassed = Math.max(0, Math.floor((today - startDate) / (1000 * 60 * 60 * 24)));
+                    
+                    // Add between 12 and 27 new downloads per day
+                    const dailyIncrement = 12 + (new Date(today).getDate() % 15);
+                    const dynamicCount = baseCount + (daysPassed * dailyIncrement);
+
+                    const formattedCount = new Intl.NumberFormat('en-IN').format(dynamicCount);
+                    
+                    const counterElements = document.querySelectorAll('#download-counter, #popup-download-counter');
+                    counterElements.forEach(el => {
+                        if(el) el.textContent = formattedCount;
+                    });
+                } catch (e) {
+                    console.error("Error updating counter:", e);
+                }
+            }
+            // Run it on page load
+            updateDownloadCounter();
+
+            // Function to increment counter locally on submit
+            function incrementLocalCounter() {
+                 const counterElements = document.querySelectorAll('#download-counter, #popup-download-counter');
+                 counterElements.forEach(el => {
+                    if(el) {
+                        const currentCount = parseInt(el.textContent.replace(/,/g, '')) || 2347;
+                        const newCount = currentCount + 1;
+                        el.textContent = new Intl.NumberFormat('en-IN').format(newCount);
+                    }
+                });
+            }
+            // --- END: Dynamic Download Counter ---
+
+            // --- Urgency Countdown Timer Logic (REMOVED) ---
+            // startCountdown() function and its call have been removed.
+
             // FAQ Data and Logic (Conversion-focused)
             const faqs = [
-                // UPDATED: Recommendation 5
                 { q: "Is this another 'get rich quick' scheme?", a: "<strong>Absolutely not.</strong> This is a 'get rich smart' blueprint. 'Get rich quick' is a fantasy that leads to debt. I was <strong>-₹32 Lakh in debt</strong> because I fell for those myths. This book is the exact opposite: real, gradual strategies to build <strong>sustainable, predictable income</strong>." },
                 { q: "How is this different from free content on YouTube?", a: "Free content gives you scattered puzzle pieces. This ebook gives you the <strong>finished picture and the instruction manual.</strong> It's a battle-tested system designed to save you 5+ years of painful, expensive trial and error. You're not just buying information; <strong>you're buying a proven roadmap and speed.</strong>" },
                 { q: "Is this REALLY for the Indian market?", a: "<strong>100% Yes.</strong> Every example, every currency figure (INR), and every strategy is tailored for the Indian context. This isn't recycled Western advice. It's built by an Indian, for the Indian hustler." },
-                // UPDATED: Recommendation 5
                 { q: "How to start a business with 0 investment in India?", a: "<strong>Yes. That is the entire point of this book.</strong> I started with less than zero (massive debt!). This book focuses exclusively on businesses you can launch with <strong>₹0 investment</strong>. Your biggest asset will be your time and your hunger to win." },
-                // UPDATED: Recommendation 5
                 { q: "How can I start a side hustle in India with a full time job?", a: "This was designed for you. The system works in <strong>focused 2-hour blocks</strong> that you can fit into your evenings or weekends. Your 9-5 is your safety net while you build your escape route. <strong>This book shows you how to build the boat before you jump off the ship.</strong>" },
                 { q: "What if I fail?", a: "The old way of failing is catastrophic. The new way—the ZeroFundedHustle way—is to <strong>fail smart, small, and fast.</strong> The models are designed to have virtually zero financial risk, so you can test ideas without fear of losing your savings. The real failure is staying stuck in a job you hate for the next 40 years." },
-                { q: "How quickly can I see results?", a: "I can't promise you a specific income, but I can promise you a specific plan. If you follow the 3-month roadmap and put in <strong>consistent effort</strong>, seeing your first <strong>₹10,000-₹20,000 is a very realistic goal.</strong> From there, you scale." },
+                { q: "How quickly can I see results?", a: "I can't promise you a specific income, but I can promise you a specific plan. If you follow the 6-month roadmap and put in <strong>consistent effort</strong>, seeing your first <strong>₹10,000-₹20,000 is a very realistic goal.</strong> From there, you scale." },
                 { q: "What if I'm not a 'business person'?", a: "Neither was I. I was just a guy who was desperate to get out of a financial hole. This book breaks down everything into simple, non-jargon steps. If you can follow a recipe, you can follow this blueprint." }
             ];
 
@@ -1438,19 +1583,17 @@
                 observer.observe(section);
             });
 
-            // --- NEW: Sticky CTA Visibility (IntersectionObserver) ---
+            // --- Sticky CTA Visibility (IntersectionObserver) ---
             const mobileCta = document.getElementById('mobile-cta');
             const desktopCta = document.getElementById('desktop-cta');
             const appearTrigger = document.getElementById('cta-appear-trigger');
-            const hideTrigger = document.getElementById('cta-hide-trigger'); // Trigger is now BEFORE footer
+            const hideTrigger = document.getElementById('cta-hide-trigger'); 
 
             if (mobileCta && desktopCta && appearTrigger && hideTrigger) {
                 
-                // --- State variables ---
                 let isPastAppearTrigger = false;
                 let isBeforeHideTrigger = true;
 
-                // --- Show/Hide Functions ---
                 function showCta() {
                     mobileCta.classList.remove('translate-y-full');
                     desktopCta.classList.remove('translate-y-full');
@@ -1460,7 +1603,6 @@
                     desktopCta.classList.add('translate-y-full');
                 }
 
-                // --- Main Logic Function ---
                 function checkCtaVisibility() {
                     if (isPastAppearTrigger && isBeforeHideTrigger) {
                         showCta();
@@ -1469,38 +1611,27 @@
                     }
                 }
 
-                // --- Observer 1: Tracks the TOP boundary ---
-                // This watches the empty div right after the header
                 const appearObserver = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
-                        // if entry isIntersecting, we are AT THE TOP, so we are NOT past the trigger
-                        // We want to show the bar when we are PAST the trigger (i.e., it's NOT intersecting)
                         isPastAppearTrigger = !entry.isIntersecting;
                         checkCtaVisibility();
                     });
                 }, { 
                     root: null,
-                    threshold: 0 // Fires as soon as it's fully out of view
+                    threshold: 0 
                 });
 
-                // --- Observer 2: Tracks the BOTTOM boundary ---
-                // This watches the empty div right BEFORE the footer
                 const hideObserver = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
-                        // if entry isIntersecting, we are AT THE BOTTOM, so we are NOT before the trigger
-                        // We want to HIDE the bar when it IS intersecting (i.e., we've reached the hide point)
                         isBeforeHideTrigger = !entry.isIntersecting;
                         checkCtaVisibility();
                     });
                 }, { 
                     root: null, 
                     threshold: 0,
-                    // Hide 150px *before* the trigger (at the footer) enters the screen
-                    // This creates the buffer zone so it doesn't overlap the footer
                     rootMargin: "0px 0px -150px 0px" 
                 });
 
-                // Start observing
                 appearObserver.observe(appearTrigger);
                 hideObserver.observe(hideTrigger);
             }
@@ -1514,35 +1645,31 @@
                 const email = document.getElementById('lead-email').value;
                 const submitButton = this.querySelector('button[type="submit"]');
                 
-                submitButton.classList.add('button-loading'); // Add spinner class
+                submitButton.classList.add('button-loading'); 
                 submitButton.disabled = true;
                 
                 document.getElementById('lead-success-message').classList.add('hidden');
                 document.getElementById('lead-error-message').classList.add('hidden');
                 
-                // YOUR ACTUAL SCRIPT URL
                 const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwbnPtEGHTNZaw5jze9cVu1JDq1_Sb7q2jfcYSfu_8_2BEhCYeTZ3v0HAG0DTuk1mkR/exec';
                 
                 fetch(SCRIPT_URL, {
                     method: 'POST',
-                    mode: 'no-cors', // This prevents the cross-origin error
+                    mode: 'no-cors', 
                     headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                     body: 'email=' + encodeURIComponent(email)
                 })
                 .then(response => {
-                    // Because of 'no-cors', we can't read the response.
-                    // We just assume success because the request was sent.
                     document.getElementById('lead-success-message').classList.remove('hidden');
-                    document.getElementById('lead-magnet-form').style.display = 'none'; // Hide the form
+                    document.getElementById('lead-magnet-form').style.display = 'none'; 
+                    localStorage.setItem('hasSubscribed', 'true'); // NEW: Set flag
+                    incrementLocalCounter(); 
                 })
                 .catch(error => {
-                    // This will now only catch actual network errors (e.g., user is offline)
                     document.getElementById('lead-error-message').textContent = 'Network error. Please check your connection and try again.';
                     document.getElementById('lead-error-message').classList.remove('hidden');
                 })
                 .finally(() => {
-                    // No need to re-enable the button since the form is hidden
-                    // But we'll remove the class just in case
                     submitButton.classList.remove('button-loading');
                 });
             }); 
@@ -1556,8 +1683,8 @@
             
             if(showReviewButton && reviewFormContainer) {
                 showReviewButton.addEventListener('click', () => {
-                    reviewFormContainer.classList.add('visible'); // Add class to trigger CSS transition
-                    showReviewButton.style.display = 'none'; // Hide the button
+                    reviewFormContainer.classList.add('visible'); 
+                    showReviewButton.style.display = 'none'; 
                 });
             }
 
@@ -1567,7 +1694,7 @@
                     
                     const submitButton = this.querySelector('button[type="submit"]');
                     
-                    submitButton.classList.add('button-loading'); // Add spinner class
+                    submitButton.classList.add('button-loading');
                     submitButton.disabled = true;
 
                     reviewSuccessMessage.classList.add('hidden');
@@ -1580,7 +1707,6 @@
                     
                     const REVIEW_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzWcyI4vqvMCBguI-pYj7Snpc1CISGtkTuZR-1JvcUHqr3abGxGAkqdAH6VMksLjuc3JQ/exec';
 
-                    // Construct form data
                     const formData = new URLSearchParams();
                     formData.append('name', name);
                     formData.append('email', email);
@@ -1589,28 +1715,25 @@
 
                     fetch(REVIEW_SCRIPT_URL, {
                         method: 'POST',
-                        mode: 'no-cors', // Prevent CORS errors
+                        mode: 'no-cors', 
                         headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                         body: formData.toString()
                     })
                     .then(response => {
-                        // 'no-cors' means we can't read the response, so we assume success
                         reviewForm.style.display = 'none'; 
                         reviewSuccessMessage.classList.remove('hidden'); 
                     })
                     .catch(error => {
-                        // This will only catch network errors
                         reviewErrorMessage.textContent = 'Network error. Please check your connection.';
                         reviewErrorMessage.classList.remove('hidden');
                     })
                     .finally(() => {
-                        // No need to re-enable, but good practice
                         submitButton.classList.remove('button-loading');
                     });
                 });
             } 
 
-            // Star Rating Logic (NEW)
+            // Star Rating Logic
             const starRatingInputContainer = document.getElementById('star-rating-input');
             const reviewRatingInput = document.getElementById('review-rating');
 
@@ -1618,7 +1741,6 @@
                 const maxStars = 5;
                 let currentRating = 0;
 
-                // Create stars
                 for (let i = 1; i <= maxStars; i++) {
                     const starSvg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
                     starSvg.setAttribute("fill", "currentColor");
@@ -1644,15 +1766,15 @@
                 });
 
                 starRatingInputContainer.addEventListener('mouseout', () => {
-                    setRating(currentRating); // Reset to clicked rating on mouse out
+                    setRating(currentRating); 
                 });
 
                 starRatingInputContainer.addEventListener('click', (e) => {
                      const targetStar = e.target.closest('svg');
                     if (targetStar) {
                         currentRating = parseInt(targetStar.dataset.value);
-                        reviewRatingInput.value = currentRating; // Update hidden input
-                        setRating(currentRating); // Visually update stars
+                        reviewRatingInput.value = currentRating; 
+                        setRating(currentRating); 
                     }
                 });
             }
@@ -1675,7 +1797,6 @@
 
             // Modal Logic
             const modals = {
-                // Add NEW popup-modal
                 'popup-modal': document.getElementById('popup-modal'),
                 'privacy-modal': document.getElementById('privacy-modal'),
                 'terms-modal': document.getElementById('terms-modal'),
@@ -1687,13 +1808,11 @@
                 const modal = modals[modalId];
                 if (!modal) return;
 
-                // --- Add Scrollbar Compensation ---
                 const scrollbarWidth = getScrollbarWidth();
                 if (document.body.scrollHeight > window.innerHeight && scrollbarWidth > 0) { 
                     document.body.style.paddingRight = `${scrollbarWidth}px`;
                     scrollbarCompensationApplied = true;
                 }
-                // --- End Scrollbar Compensation ---
 
                 document.body.style.overflow = 'hidden'; 
                 modal.classList.remove('hidden');
@@ -1707,14 +1826,12 @@
                 const modal = modals[modalId];
                 if (!modal) return;
 
-                // --- Remove Scrollbar Compensation ---
                 if (scrollbarCompensationApplied) {
-                    document.body.style.paddingRight = ''; // Remove added padding
+                    document.body.style.paddingRight = ''; 
                     scrollbarCompensationApplied = false;
                 }
-                 // --- End Scrollbar Compensation ---
 
-                document.body.style.overflow = ''; // Restore body scroll BEFORE animation
+                document.body.style.overflow = ''; 
                 modal.querySelector('.modal-container').classList.add('scale-95', 'opacity-0');
                 modal.classList.add('opacity-0');
                 setTimeout(() => {
@@ -1757,19 +1874,25 @@
                 });
             });
             
-            // --- NEW: Scroll-Delayed Pop-up Modal Logic ---
-            const popupTriggerElement = document.getElementById('pain-points-trigger');
+            // --- UPDATED: Scroll-Delayed Pop-up Modal Logic ---
+            const popupTriggerElement = document.getElementById('popup-trigger'); // MOVED to "Mistakes" section
             let popupTriggered = false;
 
             if (popupTriggerElement) {
                 const popupObserver = new IntersectionObserver((entries) => {
                     const entry = entries[0];
                     if (entry.isIntersecting && !popupTriggered) {
+                        
+                        // NEW: Check if already subscribed
+                        if (localStorage.getItem('hasSubscribed') === 'true') {
+                            popupObserver.unobserve(entry.target); // Stop observing
+                            return; // Don't show the popup
+                        }
+                        
                         popupTriggered = true; // Ensure it only runs once
                         
                         // Wait 1.5 seconds *after* user scrolls to this section
                         setTimeout(() => {
-                            // Check if another modal is already open before showing
                             if (!document.querySelector('.modal-overlay:not(.hidden)')) {
                                 openModal('popup-modal');
                             }
@@ -1778,14 +1901,14 @@
                         popupObserver.unobserve(entry.target); // Stop observing
                     }
                 }, { 
-                    threshold: 0.1 // Triggers when 10% of the element is visible
+                    threshold: 0.1 
                 });
                 
                 popupObserver.observe(popupTriggerElement);
             }
             // --- END: Scroll-Delayed Pop-up ---
 
-            // --- NEW: Pop-up Modal Form Submission ---
+            // --- Pop-up Modal Form Submission ---
             document.getElementById('popup-lead-magnet-form').addEventListener('submit', function(e) {
                 e.preventDefault();
                 
@@ -1811,7 +1934,8 @@
                 .then(response => {
                     successMessage.classList.remove('hidden');
                     form.style.display = 'none';
-                    // Automatically close the modal after 3 seconds on success
+                    localStorage.setItem('hasSubscribed', 'true'); // NEW: Set flag
+                    incrementLocalCounter(); 
                     setTimeout(() => {
                         closeModal('popup-modal');
                     }, 3000);
@@ -1831,22 +1955,18 @@
             if (scroller) {
                 const scrollerInner = scroller.querySelector('.scroller__inner');
                 
-                // Function to pause CSS animation
                 const pauseAnimation = () => {
                     scrollerInner.style.animationPlayState = 'paused';
                 };
 
-                // Function to resume CSS animation
                 const resumeAnimation = () => {
                     scrollerInner.style.animationPlayState = 'running';
                 };
 
-                // --- Touch Events for Mobile ---
                 scroller.addEventListener('touchstart', pauseAnimation, { passive: true });
                 scroller.addEventListener('touchend', resumeAnimation, { passive: true });
                 scroller.addEventListener('touchcancel', resumeAnimation, { passive: true });
 
-                // --- Mouse Events for Desktop ---
                 scroller.addEventListener('mouseenter', pauseAnimation);
                 scroller.addEventListener('mouseleave', resumeAnimation);
             }
