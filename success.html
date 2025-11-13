@@ -3,37 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Payment Successful | ZeroFundedHustle</title>
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/favicon.png">
+    <title>Success! Your ZeroFundedHustle Blueprint Awaits</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Google Fonts -->
+    <!-- Google Fonts: Inter is already loaded, ensure all weights are available -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     
-    <!-- Site-wide Styles -->
+    <!-- Site-wide Styles & New UI/Animation Styles -->
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #010409;
-            color: #E6EDF3;
+            background-color: #010409; /* Deep space black */
+            color: #E6EDF3; /* Light gray text */
         }
+        
+        /* Core Color Scheme */
         .accent-color { color: #238636; } /* Vibrant Green */
         .bg-accent { background-color: #238636; }
         .hover-bg-accent:hover { background-color: #2EA043; }
         .border-accent { border-color: #238636; }
-        .shadow-accent\/20 { box-shadow: 0 10px 15px -3px rgba(35, 134, 54, 0.2), 0 4px 6px -2px rgba(35, 134, 0.1); }
         
-        .prose-dark { color: #8B949E; }
-        .prose-dark h1, .prose-dark h2, .prose-dark h3, .prose-dark strong { color: #E6EDF3; }
-        .prose-dark a { color: #238636; text-decoration: none; }
-        .prose-dark a:hover { text-decoration: underline; }
-        .prose-dark hr { border-color: #30363d; }
+        /* Custom Shadows and UI elements */
+        .shadow-glow { box-shadow: 0 0 40px rgba(35, 134, 54, 0.4); } /* Stronger green glow */
+        .card-bg { background-color: #0D1117; } /* Slightly lighter black for the card */
+        .card-border { border-color: #30363d; }
         
+        /* Modal Overlays (Existing styles maintained) */
         .modal-overlay { transition: opacity 0.3s ease; }
         .modal-container { transition: transform 0.3s ease, opacity 0.3s ease; }
         .modal-content::-webkit-scrollbar { width: 8px; }
@@ -41,25 +40,26 @@
         .modal-content::-webkit-scrollbar-thumb { background-color: #30363d; border-radius: 4px; border: 2px solid #0D1117; }
         .modal-content::-webkit-scrollbar-thumb:hover { background-color: #238636; }
 
-        /* --- ANIMATION STYLES --- */
+        /* --- ANIMATION STYLES (Tweaked for new design) --- */
         
-        /* Add transition for the new move-up animation */
+        /* Container for the loader/tick */
         #animation-container {
             transition: all 0.5s ease-out;
         }
 
-        /* Class to shrink and move the container */
+        /* Class to shrink and move the container to integrate with the card */
         .move-up-and-shrink {
-            height: 80px; 
+            height: 60px; /* Smaller height */
+            margin-bottom: 24px;
         }
 
         /* Loading Spinner */
         .loader {
-            border: 8px solid #30363d; /* Dark gray */
-            border-top: 8px solid #238636; /* Green */
+            border: 6px solid #30363d; /* Dark gray */
+            border-top: 6px solid #238636; /* Green */
             border-radius: 50%;
-            width: 80px;
-            height: 80px;
+            width: 50px; /* Smaller loader */
+            height: 50px;
             animation: spin 1s linear infinite;
         }
         @keyframes spin {
@@ -67,14 +67,14 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* Animated Tick */
+        /* Animated Tick (Shrunk to fit new design) */
         .svg-tick {
-            width: 100px;
-            height: 100px;
+            width: 50px; /* Smaller tick */
+            height: 50px;
         }
         .svg-tick path {
             stroke: #238636;
-            stroke-width: 5;
+            stroke-width: 4;
             stroke-dasharray: 1000;
             stroke-dashoffset: 1000;
             animation: draw-check 1.5s ease-out forwards;
@@ -95,10 +95,25 @@
                 opacity: 1;
             }
         }
-        /* --- END OF ANIMATION STYLES --- */
+
+        /* --- Confetti Simulation (Aesthetic Addition) --- */
+        .confetti-piece {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #238636;
+            opacity: 0;
+            animation: fall 3s ease-in-out forwards;
+        }
+
+        @keyframes fall {
+            0% { transform: translate(var(--x-start), -10vh) rotate(0deg); opacity: 1; }
+            100% { transform: translate(var(--x-end), 100vh) rotate(720deg); opacity: 0; }
+        }
+        
     </style>
 </head>
-<body class="antialiased">
+<body class="antialiased min-h-screen flex flex-col">
 
     <!-- Header -->
     <header class="bg-black/30 backdrop-blur-lg sticky top-0 z-50 border-b border-gray-800">
@@ -107,13 +122,16 @@
         </nav>
     </header>
 
+    <!-- Confetti Container -->
+    <div id="confetti-container" class="fixed inset-0 pointer-events-none z-10 overflow-hidden"></div>
+
     <!-- Main Success Content -->
-    <main class="py-12 sm:py-24 md:py-32">
+    <main class="flex-grow py-12 sm:py-24 md:py-32 flex items-center justify-center relative z-20">
         <div class="container mx-auto px-6 max-w-4xl">
-            <div class="flex flex-col items-center text-center">
+            <div class="card-bg border card-border rounded-xl p-6 sm:p-10 md:p-12 text-center shadow-2xl shadow-black/50">
                 
-                <!-- Animation Container -->
-                <div id="animation-container" class="flex items-center justify-center h-32">
+                <!-- Animation Container - Placed inside the card -->
+                <div id="animation-container" class="flex items-center justify-center h-20">
                     <!-- Loading Spinner (Visible by default) -->
                     <div id="loader" class="loader"></div>
                     <!-- Animated Tick (Hidden by default) -->
@@ -127,45 +145,55 @@
                 <!-- Main Content (Hidden by default, will fade in) -->
                 <div id="main-content" class="hidden fade-in w-full">
                     <!-- Heading -->
-                    <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-gray-200 mt-4 sm:mt-8">Payment Successful!</h1>
-                    <p class="mt-2 sm:mt-4 text-base sm:text-lg text-gray-400 mb-4 sm:mb-8">Your blueprint is on its way. Let the hustle begin.</p>
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-gray-100 mb-3">
+                        <span class="accent-color">Success!</span> You're In.
+                    </h1>
+                    <p class="text-base sm:text-lg text-gray-400 mb-8">
+                        Your transaction is complete. The **ZeroFunded Blueprint** is now yours.
+                    </p>
                     
-                    <!-- Motivational Quote -->
-                    <div class="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-gray-800 max-w-2xl mx-auto">
-                        <p class="text-lg sm:text-xl italic text-gray-300">"The journey of a thousand miles begins with a single step."</l>
-                        <p class="text-xs sm:text-sm text-gray-500 mt-2">- Laozi</p>
+                    <!-- Download Section Card -->
+                    <div class="bg-[#161b22] border border-gray-700 p-6 rounded-lg shadow-inner max-w-xl mx-auto">
+                        <svg class="w-8 h-8 accent-color mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l3-3m-3 3l-3-3m-6 3a9 9 0 1118 0v2a9 9 0 01-18 0v-2z"></path>
+                        </svg>
+                        <h2 class="text-xl font-semibold text-gray-200 mb-2">Download Your Blueprint Instantly</h2>
+                        <p class="text-sm text-gray-400 mb-6">
+                            Check your inbox for the download link and receipt. You can also grab it directly here:
+                        </p>
+
+                        <!-- Primary Download Button -->
+                        <a href="[YOUR_DIGITAL_DOWNLOAD_LINK_HERE]" 
+                           class="bg-accent text-white font-bold py-3 px-10 text-base sm:text-lg rounded-full hover-bg-accent transition-all duration-300 shadow-lg shadow-accent/40 inline-flex items-center space-x-2 transform hover:scale-[1.03]">
+                            <span>Download Now</span>
+                        </a>
                     </div>
                     
-                    <p class="mt-6 text-sm text-gray-400 max-w-lg mx-auto">
-                        Check your inbox for the attached ebook.
-                        If it doesn't arrive, you can also download it directly below.
-                    </p>
-
-                    <!-- Primary Download Button -->
-                    <a href="[YOUR_DIGITAL_DOWNLOAD_LINK_HERE]" 
-                       class="mt-6 sm:mt-8 bg-accent text-white font-bold py-3 px-10 text-base sm:text-lg rounded-md hover-bg-accent transition-colors shadow-lg shadow-accent/20 inline-block">
-                        Download Your Blueprint
-                    </a>
-
-                    <!-- New Return to Home CTA -->
-                    <a href="/" 
-                       class="mt-4 text-sm accent-color hover:underline block">
-                        Return to Home Page
-                    </a>
-
-                    <!-- Support Link -->
-                    <p class="mt-12 sm:mt-24 text-sm text-gray-500 max-w-lg mx-auto">
-                        Having an issue? If you haven't received the email or can't download,
-                        please email <a href="mailto:zerofundedhustle@gmail.com" class="accent-color hover:underline">zerofundedhustle@gmail.com</a>
-                        with your payment screenshot and details. We're happy to help!
-                    </p>
+                    <!-- Support and Next Steps -->
+                    <div class="mt-10 pt-6 border-t border-gray-800">
+                        <p class="text-lg italic text-gray-300">
+                            "The first step toward getting somewhere is to decide that you are not going to stay where you are."
+                        </p>
+                        <p class="text-sm text-gray-500 mt-2">— J.P. Morgan</p>
+                    </div>
+                    
+                    <!-- Secondary CTA and Support -->
+                    <div class="mt-8 flex flex-col sm:flex-row justify-center items-center gap-4">
+                        <a href="/" 
+                           class="px-6 py-2 text-sm font-medium accent-color border border-gray-700 rounded-full hover:bg-gray-800 transition-colors">
+                            Return to Homepage
+                        </a>
+                        <p class="text-xs text-gray-500">
+                            Need help? <a href="mailto:zerofundedhustle@gmail.com" class="accent-color hover:underline font-medium">Contact Support</a>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
     </main>
 
     <!-- Footer -->
-    <footer class="mt-12 sm:mt-24 py-12 border-t border-gray-800">
+    <footer class="mt-auto py-12 border-t border-gray-800 flex-shrink-0">
         <div class="container mx-auto px-6 text-center text-gray-500">
             <div class="mb-6">
                 <a href="https://www.instagram.com/zerofundedhustle" target="_blank" class="mx-3 hover:text-green-400 transition-colors">Instagram</a>
@@ -291,46 +319,28 @@
         </div>
     </div>
 
-    <!-- Modal Popup JS (Consistent with other pages) -->
+    <!-- Modal Popup & Animation JS -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
 
-            // --- NEW: PAYMENT SUCCESS PAGE PROTECTION ---
-            // This script checks if the user was redirected from PayU
-            // or if they just typed 'success.html' in the URL.
+            // --- PAYMENT SUCCESS PAGE PROTECTION (Kept from original file) ---
             const urlParams = new URLSearchParams(window.location.search);
-            const txnId = urlParams.get('txnid'); // PayU sends 'txnid'
-            const status = urlParams.get('status'); // PayU sends 'status'
+            const txnId = urlParams.get('txnid'); 
+            const status = urlParams.get('status'); 
 
-            // 1. Check if essential parameters are missing
-            if (!txnId || !status) {
-                // If no txnid or status, they didn't come from PayU. Redirect home.
-                // This prevents direct URL access.
-                // FIX: Use the full, absolute URL to prevent the error.
+            if (!txnId || status !== 'success') {
+                // If invalid, redirect home. Use the full, absolute URL to prevent the error.
                 window.location.href = 'https://zerofundedhustle.com/'; 
-                return; // Stop executing any further script
+                return; 
             }
-
-            // 2. Check if the payment status is not 'success'
-            if (status !== 'success') {
-                // If it's 'failure' or 'pending', redirect home.
-                // FIX: Use the full, absolute URL to prevent the error.
-                window.location.href = 'https://zerofundedhustle.com/'; // Redirect home
-                return; // Stop executing any further script
-            }
-
-            // 3. If we are here, the page load is valid.
-            console.log('Valid payment redirect detected:', { txnId, status });
             
-            // 4. Clean the URL in the browser bar
-            // This removes the ?txnid=... and makes the URL look clean.
-            // Note: We use the full path to be safe.
+            // Clean the URL in the browser bar
             const cleanUrl = window.location.protocol + "//" + window.location.host + window.location.pathname;
             window.history.replaceState({}, '', cleanUrl);
             // --- END OF PROTECTION SCRIPT ---
 
 
-            // --- MODAL POPUP LOGIC ---
+            // --- MODAL POPUP LOGIC (Kept from original file) ---
             const modals = {
                 'privacy-modal': document.getElementById('privacy-modal'),
                 'terms-modal': document.getElementById('terms-modal'),
@@ -396,14 +406,43 @@
                 });
             });
 
-            // --- ANIMATION LOGIC ---
+            // --- ANIMATION LOGIC (Updated) ---
             const loader = document.getElementById('loader');
             const tickContainer = document.getElementById('tick-container');
             const mainContent = document.getElementById('main-content');
             const animationContainer = document.getElementById('animation-container'); 
+            const confettiContainer = document.getElementById('confetti-container');
+
+            // Confetti Generation Function
+            function launchConfetti() {
+                const colors = ['#238636', '#E6EDF3', '#30363d'];
+                for (let i = 0; i < 50; i++) {
+                    const piece = document.createElement('div');
+                    piece.classList.add('confetti-piece');
+                    
+                    // Randomize properties
+                    const size = Math.random() * 8 + 4; 
+                    piece.style.width = `${size}px`;
+                    piece.style.height = `${size}px`;
+                    piece.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    piece.style.left = `${Math.random() * 100}vw`;
+                    piece.style.animationDelay = `${Math.random() * 0.5}s`;
+                    piece.style.animationDuration = `${Math.random() * 2 + 3}s`;
+                    
+                    // Custom CSS variables for randomized animation
+                    piece.style.setProperty('--x-start', `${(Math.random() - 0.5) * 200}px`);
+                    piece.style.setProperty('--x-end', `${(Math.random() - 0.5) * 200}px`);
+                    
+                    confettiContainer.appendChild(piece);
+                    
+                    // Clean up confetti pieces after animation ends
+                    piece.addEventListener('animationend', () => piece.remove());
+                }
+            }
+
 
             if (loader && tickContainer && mainContent && animationContainer) { 
-                // 1. Show loader for 2 seconds (simulating processing)
+                // 1. Show loader for 1.5 seconds (simulating processing)
                 setTimeout(() => {
                     // Hide loader
                     loader.classList.add('hidden');
@@ -411,16 +450,19 @@
                     // Show animated tick
                     tickContainer.classList.remove('hidden');
                     
+                    // Launch confetti right after the tick appears
+                    launchConfetti();
+                    
                     // 2. After tick animation (1.5s), move tick up AND fade in content
                     setTimeout(() => {
-                        // NEW: Add the class to move the tick container up and shrink it
+                        // Move the tick container up and shrink it
                         animationContainer.classList.add('move-up-and-shrink');
                         
                         // Show the main content to fade in
                         mainContent.classList.remove('hidden');
                     }, 1500); // Wait 1.5s for tick to draw
 
-                }, 2000); // Wait 2s for "processing"
+                }, 1500); // Wait 1.5s for "processing"
             }
             // --- END OF ANIMATION LOGIC ---
         });
