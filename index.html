@@ -166,6 +166,34 @@
             background: #2EA043;
             box-shadow: 0 0 10px #2EA043, 0 0 25px #2EA043, 0 0 50px #2EA043;
         }
+        /* New Pulse Animation for CTA */
+        @keyframes pulse-once {
+            0% { transform: scale(1); box-shadow: 0 0 5px #238636, 0 0 15px #238636; }
+            50% { transform: scale(1.02); box-shadow: 0 0 10px #2EA043, 0 0 20px #2EA043, 0 0 30px #2EA043; }
+            100% { transform: scale(1); box-shadow: 0 0 5px #238636, 0 0 15px #238636, 0 0 25px #238636; }
+        }
+        .glowing-btn.pulsing {
+            animation: pulse-once 1.2s ease-out; /* Play animation once on load via JS */
+        }
+        /* Secondary/Ghost Button Style (NEW) */
+        .secondary-btn {
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            border: 2px solid #238636; /* Accent border */
+            background: transparent;
+            color: #E6EDF3;
+            font-weight: 700;
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+            display: inline-block; /* Ensure it behaves like a button/link */
+            text-align: center;
+        }
+        .secondary-btn:hover {
+            background-color: rgba(35, 134, 54, 0.2); /* Light accent background on hover */
+            color: #ffffff;
+            border-color: #2EA043;
+        }
+        /* End Pulse Animation and Dual CTA Styles */
+        
         .star-rating {
             color: #FFD700; /* Gold color for stars */
         }
@@ -351,6 +379,26 @@
             animation: spin 0.8s linear infinite;
         }
         /* --- End Button Loading Spinner --- */
+        
+        /* --- Hero Trust Banner Styles (UPDATED) --- */
+        .star-svg {
+            color: #FFD700;
+            width: 1rem; /* Smaller size for the social proof block */
+            height: 1rem;
+        }
+        /* --- End Hero Trust Banner Styles --- */
+        /* --- Hero Section Specific Adjustments for compactness --- */
+        .hero-section-padding {
+            /* Adjusted to reduce vertical space significantly */
+            padding-top: 5rem; /* 80px */
+            padding-bottom: 5rem; /* 80px */
+            /* On larger screens, use larger padding but still less than default */
+            @media (min-width: 768px) {
+                padding-top: 6rem; /* 96px */
+                padding-bottom: 6rem; /* 96px */
+            }
+        }
+        /* --- End Hero Section Specific Adjustments --- */
 
     </style>
 </head>
@@ -373,32 +421,74 @@
     <!-- Main Content -->
     <main>
 
-        <!-- Hero Section -->
-        <section class="py-24 md:py-32">
-            <div class="container mx-auto px-6 text-center">
-                <h1 class="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter text-gray-200 mb-4">Your Salary Is A Cage.</h1>
-                <h2 class="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter animated-gradient mb-8">Build The Key.</h2>
-                <p class="text-lg md:text-xl text-gray-500 max-w-3xl mx-auto mb-6">The zero-risk blueprint for building a real side business that replaces your income, even if you have no time, no money, and no experience.</p>
-                <!-- UPDATED HIGHLIGHT -->
-                <p class="text-lg md:text-xl font-semibold text-gray-300 max-w-4xl mx-auto mb-12 leading-relaxed">
-                    From <span class="text-red-500">₹32 Lakh Debt</span> & <span class="text-gray-400">27k a month</span> → <span class="accent-color">+₹5 Lakh/Month</span><br class="hidden md:block"> Using These <span class="accent-color">6 Zero-Risk Side Hustles</span>
+        <!-- Hero Section (UPDATED for maximum headline size and constrained content width) -->
+        <section class="hero-section-padding"> <!-- Applied custom reduced padding class -->
+            <div class="container mx-auto px-6 text-center max-w-6xl">
+                
+                <!-- Main Headlines (Font size maximized) -->
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter text-gray-200 mb-1 leading-tight">Your Salary Is A Cage.</h1>
+                <h2 class="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter animated-gradient mb-4 leading-tight">Build The Key.</h2>
+                
+                <!-- Financial Highlight (Constrained width, LARGER FONT FOR IMPACT) -->
+                <!-- Split into two lines for readability and highlight, placed ABOVE description as the primary sub-heading -->
+                <p class="text-xl md:text-2xl font-black text-gray-300 max-w-2xl mx-auto mb-2 leading-relaxed">
+                    From <span class="text-red-500">₹32 Lakh Debt</span> & <span class="text-gray-400">27k a month</span> → <span class="text-green-400">+₹5 Lakh/Month</span>
                 </p>
-                <!-- END UPDATED HIGHLIGHT -->
-                
-                <!-- Updated Hero CTA Button -->
-                <a href="https://u.payu.in/nIsRdQdIBGDX" class="glowing-btn text-lg font-bold inline-block">
-                    Start Your Escape →
-                </a>
-                
-                <!-- NEW: CTA Sub-text (From Recommendation) -->
-                <p class="text-sm text-gray-500 mt-4">Instant Access for ₹299 • 14-Day "Do The Work" Guarantee</p>
-                
-                <!-- NEW: Free Chapters Link -->
-                <p class="text-gray-400 mt-4">
-                    or <a href="#lead-magnet-section" class="text-green-400 font-medium underline hover:text-green-300 transition-colors">Get 2 FREE Chapters</a>
+                <p class="text-lg md:text-xl font-bold text-gray-500 max-w-2xl mx-auto mb-8 leading-relaxed">
+                    Using These <span class="accent-color">6 Zero-Risk Side Hustles</span>
                 </p>
+                
+                <!-- Description Paragraph (Constrained width, smaller font) -->
+                <p class="text-base md:text-lg text-gray-400 max-w-2xl mx-auto mb-6">
+                    The **zero-risk blueprint** for building a real side business that replaces your income, even if you have no time, no money, and no experience.
+                </p>
+                
+                <!-- DUAL CTAs (Constrained width) -->
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mb-4 max-w-2xl mx-auto">
+                    <!-- Primary CTA (glowing-btn) -->
+                    <a id="hero-cta-btn" href="https://u.payu.in/nIsRdQdIBGDX" class="glowing-btn text-lg font-bold w-full sm:w-auto">
+                        Start Your Escape →
+                    </a>
+                    
+                    <!-- Secondary CTA (New ghost style button) -->
+                    <a href="#lead-magnet-section" class="secondary-btn text-lg font-bold w-full sm:w-auto">
+                        Get 2 FREE Chapters
+                    </a>
+                </div>
+                
+                <!-- Social Proof / Trust Element (Constrained width, smaller vertical spacing) -->
+                <div class="flex flex-col items-center justify-center space-y-1"> 
+                     <!-- Mock Avatars (to match the sample visually) -->
+                     <div class="flex -space-x-2 overflow-hidden">
+                         <!-- Placeholder Avatars -->
+                         <img class="inline-block h-7 w-7 rounded-full ring-2 ring-gray-900 bg-gray-600 object-cover" src="https://placehold.co/28x28/1f2937/d1d5db?text=A" alt="Avatar A">
+                         <img class="inline-block h-7 w-7 rounded-full ring-2 ring-gray-900 bg-gray-600 object-cover" src="https://placehold.co/28x28/1f2937/d1d5db?text=B" alt="Avatar B">
+                         <img class="inline-block h-7 w-7 rounded-full ring-2 ring-gray-900 bg-gray-600 object-cover" src="https://placehold.co/28x28/1f2937/d1d5db?text=C" alt="Avatar C">
+                         <!-- Dynamic Count Mock -->
+                         <div class="inline-block h-7 w-7 rounded-full ring-2 ring-gray-900 bg-green-700 flex items-center justify-center text-xs font-bold text-white">+2k</div>
+                     </div>
+                     
+                     <!-- Trust Text (Dynamic content handled by JS) -->
+                     <div class="flex items-center text-gray-400 text-xs md:text-sm space-x-1"> 
+                         <!-- Star Rating Visual -->
+                         <div class="star-rating flex">
+                             <!-- Star SVG (5 times) -->
+                             <svg class="star-svg" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+                             <svg class="star-svg" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+                             <svg class="star-svg" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+                             <svg class="star-svg" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+                             <svg class="star-svg" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+                         </div>
+                         <span id="trust-download-count" class="font-semibold">2,347+ Hustlers Escaped</span>
+                     </div>
+                </div>
+                
+                <!-- CTA Sub-text (Final line) -->
+                <p class="text-xs text-gray-500 mt-2">14-Day "Do The Work" Guarantee included. Instant Access for ₹299.</p>
+
             </div>
         </section>
+        <!-- END Hero Section -->
 
         <!-- Scrolling Banner Section (Location 1) -->
         <section class="banner-scroller border-y border-gray-800">
@@ -569,7 +659,7 @@
                           <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 17.25V6.75l3.75 3.75 3.75-3.75L15 11.25l3.75-3.75L20.25 9" />
                         </svg>
                         <h3 class="font-bold text-xl text-gray-200 mb-2">1. Never Tracking My Money</h3>
-                        <p class="text-gray-400 flex-grow">I made ₹2L/month but had <20k left. It just... vanished. I was making money but not building wealth. A fool's game.</p>
+                        <p class="text-gray-400 flex-grow">I made ₹2L/month but had &lt;20k left. It just... vanished. I was making money but not building wealth. A fool's game.</p>
                     </div>
                     <!-- Mistake 2 -->
                     <div class="mistake-card text-left p-6">
@@ -1335,7 +1425,7 @@
                     
                     <!-- What You'll Get -->
                     <div class="bg-[#010409] border border-gray-700 rounded-lg p-6 max-w-md mx-auto text-left mb-6">
-                        <h4 class="text-lg font-bold text-white mb-4">Inside Your 2 Free Chapters:</h4>
+                        <h4 class="text-xl font-bold text-white mb-4">Inside Your 2 Free Chapters:</h4>
                         <ul class="space-y-3 text-gray-400">
                             <li class="flex items-center">
                                 <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
@@ -1420,7 +1510,7 @@
         <div class="modal-container bg-[#0D1117] border border-gray-800 rounded-lg w-full max-w-3xl max-h-[90vh] flex flex-col transform scale-95 opacity-0">
             <div class="flex-shrink-0 p-6 border-b border-gray-800 flex justify-between items-center">
                 <h2 class="text-2xl font-bold text-gray-200">Refund Policy</h2>
-                <button data-close-modal="refund-modal" class="text-gray-500 hover:text-white text-3xl">&times;</V>
+                <button data-close-modal="refund-modal" class="text-gray-500 hover:text-white text-3xl">&times;</button>
             </div>
             <div class="modal-content flex-grow overflow-y-auto p-6">
                 <p class="text-sm text-gray-500 mb-6">Last Updated: October 21, 2025</p>
@@ -1499,6 +1589,13 @@
                     counterElements.forEach(el => {
                         if(el) el.textContent = formattedCount;
                     });
+                    
+                    // NEW: Update the Hero trust banner dynamically (using a mock static value for star rating for simplicity)
+                    const trustDownloadCount = document.getElementById('trust-download-count');
+                    if (trustDownloadCount) {
+                         trustDownloadCount.textContent = `${formattedCount}+ Hustlers Escaped`;
+                    }
+                    
                 } catch (e) {
                     console.error("Error updating counter:", e);
                 }
@@ -1518,10 +1615,43 @@
                 });
             }
             // --- END: Dynamic Download Counter ---
+            
+            // --- CTA Pulse Animation ---
+            const heroCtaButton = document.getElementById('hero-cta-btn');
+            if (heroCtaButton) {
+                 // Add the pulsing class briefly on load
+                 heroCtaButton.classList.add('pulsing');
+                 setTimeout(() => {
+                     heroCtaButton.classList.remove('pulsing');
+                 }, 1200); // Remove after one animation cycle
+            }
+            // --- End CTA Pulse Animation ---
 
-            // --- Urgency Countdown Timer Logic (REMOVED) ---
-            // startCountdown() function and its call have been removed.
 
+            // Function to generate the review card structure (for future use/display)
+            function generateReviewCard(review) {
+                 const starSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4 text-yellow-400"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>`;
+                 const stars = Array(review.rating).fill(starSvg).join('');
+                 
+                 return `
+                    <div class="testimonial-card text-left">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-full mr-4 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-500 flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
+                                    <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.78 6.125-2.095a1.23 1.23 0 00.41-1.412A9.99 9.99 0 0010 12a9.99 9.99 0 00-6.535 2.493z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="font-bold text-gray-200">${review.name}</p>
+                                <div class="star-rating flex">${stars}</div>
+                            </div>
+                        </div>
+                        <p class="text-lg text-gray-400">"${review.review}"</p>
+                    </div>
+                 `;
+            }
+            // --- End Review Card Generator ---
+            
             // FAQ Data and Logic (Conversion-focused)
             const faqs = [
                 { q: "Is this another 'get rich quick' scheme?", a: "<strong>Absolutely not.</strong> This is a 'get rich smart' blueprint. 'Get rich quick' is a fantasy that leads to debt. I was <strong>-₹32 Lakh in debt</strong> because I fell for those myths. This book is the exact opposite: real, gradual strategies to build <strong>sustainable, predictable income</strong>." },
