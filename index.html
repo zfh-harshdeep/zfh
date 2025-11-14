@@ -389,13 +389,13 @@
         /* --- End Hero Trust Banner Styles --- */
         /* --- Hero Section Specific Adjustments for compactness --- */
         .hero-section-padding {
-            /* Adjusted to reduce vertical space significantly */
-            padding-top: 5rem; /* 80px */
-            padding-bottom: 5rem; /* 80px */
-            /* On larger screens, use larger padding but still less than default */
+            /* Aggressive vertical compression for mobile (3rem top/bottom) */
+            padding-top: 3rem; 
+            padding-bottom: 3rem; 
+            /* Restore desktop padding for md and up */
             @media (min-width: 768px) {
-                padding-top: 6rem; /* 96px */
-                padding-bottom: 6rem; /* 96px */
+                padding-top: 6rem; /* 96px, keeps desktop look */
+                padding-bottom: 6rem; /* 96px, keeps desktop look */
             }
         }
         /* --- End Hero Section Specific Adjustments --- */
@@ -427,24 +427,24 @@
                 
                 <!-- Main Headlines (Font size maximized) -->
                 <h1 class="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter text-gray-200 mb-1 leading-tight">Your Salary Is A Cage.</h1>
-                <h2 class="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter animated-gradient mb-4 leading-tight">Build The Key.</h2>
+                <h2 class="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter animated-gradient mb-2 leading-tight">Build The Key.</h2>
                 
                 <!-- Financial Highlight (Constrained width, LARGER FONT FOR IMPACT) -->
                 <!-- Split into two lines for readability and highlight, placed ABOVE description as the primary sub-heading -->
-                <p class="text-xl md:text-2xl font-black text-gray-300 max-w-2xl mx-auto mb-2 leading-relaxed">
+                <p class="text-lg md:text-2xl font-black text-gray-300 max-w-2xl mx-auto mb-1 leading-relaxed">
                     From <span class="text-red-500">₹32 Lakh Debt</span> & <span class="text-gray-400">27k a month</span> → <span class="text-green-400">+₹5 Lakh/Month</span>
                 </p>
-                <p class="text-lg md:text-xl font-bold text-gray-500 max-w-2xl mx-auto mb-8 leading-relaxed">
+                <p class="text-base md:text-xl font-bold text-gray-500 max-w-2xl mx-auto mb-4 leading-relaxed">
                     Using These <span class="accent-color">6 Zero-Risk Side Hustles</span>
                 </p>
                 
                 <!-- Description Paragraph (Constrained width, smaller font) -->
-                <p class="text-base md:text-lg text-gray-400 max-w-2xl mx-auto mb-6">
+                <p class="text-base md:text-lg text-gray-400 max-w-2xl mx-auto mb-4">
                     The **zero-risk blueprint** for building a real side business that replaces your income, even if you have no time, no money, and no experience.
                 </p>
                 
                 <!-- DUAL CTAs (Constrained width) -->
-                <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mb-4 max-w-2xl mx-auto">
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mb-2 max-w-2xl mx-auto">
                     <!-- Primary CTA (glowing-btn) -->
                     <a id="hero-cta-btn" href="https://u.payu.in/nIsRdQdIBGDX" class="glowing-btn text-lg font-bold w-full sm:w-auto">
                         Start Your Escape →
@@ -1163,6 +1163,300 @@
                             </div>
                             <p class="text-lg text-gray-400">"Honestly, I thought it was another scam. The 'Do The Work' guarantee made me try it. Best ₹299 I've ever spent. <strong>The mindset section alone is life-changing.</strong> No exaggeration."</p>
                         </div>
+
+                        <!-- DUPLICATE SET for infinite scroll -->
+                        <div class="testimonial-card text-left">
+                            <div class="flex items-center mb-4">
+                                <!-- IMPROVED AVATAR -->
+                                <div class="w-12 h-12 rounded-full mr-4 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-500 flex-shrink-0">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
+                                        <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.78 6.125-2.095a1.23 1.23 0 00.41-1.412A9.99 9.99 0 0010 12a9.99 9.99 0 00-6.535 2.493z" />
+                                    </svg>
+                                </div>
+                                <!-- END AVATAR -->
+                                <div>
+                                    <p class="font-bold text-gray-200">Aman Sharma, Bengaluru</p>
+                                    <div class="star-rating">★★★★★</div>
+                                </div>
+                            </div>
+                            <p class="text-lg text-gray-400">"I felt so stuck. Harshdeep's book gave me a clear plan. <strong>I started the e-commerce hustle and made my first ₹10,000 in just 3 weeks!</strong> This was the push I desperately needed."</p>
+                        </div>
+                        <div class="testimonial-card text-left">
+                             <div class="flex items-center mb-4">
+                                <!-- IMPROVED AVATAR -->
+                                <div class="w-12 h-12 rounded-full mr-4 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-500 flex-shrink-0">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
+                                        <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.78 6.125-2.095a1.23 1.23 0 00.41-1.412A9.99 9.99 0 0010 12a9.99 9.99 0 00-6.535 2.493z" />
+                                    </svg>
+                                </div>
+                                <!-- END AVATAR -->
+                                <div>
+                                    <p class="font-bold text-gray-200">Priya Kulkarni, Mumbai</p>
+                                    <div class="star-rating">★★★★★</div>
+                                </div>
+                            </div>
+                            <p class="text-lg text-gray-400">"The mindset chapters alone are worth 10x the price. <strong>The 'Capital Compass' concept completely changed how I see my own skills.</strong> It's not about money; it's about resourcefulness. Priceless."</p>
+                        </div>
+                        <div class="testimonial-card text-left">
+                             <div class="flex items-center mb-4">
+                                <!-- IMPROVED AVATAR -->
+                                <div class="w-12 h-12 rounded-full mr-4 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-500 flex-shrink-0">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
+                                        <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.78 6.125-2.095a1.23 1.23 0 00.41-1.412A9.99 9.99 0 0010 12a9.99 9.99 0 00-6.535 2.493z" />
+                                    </svg>
+                                </div>
+                                <!-- END AVATAR -->
+                                <div>
+                                    <p class="font-bold text-gray-200">Rohan Verma, Delhi</p>
+                                    <div class="star-rating">★★★★★</div>
+                                </div>
+                            </div>
+                            <p class="text-lg text-gray-400">"No fluff, no BS. This is a real, actionable guide for the Indian market. <strong>It's the first book that truly understands our struggle and provides a practical way out.</strong> Highly recommended."</p>
+                        </div>
+                        <div class="testimonial-card text-left">
+                            <div class="flex items-center mb-4">
+                                <!-- IMPROVED AVATAR -->
+                                <div class="w-12 h-12 rounded-full mr-4 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-500 flex-shrink-0">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
+                                        <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.78 6.125-2.095a1.23 1.23 0 00.41-1.412A9.99 9.99 0 0010 12a9.99 9.99 0 00-6.535 2.493z" />
+                                    </svg>
+                                </div>
+                                <!-- END AVATAR -->
+                                <div>
+                                    <p class="font-bold text-gray-200">Sameer Tambe, Pune</p>
+                                    <div class="star-rating">★★★★★</div>
+                                </div>
+                            </div>
+                            <p class="text-lg text-gray-400">"As a student, this was a goldmine. The zero-investment models are practical, not just theory. <strong>Already started my first side hustle using the service blueprint.</strong>"</p>
+                        </div>
+                        <div class="testimonial-card text-left">
+                             <div class="flex items-center mb-4">
+                                <!-- IMPROVED AVATAR -->
+                                <div class="w-12 h-12 rounded-full mr-4 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-500 flex-shrink-0">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
+                                        <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.78 6.125-2.095a1.23 1.23 0 00.41-1.412A9.99 9.99 0 0010 12a9.99 9.99 0 00-6.535 2.493z" />
+                                    </svg>
+                                </div>
+                                <!-- END AVATAR -->
+                                <div>
+                                    <p class="font-bold text-gray-200">Meera Gupta, Hyderabad</p>
+                                    <div class="star-rating">★★★★★</div>
+                                </div>
+                            </div>
+                            <p class="text-lg text-gray-400">"I was so tired of my corporate job but too scared to leave. This book gave me the courage and the *exact steps* to start building something for myself on the side. <strong>My safety net is finally growing.</strong>"</p>
+                        </div>
+                        <div class="testimonial-card text-left">
+                             <div class="flex items-center mb-4">
+                                <!-- IMPROVED AVATAR -->
+                                <div class="w-12 h-12 rounded-full mr-4 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-500 flex-shrink-0">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
+                                        <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.78 6.125-2.095a1.23 1.23 0 00.41-1.412A9.99 9.99 0 0010 12a9.99 9.99 0 00-6.535 2.493z" />
+                                    </svg>
+                                </div>
+                                <!-- END AVATAR -->
+                                <div>
+                                    <p class="font-bold text-gray-200">Vikram Nair, Chennai</p>
+                                    <div class="star-rating">★★★★★</div>
+                                </div>
+                            </div>
+                            <p class="text-lg text-gray-400">"Honestly, I thought it was another scam. The 'Do The Work' guarantee made me try it. Best ₹299 I've ever spent. <strong>The mindset section alone is life-changing.</strong> No exaggeration."</p>
+                        </div>
+
+                        <!-- DUPLICATE SET for infinite scroll -->
+                        <div class="testimonial-card text-left">
+                            <div class="flex items-center mb-4">
+                                <!-- IMPROVED AVATAR -->
+                                <div class="w-12 h-12 rounded-full mr-4 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-500 flex-shrink-0">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
+                                        <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.78 6.125-2.095a1.23 1.23 0 00.41-1.412A9.99 9.99 0 0010 12a9.99 9.99 0 00-6.535 2.493z" />
+                                    </svg>
+                                </div>
+                                <!-- END AVATAR -->
+                                <div>
+                                    <p class="font-bold text-gray-200">Aman Sharma, Bengaluru</p>
+                                    <div class="star-rating">★★★★★</div>
+                                </div>
+                            </div>
+                            <p class="text-lg text-gray-400">"I felt so stuck. Harshdeep's book gave me a clear plan. <strong>I started the e-commerce hustle and made my first ₹10,000 in just 3 weeks!</strong> This was the push I desperately needed."</p>
+                        </div>
+                        <div class="testimonial-card text-left">
+                             <div class="flex items-center mb-4">
+                                <!-- IMPROVED AVATAR -->
+                                <div class="w-12 h-12 rounded-full mr-4 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-500 flex-shrink-0">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
+                                        <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.78 6.125-2.095a1.23 1.23 0 00.41-1.412A9.99 9.99 0 0010 12a9.99 9.99 0 00-6.535 2.493z" />
+                                    </svg>
+                                </div>
+                                <!-- END AVATAR -->
+                                <div>
+                                    <p class="font-bold text-gray-200">Priya Kulkarni, Mumbai</p>
+                                    <div class="star-rating">★★★★★</div>
+                                </div>
+                            </div>
+                            <p class="text-lg text-gray-400">"The mindset chapters alone are worth 10x the price. <strong>The 'Capital Compass' concept completely changed how I see my own skills.</strong> It's not about money; it's about resourcefulness. Priceless."</p>
+                        </div>
+                        <div class="testimonial-card text-left">
+                             <div class="flex items-center mb-4">
+                                <!-- IMPROVED AVATAR -->
+                                <div class="w-12 h-12 rounded-full mr-4 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-500 flex-shrink-0">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
+                                        <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.78 6.125-2.095a1.23 1.23 0 00.41-1.412A9.99 9.99 0 0010 12a9.99 9.99 0 00-6.535 2.493z" />
+                                    </svg>
+                                </div>
+                                <!-- END AVATAR -->
+                                <div>
+                                    <p class="font-bold text-gray-200">Rohan Verma, Delhi</p>
+                                    <div class="star-rating">★★★★★</div>
+                                </div>
+                            </div>
+                            <p class="text-lg text-gray-400">"No fluff, no BS. This is a real, actionable guide for the Indian market. <strong>It's the first book that truly understands our struggle and provides a practical way out.</strong> Highly recommended."</p>
+                        </div>
+                        <div class="testimonial-card text-left">
+                            <div class="flex items-center mb-4">
+                                <!-- IMPROVED AVATAR -->
+                                <div class="w-12 h-12 rounded-full mr-4 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-500 flex-shrink-0">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
+                                        <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.78 6.125-2.095a1.23 1.23 0 00.41-1.412A9.99 9.99 0 0010 12a9.99 9.99 0 00-6.535 2.493z" />
+                                    </svg>
+                                </div>
+                                <!-- END AVATAR -->
+                                <div>
+                                    <p class="font-bold text-gray-200">Sameer Tambe, Pune</p>
+                                    <div class="star-rating">★★★★★</div>
+                                </div>
+                            </div>
+                            <p class="text-lg text-gray-400">"As a student, this was a goldmine. The zero-investment models are practical, not just theory. <strong>Already started my first side hustle using the service blueprint.</strong>"</p>
+                        </div>
+                        <div class="testimonial-card text-left">
+                             <div class="flex items-center mb-4">
+                                <!-- IMPROVED AVATAR -->
+                                <div class="w-12 h-12 rounded-full mr-4 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-500 flex-shrink-0">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
+                                        <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.78 6.125-2.095a1.23 1.23 0 00.41-1.412A9.99 9.99 0 0010 12a9.99 9.99 0 00-6.535 2.493z" />
+                                    </svg>
+                                </div>
+                                <!-- END AVATAR -->
+                                <div>
+                                    <p class="font-bold text-gray-200">Meera Gupta, Hyderabad</p>
+                                    <div class="star-rating">★★★★★</div>
+                                </div>
+                            </div>
+                            <p class="text-lg text-gray-400">"I was so tired of my corporate job but too scared to leave. This book gave me the courage and the *exact steps* to start building something for myself on the side. <strong>My safety net is finally growing.</strong>"</p>
+                        </div>
+                        <div class="testimonial-card text-left">
+                             <div class="flex items-center mb-4">
+                                <!-- IMPROVED AVATAR -->
+                                <div class="w-12 h-12 rounded-full mr-4 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-500 flex-shrink-0">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
+                                        <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.78 6.125-2.095a1.23 1.23 0 00.41-1.412A9.99 9.99 0 0010 12a9.99 9.99 0 00-6.535 2.493z" />
+                                    </svg>
+                                </div>
+                                <!-- END AVATAR -->
+                                <div>
+                                    <p class="font-bold text-gray-200">Vikram Nair, Chennai</p>
+                                    <div class="star-rating">★★★★★</div>
+                                </div>
+                            </div>
+                            <p class="text-lg text-gray-400">"Honestly, I thought it was another scam. The 'Do The Work' guarantee made me try it. Best ₹299 I've ever spent. <strong>The mindset section alone is life-changing.</strong> No exaggeration."</p>
+                        </div>
+
+                        <!-- DUPLICATE SET for infinite scroll -->
+                        <div class="testimonial-card text-left">
+                            <div class="flex items-center mb-4">
+                                <!-- IMPROVED AVATAR -->
+                                <div class="w-12 h-12 rounded-full mr-4 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-500 flex-shrink-0">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
+                                        <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.78 6.125-2.095a1.23 1.23 0 00.41-1.412A9.99 9.99 0 0010 12a9.99 9.99 0 00-6.535 2.493z" />
+                                    </svg>
+                                </div>
+                                <!-- END AVATAR -->
+                                <div>
+                                    <p class="font-bold text-gray-200">Aman Sharma, Bengaluru</p>
+                                    <div class="star-rating">★★★★★</div>
+                                </div>
+                            </div>
+                            <p class="text-lg text-gray-400">"I felt so stuck. Harshdeep's book gave me a clear plan. <strong>I started the e-commerce hustle and made my first ₹10,000 in just 3 weeks!</strong> This was the push I desperately needed."</p>
+                        </div>
+                        <div class="testimonial-card text-left">
+                             <div class="flex items-center mb-4">
+                                <!-- IMPROVED AVATAR -->
+                                <div class="w-12 h-12 rounded-full mr-4 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-500 flex-shrink-0">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
+                                        <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.78 6.125-2.095a1.23 1.23 0 00.41-1.412A9.99 9.99 0 0010 12a9.99 9.99 0 00-6.535 2.493z" />
+                                    </svg>
+                                </div>
+                                <!-- END AVATAR -->
+                                <div>
+                                    <p class="font-bold text-gray-200">Priya Kulkarni, Mumbai</p>
+                                    <div class="star-rating">★★★★★</div>
+                                </div>
+                            </div>
+                            <p class="text-lg text-gray-400">"The mindset chapters alone are worth 10x the price. <strong>The 'Capital Compass' concept completely changed how I see my own skills.</strong> It's not about money; it's about resourcefulness. Priceless."</p>
+                        </div>
+                        <div class="testimonial-card text-left">
+                             <div class="flex items-center mb-4">
+                                <!-- IMPROVED AVATAR -->
+                                <div class="w-12 h-12 rounded-full mr-4 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-500 flex-shrink-0">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
+                                        <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.78 6.125-2.095a1.23 1.23 0 00.41-1.412A9.99 9.99 0 0010 12a9.99 9.99 0 00-6.535 2.493z" />
+                                    </svg>
+                                </div>
+                                <!-- END AVATAR -->
+                                <div>
+                                    <p class="font-bold text-gray-200">Rohan Verma, Delhi</p>
+                                    <div class="star-rating">★★★★★</div>
+                                </div>
+                            </div>
+                            <p class="text-lg text-gray-400">"No fluff, no BS. This is a real, actionable guide for the Indian market. <strong>It's the first book that truly understands our struggle and provides a practical way out.</strong> Highly recommended."</p>
+                        </div>
+                        <div class="testimonial-card text-left">
+                            <div class="flex items-center mb-4">
+                                <!-- IMPROVED AVATAR -->
+                                <div class="w-12 h-12 rounded-full mr-4 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-500 flex-shrink-0">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
+                                        <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.78 6.125-2.095a1.23 1.23 0 00.41-1.412A9.99 9.99 0 0010 12a9.99 9.99 0 00-6.535 2.493z" />
+                                    </svg>
+                                </div>
+                                <!-- END AVATAR -->
+                                <div>
+                                    <p class="font-bold text-gray-200">Sameer Tambe, Pune</p>
+                                    <div class="star-rating">★★★★★</div>
+                                </div>
+                            </div>
+                            <p class="text-lg text-gray-400">"As a student, this was a goldmine. The zero-investment models are practical, not just theory. <strong>Already started my first side hustle using the service blueprint.</strong>"</p>
+                        </div>
+                        <div class="testimonial-card text-left">
+                             <div class="flex items-center mb-4">
+                                <!-- IMPROVED AVATAR -->
+                                <div class="w-12 h-12 rounded-full mr-4 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-500 flex-shrink-0">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
+                                        <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.78 6.125-2.095a1.23 1.23 0 00.41-1.412A9.99 9.99 0 0010 12a9.99 9.99 0 00-6.535 2.493z" />
+                                    </svg>
+                                </div>
+                                <!-- END AVATAR -->
+                                <div>
+                                    <p class="font-bold text-gray-200">Meera Gupta, Hyderabad</p>
+                                    <div class="star-rating">★★★★★</div>
+                                </div>
+                            </div>
+                            <p class="text-lg text-gray-400">"I was so tired of my corporate job but too scared to leave. This book gave me the courage and the *exact steps* to start building something for myself on the side. <strong>My safety net is finally growing.</strong>"</p>
+                        </div>
+                        <div class="testimonial-card text-left">
+                             <div class="flex items-center mb-4">
+                                <!-- IMPROVED AVATAR -->
+                                <div class="w-12 h-12 rounded-full mr-4 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-500 flex-shrink-0">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
+                                        <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.78 6.125-2.095a1.23 1.23 0 00.41-1.412A9.99 9.99 0 0010 12a9.99 9.99 0 00-6.535 2.493z" />
+                                    </svg>
+                                </div>
+                                <!-- END AVATAR -->
+                                <div>
+                                    <p class="font-bold text-gray-200">Vikram Nair, Chennai</p>
+                                    <div class="star-rating">★★★★★</div>
+                                </div>
+                            </div>
+                            <p class="text-lg text-gray-400">"Honestly, I thought it was another scam. The 'Do The Work' guarantee made me try it. Best ₹299 I've ever spent. <strong>The mindset section alone is life-changing.</strong> No exaggeration."</p>
+                        </div>
                      </div>
                 </div>
             </div>
@@ -1654,7 +1948,7 @@
             
             // FAQ Data and Logic (Conversion-focused)
             const faqs = [
-                { q: "Is this another 'get rich quick' scheme?", a: "<strong>Absolutely not.</strong> This is a 'get rich smart' blueprint. 'Get rich quick' is a fantasy that leads to debt. I was <strong>-₹32 Lakh in debt</strong> because I fell for those myths. This book is the exact opposite: real, gradual strategies to build <strong>sustainable, predictable income</strong>." },
+                { q: "Is this another 'get rich quick' scheme?", a: "<strong>Absolutely not.</strong> This is a a 'get rich smart' blueprint. 'Get rich quick' is a fantasy that leads to debt. I was <strong>-₹32 Lakh in debt</strong> because I fell for those myths. This book is the exact opposite: real, gradual strategies to build <strong>sustainable, predictable income</strong>." },
                 { q: "How is this different from free content on YouTube?", a: "Free content gives you scattered puzzle pieces. This ebook gives you the <strong>finished picture and the instruction manual.</strong> It's a battle-tested system designed to save you 5+ years of painful, expensive trial and error. You're not just buying information; <strong>you're buying a proven roadmap and speed.</strong>" },
                 { q: "Is this REALLY for the Indian market?", a: "<strong>100% Yes.</strong> Every example, every currency figure (INR), and every strategy is tailored for the Indian context. This isn't recycled Western advice. It's built by an Indian, for the Indian hustler." },
                 { q: "How to start a business with 0 investment in India?", a: "<strong>Yes. That is the entire point of this book.</strong> I started with less than zero (massive debt!). This book focuses exclusively on businesses you can launch with <strong>₹0 investment</strong>. Your biggest asset will be your time and your hunger to win." },
