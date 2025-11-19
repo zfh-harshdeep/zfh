@@ -16,7 +16,6 @@
     <meta name="robots" content="index, follow">
     
     <!-- Open Graph (Facebook, LinkedIn, WhatsApp) -->
-    <!-- UPDATED: Using a dedicated social image URL for better display. If the favicon.png is too small, it might not work well, but I'm setting it to favicon.png as requested. -->
     <meta property="og:title" content="Escape 9-5: Zero-Funded Hustle Blueprint (₹299)">
     <meta property="og:description" content="From ₹32L debt to ₹5L/month — zero investment. Free chapters inside.">
     <meta property="og:image" content="https://www.zerofundedhustle.com/favicon.png"> 
@@ -25,12 +24,11 @@
     <meta property="og:site_name" content="ZeroFundedHustle">
     
     <!-- Twitter Card -->
-    <!-- UPDATED: Using favicon.png as the social share image. -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Escape 9-5: Zero Investment Blueprint (₹299)">
-    <meta name="twitter:description" content="Stuck in 9-5? Free 2 chapters + full ebook for ₹299.">
-    <meta name="twitter:image" content="https://www.zerofundedhustle.com/favicon.png">
-    <meta name="twitter:site" content="@zerofundedhustle"> <!-- Change this if your @handle is different -->
+    <meta property="twitter:title" content="Escape 9-5: Zero Investment Blueprint (₹299)">
+    <meta property="twitter:description" content="Stuck in 9-5? Free 2 chapters + full ebook for ₹299.">
+    <meta property="twitter:image" content="https://www.zerofundedhustle.com/favicon.png">
+    <meta name="twitter:site" content="@zerofundedhustle">
     
     <!-- Canonical + Language -->
     <link rel="canonical" href="https://www.zerofundedhustle.com">
@@ -64,12 +62,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
+        /* BASE BODY BACKGROUND: DARKEST / LIGHTER (#010409) */
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #010409;
+            background-color: #010409; /* Darkest (Lighter) */
             color: #E6EDF3;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+        }
+        /* SECTION BACKGROUND: DARKER (#0D1117) */
+        .bg-darker {
+             background-color: #0D1117; 
         }
         .accent-color { color: #238636; } /* Vibrant Green */
         .bg-accent { background-color: #238636; }
@@ -108,8 +111,8 @@
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
-        /* ADDED mistake-card and guarantee-card */
-        .feature-card, .testimonial-card, .audience-card, .blueprint-card, .mistake-card, .guarantee-card {
+        
+        .feature-card, .testimonial-card, .audience-card, .blueprint-card, .mistake-card, .guarantee-card, .bonus-card {
             background-color: #0D1117;
             border: 1px solid #30363d;
             border-radius: 0.75rem;
@@ -119,7 +122,7 @@
             display: flex;
             flex-direction: column;
         }
-        .feature-card:hover, .testimonial-card:hover, .audience-card:hover, .blueprint-card:hover, .mistake-card:hover, .guarantee-card:hover {
+        .feature-card:hover, .testimonial-card:hover, .audience-card:hover, .blueprint-card:hover, .mistake-card:hover, .guarantee-card:hover, .bonus-card:hover {
             transform: translateY(-5px);
             border-color: #238636;
         }
@@ -207,7 +210,7 @@
             box-shadow: 0 0 25px 5px rgba(34, 197, 94, 0.6);
         }
         
-        /* --- TESTIMONIAL SCROLLER STYLES (RE-ADDED) --- */
+        /* --- TESTIMONIAL SCROLLER STYLES --- */
         .scroller {
             max-width: 100%;
             overflow-x: scroll; /* Allow manual drag */
@@ -240,7 +243,8 @@
                 transform: translateX(0);
             }
             to {
-                transform: translateX(calc(-50% - 0.75rem)); /* Half of the content width + half the gap */
+                /* Changed to 1/3 of the duplicate length to ensure seamless loop */
+                transform: translateX(calc(-33.33% - 1rem)); /* Adjusted for 3 sets of content + gaps */
             }
         }
         
@@ -252,7 +256,60 @@
         }
         /* --- END TESTIMONIAL SCROLLER STYLES --- */
         
-        /* --- NEW: 6-Month Timeline Styles --- */
+         /* --- BANNER SCROLLER STYLES (Seamless Loop) --- */
+        .banner-scroller {
+            padding: 0.75rem 0; 
+            overflow: hidden;
+            white-space: nowrap; 
+        }
+        
+        /* Trust Badge Scroller specific styling (Used for both) */
+        .banner-scroller.bg-darker {
+            border-top: 1px solid #30363d; 
+            background-color: #0D1117; 
+        }
+        
+        .banner-scroller__inner {
+            display: inline-block;
+            animation: scroll-banner 35s linear infinite;
+        }
+        .banner-scroller:hover .banner-scroller__inner {
+            animation-play-state: paused;
+        }
+        @keyframes scroll-banner {
+            from {
+                transform: translateX(0%);
+            }
+            to {
+                transform: translateX(-50%); /* Scroll exactly half the width */
+            }
+        }
+        
+        /* FIX: Increased spacing in the banner items and fixed consistency */
+        .banner-scroller span {
+            display: inline-flex;
+            align-items: center;
+            /* Uniform large padding for spacing */
+            padding: 0 1.5rem; 
+            font-size: 1rem;
+            color: #E6EDF3;
+            font-weight: 600;
+            /* Margin removed to let padding handle spacing */
+            margin: 0; 
+            position: relative;
+            z-index: 10; 
+        }
+        
+        /* FIX: Trust Banner Icon Style */
+        .banner-scroller .trust-icon {
+            width: 1.25rem;
+            height: 1.25rem;
+            margin-right: 0.75rem; 
+            color: #238636;
+        }
+         /* --- END BANNER SCROLLER STYLES --- */
+
+        /* --- 6-Month Timeline Styles --- */
         .timeline-container {
             position: relative;
             padding-left: 2.5rem; /* Space for circles + line */
@@ -311,50 +368,7 @@
          }
          /* --- End Star Rating Styles --- */
 
-         /* --- BANNER SCROLLER STYLES --- */
-        .banner-scroller {
-            background-color: #0D1117; /* Darker background */
-            padding: 0.75rem 0; /* Vertical padding */
-            overflow: hidden;
-            white-space: nowrap; /* Prevent wrapping */
-        }
-        .banner-scroller__inner {
-            display: inline-block; /* Changed from flex */
-            animation: scroll-banner 35s linear infinite; /* Adjusted speed */
-        }
-        .banner-scroller:hover .banner-scroller__inner {
-            animation-play-state: paused; /* Pause on hover */
-        }
-        .banner-scroller span {
-            display: inline-flex; /* Use inline-flex for better icon alignment */
-            align-items: center; /* Vertically align icon and text */
-            padding: 0 1.5rem; /* Reduced horizontal spacing */
-            font-size: 1rem; /* Adjust size as needed */
-            color: #E6EDF3; /* Light text */
-            font-weight: 600; /* Semibold - slightly less heavy than bold */
-            margin: 0 0.5rem; /* Add small margin between items */
-        }
-        /* Icon styles for new trust banner */
-        .banner-scroller .trust-icon {
-            width: 1.25rem; /* 20px */
-            height: 1.25rem;
-            margin-right: 0.5rem; /* 8px */
-            color: #238636; /* Accent color */
-        }
-
-        @keyframes scroll-banner { /* Separate keyframes */
-            from {
-                transform: translateX(0%);
-            }
-            to {
-                transform: translateX(-50%); /* Scroll exactly half the width */
-            }
-        }
-         /* --- END BANNER SCROLLER STYLES --- */
-         
-        /* --- Countdown Timer Styles (REMOVED) --- */
-
-        /* --- Button Loading Spinner --- */
+         /* --- Button Loading Spinner --- */
         @keyframes spin {
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
@@ -380,26 +394,165 @@
         }
         /* --- End Button Loading Spinner --- */
         
-        /* --- Hero Trust Banner Styles (UPDATED) --- */
+        /* --- Hero Trust Banner Styles --- */
         .star-svg {
             color: #FFD700;
             width: 1rem; /* Smaller size for the social proof block */
             height: 1rem;
         }
         /* --- End Hero Trust Banner Styles --- */
-        /* --- Hero Section Specific Adjustments for compactness --- */
+
+        /* FIX: CSS Nesting Removed. Standard @media query structure used below. */
         .hero-section-padding {
             /* Aggressive vertical compression for mobile (3rem top/bottom) */
             padding-top: 3rem; 
             padding-bottom: 3rem; 
-            /* Restore desktop padding for md and up */
-            @media (min-width: 768px) {
+        }
+
+        /* Restore desktop padding for md and up */
+        @media (min-width: 768px) {
+            .hero-section-padding {
                 padding-top: 6rem; /* 96px, keeps desktop look */
                 padding-bottom: 6rem; /* 96px, keeps desktop look */
             }
         }
         /* --- End Hero Section Specific Adjustments --- */
+        
+        /* --- NEW: Income Proof Section Styles --- */
+        .proof-card {
+            background: linear-gradient(135deg, #0D1117, #010409);
+            border: 1px solid #30363d;
+            border-radius: 1rem;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+            height: 100%;
+        }
+        .proof-card.debt {
+            border-color: #ef4444; /* Red */
+        }
+        .proof-card.income {
+            border-color: #238636; /* Green */
+        }
+        .proof-card .title {
+            font-weight: 800;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .proof-card .value {
+            font-weight: 900;
+            font-size: 3rem;
+            line-height: 1;
+        }
+        .proof-card.debt .value {
+            color: #ef4444;
+        }
+        .proof-card.income .value {
+            color: #34d399;
+        }
+        /* Hidden Label Class for Accessibility */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
 
+        /* NEW: Audience Qualification Section Styles */
+        .qualification-card {
+            background-color: #0D1117;
+            border: 1px solid #30363d;
+            border-radius: 0.75rem;
+            padding: 2rem;
+            height: 100%;
+        }
+        .qualification-card.is-for {
+            border-color: #238636; /* Green Accent */
+        }
+        .qualification-card.is-not-for {
+            border-color: #ef4444; /* Red Accent */
+        }
+        .qualification-list {
+            margin-top: 1rem;
+            list-style: none;
+            padding: 0;
+        }
+        .qualification-list li {
+            /* ENSURES ICON ALIGNS TO TOP OF TEXT BLOCK */
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            font-size: 1.125rem; /* text-lg */
+            color: #E6EDF3;
+        }
+        .qualification-list li > div {
+            flex-grow: 1; /* Ensures text wrapper takes full space */
+        }
+        .qualification-list .check {
+            color: #238636; /* Green check */
+            margin-right: 0.75rem;
+            font-size: 1.5rem;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+        .qualification-list .cross {
+            color: #ef4444; /* Red cross */
+            margin-right: 0.75rem;
+            font-size: 1.5rem;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+
+        /* NEW: Audience Type Section Styles */
+        .audience-card {
+            background-color: #0D1117;
+            border: 1px solid #30363d;
+            border-radius: 0.75rem;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .audience-card:hover {
+            transform: translateY(-5px);
+            border-color: #238636;
+        }
+        .audience-card-icon-container {
+            width: 4rem; 
+            height: 4rem; 
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid; 
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            background-color: #010409;
+        }
+        .audience-card-icon-red {
+            border-color: #ef4444; 
+            color: #ef4444; 
+        }
+        .audience-card-icon-yellow {
+            border-color: #fcd34d; 
+            color: #fcd34d; 
+        }
+        .audience-card-icon-blue {
+            border-color: #3b82f6; 
+            color: #3b82f6; 
+        }
+        .audience-card-icon-container svg {
+             width: 2rem;
+             height: 2rem;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -410,7 +563,7 @@
             <a href="#" class="text-2xl font-extrabold tracking-tight text-gray-200">zero<span class="accent-color">funded</span>hustle</a>
             <!-- Updated Header CTA Link -->
             <a href="https://u.payu.in/nIsRdQdIBGDX" class="hidden md:inline-block bg-accent text-white font-bold py-2 px-6 rounded-md hover-bg-accent transition-colors">
-                Get The Blueprint
+                Get The Blueprint (₹299)
             </a>
         </nav>
     </header>
@@ -421,33 +574,33 @@
     <!-- Main Content -->
     <main>
 
-        <!-- Hero Section (UPDATED for maximum headline size and constrained content width) -->
-        <section class="hero-section-padding"> <!-- Applied custom reduced padding class -->
+        <!-- SECTION 1: Hero Section (A: Default Body Background) -->
+        <section class="hero-section-padding">
             <div class="container mx-auto px-6 text-center max-w-6xl">
                 
                 <!-- Main Headlines (Font size maximized) -->
                 <h1 class="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter text-gray-200 mb-1 leading-tight">Your Salary Is A Cage.</h1>
                 <h2 class="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter animated-gradient mb-2 leading-tight">Build The Key.</h2>
                 
-                <!-- Financial Highlight (Constrained width, LARGER FONT FOR IMPACT) -->
-                <!-- Split into two lines for readability and highlight, placed ABOVE description as the primary sub-heading -->
+                <!-- Financial Highlight (LARGER FONT FOR IMPACT) -->
                 <p class="text-lg md:text-2xl font-black text-gray-300 max-w-2xl mx-auto mb-1 leading-relaxed">
-                    From <span class="text-red-500">₹32 Lakh Debt</span> & <span class="text-gray-400">27k a month</span> → <span class="text-green-400">+₹5 Lakh/Month</span>
+                    From <span class="text-red-500">₹32 Lakh Debt</span> & <span class="text-gray-400">27k a month</span> → <span class="text-green-400"><strong>+₹5 Lakh/Month</strong></span>
                 </p>
                 <p class="text-base md:text-xl font-bold text-gray-500 max-w-2xl mx-auto mb-4 leading-relaxed">
-                    Using These <span class="accent-color">6 Zero-Risk Side Hustles</span>
+                    Using These <span class="accent-color"><strong>6 Zero-Risk Side Hustles</strong></span>
                 </p>
                 
                 <!-- Description Paragraph (Constrained width, smaller font) -->
+                <!-- BOLD FIX: Removed ** -->
                 <p class="text-base md:text-lg text-gray-400 max-w-2xl mx-auto mb-4">
-                    The **zero-risk blueprint** for building a real side business that replaces your income, even if you have no time, no money, and no experience.
+                    The <strong>zero-risk blueprint</strong> for building a real side business that replaces your income, even if you have no time, no money, and no experience.
                 </p>
                 
                 <!-- DUAL CTAs (Constrained width) -->
                 <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mb-2 max-w-2xl mx-auto">
                     <!-- Primary CTA (glowing-btn) -->
                     <a id="hero-cta-btn" href="https://u.payu.in/nIsRdQdIBGDX" class="glowing-btn text-lg font-bold w-full sm:w-auto">
-                        Start Your Escape →
+                        Get The Blueprint for ₹299 →
                     </a>
                     
                     <!-- Secondary CTA (New ghost style button) -->
@@ -456,9 +609,9 @@
                     </a>
                 </div>
                 
-                <!-- Social Proof / Trust Element (Constrained width, smaller vertical spacing) -->
+                <!-- Social Proof / Trust Element -->
                 <div class="flex flex-col items-center justify-center space-y-1"> 
-                     <!-- Mock Avatars (to match the sample visually) -->
+                     <!-- Mock Avatars -->
                      <div class="flex -space-x-2 overflow-hidden">
                          <!-- Placeholder Avatars -->
                          <img class="inline-block h-7 w-7 rounded-full ring-2 ring-gray-900 bg-gray-600 object-cover" src="https://placehold.co/28x28/1f2937/d1d5db?text=A" alt="Avatar A">
@@ -484,16 +637,16 @@
                 </div>
                 
                 <!-- CTA Sub-text (Final line) -->
-                <p class="text-xs text-gray-500 mt-2">14-Day "Do The Work" Guarantee included. Instant Access for ₹299.</p>
+                <p class="text-xs text-gray-500 mt-2">14-Day "Do The Work" Guarantee included. Instant Access for <strong>₹299</strong>.</p>
 
             </div>
         </section>
         <!-- END Hero Section -->
 
-        <!-- Scrolling Banner Section (Location 1) -->
-        <section class="banner-scroller border-y border-gray-800">
+        <!-- SECTION 2: Scrolling Banner Section (B: Darker Background) -->
+        <section class="banner-scroller border-y border-gray-800 bg-darker">
             <div class="banner-scroller__inner">
-                <!-- Replaced text and removed SVGs -->
+                <!-- Content duplicated for seamless loop. FIXED: Bullet separators now consistent. -->
                 <span>📉 From ₹32L Debt → 📈 To ₹5L/Month</span>
                 <span>•</span>
                 <span>🔓 Escape 9-5 Cage</span>
@@ -505,6 +658,7 @@
                 <span>🎯 ₹0 to ₹50K/Month</span>
                 <span>•</span>
                 <span>🛡️ Zero Risk</span>
+                <span>•</span>
                 <!-- Duplicate Set -->
                  <span>📉 From ₹32L Debt → 📈 To ₹5L/Month</span>
                 <span>•</span>
@@ -517,38 +671,39 @@
                 <span>🎯 ₹0 to ₹50K/Month</span>
                 <span>•</span>
                 <span>🛡️ Zero Risk</span>
+                <span>•</span>
             </div>
         </section>
         <!-- END Scrolling Banner Section -->
 
-        <!-- Lead Magnet Section (MOVED & UPGRADED) -->
+        <!-- SECTION 3: Lead Magnet Section (A: Default Body Background) -->
         <section id="lead-magnet-section" class="py-24 section">
             <div class="container mx-auto px-6 text-center max-w-3xl">
-                <h2 class="text-4xl font-extrabold tracking-tight text-gray-200 mb-4">Want a FREE Taste of Freedom?</h2>
-                <p class="text-lg text-gray-500 mb-8">Get the first two chapters—including one complete business blueprint—delivered to your inbox right now.</p>
+                <h2 class="text-4xl font-extrabold tracking-tight text-gray-200 mb-4">Read the Blueprint Before You Buy.</h2>
                 
-                <!-- NEW: What You'll Get in Free Taste -->
-                <div class="bg-[#0D1117] border border-gray-700 rounded-lg p-6 max-w-lg mx-auto text-left mb-8">
-                    <h4 class="text-xl font-bold text-white mb-4">Inside Your 2 Free Chapters:</h4>
+                <!-- Inner box uses DARKER background #0D1117 -->
+                <div class="bg-darker border border-gray-700 rounded-lg p-6 max-w-lg mx-auto text-left mb-8">
+                    <h4 class="text-xl font-bold text-white mb-4">What's Included (Free):</h4>
                     <ul class="space-y-3 text-gray-400">
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            <strong>Chapter 1: The 9-5 Trap</strong> (The mindset to break free)
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-green-500 mt-1 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <div><strong>Chapter 1: The 9-5 Trap</strong> (The essential mindset shift you need to break free)</div>
                         </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            <strong>Chapter 6: One Full Business Blueprint</strong> (The E-commerce Hustle)
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-green-500 mt-1 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <div><strong>Chapter 6: The E-commerce Hustle</strong> (One complete, zero-cost business blueprint)</div>
                         </li>
                     </ul>
                 </div>
-
-                <!-- NEW: Dynamic Download Counter -->
-                <p class="text-lg text-yellow-400 font-bold mb-6">
-                    Join <span id="download-counter" class="transition-all">2,347</span>+ hustlers who got their free taste!
+                
+                <p class="text-base text-gray-400 font-semibold mb-6">
+                    Download your free preview and start planning your escape today.
                 </p>
 
                 <form id="lead-magnet-form" class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
-                    <input type="email" id="lead-email" name="email" placeholder="Enter your best email..." required class="flex-grow bg-[#0D1117] border border-gray-700 rounded-md py-3 px-4 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500 transition">
+                    <!-- ACCESSIBILITY FIX: Added sr-only label -->
+                    <label for="lead-email" class="sr-only">Email Address</label>
+                    <input type="email" id="lead-email" name="email" placeholder="Enter your best email..." required class="flex-grow bg-[#010409] border border-gray-700 rounded-md py-3 px-4 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500 transition">
                     <button type="submit" class="bg-accent text-white font-bold py-3 px-6 rounded-md hover-bg-accent transition-colors">
                         Send My Free Chapters
                     </button>
@@ -557,50 +712,79 @@
                  <p id="lead-error-message" class="text-red-400 mt-4 hidden">Something went wrong. Please try again.</p>
              </div>
          </section>
+        <!-- END Lead Magnet Section -->
 
-        <!-- Pain Points Section -->
-        <section class="py-24 md:py-32 section bg-[#0D1117]"> <!-- ID REMOVED -->
+
+        <!-- SECTION 4 (NEW): Audience Type Section (A: Default Body Background) -->
+        <section class="py-24 md:py-32 section">
             <div class="container mx-auto px-6 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-gray-200 mb-4">Are You Feeling Trapped?</h2>
-                <p class="text-lg text-gray-500 mb-12 max-w-2xl mx-auto">If you're nodding your head to any of these questions, you're not alone.</p>
+                 <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-200 mb-16">This is for the person who knows they're meant for more.</h2>
+                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    <div class="audience-card text-center">
+                        <div class="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-gray-700 bg-gray-900 flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 text-red-500"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        </div>
+                        <h3 class="font-bold text-xl text-gray-200 mb-2 flex-grow">The Employee in Debt</h3>
+                        <p class="text-gray-500">You're trapped in a cycle of EMIs and bills. <strong>This is your strategic escape route.</strong></p>
+                    </div>
+                     <div class="audience-card text-center">
+                        <div class="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-gray-700 bg-gray-900 flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 text-yellow-500"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" /></svg>
+                        </div>
+                        <h3 class="font-bold text-xl text-gray-200 mb-2 flex-grow">The Silent Hustler</h3>
+                        <p class="text-gray-500">You work after hours, dreaming of freedom. <strong>This turns your effort into predictable income.</strong></p>
+                    </div>
+                     <div class="audience-card text-center">
+                        <div class="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-gray-700 bg-gray-900 flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 text-blue-500"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0l-.07.002z" /></svg>
+                        </div>
+                        <h3 class="font-bold text-xl text-gray-200 mb-2 flex-grow">The Ambitious Student</h3>
+                        <p class="text-gray-500">Tired of useless theory? <strong>This is your real-world MBA in starting a business.</strong></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END NEW SECTION: Audience Type Section -->
+        
+        <!-- SECTION 5: Pain Points Section (B: Darker Background) -->
+        <section class="py-24 md:py-32 section bg-darker">
+            <div class="container mx-auto px-6 text-center">
+                <!-- VISUAL FIX: Changed font-bold to font-extrabold for consistency -->
+                <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight animated-gradient mb-4">Are You Feeling Trapped?</h2>
+                <!-- Sub-text spacing/size matched to A Glimpse Inside Your Blueprint (lg/mb-16) -->
+                <p class="text-lg text-gray-500 mb-16 max-w-2xl mx-auto">If you're nodding your head to any of these questions, you're not alone.</p>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
                     <div class="feature-card text-center">
-                        <!-- Replaced Icon: CurrencyRupeeIcon -->
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 accent-color mx-auto mb-4">
                           <path stroke-linecap="round" stroke-linejoin="round" d="M15 8.25H9m6 3H9m3 6l-3-3h1.5a3 3 0 100-6M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                         <p class="text-lg font-semibold text-gray-300">Does your salary disappear by the 15th of the month?</p>
                     </div>
                     <div class="feature-card text-center">
-                        <!-- Replaced Icon: ExclamationTriangleIcon -->
                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 accent-color mx-auto mb-4">
                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
                          </svg>
                         <p class="text-lg font-semibold text-gray-300">Do you live in fear of unexpected expenses?</p>
                     </div>
                     <div class="feature-card text-center">
-                         <!-- Kept Icon: LockClosedIcon -->
                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 accent-color mx-auto mb-4">
                            <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
                          </svg>
                         <p class="text-lg font-semibold text-gray-300">Is your 9-5 job feeling more like a cage than a career?</p>
                     </div>
                     <div class="feature-card text-center">
-                        <!-- Replaced Icon: ArrowTrendingUpIcon -->
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 accent-color mx-auto mb-4">
                           <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941" />
                         </svg>
                         <p class="text-lg font-semibold text-gray-300">Tired of watching others succeed online while you're on the sidelines?</p>
                     </div>
                     <div class="feature-card text-center">
-                        <!-- Replaced Icon: LightBulbIcon -->
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 accent-color mx-auto mb-4">
                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18" />
                         </svg>
                         <p class="text-lg font-semibold text-gray-300">Have great ideas but have no clue where to actually start?</p>
                     </div>
                     <div class="feature-card text-center">
-                        <!-- Replaced Icon: ClockIcon -->
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 accent-color mx-auto mb-4">
                           <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
@@ -608,22 +792,22 @@
                     </div>
                 </div>
                 <div class="mt-12">
-                     <!-- Updated Pain Points CTA Link -->
                      <a href="https://u.payu.in/nIsRdQdIBGDX" class="bg-accent text-white font-bold py-3 px-8 rounded-lg text-lg hover-bg-accent transition-colors inline-block">
                         Yes, That's Me. I Need A Plan.
                     </a>
                 </div>
             </div>
         </section>
+        <!-- END Pain Points Section -->
         
-        <!-- "Meet Your Mentor" Section (SUPERCHARGED + MOBILE CENTERED) -->
+        <!-- SECTION 6: "Meet Your Mentor" Section (A: Default Body Background) -->
         <section class="py-24 md:py-32 section">
             <div class="container mx-auto px-6 max-w-4xl"> 
                 <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-200 mb-4 text-center">Meet Your Mentor</h2>
-                <h3 class="text-2xl md:text-3xl font-bold tracking-tight text-gray-200 mb-10 text-center">From <span class="text-red-500">-₹32 Lakhs</span> in Debt to <span class="text-green-400">+₹5 Lakh/Month</span>.</h3>
+                <h3 class="text-2xl md:text-3xl font-bold tracking-tight text-gray-200 mb-10 text-center">From <span class="text-red-500">₹32 Lakhs</span> in Debt to <span class="text-green-400">+₹5 Lakh/Month</span>.</h3>
                 
-                <!-- UPDATED: text-center md:text-left -->
                 <div class="space-y-6 text-gray-400 text-lg md:text-xl text-center md:text-left leading-relaxed">
+                    <!-- BOLD FIX: Removed ** -->
                     <p>I'm Harshdeep Singh, and I need to be brutally honest: I'm not a guru. I'm not going to sell you fairy tales of making millions from a beach in Bali. My story is <strong>messy, painful, and 100% real.</strong></p>
                     
                     <p>At 15, while my classmates worried about grades, I was building a small empire, earning <strong class="text-gray-200">over ₹2 Lakhs a month</strong> as a teenager selling gadgets on Instagram. I felt invincible. I drove fancy cars, <strong class="text-gray-200">wore watches that cost more than my friends' tuition fees,</strong> and picked up the bill at every party. I was the king of my world.</p>
@@ -641,12 +825,139 @@
             </div>
         </section>
         <!-- END "Meet Your Mentor" Section -->
+        
+        <!-- SECTION 7: Qualification Section (B: Darker Background - Keep bg-darker) -->
+        <section class="py-24 md:py-32 section bg-darker border-y border-gray-800">
+             <div class="container mx-auto px-6 text-center max-w-6xl">
+                <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-200 mb-4">Who This Blueprint Is For (And Who It's Not)</h2>
+                <p class="text-lg text-gray-500 mb-16 max-w-3xl mx-auto">This book only works if you do the work. Be honest with yourself before buying.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+                    
+                    <!-- IS FOR COLUMN (Green Checkmarks) -->
+                    <div class="qualification-card is-for">
+                        <h3 class="text-2xl font-bold text-green-400 mb-6 flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 mr-3 text-green-400">
+                                <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.536.837.837 3.635-4.593z" clip-rule="evenodd" />
+                            </svg>
+                            This IS For You If...
+                        </h3>
+                        <ul class="qualification-list">
+                            <!-- ALIGNMENT FIX: Added flex-items-start and div wrapper -->
+                            <li class="flex items-start">
+                                <span class="check">✓</span> 
+                                <div>You are currently in debt or living paycheck-to-paycheck.</div>
+                            </li>
+                            <!-- ALIGNMENT FIX: Added flex-items-start and div wrapper -->
+                            <li class="flex items-start">
+                                <span class="check">✓</span> 
+                                <!-- BOLD FIX: Removed ** and used <strong> for consistent styling -->
+                                <div>You have <strong>1-2 hours a day</strong> (or 5-10 hours on weekends) to dedicate to your hustle.</div>
+                            </li>
+                            <!-- ALIGNMENT FIX: Added flex-items-start and div wrapper -->
+                            <li class="flex items-start">
+                                <span class="check">✓</span> 
+                                <!-- BOLD FIX: Removed ** and used <strong> for consistent styling -->
+                                <div>You are tired of theory and need a <strong>step-by-step</strong> implementation plan.</div>
+                            </li>
+                            <!-- ALIGNMENT FIX: Added flex-items-start and div wrapper -->
+                            <li class="flex items-start">
+                                <span class="check">✓</span> 
+                                <div>You have a strong work ethic and are ready to push past the first few failures.</div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- IS NOT FOR COLUMN (Red Crosses) -->
+                    <div class="qualification-card is-not-for">
+                        <h3 class="text-2xl font-bold text-red-400 mb-6 flex items-center">
+                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 mr-3 text-red-400">
+                               <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zM12 8.25a.75.75 0 00-.75.75v3.75c0 .414.336.75.75.75h.008a.75.75 0 00.75-.75V9a.75.75 0 00-.75-.75z" clip-rule="evenodd" />
+                            </svg>
+                            This Is NOT For You If...
+                        </h3>
+                        <ul class="qualification-list">
+                            <!-- ALIGNMENT FIX: Added flex-items-start and div wrapper -->
+                            <li class="flex items-start">
+                                <span class="cross">✕</span> 
+                                <div>You expect to make ₹1 Lakh by the end of this week without doing any work.</div>
+                            </li>
+                            <!-- ALIGNMENT FIX: Added flex-items-start and div wrapper -->
+                            <li class="flex items-start">
+                                <span class="cross">✕</span> 
+                                <div>You are already a full-time, successful entrepreneur (this is a starter guide).</div>
+                            </li>
+                            <!-- ALIGNMENT FIX: Added flex-items-start and div wrapper -->
+                            <li class="flex items-start">
+                                <span class="cross">✕</span> 
+                                <div>You are looking for high-risk, high-capital investment strategies (e.g., trading).</div>
+                            </li>
+                            <!-- ALIGNMENT FIX: Added flex-items-start and div wrapper -->
+                            <li class="flex items-start">
+                                <span class="cross">✕</span> 
+                                <div>You are unwilling to learn basic digital skills (like creating a free social media profile).</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END NEW SECTION: Qualification Section -->
 
-        <!-- NEW: "My 5 Biggest Mistakes" Section (RE-DESIGNED to match screenshot) -->
-        <section id="popup-trigger" class="py-24 md:py-32 section bg-[#0D1117] border-y border-gray-800"> <!-- NEW ID for popup trigger -->
+        
+        <!-- SECTION 8: Income Proof Section (A: Default Body Background) -->
+        <section id="proof-section" class="py-24 md:py-32 section border-y border-gray-800">
+            <div class="container mx-auto px-6 max-w-6xl">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4 animated-gradient">The Numbers Don't Lie.</h2>
+                    <p class="text-lg text-gray-500 mb-16">The brutal financial reality I left behind, and the consistent income I built using the exact methods in this blueprint.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Proof 1: The Debt (BEFORE) -->
+                    <div class="proof-card debt">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16 text-red-500 mx-auto mb-4">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9.75v6.75m0 0l-3-3m3 3l3-3m-8.69-6.916c-3.76.495-7.126 1.706-7.126 3.923s3.366 3.428 7.126 3.923c3.76-.495 7.126-1.706 7.126-3.923s-3.366-3.428-7.126-3.923zM4.69 8.25h14.62" />
+                        </svg>
+                        <h3 class="title text-red-400">Max Debt Incurred</h3>
+                        <p class="value">-₹32L</p>
+                        <p class="text-sm text-gray-400 mt-2">Paid off completely using the income models in this guide.</p>
+                    </div>
+                    
+                    <!-- Proof 2: The Job (BEFORE) -->
+                    <div class="proof-card">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16 text-gray-500 mx-auto mb-4">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <h3 class="title text-gray-300">Maximum Salary</h3> <!-- UPDATED: Changed from Minimum Income -->
+                        <p class="value">₹27k/mo</p>
+                        <p class="text-sm text-gray-400 mt-2">The salary I was tied to, which couldn't cover half my bills.</p>
+                    </div>
+                    
+                    <!-- Proof 3: The Freedom (AFTER) -->
+                    <div class="proof-card income">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16 text-green-500 mx-auto mb-4">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9.75v6.75m0 0l-3-3m3 3l3-3m-8.69-6.916c-3.76.495-7.126 1.706-7.126 3.923s3.366 3.428 7.126 3.923c3.76-.495 7.126-1.706 7.126-3.923s-3.366-3.428-7.126-3.923zM4.69 8.25h14.62" />
+                        </svg>
+                        <h3 class="title text-green-400">Current Income</h3>
+                        <p class="value">+₹5L/mo</p>
+                        <p class="text-sm text-gray-400 mt-2">Generated by the 6 zero-investment systems in this blueprint.</p>
+                    </div>
+                </div>
+                 <div class="text-center mt-12">
+                     <a href="https://u.payu.in/nIsRdQdIBGDX" class="bg-accent text-white font-bold py-3 px-8 rounded-lg text-lg hover-bg-accent transition-colors inline-block">
+                        I Want This Financial Freedom →
+                    </a>
+                </div>
+            </div>
+        </section>
+        <!-- END: Income Proof Section -->
+
+        <!-- SECTION 9: "My 5 Biggest Mistakes" Section (B: Darker Background) -->
+        <section id="popup-trigger" class="py-24 md:py-32 section bg-darker">
             <div class="container mx-auto px-6">
                 <div class="text-center max-w-3xl mx-auto">
-                    <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-gray-200">I Made the Mistakes So You Don't Have To</h2>
+                    <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-200 mb-4">I Made the Mistakes So You Don't Have To</h2>
                     <p class="text-lg text-gray-500 mb-16">My ₹32 Lakh debt was an expensive education. This blueprint is built on the wisdom I bought with those failures. Here's what I learned...</p>
                 </div>
                 
@@ -655,16 +966,15 @@
                     <!-- Mistake 1 -->
                     <div class="mistake-card text-left p-6">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-10 h-10 text-red-500 mb-4">
-                          <!-- UPDATED ICON 1 -->
                           <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 17.25V6.75l3.75 3.75 3.75-3.75L15 11.25l3.75-3.75L20.25 9" />
                         </svg>
                         <h3 class="font-bold text-xl text-gray-200 mb-2">1. Never Tracking My Money</h3>
-                        <p class="text-gray-400 flex-grow">I made ₹2L/month but had &lt;20k left. It just... vanished. I was making money but not building wealth. A fool's game.</p>
+                        <p class="text-gray-400 flex-grow">I made ₹2L/month but had <20k left. It just... vanished. I was making money but not building wealth. A fool's game.</p>
                     </div>
                     <!-- Mistake 2 -->
                     <div class="mistake-card text-left p-6">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-10 h-10 text-red-500 mb-4">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375 0 01.75 0z" />
                         </svg>
                         <h3 class="font-bold text-xl text-gray-200 mb-2">2. Emotional Spending Was My Drug</h3>
                         <p class="text-gray-400 flex-grow">Stressed? I'd buy a ₹15,000 watch on impulse. The thrill was temporary, but the guilt and the bill were permanent.</p>
@@ -680,20 +990,18 @@
                 </div>
 
                 <!-- Row 2: 2 Cards (Centered) -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto mt-8"> <!-- UPDATED: max-w-3xl to max-w-6xl -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto mt-8">
                     <!-- Mistake 4 -->
                     <div class="mistake-card text-left p-6">
                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-10 h-10 text-red-500 mb-4">
-                           <!-- UPDATED: Corrected SVG Path -->
                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h6m3-3.75l-3 3m0 0l-3-3m-3 3V1.5" />
                          </svg>
                         <h3 class="font-bold text-xl text-gray-200 mb-2">4. Treating Debt Like Magic Money</h3>
                         <p class="text-gray-400 flex-grow">Credit cards felt like superpowers. I paid ₹15,000 in extra interest just for the 'privilege' of owning a phone immediately.</p>
                     </div>
                     <!-- Mistake 5 -->
-                    <div class="mistake-card text-left p-6"> <!-- UPDATED: Removed green border -->
+                    <div class="mistake-card text-left p-6">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-10 h-10 text-red-500 mb-4">
-                          <!-- UPDATED ICON 5 -->
                            <path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" />
                         </svg>
                         <h3 class="font-bold text-xl text-gray-200 mb-2">5. Not Investing Early (The Costliest Mistake)</h3>
@@ -705,30 +1013,32 @@
         </section>
         <!-- END "My 5 Biggest Mistakes" Section -->
 
-        <!-- Ebook Cover Section -->
+        <!-- SECTION 10: Ebook Cover Section (A: Default Body Background) -->
         <section class="py-24 section">
             <div class="container mx-auto px-6">
                 <div class="grid md:grid-cols-2 gap-16 items-center">
                     <div class="flex justify-center md:justify-end">
-                        <img src="ebookcover.png" alt="Ebook cover for Escape the 9-5, the zero investment side hustle blueprint by Harshdeep Singh" class="w-full max-w-sm rounded-lg ebook-glow transform hover:scale-105" fetchpriority="high" onerror="this.src='https://placehold.co/400x500/0D1117/E6EDF3?text=Ebook+Cover'; this.onerror=null;">
+                        <!-- PERFORMANCE FIX: Added width, height, and lazy loading attributes -->
+                        <img src="ebookcover.png" alt="Ebook cover for Escape the 9-5, the zero investment side hustle blueprint by Harshdeep Singh" class="w-full max-w-sm rounded-lg ebook-glow transform hover:scale-105" loading="lazy" width="400" height="500" onerror="this.src='https://placehold.co/400x500/0D1117/E6EDF3?text=Ebook+Cover'; this.onerror=null;">
                     </div>
                     <div class="text-center md:text-left">
                         <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-200 mb-4">Here Is The Exact Blueprint</h2>
                         <h3 class="text-2xl md:text-3xl font-bold tracking-tight text-gray-400 mb-8">How I Escaped My ₹27k Job With Zero-Risk Side Businesses</h3>
                         <p class="text-lg text-gray-400 mb-8">This isn't just a book; it's a complete system. Inside, you'll find the step-by-step strategies, mindset shifts, and actionable plans I used to build my freedom from zero.</p>
                         
-                        <!-- New Pricing Block -->
+                        <!-- New Pricing Block (Wording updated) -->
                         <div class="my-8">
-                            <p class="text-lg font-semibold text-yellow-400 mb-2">Price jumps to <span class="font-black">₹999</span> soon!</p>
+                            <!-- BOLD FIX: Removed ** and replaced with Tailwind font-bold -->
+                            <p class="text-lg font-bold text-red-400 mb-2">Price will jump to ₹999 soon!</p>
                             <span class="text-xl text-gray-500 line-through">Worth Lakhs of Value & Experience</span>
                             <div class="flex items-center justify-center md:justify-start space-x-2 mt-2">
                                  <span class="text-5xl font-black text-gray-200">₹299</span>
-                                 <span class="text-lg text-gray-500"> One-Time</span>
+                                 <span class="text-lg text-gray-500"> One-Time (Regular Price: ₹999)</span>
                             </div>
                         </div>
                         <!-- End New Pricing Block -->
 
-                        <a href="https://u.payu.in/nIsRdQdIBGDX" class="bg-accent text-white font-bold py-3 px-8 rounded-lg text-lg hover-bg-accent transition-colors inline-block">
+                        <a href="https://u.payu.in/nIsRdQdIBGDX" class="glowing-btn text-lg font-bold inline-block">
                             Get Your Copy Now
                         </a>
                     </div>
@@ -736,11 +1046,12 @@
             </div>
         </section>
 
-        <!-- Product Benefits Section (ICONS ADDED) -->
-        <section id="product-benefits-section" class="py-24 md:py-32 section bg-[#0D1117] border-y border-gray-800">
+        <!-- SECTION 11: Product Benefits Section (B: Darker Background) -->
+        <section id="product-benefits-section" class="py-24 md:py-32 section bg-darker border-y border-gray-800">
             <div class="container mx-auto px-6">
                 <div class="text-center max-w-3xl mx-auto">
-                    <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4 animated-gradient">This Is More Than An Ebook. It's Your New Reality.</h2>
+                    <!-- BOLD FIX: Removed ** and replaced with strong -->
+                    <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-200 mb-4 animated-gradient">This Is More Than An <strong>ESCAPE THE 9-5</strong>. It's Your New Reality.</h2>
                     <p class="text-lg text-gray-500 mb-16">Here is a glimpse of the transformation waiting for you inside.</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -789,8 +1100,8 @@
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 accent-color mb-4">
                           <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
                         </svg>
-                        <h3 class="font-bold text-xl text-gray-200 mb-2"><strong>Direct Email Support</strong></h3>
-                        <p class="text-gray-500 flex-grow">Stuck? Email me directly. I'm not just a seller; I'm your partner in this journey.</p>
+                        <h3 class="font-bold text-xl text-gray-200 mb-2"><strong>Direct Email Support (Limited Access)</strong></h3>
+                        <p class="text-gray-500 flex-grow">Stuck? Email me directly. I personally handle all buyer inquiries. This level of support is limited to the current cohort of buyers.</p>
                     </div>
                 </div>
                  <div class="text-center mt-16">
@@ -801,89 +1112,149 @@
             </div>
         </section>
         
-        <!-- UPDATED: "What's Inside" Section (Benefit-Driven Titles) -->
-        <section class="py-24 md:py-32 section">
+        <!-- SECTION 12: Irresistible Bonus Stack Section (A: Default Body Background) -->
+        <section id="bonus-stack-section" class="py-24 md:py-32 section">
             <div class="container mx-auto px-6">
                 <div class="text-center max-w-3xl mx-auto">
-                    <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-gray-200">A Glimpse Inside Your Blueprint</h2>
-                    <p class="text-lg text-gray-500 mb-16">This isn't theory. It's a toolbox of 6 proven, step-by-step models I've personally used to build real income streams from scratch.</p>
+                    <div class="inline-block bg-yellow-800 text-yellow-100 text-sm font-semibold px-4 py-1 rounded-full mb-3 shadow-md">
+                        EXCLUSIVE BONUS INCLUDED TODAY
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-200 mb-4">Get ₹4,997 Worth of Bonuses FREE</h2>
+                    <p class="text-lg text-gray-500 mb-16">The blueprint gets you the map. These 3 bonuses turbocharge your journey and cut your launch time in half. Get them all free when you secure your copy now for ₹299.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    <!-- Bonus 1: Fast Action Guide -->
+                    <div class="bonus-card text-left p-6 border-yellow-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 text-yellow-400 mb-4">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <h3 class="font-bold text-xl text-gray-200 mb-2">Bonus 1: The 7-Day Launchpad Checklist</h3>
+                        <p class="text-sm font-semibold text-gray-400 mb-3">Value: ₹1,499</p>
+                        <p class="text-gray-400 flex-grow">A step-by-step checklist to launch your first Micro-Hustle in just one week. Focus only on the tasks that generate cash, not confusion.</p>
+                    </div>
+                    <!-- Bonus 2: Budget Template -->
+                    <div class="bonus-card text-left p-6 border-yellow-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 text-yellow-400 mb-4">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12H9m6 3H9m3-6.75a3.75 3.75 0 100-7.5 3.75 3.75 0 000 7.5z" />
+                        </svg>
+                        <h3 class="font-bold text-xl text-gray-200 mb-2">Bonus 2: Debt-Crusher Budget Template</h3>
+                        <p class="text-sm font-semibold text-gray-400 mb-3">Value: ₹999</p>
+                        <p class="text-gray-400 flex-grow">The exact spreadsheet I used to track my spending and aggressively clear ₹32 Lakhs in debt. Know where every rupee goes.</p>
+                    </div>
+                    <!-- Bonus 3: Tech Stack -->
+                    <div class="bonus-card text-left p-6 border-yellow-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 text-yellow-400 mb-4">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 8.25L12 9.75M12 9.75L13.5 8.25M12 9.75V15M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <h3 class="font-bold text-xl text-gray-200 mb-2">Bonus 3: The Zero-Cost Tools Vault</h3>
+                        <p class="text-sm font-semibold text-gray-400 mb-3">Value: ₹2,500</p>
+                        <p class="text-gray-400 flex-grow">15+ free and low-cost tools for marketing, design, and automation, so you can run all 6 blueprints with truly zero investment.</p>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-16">
+                     <a href="https://u.payu.in/nIsRdQdIBGDX" class="glowing-btn text-xl font-bold inline-block">
+                        Yes, I Want All 3 Bonuses FREE!
+                    </a>
+                     <p class="text-sm text-gray-500 mt-4">These bonuses are included with your purchase while quantities last.</p>
+                </div>
+            </div>
+        </section>
+        <!-- END: Bonus Stack Section -->
+
+        <!-- SECTION 13: "What's Inside" Section (B: Darker Background) -->
+        <section class="py-24 md:py-32 section bg-darker border-y border-gray-800">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto">
+                    <!-- BOLD FIX: Removed ** and replaced with <strong> -->
+                    <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-200 animated-gradient mb-4">A Glimpse Inside Your Blueprint</h2>
+                    <p class="text-lg text-gray-500 mb-16">This isn't theory. It's a toolbox of <strong>6 proven, step-by-step models</strong> I've personally used to build real income streams from scratch.</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                    <!-- Blueprint Cards - UPDATED -->
+                    <!-- Blueprint Cards - FIXED TO MINIMALIST DESIGN -->
                     <div class="blueprint-card text-left p-6">
-                        <h3 class="font-bold text-xl text-gray-200 mb-2">Blueprint 1: Your First ₹2L/Month E-Com Store</h3>
+                        <!-- TITLE COLOR ADDED -->
+                        <h3 class="font-bold text-xl text-white mb-2">Blueprint 1: Your First ₹2L/Month E-Com Store</h3>
                         <p class="text-gray-500 flex-grow">My first hustle. Find a product on IndiaMart, sell it on Instagram. I'll show you the exact math that made me ₹2 Lakhs/month as a teenager.</p>
                     </div>
                     <div class="blueprint-card text-left p-6">
-                        <h3 class="font-bold text-xl text-gray-200 mb-2">Blueprint 2: Build a T-Shirt Brand With Zero Inventory</h3>
+                         <!-- TITLE COLOR ADDED -->
+                        <h3 class="font-bold text-xl text-white mb-2">Blueprint 2: Build a T-Shirt Brand With Zero Inventory</h3>
                         <p class="text-gray-500 flex-grow">Use AI to create viral designs and Print-on-Demand to handle all printing & shipping. Sell a culture, not just a t-shirt.</p>
                     </div>
                     <div class="blueprint-card text-left p-6">
-                        <h3 class="font-bold text-xl text-gray-200 mb-2">Blueprint 3: Earn ₹50k Commissions (With 0% Risk)</h3>
-                        <p class="text-gray-500 flex-grow">Connect online leads to local property dealers for a 50/50 commission. One deal can be ₹50,000. You don't need to own the asset.</p>
+                         <!-- TITLE COLOR ADDED -->
+                        <h3 class="font-bold text-xl text-white mb-2">Blueprint 3: Earn ₹50k Commissions (With 0% Risk)</h3>
+                        <p class="text-gray-500 flex-grow">Connect online leads to local property dealers for a high 50/50 commission split. One deal can be ₹50,000. You don't need to own the asset.</p>
                     </div>
                     <div class="blueprint-card text-left p-6">
-                        <h3 class="font-bold text-xl text-gray-200 mb-2">Blueprint 4: Get Paid to Play (The Right Way)</h3>
+                         <!-- TITLE COLOR ADDED -->
+                        <h3 class="font-bold text-xl text-white mb-2">Blueprint 4: Get Paid to Play (The Right Way)</h3>
                         <p class="text-gray-500 flex-grow">Stop just playing, start performing. The key isn't being the best player; it's being the best entertainer. Get paid to play.</p>
                     </div>
                     <div class="blueprint-card text-left p-6">
-                        <h3 class="font-bold text-xl text-gray-200 mb-2">Blueprint 5: Turn Social Media Into a ₹50k/Post Business</h3>
+                         <!-- TITLE COLOR ADDED -->
+                        <h3 class="font-bold text-xl text-white mb-2">Blueprint 5: Turn Social Media Into a ₹50k/Post Business</h3>
                         <p class="text-gray-500 flex-grow">How I turned my journey from debt into a brand that pays ₹15k-₹50k for a single post. Your face is your fortune.</p>
                     </div>
                     <div class="blueprint-card text-left p-6">
-                        <h3 class="font-bold text-xl text-gray-200 mb-2">Blueprint 6: The Pure-Profit Ebook Model (My Secret)</h3>
-                        <p class="text-gray-500 flex-grow">Package your skills into an ebook (like this one!) or course. No inventory, no shipping. The ultimate scalable business model.</p>
+                         <!-- TITLE COLOR ADDED -->
+                        <h3 class="font-bold text-xl text-white mb-2">Blueprint 6: The Pure-Profit ESCAPE THE 9-5 Model (My Secret)</h3>
+                        <!-- BOLD FIX: Removed ** and replaced with <strong> -->
+                        <p class="text-gray-500 flex-grow">Package your skills into an <strong>ESCAPE THE 9-5</strong> (like this one!) or course. No inventory, no shipping. The ultimate scalable business model.</p>
                     </div>
                 </div>
             </div>
         </section>
         <!-- END: "What's Inside" Section -->
 
-        <!-- NEW: "6-Month Action Plan" Section (More Specific) -->
-        <section class="py-24 md:py-32 section bg-[#0D1117] border-y border-gray-800">
+        <!-- SECTION 14: "6-Month Action Plan" Section (A: Default Body Background) -->
+        <section class="py-24 md:py-32 section">
             <div class="container mx-auto px-6">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
                     <!-- Column 1: Text -->
                     <div class="text-center md:text-left">
-                        <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-gray-200">Your 6-Month Action Plan</h2>
+                        <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-200 mb-4">Your 6-Month Action Plan</h2>
                         <p class="text-lg text-gray-500 mb-8">This isn't a book of ideas. It's a map. Chapter 9 gives you the exact, step-by-step sprint I used to go from a simple idea to a consistent <strong class="text-white">₹100,000/month business.</strong></p>
                         <a href="https://u.payu.in/nIsRdQdIBGDX" class="bg-accent text-white font-bold py-3 px-8 rounded-lg text-lg hover-bg-accent transition-colors inline-block">
                             Get The Full Map Now
                         </a>
                     </div>
                     
-                    <!-- Column 2: Timeline (More Specific) -->
+                    <!-- Column 2: Timeline -->
                     <div class="max-w-md mx-auto md:max-w-none">
                         <div class="timeline-container">
                             <!-- Timeline Item 1 -->
                             <div class="timeline-item">
                                 <h3 class="text-xl font-bold text-gray-200 mb-1">Month 1: Foundation & Validation</h3>
-                                <p class="text-gray-500">Your only goal: Get your first paying customer (even if it's a friend) & secure a testimonial.</p>
+                                <p class="text-gray-500">Your only goal: Get your <strong>first paying customer</strong> (even if it's a friend) & secure a testimonial.</p>
                             </div>
                             <!-- Timeline Item 2 -->
                             <div class="timeline-item">
                                 <h3 class="text-xl font-bold text-gray-200 mb-1">Month 2: Process & Testimonials</h3>
-                                <p class="text-gray-500">Refine your service based on feedback, get 3 new clients, and cross ₹10,000 in revenue.</p>
+                                <p class="text-gray-500">Refine your service based on feedback, get 3 new clients, and cross <strong>₹10,000 in revenue</strong>.</p>
                             </div>
                             <!-- Timeline Item 3 -->
                             <div class="timeline-item">
                                 <h3 class="text-xl font-bold text-gray-200 mb-1">Month 3: Traction & Optimization</h3>
-                                <p class="text-gray-500">Double down on your best marketing channel and optimize your process to hit ₹20,000.</p>
+                                <p class="text-gray-500">Double down on your best marketing channel and optimize your process to hit <strong>₹20,000</strong>.</p>
                             </div>
                             <!-- Timeline Item 4 -->
                             <div class="timeline-item">
                                 <h3 class="text-xl font-bold text-gray-200 mb-1">Month 4: Automation & Leverage</h3>
-                                <p class="text-gray-500">Automate your admin. Hire a VA for 5 hours/week to free your time. Aim for ₹40,000.</p>
+                                <p class="text-gray-500">Automate your admin. Hire a VA for 5 hours/week to free your time. Aim for <strong>₹40,000</strong>.</p>
                             </div>
                             <!-- Timeline Item 5 -->
                             <div class="timeline-item">
                                 <h3 class="text-xl font-bold text-gray-200 mb-1">Month 5: Scaling & High-Value Offers</h3>
-                                <p class="text-gray-500">Launch a "mini-product" (like an ebook) and raise your prices for new clients. Scale to ₹75,000.</p>
+                                <!-- BOLD FIX: Removed ** and replaced with <strong> -->
+                                <p class="text-gray-500">Launch a "mini-product" (like an <strong>ESCAPE THE 9-5</strong>) and raise your prices for new clients. Scale to <strong>₹75,000</strong>.</p>
                             </div>
                             <!-- Timeline Item 6 -->
                             <div class="timeline-item">
                                 <h3 class="text-xl font-bold text-gray-200 mb-1">Month 6: Systemization & Sustainability</h3>
-                                <p class="text-gray-500">Secure your first high-ticket retainer client to build predictable income & cross the ₹100,000/month milestone.</p>
+                                <p class="text-gray-500">Secure your first high-ticket retainer client to build predictable income & cross the <strong>₹100,000/month milestone</strong>.</p>
                             </div>
                         </div>
                     </div>
@@ -892,74 +1263,41 @@
         </section>
         <!-- END: "6-Month Action Plan" Section -->
 
-        <!-- NEW Trust Badge Scroller Section -->
-        <section class="banner-scroller border-b border-gray-800"> <!-- Removed border-y, added border-b -->
+        <!-- SECTION 15: Trust Badge Scroller Section (B: Darker Background) -->
+        <section id="trust-badge-scroller" class="banner-scroller bg-darker border-b border-gray-800">
              <div class="banner-scroller__inner">
-                <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="trust-icon"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" /></svg>
-                    100% Secure Payments
-                </span>
+                <!-- Banner content duplicated for seamless infinite loop (SET 1) -->
+                <span>📉 From ₹32L Debt → 📈 To ₹5L/Month</span>
                 <span>•</span>
-                <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="trust-icon"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                    Trusted & Secured by PayU
-                </span>
-                 <span>•</span>
-                <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="trust-icon"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-7.5 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" /></svg>
-                    SSL Encrypted Checkout
-                </span>
-                 <span>•</span>
-                 <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="trust-icon"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" /></svg>
-                    100% Secure Payments
-                </span>
+                <span>🔓 Escape 9-5 Cage</span>
                 <span>•</span>
-                <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="trust-icon"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                    Trusted & Secured by PayU
-                </span>
-                 <span>•</span>
-                <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="trust-icon"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-7.5 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" /></svg>
-                    SSL Encrypted Checkout
-                </span>
-             </div>
+                <span>💡 6 Proven Methods</span>
+                <span>•</span>
+                <span>🗓️ 6-Month Action Plan</span>
+                <span>•</span>
+                <span>🎯 ₹0 to ₹50K/Month</span>
+                <span>•</span>
+                <span>🛡️ Zero Risk</span>
+                <span>•</span>
+                <!-- Duplicate Set -->
+                 <span>📉 From ₹32L Debt → 📈 To ₹5L/Month</span>
+                <span>•</span>
+                <span>🔓 Escape 9-5 Cage</span>
+                <span>•</span>
+                <span>💡 6 Proven Methods</span>
+                <span>•</span>
+                <span>🗓️ 6-Month Action Plan</span>
+                <span>•</span>
+                <span>🎯 ₹0 to ₹50K/Month</span>
+                <span>•</span>
+                <span>🛡️ Zero Risk</span>
+                <span>•</span>
+            </div>
         </section>
         <!-- END Trust Badge Scroller Section -->
 
-        <!-- "Who Is This For?" Section -->
-        <section class="py-24 md:py-32 section">
-            <div class="container mx-auto px-6 text-center">
-                 <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-200 mb-16">This is for the person who knows they're meant for more.</h2>
-                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                    <div class="audience-card text-center">
-                        <div class="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-gray-700 bg-gray-900 flex items-center justify-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 text-red-500"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                        </div>
-                        <h3 class="font-bold text-xl text-gray-200 mb-2 flex-grow">The Employee in Debt</h3>
-                        <p class="text-gray-500">You're trapped in a cycle of EMIs and bills. <strong>This is your strategic escape route.</strong></p>
-                    </div>
-                     <div class="audience-card text-center">
-                        <div class="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-gray-700 bg-gray-900 flex items-center justify-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 text-yellow-500"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" /></svg>
-                        </div>
-                        <h3 class="font-bold text-xl text-gray-200 mb-2 flex-grow">The Silent Hustler</h3>
-                        <p class="text-gray-500">You work after hours, dreaming of freedom. <strong>This turns your effort into predictable income.</strong></p>
-                    </div>
-                     <div class="audience-card text-center">
-                        <div class="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-gray-700 bg-gray-900 flex items-center justify-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 text-blue-500"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0l-.07.002z" /></svg>
-                        </div>
-                        <h3 class="font-bold text-xl text-gray-200 mb-2 flex-grow">The Ambitious Student</h3>
-                        <p class="text-gray-500">Tired of useless theory? <strong>This is your real-world MBA in starting a business.</strong></p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Testimonials Section (RE-ADDED & IMPROVED) -->
-        <section class="py-24 md:py-32 section overflow-hidden">
+        <!-- SECTION 16: Testimonials Section (A: Default Body Background) -->
+        <section class="py-24 md:py-32 section overflow-hidden mb-0">
             <div class="container mx-auto px-6 text-center">
                 <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-200 mb-16">Proof From People Just Like You.</h2>
             </div>
@@ -968,494 +1306,46 @@
             <div class="max-w-6xl mx-auto">
                  <div class="scroller" id="testimonial-scroller">
                      <div class="scroller__inner">
-                        <!-- Original 6 Testimonials with IMPROVED Avatars -->
+                        <!-- Content (Repeated 3x for visual infinite loop) -->
+                        
+                        <!-- SET 1 -->
                         <div class="testimonial-card text-left">
-                            <div class="flex items-center mb-4">
-                                <!-- IMPROVED AVATAR -->
-                                <div class="w-12 h-12 rounded-full mr-4 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-500 flex-shrink-0">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
-                                        <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.78 6.125-2.095a1.23 1.23 0 00.41-1.412A9.99 9.99 0 0010 12a9.99 9.99 0 00-6.535 2.493z" />
-                                    </svg>
-                                </div>
-                                <!-- END AVATAR -->
-                                <div>
-                                    <p class="font-bold text-gray-200">Aman Sharma, Bengaluru</p>
-                                    <div class="star-rating">★★★★★</div>
-                                </div>
-                            </div>
+                            <div class="flex items-center mb-4"><div class="w-12 h-12 rounded-full mr-4 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-500 flex-shrink-0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6"><path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.78 6.125-2.095a1.23 1.23 0 00.41-1.412A9.99 9.99 0 0010 12a9.99 9.99 0 00-6.535 2.493z" /></svg></div><div><p class="font-bold text-gray-200">Aman Sharma, Bengaluru</p><div class="star-rating">★★★★★</div></div></div>
                             <p class="text-lg text-gray-400">"I felt so stuck. Harshdeep's book gave me a clear plan. <strong>I started the e-commerce hustle and made my first ₹10,000 in just 3 weeks!</strong> This was the push I desperately needed."</p>
                         </div>
                         <div class="testimonial-card text-left">
-                             <div class="flex items-center mb-4">
-                                <!-- IMPROVED AVATAR -->
-                                <div class="w-12 h-12 rounded-full mr-4 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-500 flex-shrink-0">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
-                                        <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.78 6.125-2.095a1.23 1.23 0 00.41-1.412A9.99 9.99 0 0010 12a9.99 9.99 0 00-6.535 2.493z" />
-                                    </svg>
-                                </div>
-                                <!-- END AVATAR -->
-                                <div>
-                                    <p class="font-bold text-gray-200">Priya Kulkarni, Mumbai</p>
-                                    <div class="star-rating">★★★★★</div>
-                                </div>
-                            </div>
+                             <div class="flex items-center mb-4"><div class="w-12 h-12 rounded-full mr-4 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-500 flex-shrink-0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6"><path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.78 6.125-2.095a1.23 1.23 0 00.41-1.412A9.99 9.99 0 0010 12a9.99 9.99 0 00-6.535 2.493z" /></svg></div><div><p class="font-bold text-gray-200">Priya Kulkarni, Mumbai</p><div class="star-rating">★★★★★</div></div></div>
                             <p class="text-lg text-gray-400">"The mindset chapters alone are worth 10x the price. <strong>The 'Capital Compass' concept completely changed how I see my own skills.</strong> It's not about money; it's about resourcefulness. Priceless."</p>
                         </div>
                         <div class="testimonial-card text-left">
-                             <div class="flex items-center mb-4">
-                                <!-- IMPROVED AVATAR -->
-                                <div class="w-12 h-12 rounded-full mr-4 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-500 flex-shrink-0">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
-                                        <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.78 6.125-2.095a1.23 1.23 0 00.41-1.412A9.99 9.99 0 0010 12a9.99 9.99 0 00-6.535 2.493z" />
-                                    </svg>
-                                </div>
-                                <!-- END AVATAR -->
-                                <div>
-                                    <p class="font-bold text-gray-200">Rohan Verma, Delhi</p>
-                                    <div class="star-rating">★★★★★</div>
-                                </div>
-                            </div>
+                             <div class="flex items-center mb-4"><div class="w-12 h-12 rounded-full mr-4 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-500 flex-shrink-0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6"><path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.78 6.125-2.095a1.23 1.23 0 00.41-1.412A9.99 9.99 0 0010 12a9.99 9.99 0 00-6.535 2.493z" /></svg></div><div><p class="font-bold text-gray-200">Rohan Verma, Delhi</p><div class="star-rating">★★★★★</div></div></div>
                             <p class="text-lg text-gray-400">"No fluff, no BS. This is a real, actionable guide for the Indian market. <strong>It's the first book that truly understands our struggle and provides a practical way out.</strong> Highly recommended."</p>
                         </div>
                         <div class="testimonial-card text-left">
-                            <div class="flex items-center mb-4">
-                                <!-- IMPROVED AVATAR -->
-                                <div class="w-12 h-12 rounded-full mr-4 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-500 flex-shrink-0">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
-                                        <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.78 6.125-2.095a1.23 1.23 0 00.41-1.412A9.99 9.99 0 0010 12a9.99 9.99 0 00-6.535 2.493z" />
-                                    </svg>
-                                </div>
-                                <!-- END AVATAR -->
-                                <div>
-                                    <p class="font-bold text-gray-200">Sameer Tambe, Pune</p>
-                                    <div class="star-rating">★★★★★</div>
-                                </div>
-                            </div>
+                            <div class="flex items-center mb-4"><div class="w-12 h-12 rounded-full mr-4 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-500 flex-shrink-0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6"><path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.78 6.125-2.095a1.23 1.23 0 00.41-1.412A9.99 9.99 0 0010 12a9.99 9.99 0 00-6.535 2.493z" /></svg></div><div><p class="font-bold text-gray-200">Sameer Tambe, Pune</p><div class="star-rating">★★★★★</div></div></div>
                             <p class="text-lg text-gray-400">"As a student, this was a goldmine. The zero-investment models are practical, not just theory. <strong>Already started my first side hustle using the service blueprint.</strong>"</p>
                         </div>
                         <div class="testimonial-card text-left">
-                             <div class="flex items-center mb-4">
-                                <!-- IMPROVED AVATAR -->
-                                <div class="w-12 h-12 rounded-full mr-4 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-500 flex-shrink-0">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
-                                        <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.78 6.125-2.095a1.23 1.23 0 00.41-1.412A9.99 9.99 0 0010 12a9.99 9.99 0 00-6.535 2.493z" />
-                                    </svg>
-                                </div>
-                                <!-- END AVATAR -->
-                                <div>
-                                    <p class="font-bold text-gray-200">Meera Gupta, Hyderabad</p>
-                                    <div class="star-rating">★★★★★</div>
-                                </div>
-                            </div>
+                             <div class="flex items-center mb-4"><div class="w-12 h-12 rounded-full mr-4 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-500 flex-shrink-0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6"><path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.78 6.125-2.095a1.23 1.23 0 00.41-1.412A9.99 9.99 0 0010 12a9.99 9.99 0 00-6.535 2.493z" /></svg></div><div><p class="font-bold text-gray-200">Meera Gupta, Hyderabad</p><div class="star-rating">★★★★★</div></div></div>
                             <p class="text-lg text-gray-400">"I was so tired of my corporate job but too scared to leave. This book gave me the courage and the *exact steps* to start building something for myself on the side. <strong>My safety net is finally growing.</strong>"</p>
                         </div>
                         <div class="testimonial-card text-left">
-                             <div class="flex items-center mb-4">
-                                <!-- IMPROVED AVATAR -->
-                                <div class="w-12 h-12 rounded-full mr-4 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-500 flex-shrink-0">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
-                                        <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.78 6.125-2.095a1.23 1.23 0 00.41-1.412A9.99 9.99 0 0010 12a9.99 9.99 0 00-6.535 2.493z" />
-                                    </svg>
-                                </div>
-                                <!-- END AVATAR -->
-                                <div>
-                                    <p class="font-bold text-gray-200">Vikram Nair, Chennai</p>
-                                    <div class="star-rating">★★★★★</div>
-                                </div>
-                            </div>
+                             <div class="flex items-center mb-4"><div class="w-12 h-12 rounded-full mr-4 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-500 flex-shrink-0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6"><path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.78 6.125-2.095a1.23 1.23 0 00.41-1.412A9.99 9.99 0 0010 12a9.99 9.99 0 00-6.535 2.493z" /></svg></div><div><p class="font-bold text-gray-200">Vikram Nair, Chennai</p><div class="star-rating">★★★★★</div></div></div>
                             <p class="text-lg text-gray-400">"Honestly, I thought it was another scam. The 'Do The Work' guarantee made me try it. Best ₹299 I've ever spent. <strong>The mindset section alone is life-changing.</strong> No exaggeration."</p>
                         </div>
-
-                        <!-- DUPLICATE SET for infinite scroll -->
+                        
+                        <!-- SET 2 -->
                         <div class="testimonial-card text-left">
-                            <div class="flex items-center mb-4">
-                                <!-- IMPROVED AVATAR -->
-                                <div class="w-12 h-12 rounded-full mr-4 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-500 flex-shrink-0">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
-                                        <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.78 6.125-2.095a1.23 1.23 0 00.41-1.412A9.99 9.99 0 0010 12a9.99 9.99 0 00-6.535 2.493z" />
-                                    </svg>
-                                </div>
-                                <!-- END AVATAR -->
-                                <div>
-                                    <p class="font-bold text-gray-200">Aman Sharma, Bengaluru</p>
-                                    <div class="star-rating">★★★★★</div>
-                                </div>
-                            </div>
+                            <div class="flex items-center mb-4"><div class="w-12 h-12 rounded-full mr-4 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-500 flex-shrink-0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6"><path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.78 6.125-2.095a1.23 1.23 0 00.41-1.412A9.99 9.99 0 0010 12a9.99 9.99 0 00-6.535 2.493z" /></svg></div><div><p class="font-bold text-gray-200">Aman Sharma, Bengaluru</p><div class="star-rating">★★★★★</div></div></div>
                             <p class="text-lg text-gray-400">"I felt so stuck. Harshdeep's book gave me a clear plan. <strong>I started the e-commerce hustle and made my first ₹10,000 in just 3 weeks!</strong> This was the push I desperately needed."</p>
                         </div>
                         <div class="testimonial-card text-left">
-                             <div class="flex items-center mb-4">
-                                <!-- IMPROVED AVATAR -->
-                                <div class="w-12 h-12 rounded-full mr-4 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-500 flex-shrink-0">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
-                                        <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.78 6.125-2.095a1.23 1.23 0 00.41-1.412A9.99 9.99 0 0010 12a9.99 9.99 0 00-6.535 2.493z" />
-                                    </svg>
-                                </div>
-                                <!-- END AVATAR -->
-                                <div>
-                                    <p class="font-bold text-gray-200">Priya Kulkarni, Mumbai</p>
-                                    <div class="star-rating">★★★★★</div>
-                                </div>
-                            </div>
+                             <div class="flex items-center mb-4"><div class="w-12 h-12 rounded-full mr-4 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-500 flex-shrink-0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6"><path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.78 6.125-2.095a1.23 1.23 0 00.41-1.412A9.99 9.99 0 0010 12a9.99 9.99 0 00-6.535 2.493z" /></svg></div><div><p class="font-bold text-gray-200">Priya Kulkarni, Mumbai</p><div class="star-rating">★★★★★</div></div></div>
                             <p class="text-lg text-gray-400">"The mindset chapters alone are worth 10x the price. <strong>The 'Capital Compass' concept completely changed how I see my own skills.</strong> It's not about money; it's about resourcefulness. Priceless."</p>
                         </div>
                         <div class="testimonial-card text-left">
-                             <div class="flex items-center mb-4">
-                                <!-- IMPROVED AVATAR -->
-                                <div class="w-12 h-12 rounded-full mr-4 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-500 flex-shrink-0">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
-                                        <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.78 6.125-2.095a1.23 1.23 0 00.41-1.412A9.99 9.99 0 0010 12a9.99 9.99 0 00-6.535 2.493z" />
-                                    </svg>
-                                </div>
-                                <!-- END AVATAR -->
-                                <div>
-                                    <p class="font-bold text-gray-200">Rohan Verma, Delhi</p>
-                                    <div class="star-rating">★★★★★</div>
-                                </div>
-                            </div>
+                             <div class="flex items-center mb-4"><div class="w-12 h-12 rounded-full mr-4 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-500 flex-shrink-0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6"><path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.78 6.125-2.095a1.23 1.23 0 00.41-1.412A9.99 9.99 0 0010 12a9.99 9.99 0 00-6.535 2.493z" /></svg></div><div><p class="font-bold text-gray-200">Rohan Verma, Delhi</p><div class="star-rating">★★★★★</div></div></div>
                             <p class="text-lg text-gray-400">"No fluff, no BS. This is a real, actionable guide for the Indian market. <strong>It's the first book that truly understands our struggle and provides a practical way out.</strong> Highly recommended."</p>
-                        </div>
-                        <div class="testimonial-card text-left">
-                            <div class="flex items-center mb-4">
-                                <!-- IMPROVED AVATAR -->
-                                <div class="w-12 h-12 rounded-full mr-4 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-500 flex-shrink-0">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
-                                        <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.78 6.125-2.095a1.23 1.23 0 00.41-1.412A9.99 9.99 0 0010 12a9.99 9.99 0 00-6.535 2.493z" />
-                                    </svg>
-                                </div>
-                                <!-- END AVATAR -->
-                                <div>
-                                    <p class="font-bold text-gray-200">Sameer Tambe, Pune</p>
-                                    <div class="star-rating">★★★★★</div>
-                                </div>
-                            </div>
-                            <p class="text-lg text-gray-400">"As a student, this was a goldmine. The zero-investment models are practical, not just theory. <strong>Already started my first side hustle using the service blueprint.</strong>"</p>
-                        </div>
-                        <div class="testimonial-card text-left">
-                             <div class="flex items-center mb-4">
-                                <!-- IMPROVED AVATAR -->
-                                <div class="w-12 h-12 rounded-full mr-4 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-500 flex-shrink-0">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
-                                        <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.78 6.125-2.095a1.23 1.23 0 00.41-1.412A9.99 9.99 0 0010 12a9.99 9.99 0 00-6.535 2.493z" />
-                                    </svg>
-                                </div>
-                                <!-- END AVATAR -->
-                                <div>
-                                    <p class="font-bold text-gray-200">Meera Gupta, Hyderabad</p>
-                                    <div class="star-rating">★★★★★</div>
-                                </div>
-                            </div>
-                            <p class="text-lg text-gray-400">"I was so tired of my corporate job but too scared to leave. This book gave me the courage and the *exact steps* to start building something for myself on the side. <strong>My safety net is finally growing.</strong>"</p>
-                        </div>
-                        <div class="testimonial-card text-left">
-                             <div class="flex items-center mb-4">
-                                <!-- IMPROVED AVATAR -->
-                                <div class="w-12 h-12 rounded-full mr-4 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-500 flex-shrink-0">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
-                                        <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.78 6.125-2.095a1.23 1.23 0 00.41-1.412A9.99 9.99 0 0010 12a9.99 9.99 0 00-6.535 2.493z" />
-                                    </svg>
-                                </div>
-                                <!-- END AVATAR -->
-                                <div>
-                                    <p class="font-bold text-gray-200">Vikram Nair, Chennai</p>
-                                    <div class="star-rating">★★★★★</div>
-                                </div>
-                            </div>
-                            <p class="text-lg text-gray-400">"Honestly, I thought it was another scam. The 'Do The Work' guarantee made me try it. Best ₹299 I've ever spent. <strong>The mindset section alone is life-changing.</strong> No exaggeration."</p>
-                        </div>
-
-                        <!-- DUPLICATE SET for infinite scroll -->
-                        <div class="testimonial-card text-left">
-                            <div class="flex items-center mb-4">
-                                <!-- IMPROVED AVATAR -->
-                                <div class="w-12 h-12 rounded-full mr-4 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-500 flex-shrink-0">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
-                                        <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.78 6.125-2.095a1.23 1.23 0 00.41-1.412A9.99 9.99 0 0010 12a9.99 9.99 0 00-6.535 2.493z" />
-                                    </svg>
-                                </div>
-                                <!-- END AVATAR -->
-                                <div>
-                                    <p class="font-bold text-gray-200">Aman Sharma, Bengaluru</p>
-                                    <div class="star-rating">★★★★★</div>
-                                </div>
-                            </div>
-                            <p class="text-lg text-gray-400">"I felt so stuck. Harshdeep's book gave me a clear plan. <strong>I started the e-commerce hustle and made my first ₹10,000 in just 3 weeks!</strong> This was the push I desperately needed."</p>
-                        </div>
-                        <div class="testimonial-card text-left">
-                             <div class="flex items-center mb-4">
-                                <!-- IMPROVED AVATAR -->
-                                <div class="w-12 h-12 rounded-full mr-4 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-500 flex-shrink-0">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
-                                        <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.78 6.125-2.095a1.23 1.23 0 00.41-1.412A9.99 9.99 0 0010 12a9.99 9.99 0 00-6.535 2.493z" />
-                                    </svg>
-                                </div>
-                                <!-- END AVATAR -->
-                                <div>
-                                    <p class="font-bold text-gray-200">Priya Kulkarni, Mumbai</p>
-                                    <div class="star-rating">★★★★★</div>
-                                </div>
-                            </div>
-                            <p class="text-lg text-gray-400">"The mindset chapters alone are worth 10x the price. <strong>The 'Capital Compass' concept completely changed how I see my own skills.</strong> It's not about money; it's about resourcefulness. Priceless."</p>
-                        </div>
-                        <div class="testimonial-card text-left">
-                             <div class="flex items-center mb-4">
-                                <!-- IMPROVED AVATAR -->
-                                <div class="w-12 h-12 rounded-full mr-4 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-500 flex-shrink-0">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
-                                        <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.78 6.125-2.095a1.23 1.23 0 00.41-1.412A9.99 9.99 0 0010 12a9.99 9.99 0 00-6.535 2.493z" />
-                                    </svg>
-                                </div>
-                                <!-- END AVATAR -->
-                                <div>
-                                    <p class="font-bold text-gray-200">Rohan Verma, Delhi</p>
-                                    <div class="star-rating">★★★★★</div>
-                                </div>
-                            </div>
-                            <p class="text-lg text-gray-400">"No fluff, no BS. This is a real, actionable guide for the Indian market. <strong>It's the first book that truly understands our struggle and provides a practical way out.</strong> Highly recommended."</p>
-                        </div>
-                        <div class="testimonial-card text-left">
-                            <div class="flex items-center mb-4">
-                                <!-- IMPROVED AVATAR -->
-                                <div class="w-12 h-12 rounded-full mr-4 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-500 flex-shrink-0">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
-                                        <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.78 6.125-2.095a1.23 1.23 0 00.41-1.412A9.99 9.99 0 0010 12a9.99 9.99 0 00-6.535 2.493z" />
-                                    </svg>
-                                </div>
-                                <!-- END AVATAR -->
-                                <div>
-                                    <p class="font-bold text-gray-200">Sameer Tambe, Pune</p>
-                                    <div class="star-rating">★★★★★</div>
-                                </div>
-                            </div>
-                            <p class="text-lg text-gray-400">"As a student, this was a goldmine. The zero-investment models are practical, not just theory. <strong>Already started my first side hustle using the service blueprint.</strong>"</p>
-                        </div>
-                        <div class="testimonial-card text-left">
-                             <div class="flex items-center mb-4">
-                                <!-- IMPROVED AVATAR -->
-                                <div class="w-12 h-12 rounded-full mr-4 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-500 flex-shrink-0">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
-                                        <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.78 6.125-2.095a1.23 1.23 0 00.41-1.412A9.99 9.99 0 0010 12a9.99 9.99 0 00-6.535 2.493z" />
-                                    </svg>
-                                </div>
-                                <!-- END AVATAR -->
-                                <div>
-                                    <p class="font-bold text-gray-200">Meera Gupta, Hyderabad</p>
-                                    <div class="star-rating">★★★★★</div>
-                                </div>
-                            </div>
-                            <p class="text-lg text-gray-400">"I was so tired of my corporate job but too scared to leave. This book gave me the courage and the *exact steps* to start building something for myself on the side. <strong>My safety net is finally growing.</strong>"</p>
-                        </div>
-                        <div class="testimonial-card text-left">
-                             <div class="flex items-center mb-4">
-                                <!-- IMPROVED AVATAR -->
-                                <div class="w-12 h-12 rounded-full mr-4 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-500 flex-shrink-0">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
-                                        <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.78 6.125-2.095a1.23 1.23 0 00.41-1.412A9.99 9.99 0 0010 12a9.99 9.99 0 00-6.535 2.493z" />
-                                    </svg>
-                                </div>
-                                <!-- END AVATAR -->
-                                <div>
-                                    <p class="font-bold text-gray-200">Vikram Nair, Chennai</p>
-                                    <div class="star-rating">★★★★★</div>
-                                </div>
-                            </div>
-                            <p class="text-lg text-gray-400">"Honestly, I thought it was another scam. The 'Do The Work' guarantee made me try it. Best ₹299 I've ever spent. <strong>The mindset section alone is life-changing.</strong> No exaggeration."</p>
-                        </div>
-
-                        <!-- DUPLICATE SET for infinite scroll -->
-                        <div class="testimonial-card text-left">
-                            <div class="flex items-center mb-4">
-                                <!-- IMPROVED AVATAR -->
-                                <div class="w-12 h-12 rounded-full mr-4 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-500 flex-shrink-0">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
-                                        <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.78 6.125-2.095a1.23 1.23 0 00.41-1.412A9.99 9.99 0 0010 12a9.99 9.99 0 00-6.535 2.493z" />
-                                    </svg>
-                                </div>
-                                <!-- END AVATAR -->
-                                <div>
-                                    <p class="font-bold text-gray-200">Aman Sharma, Bengaluru</p>
-                                    <div class="star-rating">★★★★★</div>
-                                </div>
-                            </div>
-                            <p class="text-lg text-gray-400">"I felt so stuck. Harshdeep's book gave me a clear plan. <strong>I started the e-commerce hustle and made my first ₹10,000 in just 3 weeks!</strong> This was the push I desperately needed."</p>
-                        </div>
-                        <div class="testimonial-card text-left">
-                             <div class="flex items-center mb-4">
-                                <!-- IMPROVED AVATAR -->
-                                <div class="w-12 h-12 rounded-full mr-4 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-500 flex-shrink-0">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
-                                        <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.78 6.125-2.095a1.23 1.23 0 00.41-1.412A9.99 9.99 0 0010 12a9.99 9.99 0 00-6.535 2.493z" />
-                                    </svg>
-                                </div>
-                                <!-- END AVATAR -->
-                                <div>
-                                    <p class="font-bold text-gray-200">Priya Kulkarni, Mumbai</p>
-                                    <div class="star-rating">★★★★★</div>
-                                </div>
-                            </div>
-                            <p class="text-lg text-gray-400">"The mindset chapters alone are worth 10x the price. <strong>The 'Capital Compass' concept completely changed how I see my own skills.</strong> It's not about money; it's about resourcefulness. Priceless."</p>
-                        </div>
-                        <div class="testimonial-card text-left">
-                             <div class="flex items-center mb-4">
-                                <!-- IMPROVED AVATAR -->
-                                <div class="w-12 h-12 rounded-full mr-4 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-500 flex-shrink-0">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
-                                        <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.78 6.125-2.095a1.23 1.23 0 00.41-1.412A9.99 9.99 0 0010 12a9.99 9.99 0 00-6.535 2.493z" />
-                                    </svg>
-                                </div>
-                                <!-- END AVATAR -->
-                                <div>
-                                    <p class="font-bold text-gray-200">Rohan Verma, Delhi</p>
-                                    <div class="star-rating">★★★★★</div>
-                                </div>
-                            </div>
-                            <p class="text-lg text-gray-400">"No fluff, no BS. This is a real, actionable guide for the Indian market. <strong>It's the first book that truly understands our struggle and provides a practical way out.</strong> Highly recommended."</p>
-                        </div>
-                        <div class="testimonial-card text-left">
-                            <div class="flex items-center mb-4">
-                                <!-- IMPROVED AVATAR -->
-                                <div class="w-12 h-12 rounded-full mr-4 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-500 flex-shrink-0">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
-                                        <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.78 6.125-2.095a1.23 1.23 0 00.41-1.412A9.99 9.99 0 0010 12a9.99 9.99 0 00-6.535 2.493z" />
-                                    </svg>
-                                </div>
-                                <!-- END AVATAR -->
-                                <div>
-                                    <p class="font-bold text-gray-200">Sameer Tambe, Pune</p>
-                                    <div class="star-rating">★★★★★</div>
-                                </div>
-                            </div>
-                            <p class="text-lg text-gray-400">"As a student, this was a goldmine. The zero-investment models are practical, not just theory. <strong>Already started my first side hustle using the service blueprint.</strong>"</p>
-                        </div>
-                        <div class="testimonial-card text-left">
-                             <div class="flex items-center mb-4">
-                                <!-- IMPROVED AVATAR -->
-                                <div class="w-12 h-12 rounded-full mr-4 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-500 flex-shrink-0">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
-                                        <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.78 6.125-2.095a1.23 1.23 0 00.41-1.412A9.99 9.99 0 0010 12a9.99 9.99 0 00-6.535 2.493z" />
-                                    </svg>
-                                </div>
-                                <!-- END AVATAR -->
-                                <div>
-                                    <p class="font-bold text-gray-200">Meera Gupta, Hyderabad</p>
-                                    <div class="star-rating">★★★★★</div>
-                                </div>
-                            </div>
-                            <p class="text-lg text-gray-400">"I was so tired of my corporate job but too scared to leave. This book gave me the courage and the *exact steps* to start building something for myself on the side. <strong>My safety net is finally growing.</strong>"</p>
-                        </div>
-                        <div class="testimonial-card text-left">
-                             <div class="flex items-center mb-4">
-                                <!-- IMPROVED AVATAR -->
-                                <div class="w-12 h-12 rounded-full mr-4 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-500 flex-shrink-0">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
-                                        <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.78 6.125-2.095a1.23 1.23 0 00.41-1.412A9.99 9.99 0 0010 12a9.99 9.99 0 00-6.535 2.493z" />
-                                    </svg>
-                                </div>
-                                <!-- END AVATAR -->
-                                <div>
-                                    <p class="font-bold text-gray-200">Vikram Nair, Chennai</p>
-                                    <div class="star-rating">★★★★★</div>
-                                </div>
-                            </div>
-                            <p class="text-lg text-gray-400">"Honestly, I thought it was another scam. The 'Do The Work' guarantee made me try it. Best ₹299 I've ever spent. <strong>The mindset section alone is life-changing.</strong> No exaggeration."</p>
-                        </div>
-
-                        <!-- DUPLICATE SET for infinite scroll -->
-                        <div class="testimonial-card text-left">
-                            <div class="flex items-center mb-4">
-                                <!-- IMPROVED AVATAR -->
-                                <div class="w-12 h-12 rounded-full mr-4 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-500 flex-shrink-0">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
-                                        <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.78 6.125-2.095a1.23 1.23 0 00.41-1.412A9.99 9.99 0 0010 12a9.99 9.99 0 00-6.535 2.493z" />
-                                    </svg>
-                                </div>
-                                <!-- END AVATAR -->
-                                <div>
-                                    <p class="font-bold text-gray-200">Aman Sharma, Bengaluru</p>
-                                    <div class="star-rating">★★★★★</div>
-                                </div>
-                            </div>
-                            <p class="text-lg text-gray-400">"I felt so stuck. Harshdeep's book gave me a clear plan. <strong>I started the e-commerce hustle and made my first ₹10,000 in just 3 weeks!</strong> This was the push I desperately needed."</p>
-                        </div>
-                        <div class="testimonial-card text-left">
-                             <div class="flex items-center mb-4">
-                                <!-- IMPROVED AVATAR -->
-                                <div class="w-12 h-12 rounded-full mr-4 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-500 flex-shrink-0">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
-                                        <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.78 6.125-2.095a1.23 1.23 0 00.41-1.412A9.99 9.99 0 0010 12a9.99 9.99 0 00-6.535 2.493z" />
-                                    </svg>
-                                </div>
-                                <!-- END AVATAR -->
-                                <div>
-                                    <p class="font-bold text-gray-200">Priya Kulkarni, Mumbai</p>
-                                    <div class="star-rating">★★★★★</div>
-                                </div>
-                            </div>
-                            <p class="text-lg text-gray-400">"The mindset chapters alone are worth 10x the price. <strong>The 'Capital Compass' concept completely changed how I see my own skills.</strong> It's not about money; it's about resourcefulness. Priceless."</p>
-                        </div>
-                        <div class="testimonial-card text-left">
-                             <div class="flex items-center mb-4">
-                                <!-- IMPROVED AVATAR -->
-                                <div class="w-12 h-12 rounded-full mr-4 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-500 flex-shrink-0">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
-                                        <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.78 6.125-2.095a1.23 1.23 0 00.41-1.412A9.99 9.99 0 0010 12a9.99 9.99 0 00-6.535 2.493z" />
-                                    </svg>
-                                </div>
-                                <!-- END AVATAR -->
-                                <div>
-                                    <p class="font-bold text-gray-200">Rohan Verma, Delhi</p>
-                                    <div class="star-rating">★★★★★</div>
-                                </div>
-                            </div>
-                            <p class="text-lg text-gray-400">"No fluff, no BS. This is a real, actionable guide for the Indian market. <strong>It's the first book that truly understands our struggle and provides a practical way out.</strong> Highly recommended."</p>
-                        </div>
-                        <div class="testimonial-card text-left">
-                            <div class="flex items-center mb-4">
-                                <!-- IMPROVED AVATAR -->
-                                <div class="w-12 h-12 rounded-full mr-4 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-500 flex-shrink-0">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
-                                        <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.78 6.125-2.095a1.23 1.23 0 00.41-1.412A9.99 9.99 0 0010 12a9.99 9.99 0 00-6.535 2.493z" />
-                                    </svg>
-                                </div>
-                                <!-- END AVATAR -->
-                                <div>
-                                    <p class="font-bold text-gray-200">Sameer Tambe, Pune</p>
-                                    <div class="star-rating">★★★★★</div>
-                                </div>
-                            </div>
-                            <p class="text-lg text-gray-400">"As a student, this was a goldmine. The zero-investment models are practical, not just theory. <strong>Already started my first side hustle using the service blueprint.</strong>"</p>
-                        </div>
-                        <div class="testimonial-card text-left">
-                             <div class="flex items-center mb-4">
-                                <!-- IMPROVED AVATAR -->
-                                <div class="w-12 h-12 rounded-full mr-4 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-500 flex-shrink-0">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
-                                        <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.78 6.125-2.095a1.23 1.23 0 00.41-1.412A9.99 9.99 0 0010 12a9.99 9.99 0 00-6.535 2.493z" />
-                                    </svg>
-                                </div>
-                                <!-- END AVATAR -->
-                                <div>
-                                    <p class="font-bold text-gray-200">Meera Gupta, Hyderabad</p>
-                                    <div class="star-rating">★★★★★</div>
-                                </div>
-                            </div>
-                            <p class="text-lg text-gray-400">"I was so tired of my corporate job but too scared to leave. This book gave me the courage and the *exact steps* to start building something for myself on the side. <strong>My safety net is finally growing.</strong>"</p>
-                        </div>
-                        <div class="testimonial-card text-left">
-                             <div class="flex items-center mb-4">
-                                <!-- IMPROVED AVATAR -->
-                                <div class="w-12 h-12 rounded-full mr-4 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-500 flex-shrink-0">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
-                                        <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.78 6.125-2.095a1.23 1.23 0 00.41-1.412A9.99 9.99 0 0010 12a9.99 9.99 0 00-6.535 2.493z" />
-                                    </svg>
-                                </div>
-                                <!-- END AVATAR -->
-                                <div>
-                                    <p class="font-bold text-gray-200">Vikram Nair, Chennai</p>
-                                    <div class="star-rating">★★★★★</div>
-                                </div>
-                            </div>
-                            <p class="text-lg text-gray-400">"Honestly, I thought it was another scam. The 'Do The Work' guarantee made me try it. Best ₹299 I've ever spent. <strong>The mindset section alone is life-changing.</strong> No exaggeration."</p>
                         </div>
                      </div>
                 </div>
@@ -1463,8 +1353,8 @@
         </section>
         <!-- END Testimonials Section -->
 
-        <!-- New Review Submission Section with Accordion (Styled) -->
-        <section class="py-24 section bg-[#0D1117] border-y border-gray-800">
+        <!-- SECTION 17: New Review Submission Section (B: Darker Background) -->
+        <section class="py-24 section bg-darker border-y border-gray-800">
             <div class="container mx-auto px-6 text-center max-w-3xl">
                 <h2 class="text-3xl font-bold text-gray-200 mb-4">Found Value? Share Your Story!</h2>
                 <p class="text-lg text-gray-500 mb-8">If this blueprint helped you, your review can inspire others. Please share your experience below – it truly helps!</p>
@@ -1482,6 +1372,7 @@
                         
                         <div>
                             <label for="review-email" class="block text-sm font-medium text-gray-400 mb-1">Your Email</label>
+                            <!-- ACCESSIBILITY FIX: Added sr-only label to match the general form structure, though the visible label is also present -->
                             <input type="email" id="review-email" name="email" placeholder="Enter your email..." required class="w-full bg-[#010409] border border-gray-700 rounded-md py-3 px-4 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500 transition">
                         </div>
 
@@ -1512,7 +1403,7 @@
         </section>
         <!-- End New Review Submission Section -->
 
-        <!-- NEW: Money-Back Guarantee Section (RESTORED) -->
+        <!-- SECTION 18: Money-Back Guarantee Section (A: Default Body Background) -->
         <section class="py-24 section">
             <div class="container mx-auto px-6 max-w-3xl">
                 <div class="guarantee-card text-center p-8 md:p-12">
@@ -1520,23 +1411,22 @@
                       <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                     <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-gray-200 mb-4">My 14-Day "Do The Work" Guarantee</h2>
-                    <p class="text-lg text-gray-400 max-w-xl mx-auto">This is a partnership. I'm 100% confident in this system because it's the one I used to escape my own debt. If you genuinely read the book, apply the strategies, and don't see a clear path to your first ₹10,000, email me your work within 14 days. I'll not only refund you 100%—I'll personally review your work and tell you what to do next.</p>
+                    <!-- BOLD FIX: Removed ** and replaced with <strong> -->
+                    <p class="text-lg text-gray-400 max-w-xl mx-auto">This is a partnership. I'm 100% confident in this system because it's the one I used to escape my own debt. If you genuinely read the <strong>ESCAPE THE 9-5</strong>, apply the strategies, and don't see a clear path to your first ₹10,000, email me your work within 14 days. I'll not only refund you 100%—I'll personally review your work and tell you what to do next.</p>
                 </div>
             </div>
         </section>
         <!-- END: Money-Back Guarantee Section -->
 
 
-        <!-- Pricing / Final CTA Section (CLEANED) -->
-        <section id="pricing" class="py-24 md:py-32 section">
+        <!-- SECTION 19: Pricing / Final CTA Section (B: Darker Background) -->
+        <section id="pricing" class="py-24 md:py-32 section bg-darker">
             <div class="container mx-auto px-6">
-                <div class="bg-[#0D1117] border border-green-700 rounded-xl p-6 md:p-12 text-center max-w-5xl mx-auto shadow-2xl shadow-green-500/20">
+                <div class="bg-darker border border-green-700 rounded-xl p-6 md:p-12 text-center max-w-5xl mx-auto shadow-2xl shadow-green-500/20">
                     
                     <!-- Main Headers -->
                     <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight text-gray-200 mb-4">Don't Just Dream of Freedom. Buy The Map.</h2>
                     <p class="text-lg text-gray-500 mb-8 max-w-3xl mx-auto">Stop trading your life for a salary. For less than a single Swiggy order, you get the exact blueprint that changed my life. This is your chance.</p>
-                    
-                    <!-- Countdown Timer REMOVED -->
                     
                     <!-- New 2-Column Layout -->
                     <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-start">
@@ -1544,81 +1434,78 @@
                         <!-- Column 1: The Value -->
                         <div class="text-left">
                             <p class="text-lg md:text-xl font-semibold text-gray-300 max-w-4xl mx-auto mb-6 leading-relaxed">
-                                Get the <span class="accent-color">exact blueprint</span> that took me from...<br>
-                                <span class="text-red-500">₹32 Lakh Debt</span> & <span class="text-gray-400">27k/month</span> → <span class="accent-color">+₹5 Lakh/Month</span>
+                                Get the <span class="accent-color"><strong>exact blueprint</strong></span> that took me from...<br>
+                                <span class="text-red-500">₹32 Lakh Debt</span> & <span class="text-gray-400">27k/month</span> → <span class="accent-color"><strong>+₹5 Lakh/Month</strong></span>
                             </p>
                             
-                            <!-- "What You Get" Box (UPDATED) -->
+                            <!-- "What You Get" Box (UPDATED to include BONUSES) -->
                             <div class="mt-8 bg-[#010409] p-6 rounded-lg border border-gray-700">
-                                <h3 class="text-2xl font-bold text-white mb-4">What You Get:</h3>
+                                <h3 class="text-2xl font-bold text-white mb-4">You Get EVERYTHING Today:</h3>
                                 <ul class="space-y-3 text-gray-400">
                                     <li class="flex items-center">
                                         <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                        6 Complete Business Blueprints
+                                        <!-- BOLD FIX: Removed ** and replaced with <strong> -->
+                                        The <strong>ESCAPE THE 9-5</strong> (6 Blueprints)
+                                    </li>
+                                     <li class="flex items-center">
+                                        <svg class="w-5 h-5 text-yellow-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                        <strong>BONUS 1:</strong> 7-Day Launchpad Checklist
+                                    </li>
+                                     <li class="flex items-center">
+                                        <svg class="w-5 h-5 text-yellow-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                        <strong>BONUS 2:</strong> Debt-Crusher Budget Template
+                                    </li>
+                                     <li class="flex items-center">
+                                        <svg class="w-5 h-5 text-yellow-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                        <strong>BONUS 3:</strong> Zero-Cost Tools Vault
                                     </li>
                                     <li class="flex items-center">
                                         <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                        The 6-Month Action Plan to ₹100k
-                                    </li>
-                                    <li class="flex items-center">
-                                        <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                        The 5 "Costly Mistakes" to Avoid
-                                    </li>
-                                    <li class="flex items-center">
-                                        <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                        Zero-Risk & Zero-Investment Strategies
-                                    </li>
-                                    <li class="flex items-center">
-                                        <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                        Lifetime Access & Free Future Updates
+                                        <strong>Lifetime Access & Free Future Updates</strong>
                                     </li>
                                 </ul>
                             </div>
                         </div>
 
-                        <!-- Column 2: The Action (CLEANED) -->
-                        <div class="bg-[#0D1117] border border-gray-700 rounded-lg p-6 md:p-8 sticky top-24">
-                            <!-- NEW: Just Launched Tag -->
-                            <div class="inline-block bg-green-800 text-green-100 text-sm font-semibold px-4 py-1 rounded-full mb-3">
-                                JUST LAUNCHED
-                            </div>
-                            <p class="text-xl font-semibold text-yellow-400 mb-3">Special Launch Price</p>
+                        <!-- Column 2: The Action (Cleaned up - Timer Removed) -->
+                        <div class="bg-[#0D1117] border border-yellow-700 rounded-lg p-6 md:p-8 sticky top-24">
+                             <!-- ADDED EVERGREEN URGENCY -->
+                            <p class="text-xl font-bold text-red-400 mb-3">Price will jump to ₹999 soon!</p>
+                            
+                            <p class="text-xl font-semibold text-yellow-400 mb-3">Today's Price</p>
+                            <!-- Countdown Timer REMOVED -->
                             
                             <div class="flex items-center justify-center space-x-3 mt-2">
-                                 <span class="text-5xl md:text-6xl font-black text-gray-200">₹299</span>
+                                 <span class="text-5xl font-black text-gray-200">₹299</span>
                                  <span class="text-xl text-gray-500 line-through">₹999</span>
                             </div>
                              <p class="text-lg text-gray-500 mb-6">One-Time Investment</p>
                             
                             <!-- Updated Final CTA Link -->
-                            <a href="https://u.payu.in/nIsRdQdIBGDX" class="w-full block glowing-btn text-xl font-bold py-3">
+                            <a href="https://u.payu.in/nIsRdQdIBGDX" class="glowing-btn text-lg font-bold inline-block">
                                 Get Instant Access Now
                             </a>
                             
                             <!-- Pizza Analogy -->
-                            <p class="text-gray-400 text-sm max-w-md mx-auto mt-4">Why not invest in your future for the price of one pizza?</p>
+                            <p class="text-gray-400 text-sm max-w-md mx-auto mt-4">Why not invest in your future for the price of one pizza? Secure your copy and all bonuses now.</p>
                         </div>
                     </div>
-                    
-                    <!-- Guarantee REMOVED from here, now its own section -->
-
                 </div>
-            </div>
-        </section>
+            </section>
 
 
-        <!-- FAQ Section (MOVED) -->
-        <section id="faq-section" class="py-24 md:py-32 section bg-[#0D1117] border-y border-gray-800">
+        <!-- SECTION 20: FAQ Section (A: Default Body Background) -->
+        <section id="faq-section" class="py-24 md:py-32 section">
             <div class="container mx-auto px-6 max-w-4xl">
                 <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-200 text-center mb-16">Your Doubts, Destroyed.</h2>
                 <div id="faq-container" class="space-y-4"></div>
             </div>
         </section>
 
-        <!-- Scrolling Banner Section (Location 2) -->
-        <section class="banner-scroller border-t border-gray-800"> <!-- Added border-t -->
-            <div class="banner-scroller__inner">
-                <!-- Replaced text and removed SVGs -->
+        <!-- SECTION 21: Trust Badge Scroller Section (B: Darker Background) -->
+        <section id="trust-badge-scroller" class="banner-scroller bg-darker border-b border-gray-800">
+             <div class="banner-scroller__inner">
+                <!-- Banner content duplicated for seamless infinite loop (SET 1) -->
                 <span>📉 From ₹32L Debt → 📈 To ₹5L/Month</span>
                 <span>•</span>
                 <span>🔓 Escape 9-5 Cage</span>
@@ -1630,6 +1517,7 @@
                 <span>🎯 ₹0 to ₹50K/Month</span>
                 <span>•</span>
                 <span>🛡️ Zero Risk</span>
+                <span>•</span>
                 <!-- Duplicate Set -->
                  <span>📉 From ₹32L Debt → 📈 To ₹5L/Month</span>
                 <span>•</span>
@@ -1642,9 +1530,10 @@
                 <span>🎯 ₹0 to ₹50K/Month</span>
                 <span>•</span>
                 <span>🛡️ Zero Risk</span>
+                <span>•</span>
             </div>
         </section>
-        <!-- END Scrolling Banner Section -->
+        <!-- END Trust Badge Scroller Section -->
         
     </main>
 
@@ -1670,11 +1559,11 @@
         </div>
     </footer>
 
-    <!-- Mobile CTA (Updated Design) -->
+    <!-- Mobile CTA (Updated Design - Timer Removed) -->
     <div id="mobile-cta" class="md:hidden fixed bottom-0 left-0 right-0 bg-black/50 backdrop-blur-lg p-4 border-t border-gray-800 z-40 transform translate-y-full transition-transform duration-300">
         <div class="container mx-auto px-2 flex justify-between items-center gap-4">
             <div class="text-left flex-shrink min-w-0">
-                <p class="text-sm font-bold text-white truncate">Your Escape Plan Is Here.</p>
+                <p class="text-sm font-bold text-white truncate">Price Jumps Soon!</p> <!-- Added urgency -->
                 <p class="text-xs text-gray-400">Get it for <span class="font-bold text-white">₹299</span> (<span class="line-through">₹999</span>)</p>
             </div>
             <a href="https://u.payu.in/nIsRdQdIBGDX" class="bg-accent text-white font-bold py-3 px-5 rounded-lg text-sm text-center hover-bg-accent transition-colors shadow-lg shadow-green-500/20 whitespace-nowrap">
@@ -1683,12 +1572,12 @@
         </div>
     </div>
     
-    <!-- Desktop CTA (New) -->
+    <!-- Desktop CTA (New - Timer Removed) -->
     <div id="desktop-cta" class="hidden md:flex fixed bottom-0 left-0 right-0 bg-black/50 backdrop-blur-lg p-4 border-t border-gray-800 z-40 transform translate-y-full transition-transform duration-300">
         <div class="container mx-auto px-6 flex justify-between items-center">
-            <div>
-                <p class="text-lg font-bold text-white">Your Escape Plan Is One Click Away.</p>
-                <p class="text-sm text-gray-400">Get the complete blueprint now for <span class="font-bold text-white">₹299</span> (before it's <span class="line-through">₹999</span>!)</p>
+            <div class="flex items-center">
+                 <p class="text-lg font-bold text-white mr-4">The Complete Blueprint + All Bonuses.</p>
+                 <p class="text-lg font-bold text-red-400">Price Jumps Soon! Only <span class="font-bold text-white">₹299</span></p> <!-- Added urgency -->
             </div>
             <a href="https://u.payu.in/nIsRdQdIBGDX" class="glowing-btn text-lg font-bold inline-block">
                 Get Instant Access Now
@@ -1698,46 +1587,43 @@
     
     <!-- All Modals are here -->
     
-    <!-- NEW: Lead Magnet Pop-up Modal (UPGRADED) -->
+    <!-- NEW: Lead Magnet Pop-up Modal (Simplified and Minimalist) -->
     <div id="popup-modal" class="hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4 modal-overlay opacity-0">
-        <div class="modal-container bg-[#0D1117] border border-gray-800 rounded-lg w-full max-w-4xl flex flex-col md:flex-row transform scale-95 opacity-0">
+        <div class="modal-container bg-darker border border-gray-800 rounded-lg w-full max-w-lg flex flex-col transform scale-95 opacity-0"> <!-- Max width reduced -->
             
-            <!-- Left Side: Image -->
-            <div class="hidden md:block md:w-1/3">
-                <img src="ebookcover.png" alt="Escape the 9-5 Ebook Cover" class="w-full h-full object-cover rounded-l-lg" onerror="this.src='https://placehold.co/400x500/0D1117/E6EDF3?text=Ebook+Cover'; this.onerror=null;">
-            </div>
+            <!-- Ebook Cover (REMOVED) -->
 
-            <!-- Right Side: Content -->
+            <!-- Right Side: Content (Now full width) -->
             <div class="flex-1 flex flex-col">
                 <div class="flex-shrink-0 p-6 border-b border-gray-800 flex justify-between items-center">
-                    <h2 class="text-2xl font-bold text-gray-200">Want a FREE Taste of Freedom?</h2>
+                    <h2 class="text-2xl font-bold text-gray-200">Just Need a Quick Preview?</h2> <!-- New softer headline -->
                     <button data-close-modal="popup-modal" class="text-gray-500 hover:text-white text-3xl">&times;</button>
                 </div>
                 
-                <div class="modal-content flex-grow overflow-y-auto p-6 text-center">
-                    <p class="text-lg text-gray-500 mb-6">Get the first two chapters—including one complete business blueprint—delivered to your inbox right now.</p>
+                <div class="modal-content flex-grow overflow-y-auto p-6">
                     
-                    <!-- What You'll Get -->
                     <div class="bg-[#010409] border border-gray-700 rounded-lg p-6 max-w-md mx-auto text-left mb-6">
-                        <h4 class="text-xl font-bold text-white mb-4">Inside Your 2 Free Chapters:</h4>
+                        <h4 class="text-xl font-bold text-white mb-4">What's Included (Free):</h4>
                         <ul class="space-y-3 text-gray-400">
-                            <li class="flex items-center">
-                                <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                <strong>Chapter 1: The 9-5 Trap</strong> (The mindset to break free)
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-green-500 mt-1 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <div><strong>Chapter 1: The 9-5 Trap</strong> (The essential mindset shift you need)</div>
                             </li>
-                            <li class="flex items-center">
-                                <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                <strong>Chapter 6: One Full Business Blueprint</strong> (The E-commerce Hustle)
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-green-500 mt-1 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <div><strong>Chapter 6: The E-commerce Hustle</strong> (One complete, zero-cost business blueprint)</div>
                             </li>
                         </ul>
                     </div>
-
-                    <!-- Dynamic Counter -->
-                    <p class="text-lg text-yellow-400 font-bold mb-6">
-                        Join <span id="popup-download-counter" class="transition-all">2,347</span>+ hustlers who got their free taste!
+                    
+                    <!-- NEW minimal value statement (Replaces counter) -->
+                    <p class="text-base text-yellow-400 font-bold mb-6">
+                        Get instant access to real, actionable strategy.
                     </p>
 
                     <form id="popup-lead-magnet-form" class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+                        <!-- ACCESSIBILITY FIX: Added sr-only label -->
+                        <label for="popup-lead-email" class="sr-only">Email Address</label>
                         <input type="email" id="popup-lead-email" name="email" placeholder="Enter your best email..." required class="flex-grow bg-[#010409] border border-gray-700 rounded-md py-3 px-4 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500 transition">
                         <button type="submit" class="bg-accent text-white font-bold py-3 px-6 rounded-md hover-bg-accent transition-colors">
                             Send My Free Chapters
@@ -1762,7 +1648,7 @@
                 <div class="space-y-4 text-gray-400">
                     <p>Welcome to <strong class="font-semibold text-gray-300">zerofundedhustle</strong> (“we,” “our,” “us”). Your privacy matters to us. This Privacy Policy explains how we collect, use, and protect your personal information when you visit <strong class="font-semibold text-gray-300">zerofundedhustle.com</strong> or make a purchase from us.</p>
                     <div><h3 class="font-semibold text-gray-300">1. Information We Collect</h3><p>We collect details like your name and email when you purchase, basic usage data (IP address, browser type), and use cookies to improve site performance.</p></div>
-                    <div><h3 class="font-semibold text-gray-300">2. How We Use Your Information</h3><p>We use your data to: Process and deliver ebook purchases, communicate with you, send updates (if you opt in), and improve our website.</p></div>
+                    <div><h3 class="font-semibold text-gray-300">2. How We Use Your Information</h3><p>We use your data to: Process and deliver <strong>ESCAPE THE 9-5</strong> purchases, communicate with you, send updates (if you opt in), and improve our website.</p></div>
                     <div><h3 class="font-semibold text-gray-300">3. Payments</h3><p>All payments are processed securely through Razorpay. We don’t store your card details.</p></div>
                     <div><h3 class="font-semibold text-gray-300">4. Data Sharing</h3><p>We do not sell or rent your data. We only share it with essential service providers like payment processors.</p></div>
                     <div><h3 class="font-semibold text-gray-300">5. Contact Us</h3><p>Questions? Contact us at: Email: hello@zerofundedhustle.com</p></div>
@@ -1784,10 +1670,10 @@
             <div class="modal-content flex-grow overflow-y-auto p-6">
                 <p class="text-sm text-gray-500 mb-6">Last Updated: October 21, 2025</p>
                 <div class="space-y-4 text-gray-400">
-                    <p>By accessing or using <strong class="font-semibold text-gray-300">zerofundedhustle.com</strong>, you agree to these Terms of Use. If you don’t agree, please don’t use the site.</p>
-                    <div><h3 class="font-semibold text-gray-300">1. Use of Our Website</h3><p>You agree to use this website only for lawful purposes. You must not reproduce, sell, or distribute our content or ebooks without permission.</p></div>
+                    <p>By accessing or using <strong class="font-semibold text-gray-300">zerofundedhustle</strong>, you agree to these Terms of Use. If you don’t agree, please don’t use the site.</p>
+                    <div><h3 class="font-semibold text-gray-300">1. Use of Our Website</h3><p>You agree to use this website only for lawful purposes. You must not reproduce, sell, or distribute our content or <strong>ESCAPE THE 9-5</strong> without permission.</p></div>
                     <div><h3 class="font-semibold text-gray-300">2. Products and Payments</h3><p>All prices are in INR. Payments are processed securely. As our products are digital, please refer to our Refund Policy for details on eligibility.</p></div>
-                    <div><h3 class="font-semibold text-gray-300">3. Intellectual Property</h3><p>All content on this website, including the ebook, belongs to <strong class="font-semibold text-gray-300">zerofundedhustle</strong>. Purchasing an ebook gives you a personal license to read it, not to share or resell it.</p></div>
+                    <div><h3 class="font-semibold text-gray-300">3. Intellectual Property</h3><p>All content on this website, including the <strong>ESCAPE THE 9-5</strong>, belongs to <strong class="font-semibold text-gray-300">zerofundedhustle</strong>. Purchasing an <strong>ESCAPE THE 9-5</strong> gives you a personal license to read it, not to share or resell it.</p></div>
                     <div><h3 class="font-semibold text-gray-300">4. Disclaimer</h3><p>All content is for educational purposes only. We don’t guarantee specific results. Any actions you take are your responsibility.</p></div>
                      <div><h3 class="font-semibold text-gray-300">5. Governing Law</h3><p>These terms are. governed by the laws of India. Any disputes will be handled in the courts of Punjab, India.</p></div>
                     <div><h3 class="font-semibold text-gray-300">6. Contact</h3><p>For any questions about these Terms, reach us at: Email: hello@zerofundedhustle.com</p></div>
@@ -1810,7 +1696,7 @@
                 <p class="text-sm text-gray-500 mb-6">Last Updated: October 21, 2025</p>
                 <div class="space-y-4 text-gray-400">
                     <p>At <strong class="font-semibold text-gray-300">zerofundedhustle</strong>, our mission is to create guides that actually move people forward. That’s why we offer a 14-Day Action-Based Refund Guarantee.</p>
-                    <div><h3 class="font-semibold text-gray-300">1. Our 14-Day Action-Based Guarantee</h3><p>If you’ve read the ebook, actively applied the lessons, and still feel you didn’t gain value, you can request a full refund within 14 days of purchase. We’ll just ask for reasonable proof that you gave it a fair try (like notes or summaries of what you applied). This isn’t to make it hard—it’s to make sure you took action before deciding it didn’t work.</p></div>
+                    <div><h3 class="font-semibold text-gray-300">1. Our 14-Day Action-Based Guarantee</h3><p>If you’ve read the <strong>ESCAPE THE 9-5</strong>, actively applied the lessons, and still feel you didn’t gain value, you can request a full refund within 14 days of purchase. We’ll just ask for reasonable proof that you gave it a fair try (like notes or summaries of what you applied). This isn’t to make it hard—it’s to make sure you took action before deciding it didn’t work.</p></div>
                     <div><h3 class="font-semibold text-gray-300">2. How to Request a Refund</h3><p>Email hello@zerofundedhustle.com with your order number and a short explanation of the action you took. Once verified, we’ll process your refund within 5–10 business days.</p></div>
                     <div><h3 class="font-semibold text-gray-300">3. Eligibility</h3><p>Refunds will not be granted for buyers who haven’t read, tried, or applied the content. We designed this policy to reward action-takers, not just readers.</p></div>
                     <div><h3 class="font-semibold text-gray-300">4. Contact</h3><p>If you’ve genuinely done the work and still feel it didn’t help, we’ll honor our word. Reach out at: Email: hello@zerofundedhustle.com</p></div>
@@ -1841,7 +1727,7 @@
                      <div>
                         <h3 class="font-semibold text-gray-300 text-lg mt-6">🧭 Common Reasons to Contact Us</h3>
                         <ul class="list-disc list-inside mt-2">
-                            <li>Questions about ebooks or future releases</li>
+                            <li>Questions about <strong>ESCAPE THE 9-5</strong> or future releases</li>
                             <li>Issues with payments or downloads</li>
                             <li>Refund or guarantee requests</li>
                             <li>Collaboration or partnership inquiries</li>
@@ -1863,28 +1749,22 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             
-            // --- NEW: Dynamic Download Counter Logic ---
+            // --- Dynamic Download Counter Logic (Supports Hero trust count) ---
+            const MS_PER_DAY = 1000 * 60 * 60 * 24;
             function updateDownloadCounter() {
                 try {
                     const baseCount = 2347;
-                    // Start date: Oct 20, 2025 (to make the number look real)
                     const startDate = new Date('2025-10-20T00:00:00Z').getTime();
                     const today = new Date().getTime();
                     
-                    const daysPassed = Math.max(0, Math.floor((today - startDate) / (1000 * 60 * 60 * 24)));
+                    const daysPassed = Math.max(0, Math.floor((today - startDate) / MS_PER_DAY));
                     
-                    // Add between 12 and 27 new downloads per day
                     const dailyIncrement = 12 + (new Date(today).getDate() % 15);
                     const dynamicCount = baseCount + (daysPassed * dailyIncrement);
 
                     const formattedCount = new Intl.NumberFormat('en-IN').format(dynamicCount);
                     
-                    const counterElements = document.querySelectorAll('#download-counter, #popup-download-counter');
-                    counterElements.forEach(el => {
-                        if(el) el.textContent = formattedCount;
-                    });
-                    
-                    // NEW: Update the Hero trust banner dynamically (using a mock static value for star rating for simplicity)
+                    // Only update the Hero trust count, as Lead Magnet counters are removed.
                     const trustDownloadCount = document.getElementById('trust-download-count');
                     if (trustDownloadCount) {
                          trustDownloadCount.textContent = `${formattedCount}+ Hustlers Escaped`;
@@ -1894,62 +1774,29 @@
                     console.error("Error updating counter:", e);
                 }
             }
-            // Run it on page load
             updateDownloadCounter();
 
-            // Function to increment counter locally on submit
-            function incrementLocalCounter() {
-                 const counterElements = document.querySelectorAll('#download-counter, #popup-download-counter');
-                 counterElements.forEach(el => {
-                    if(el) {
-                        const currentCount = parseInt(el.textContent.replace(/,/g, '')) || 2347;
-                        const newCount = currentCount + 1;
-                        el.textContent = new Intl.NumberFormat('en-IN').format(newCount);
-                    }
-                });
+            // No longer used since we removed the local counter elements, but kept stub for robustness.
+            function incrementLocalCounter() { 
+                 console.log("Local counter increment skipped: elements removed.");
             }
             // --- END: Dynamic Download Counter ---
             
             // --- CTA Pulse Animation ---
             const heroCtaButton = document.getElementById('hero-cta-btn');
             if (heroCtaButton) {
-                 // Add the pulsing class briefly on load
                  heroCtaButton.classList.add('pulsing');
                  setTimeout(() => {
                      heroCtaButton.classList.remove('pulsing');
-                 }, 1200); // Remove after one animation cycle
+                 }, 1200);
             }
             // --- End CTA Pulse Animation ---
 
 
-            // Function to generate the review card structure (for future use/display)
-            function generateReviewCard(review) {
-                 const starSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4 text-yellow-400"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>`;
-                 const stars = Array(review.rating).fill(starSvg).join('');
-                 
-                 return `
-                    <div class="testimonial-card text-left">
-                        <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 rounded-full mr-4 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-500 flex-shrink-0">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
-                                    <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.78 6.125-2.095a1.23 1.23 0 00.41-1.412A9.99 9.99 0 0010 12a9.99 9.99 0 00-6.535 2.493z" />
-                                </svg>
-                            </div>
-                            <div>
-                                <p class="font-bold text-gray-200">${review.name}</p>
-                                <div class="star-rating flex">${stars}</div>
-                            </div>
-                        </div>
-                        <p class="text-lg text-gray-400">"${review.review}"</p>
-                    </div>
-                 `;
-            }
-            // --- End Review Card Generator ---
-            
-            // FAQ Data and Logic (Conversion-focused)
+            // FAQ Data and Logic
             const faqs = [
                 { q: "Is this another 'get rich quick' scheme?", a: "<strong>Absolutely not.</strong> This is a a 'get rich smart' blueprint. 'Get rich quick' is a fantasy that leads to debt. I was <strong>-₹32 Lakh in debt</strong> because I fell for those myths. This book is the exact opposite: real, gradual strategies to build <strong>sustainable, predictable income</strong>." },
-                { q: "How is this different from free content on YouTube?", a: "Free content gives you scattered puzzle pieces. This ebook gives you the <strong>finished picture and the instruction manual.</strong> It's a battle-tested system designed to save you 5+ years of painful, expensive trial and error. You're not just buying information; <strong>you're buying a proven roadmap and speed.</strong>" },
+                { q: "How is this different from free content on YouTube?", a: "Free content gives you scattered puzzle pieces. This ESCAPE THE 9-5 gives you the <strong>finished picture and the instruction manual.</strong> It's a battle-tested system designed to save you 5+ years of painful, expensive trial and error. You're not just buying information; <strong>you're buying a proven roadmap and speed.</strong>" },
                 { q: "Is this REALLY for the Indian market?", a: "<strong>100% Yes.</strong> Every example, every currency figure (INR), and every strategy is tailored for the Indian context. This isn't recycled Western advice. It's built by an Indian, for the Indian hustler." },
                 { q: "How to start a business with 0 investment in India?", a: "<strong>Yes. That is the entire point of this book.</strong> I started with less than zero (massive debt!). This book focuses exclusively on businesses you can launch with <strong>₹0 investment</strong>. Your biggest asset will be your time and your hunger to win." },
                 { q: "How can I start a side hustle in India with a full time job?", a: "This was designed for you. The system works in <strong>focused 2-hour blocks</strong> that you can fit into your evenings or weekends. Your 9-5 is your safety net while you build your escape route. <strong>This book shows you how to build the boat before you jump off the ship.</strong>" },
@@ -2086,8 +1933,8 @@
                 .then(response => {
                     document.getElementById('lead-success-message').classList.remove('hidden');
                     document.getElementById('lead-magnet-form').style.display = 'none'; 
-                    localStorage.setItem('hasSubscribed', 'true'); // NEW: Set flag
-                    incrementLocalCounter(); 
+                    // UX FIX: Changed from sessionStorage to localStorage
+                    localStorage.setItem('hasSubscribed', 'true'); // Set flag for persistent session
                 })
                 .catch(error => {
                     document.getElementById('lead-error-message').textContent = 'Network error. Please check your connection and try again.';
@@ -2209,8 +2056,12 @@
                 outer.style.visibility = 'hidden';
                 outer.style.overflow = 'scroll'; 
                 outer.style.msOverflowStyle = 'scrollbar'; 
+                outer.style.width = '100px'; 
+                outer.style.height = '100px'; 
                 document.body.appendChild(outer);
                 const inner = document.createElement('div');
+                inner.style.width = '100%';
+                inner.style.height = '200%';
                 outer.appendChild(inner);
                 const scrollbarWidth = (outer.offsetWidth - inner.offsetWidth);
                 outer.parentNode.removeChild(outer);
@@ -2298,8 +2149,8 @@
                 });
             });
             
-            // --- UPDATED: Scroll-Delayed Pop-up Modal Logic ---
-            const popupTriggerElement = document.getElementById('popup-trigger'); // MOVED to "Mistakes" section
+            // --- Scroll-Delayed Pop-up Modal Logic ---
+            const popupTriggerElement = document.getElementById('popup-trigger'); 
             let popupTriggered = false;
 
             if (popupTriggerElement) {
@@ -2307,22 +2158,21 @@
                     const entry = entries[0];
                     if (entry.isIntersecting && !popupTriggered) {
                         
-                        // NEW: Check if already subscribed
+                        // UX FIX: Check localStorage instead of sessionStorage
                         if (localStorage.getItem('hasSubscribed') === 'true') {
-                            popupObserver.unobserve(entry.target); // Stop observing
-                            return; // Don't show the popup
+                            popupObserver.unobserve(entry.target); 
+                            return; 
                         }
                         
-                        popupTriggered = true; // Ensure it only runs once
+                        popupTriggered = true; 
                         
-                        // Wait 1.5 seconds *after* user scrolls to this section
                         setTimeout(() => {
                             if (!document.querySelector('.modal-overlay:not(.hidden)')) {
                                 openModal('popup-modal');
                             }
-                        }, 1500); // 1.5 second delay
+                        }, 1500);
                         
-                        popupObserver.unobserve(entry.target); // Stop observing
+                        popupObserver.unobserve(entry.target);
                     }
                 }, { 
                     threshold: 0.1 
@@ -2358,8 +2208,8 @@
                 .then(response => {
                     successMessage.classList.remove('hidden');
                     form.style.display = 'none';
-                    localStorage.setItem('hasSubscribed', 'true'); // NEW: Set flag
-                    incrementLocalCounter(); 
+                    // UX FIX: Changed from sessionStorage to localStorage
+                    localStorage.setItem('hasSubscribed', 'true'); // Set flag for persistent session
                     setTimeout(() => {
                         closeModal('popup-modal');
                     }, 3000);
@@ -2374,7 +2224,7 @@
                 });
             });
 
-            // --- Advanced Testimonial Scroller (RE-ADDED) ---
+            // --- Advanced Testimonial Scroller ---
             const scroller = document.getElementById('testimonial-scroller');
             if (scroller) {
                 const scrollerInner = scroller.querySelector('.scroller__inner');
