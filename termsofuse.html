@@ -3,294 +3,252 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terms of Use | ZeroFundedHustle</title>
-    <link rel="icon" type="image/png" href="/favicon.png">
+    
+    <!-- SEO META TAGS -->
+    <title>Terms of Use (T&C) | zerofundedhustle Website Agreement</title>
+    <meta name="description" content="Read the full Terms and Conditions (T&C) for using the zerofundedhustle website and accessing the 'Escape 9-5 Job: Zero Investment Side Hustle Blueprint' digital product. Defines usage rights and prohibited actions.">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Terms of Use | zerofundedhustle">
+    <meta property="og:description" content="Terms and Conditions governing the use of the website and products.">
+    <meta property="og:image" content="ebookcover.png">
+    <meta property="og:url" content="https://www.zerofundedhustle.com/termsofuse">
+    <meta property="og:type" content="website">
+
+    <!-- Canonical + Favicon -->
+    <link rel="canonical" href="https://www.zerofundedhustle.com/termsofuse">
+    <link rel="icon" type="image/png" href="ebookcover.png">
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #010409;
-            color: #E6EDF3;
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Inter Font for Logo -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome (Deferred) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    
+    <script>
+        // Custom Tailwind Config from index.html
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            900: '#0B1221', // Deepest background
+                            800: '#1F2937', // Hero bg
+                            700: '#2D3A4F', // Card bg
+                        },
+                        lime: {
+                            neon: '#D4FF00',
+                            hover: '#B8E600'
+                        },
+                        teal: {
+                            accent: '#2DD4BF'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                }
+            }
         }
-        .accent-color { color: #238636; } /* Vibrant Green */
-        .bg-accent { background-color: #238636; }
-        .hover-bg-accent:hover { background-color: #2EA043; }
-        
-        .prose-dark { color: #8B949E; }
-        .prose-dark h1, .prose-dark h2, .prose-dark h3, .prose-dark strong { color: #E6EDF3; }
-        .prose-dark a { color: #238636; text-decoration: none; }
-        .prose-dark a:hover { text-decoration: underline; }
-        .prose-dark hr { border-color: #30363d; }
-        .prose-dark ul li { position: relative; padding-left: 1.75em; }
-        .prose-dark ul li::before { content: '•'; color: #238636; position: absolute; left: 0; font-size: 1.25em; line-height: 1; }
-        
-        .modal-overlay { transition: opacity 0.3s ease; }
-        .modal-container { transition: transform 0.3s ease, opacity 0.3s ease; }
-        .modal-content::-webkit-scrollbar { width: 8px; }
-        .modal-content::-webkit-scrollbar-track { background: #0D1117; }
-        .modal-content::-webkit-scrollbar-thumb { background-color: #30363d; border-radius: 4px; border: 2px solid #0D1117; }
-        .modal-content::-webkit-scrollbar-thumb:hover { background-color: #238636; }
+    </script>
+
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; background-color: #FFFFFF; }
+        .hero-bg {
+            background-color: #111827;
+            background: radial-gradient(circle at 50% 50%, #1F2937 0%, #0B1221 100%);
+        }
+        nav.scrolled { 
+            background-color: rgba(11, 18, 33, 0.95); 
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3); 
+            padding-top: 1rem; 
+            padding-bottom: 1rem; 
+        }
+
+        .content h2 {
+            font-size: 1.875rem; /* text-3xl */
+            font-weight: 700; /* font-bold */
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #0B1221; /* navy-900 */
+            border-bottom: 2px solid #D4FF00; /* lime-neon */
+            padding-bottom: 0.5rem;
+        }
+        .content h3 {
+            font-size: 1.25rem; /* text-xl */
+            font-weight: 600; /* font-semibold */
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: #1F2937; /* navy-800 */
+        }
+        .content p {
+            margin-bottom: 1rem;
+            line-height: 1.75;
+            color: #4B5563; /* gray-600 */
+            font-size: 1rem;
+        }
+        .content ol {
+            list-style: decimal;
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+            color: #4B5563;
+        }
+        .content ul {
+            list-style: disc;
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+            color: #4B5563;
+        }
+        .content li {
+            margin-bottom: 0.5rem;
+        }
     </style>
 </head>
-<body class="antialiased">
+<body>
 
-    <!-- Header -->
-    <header class="bg-black/30 backdrop-blur-lg sticky top-0 z-50 border-b border-gray-800">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <!-- Link updated -->
-            <a href="/" class="text-2xl font-extrabold tracking-tight text-gray-200">zero<span class="accent-color">funded</span>hustle</a>
-            <!-- Link updated -->
-            <a href="/#pricing" class="hidden md:inline-block bg-accent text-white font-bold py-2 px-6 rounded-md hover-bg-accent transition-colors">
-                Get The Blueprint
+    <!-- HEADER (Simplified, Centered Logo, and Back Button) -->
+    <nav id="main-nav" class="fixed w-full z-50 transition-all duration-300 bg-[#111827]/90 backdrop-blur-md border-b border-gray-800 py-4 scrolled">
+        <div class="container mx-auto px-6 lg:px-12 relative flex justify-center items-center">
+            <!-- Back to Home Link (Absolute Positioned Top-Left) -->
+            <a href="/" class="absolute left-6 lg:left-12 top-1/2 transform -translate-y-1/2 text-lime-neon hover:text-white text-base font-semibold transition-colors flex items-center gap-2 group">
+                <i class="fa-solid fa-arrow-left text-lg group-hover:-translate-x-1 transition-transform"></i>
+                <span class="hidden sm:inline">Back to Home</span>
             </a>
-        </nav>
-    </header>
 
-    <!-- Main Content -->
-    <main class="py-24 md:py-32">
-        <div class="container mx-auto px-6 max-w-4xl">
-            <div class="prose-dark max-w-none">
-                <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-8">Terms of Use</h1>
-                <p class="text-sm text-gray-500">Last Updated: October 15, 2025</p>
-                <p class="mt-8 text-lg">Welcome to <strong>zerofundedhustle</strong>. By visiting zerofundedhustle.com or purchasing our digital products, you agree to these Terms of Use. Please read them carefully.</p>
-                <hr class="my-8">
-
-                <h2 class="text-2xl font-bold mt-12 mb-4">1. Acceptance of Terms</h2>
-                <p>By accessing or using zerofundedhustle.com, you agree to be bound by these Terms of Use and our Privacy Policy. If you do not agree, please do not use our website or purchase our products.</p>
-
-                <h2 class="text-2xl font-bold mt-12 mb-4">2. About zerofundedhustle</h2>
-                <p><strong>zerofundedhustle</strong> (“we”, “our”, “us”) provides educational content, ebooks, and other digital resources designed to help individuals gain financial clarity, mindset growth, and online business knowledge. All content is owned by <strong>zerofundedhustle</strong>.</p>
-                
-                <h2 class="text-2xl font-bold mt-12 mb-4">3. Use of Our Website</h2>
-                <p>You agree to use our website and products only for lawful purposes. You must not copy, reproduce, resell, or distribute any part of our content without permission, try to hack the site, or use our materials for illegal redistribution.</p>
-                
-                <h2 class="text-2xl font-bold mt-12 mb-4">4. Intellectual Property Rights</h2>
-                <p>All content on zerofundedhustle.com — including text, graphics, logos, and digital downloads — is the intellectual property of <strong>zerofundedhustle</strong>. You may use our content only for your personal, non-commercial use. Unauthorized sharing or reproduction of our ebooks violates copyright law.</p>
-                
-                <h2 class="text-2xl font-bold mt-12 mb-4">5. Purchases and Payments</h2>
-                <p>Payments are processed securely through Razorpay or other approved gateways. You must provide accurate billing details. Once payment is confirmed, you’ll receive an instant download link.</p>
-
-                <h2 class="text-2xl font-bold mt-12 mb-4">6. Refund Policy</h2>
-                <p>We offer a 14-Day Action-Based Refund Guarantee. If you’ve read the full ebook, implemented the steps, and genuinely feel you received no value, contact us within 14 days of purchase. For full details, see our <a href="/refundpolicy">Refund Policy</a>.</p>
-
-                <h2 class="text-2xl font-bold mt-12 mb-4">7. Digital Product Delivery</h2>
-                <p>After successful payment, you’ll receive an instant email with a download link. If you don’t receive it within 24 hours, contact us at <a href="mailto:hello@zerofundedhustle.com">hello@zerofundedhustle.com</a>.</p>
-
-                <h2 class="text-2xl font-bold mt-12 mb-4">8. Disclaimer</h2>
-                <p>Our ebooks and materials are for educational and informational purposes only. We do not promise or guarantee specific financial results or outcomes. Your success depends on your own effort, consistency, and actions.</p>
-
-                <h2 class="text-2xl font-bold mt-12 mb-4">9. Limitation of Liability</h2>
-                <p><strong>zerofundedhustle</strong> is not responsible for any loss or damage resulting from the use or misuse of our materials, technical issues, or third-party service errors. By using our products, you agree that we shall not be liable for any direct or indirect damages.</p>
-
-                <h2 class="text-2xl font-bold mt-12 mb-4">10. Modifications to Terms</h2>
-                <p>We may update or change these Terms of Use from time to time. When we do, we’ll update the “Last Updated” date at the top. Continued use of the website after changes means you accept the revised terms.</p>
-                
-                <h2 class="text-2xl font-bold mt-12 mb-4">11. Contact Us</h2>
-                <p>If you have any questions about these Terms of Use, reach us at: <a href="mailto:hello@zerofundedhustle.com">hello@zerofundedhustle.com</a>.</p>
-            </div>
+            <!-- Logo (Center) -->
+            <a href="/" class class="flex items-center group hover:opacity-90 transition-opacity">
+                <span class="text-2xl font-extrabold tracking-tight" style="font-family: 'Inter', sans-serif;">
+                    <span class="text-white">zero</span><span class="text-[#22c55e]">funded</span><span class="text-white">hustle</span>
+                </span>
+            </a>
         </div>
-    </main>
+    </nav>
 
-    <!-- Footer -->
-    <footer class="mt-24 py-12 border-t border-gray-800">
-        <div class="container mx-auto px-6 text-center text-gray-500">
-            <div class="mb-6">
-                <a href="https://www.instagram.com/zerofundedhustle" target="_blank" class="mx-3 hover:text-green-400 transition-colors">Instagram</a>
+    <!-- HERO SECTION - Page Title -->
+    <section class="hero-bg pt-32 pb-20 lg:pt-48 lg:pb-32 relative overflow-hidden">
+        <div class="container mx-auto px-6 lg:px-12 relative z-10 text-center">
+            <h1 class="text-4xl lg:text-6xl font-bold text-white mb-4">Terms of Use</h1>
+            <p class="text-gray-400 text-lg max-w-2xl mx-auto">Governing your <strong>access</strong> and <strong>use</strong> of <strong>zerofundedhustle</strong>.</p>
+        </div>
+    </section>
+
+    <!-- CONTENT SECTION -->
+    <section class="py-24 bg-white">
+        <div class="container mx-auto px-6 lg:px-12 max-w-4xl content">
+            
+            <p><strong>Last updated:</strong> November 24, 2025</p>
+
+            <p>Please read these <strong>Terms of Use</strong> ("<strong>Terms</strong>") carefully before using the <strong>zerofundedhustle</strong> website (the "<strong>Service</strong>") operated by <strong>zerofundedhustle</strong> ("us", "we", or "our"). Your <strong>access to and use</strong> of the Service is conditioned on your <strong>acceptance</strong> of and <strong>compliance</strong> with these Terms.</p>
+
+            <h2>1. Agreement to Terms</h2>
+            <p>By accessing or using the **Service**, you agree to be bound by these **Terms**. If you disagree with any part of the terms, then you may not access the Service. These Terms apply to all **visitors, users**, and others who access or use the Service.</p>
+
+            <h2>2. Intellectual Property Rights (IP)</h2>
+            <p>The **Service** and its original content, features, and functionality, including the "<strong>Escape 9-5 Job: Zero Investment Side Hustle Blueprint</strong>" (the "<strong>Blueprint</strong>"), are and will remain the exclusive **property** of **zerofundedhustle**, protected by <strong>copyright, trademark</strong>, and other intellectual property laws.</p>
+
+            <h3>2.1. Limited License for the Blueprint</h3>
+            <p>Upon **successful purchase**, you are granted a **non-exclusive, non-transferable, revocable license** to **access and use** the digital product for your <strong>personal, non-commercial use only</strong>. This license permits you to download and print copies for your own, sole use.</p>
+
+            <h3>2.2. Prohibited Use and Redistribution</h3>
+            <p>You agree **not to** (and shall not permit any third party to):</p>
+            <ol>
+                <li>**Reproduce, duplicate, copy, sell, resell, or exploit** any portion of the **Blueprint** or the **Service** without **express written permission** from us.</li>
+                <li>**Redistribute, share**, or make the **Blueprint available** to any third party (e.g., uploading to file-sharing sites, sharing in private groups, or emailing to friends) whether for **free or for sale**.</li>
+                <li>**Modify or create derivative works** based on the Blueprint or the Service content.</li>
+                <li>Use the **Service** in any way that causes, or may cause, **damage** to the Service or impairment of the **availability or accessibility** of the Service.</li>
+            </ol>
+            <p>Any such prohibited use constitutes a **material breach** of these Terms and will result in <strong>immediate termination</strong> of your access, without refund, and potential legal action.</p>
+
+            <h2>3. Purchases and Payments</h2>
+            <p>If you wish to make any **Purchase** of the Blueprint, you may be asked to supply **certain information** to our **third-party payment processor** (e.g., PayU). You represent and warrant that you have the legal right to use any payment methods provided.</p>
+            <p>All purchases are non-refundable unless explicitly covered by our **14-day "Do The Work" Guarantee** outlined in the separate <a href="refundpolicy" class="text-lime-neon hover:underline">**Refund Policy**</a>.</p>
+
+            <h2>4. User Content (Reviews/Testimonials)</h2>
+            <p>Our Service may allow you to submit reviews, comments, or testimonials ("**User Content**"). You are solely <strong>responsible</strong> for this content.</p>
+            <h3>4.1. Grant of License for User Content</h3>
+            <p>By posting User Content, you grant **zerofundedhustle** a worldwide, irrevocable, perpetual, royalty-free license to <strong>use, reproduce, modify, publish, and distribute</strong> that User Content in any current or future media for marketing and promotional purposes **without compensation** to you.</p>
+
+            <h2>5. Disclaimer of Liability and Warranty</h2>
+            <p>The **Blueprint** is provided for **educational purposes only**. The methodologies presented are based on the author's personal experience and research. We **do not guarantee** that you will achieve any **specific financial result, income level**, or **success**. Your results depend on your **effort, market conditions**, and the successful execution of the strategies.</p>
+            <p>**zerofundedhustle** disclaims all liability for any loss, damage, or injury resulting from the use of the Service or the Blueprint. The Service is provided **"as is"** without warranties of any kind, whether express or implied.</p>
+
+            <h2>6. Governing Law</h2>
+            <p>These **Terms** shall be governed and construed in accordance with the laws of **India**, without regard to its conflict of law provisions.</p>
+
+            <h2>7. Changes to Terms</h2>
+            <p>We reserve the right, at our **sole discretion**, to **modify or replace** these **Terms** at any time. We will provide **reasonable notice** of any material changes. By continuing to access or use our Service after those revisions become effective, you agree to be bound by the **revised terms**.</p>
+            
+            <h2>8. Contact Us</h2>
+            <p>If you have any questions about these <strong>Terms</strong>, please contact us:</p>
+            <ul>
+                <li>By visiting the <a href="contactus" class="text-lime-neon hover:underline"><strong>Contact Page</strong></a> on our website.</li>
+                <li>By email: <strong>zerofundedhustle@gmail.com</strong></li>
+                <li>By connecting with us on Instagram: <strong><a href="https://www.instagram.com/zerofundedhustle/" target="_blank" class="text-lime-neon hover:underline">@zerofundedhustle</a></strong></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- FOOTER (MATCHED TO LATEST INDEX FILE) -->
+    <footer class="bg-navy-900 text-white pt-20 pb-10 border-t border-gray-800">
+        <div class="container mx-auto px-6 lg:px-12">
+            <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
+                <div class="lg:col-span-2 pr-8">
+                    <a href="/" class="flex items-center gap-2 mb-6">
+                        <span class="text-2xl font-extrabold tracking-tight" style="font-family: 'Inter', sans-serif;">
+                            <span class="text-white">zero</span><span class="text-[#22c55e]">funded</span><span class="text-white">hustle</span>
+                        </span>
+                    </a>
+                    <p class="text-gray-400 text-sm mb-8 leading-relaxed">Built in India, for the Indian Hustler. We provide the <strong>blueprints</strong> you need to <strong>escape the rat race</strong> without investors or debt.</p>
+                    <div class="flex space-x-4 mt-6">
+                        <a href="https://www.instagram.com/zerofundedhustle/" target="_blank" class="text-gray-400 hover:text-lime-neon transition-colors" aria-label="Instagram"><i class="fa-brands fa-instagram text-xl"></i></a>
+                    </div>
+                </div>
+                <div><h4 class="font-bold mb-6 text-sm uppercase tracking-wider text-gray-300">Product</h4><ul class="space-y-4 text-sm text-gray-400"><li><a href="/#blueprint" class="hover:text-lime-neon transition-colors">The Blueprint</a></li><li><a href="/#proof" class="hover:text-lime-neon transition-colors">Proof</a></li><li><a href="/#bonuses" class="hover:text-lime-neon transition-colors">Bonuses</a></li><li><a href="/#reviews" class="hover:text-lime-neon transition-colors">Reviews</a></li></ul></div>
+                <div><h4 class="font-bold mb-6 text-sm uppercase tracking-wider text-gray-300">Legal</h4><ul class="space-y-4 text-sm text-gray-400"><li><a href="privacypolicy" class="hover:text-lime-neon transition-colors text-left">Privacy Policy</a></li><li><a href="termsofuse" class="hover:text-lime-neon transition-colors text-left">Terms of Use</a></li><li><a href="refundpolicy" class="hover:text-lime-neon transition-colors text-left">Refund Policy</a></li></ul></div>
+                <div><h4 class="font-bold mb-6 text-sm uppercase tracking-wider text-gray-300">Connect</h4><ul class="space-y-4 text-sm text-gray-400"><li><a href="contactus" class="hover:text-lime-neon transition-colors text-left">Contact Us</a></li><li><a href="sitemap" class="hover:text-lime-neon transition-colors text-left">Sitemap</a></li></ul></div>
             </div>
-            <div class="mb-6 text-sm">
-                 <a id="privacy-policy-link" href="#" class="mx-3 hover:text-green-400 transition-colors">Privacy Policy</a>
-                 <a id="terms-of-use-link" href="#" class="mx-3 hover:text-green-400 transition-colors">Terms of Use</a>
-                 <a id="refund-policy-link" href="#" class="mx-3 hover:text-green-400 transition-colors">Refund Policy</a>
-                 <a id="contact-us-link" href="#" class="mx-3 hover:text-green-400 transition-colors">Contact Us</a>
-                 <!-- Link updated -->
-                 <a href="/sitemap" class="mx-3 hover:text-green-400 transition-colors">Sitemap</a>
-            </div>
-            <p class="text-sm">&copy; 2025 <strong class="font-semibold text-gray-400">zerofundedhustle</strong>. All Rights Reserved.</p>
-            <p class="text-xs mt-2">Built in India, for the Indian Hustler.</p>
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4"><p class="text-gray-500 text-xs">Copyright © 2025 <strong>zerofundedhustle</strong>. All Rights Reserved.</p></div>
         </div>
     </footer>
 
-    <!-- All Modals for Popups -->
-    <div id="privacy-modal" class="hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4 modal-overlay opacity-0">
-        <div class="modal-container bg-[#0D1117] border border-gray-800 rounded-lg w-full max-w-3xl max-h-[90vh] flex flex-col transform scale-95 opacity-0">
-            <div class="flex-shrink-0 p-6 border-b border-gray-800 flex justify-between items-center">
-                <h2 class="text-2xl font-bold text-gray-200">Privacy Policy</h2>
-                <button data-close-modal="privacy-modal" class="text-gray-500 hover:text-white text-3xl">&times;</button>
-            </div>
-            <div class="modal-content flex-grow overflow-y-auto p-6">
-                <p class="text-sm text-gray-500 mb-6">Last Updated: October 14, 2025</p>
-                <div class="space-y-4 text-gray-400">
-                    <p>Welcome to <strong class="font-semibold text-gray-300">zerofundedhustle</strong> (“we,” “our,” “us”). Your privacy matters to us. This Privacy Policy explains how we collect, use, and protect your personal information when you visit <strong class="font-semibold text-gray-300">zerofundedhustle.com</strong> or make a purchase from us.</p>
-                    <div><h3 class="font-semibold text-gray-300">1. Information We Collect</h3><p>We collect details like your name and email when you purchase, basic usage data (IP address, browser type), and use cookies to improve site performance.</p></div>
-                    <div><h3 class="font-semibold text-gray-300">2. How We Use Your Information</h3><p>We use your data to: Process and deliver ebook purchases, communicate with you, send updates (if you opt in), and improve our website.</p></div>
-                    <div><h3 class="font-semibold text-gray-300">3. Payments</h3><p>All payments are processed securely through Razorpay. We don’t store your card details.</p></div>
-                    <div><h3 class="font-semibold text-gray-300">4. Data Sharing</h3><p>We do not sell or rent your data. We only share it with essential service providers like payment processors.</p></div>
-                    <div><h3 class="font-semibold text-gray-300">5. Contact Us</h3><p>Questions? Contact us at: Email: hello@zerofundedhustle.com</p></div>
-                </div>
-            </div>
-            <div class="flex-shrink-0 p-4 border-t border-gray-800 text-center">
-                <!-- Link updated -->
-                <a href="/privacypolicy" class="text-sm accent-color hover:underline">For the full details, please click here</a>
-            </div>
-        </div>
-    </div>
-    <div id="terms-modal" class="hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4 modal-overlay opacity-0">
-         <div class="modal-container bg-[#0D1117] border border-gray-800 rounded-lg w-full max-w-3xl max-h-[90vh] flex flex-col transform scale-95 opacity-0">
-            <div class="flex-shrink-0 p-6 border-b border-gray-800 flex justify-between items-center">
-                <h2 class="text-2xl font-bold text-gray-200">Terms of Use</h2>
-                <button data-close-modal="terms-modal" class="text-gray-500 hover:text-white text-3xl">&times;</button>
-            </div>
-            <div class="modal-content flex-grow overflow-y-auto p-6">
-                <p class="text-sm text-gray-500 mb-6">Last Updated: October 14, 2025</p>
-                <div class="space-y-4 text-gray-400">
-                    <p>By accessing or using <strong class="font-semibold text-gray-300">zerofundedhustle.com</strong>, you agree to these Terms of Use. If you don’t agree, please don’t use the site.</p>
-                    <div><h3 class="font-semibold text-gray-300">1. Use of Our Website</h3><p>You agree to use this website only for lawful purposes. You must not reproduce, sell, or distribute our content or ebooks without permission.</p></div>
-                    <div><h3 class="font-semibold text-gray-300">2. Products and Payments</h3><p>All prices are in INR. Payments are processed securely. As our products are digital, please refer to our Refund Policy for details on eligibility.</p></div>
-                    <div><h3 class="font-semibold text-gray-300">3. Intellectual Property</h3><p>All content on this website, including the ebook, belongs to <strong class="font-semibold text-gray-300">zerofundedhustle</strong>. Purchasing an ebook gives you a personal license to read it, not to share or resell it.</p></div>
-                    <div><h3 class="font-semibold text-gray-300">4. Disclaimer</h3><p>All content is for educational purposes only. We don’t guarantee specific results. Any actions you take are your responsibility.</p></div>
-                     <div><h3 class="font-semibold text-gray-300">5. Governing Law</h3><p>These terms are governed by the laws of India. Any disputes will be handled in the courts of Punjab, India.</p></div>
-                    <div><h3 class="font-semibold text-gray-300">6. Contact</h3><p>For any questions about these Terms, reach us at: Email: hello@zerofundedhustle.com</p></div>
-                </div>
-            </div>
-            <div class="flex-shrink-0 p-4 border-t border-gray-800 text-center">
-                <!-- Link updated -->
-                <a href="/termsofuse" class="text-sm accent-color hover:underline">For the full details, please click here</a>
-            </div>
-        </div>
-    </div>
-     <div id="refund-modal" class="hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4 modal-overlay opacity-0">
-        <div class="modal-container bg-[#0D1117] border border-gray-800 rounded-lg w-full max-w-3xl max-h-[90vh] flex flex-col transform scale-95 opacity-0">
-            <div class="flex-shrink-0 p-6 border-b border-gray-800 flex justify-between items-center">
-                <h2 class="text-2xl font-bold text-gray-200">Refund Policy</h2>
-                <button data-close-modal="refund-modal" class="text-gray-500 hover:text-white text-3xl">&times;</button>
-            </div>
-            <div class="modal-content flex-grow overflow-y-auto p-6">
-                <p class="text-sm text-gray-500 mb-6">Last Updated: October 14, 2025</p>
-                <div class="space-y-4 text-gray-400">
-                    <p>At <strong class="font-semibold text-gray-300">zerofundedhustle</strong>, our mission is to create guides that actually move people forward. That’s why we offer a 14-Day Action-Based Refund Guarantee.</p>
-                    <div><h3 class="font-semibold text-gray-300">1. Our 14-Day Action-Based Guarantee</h3><p>If you’ve read the ebook, actively applied the lessons, and still feel you didn’t gain value, you can request a full refund within 14 days of purchase. We’ll justask for reasonable proof that you gave it a fair try (like notes or summaries of what you applied). This isn’t to make it hard—it’s to make sure you took action before deciding it didn’t work.</p></div>
-                    <div><h3 class="font-semibold text-gray-300">2. How to Request a Refund</h3><p>Email hello@zerofundedhustle.com with your order number and a short explanation of the action you took. Once verified, we’ll process your refund within 5–10 business days.</p></div>
-                    <div><h3 class="font-semibold text-gray-300">3. Eligibility</h3><p>Refunds will not be granted for buyers who haven’t read, tried, or applied the content. We designed this policy to reward action-takers, not just readers.</p></div>
-                    <div><h3 class="font-semibold text-gray-300">4. Contact</h3><p>If you’ve genuinely done the work and still feel it didn’t help, we’ll honor our word. Reach out at: Email: hello@zerofundedhustle.com</p></div>
-                </div>
-            </div>
-             <div class="flex-shrink-0 p-4 border-t border-gray-800 text-center">
-                <!-- Link updated -->
-                <a href="/refundpolicy" class="text-sm accent-color hover:underline">For the full details, please click here</a>
-            </div>
-        </div>
-    </div>
-    <div id="contact-modal" class="hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4 modal-overlay opacity-0">
-        <div class="modal-container bg-[#0D1117] border border-gray-800 rounded-lg w-full max-w-3xl max-h-[90vh] flex flex-col transform scale-95 opacity-0">
-            <div class="flex-shrink-0 p-6 border-b border-gray-800 flex justify-between items-center">
-                <h2 class="text-2xl font-bold text-gray-200">Contact Us</h2>
-                <button data-close-modal="contact-modal" class="text-gray-500 hover:text-white text-3xl">&times;</button>
-            </div>
-            <div class="modal-content flex-grow overflow-y-auto p-6">
-                 <p class="text-sm text-gray-500 mb-6">Last Updated: October 14, 2025</p>
-                <div class="space-y-4 text-gray-400">
-                    <p class="text-lg">We’re here to help. If you have any questions about your purchase, need support, or just want to share feedback, reach out — we actually read every message.</p>
-                    <div>
-                        <h3 class="font-semibold text-gray-300 text-lg">📬 Email</h3>
-                        <a href="mailto:hello@zerofundedhustle.com" class="text-green-400 hover:underline">hello@zerofundedhustle.com</a>
-                        <p class="text-sm">We typically reply within 24–48 hours (Mon–Fri).</p>
-                    </div>
-                     <div>
-                        <h3 class="font-semibold text-gray-300 text-lg mt-6">🧭 Common Reasons to Contact Us</h3>
-                        <ul class="list-disc list-inside mt-2">
-                            <li>Questions about ebooks or future releases</li>
-                            <li>Issues with payments or downloads</li>
-                            <li>Refund or guarantee requests</li>
-                            <li>Collaboration or partnership inquiries</li>
-                            <li>General feedback or support</li>
-                        </ul>
-                    </div>
-                    <div class="mt-6 bg-gray-900 border border-gray-700 rounded-lg p-4">
-                        <h3 class="font-semibold text-gray-300">💡 Tip</h3>
-                        <p>If you’re contacting us about an order, include your order number or the email used at checkout — it helps us resolve things faster.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="flex-shrink-0 p-4 border-t border-gray-800 text-center">
-                <!-- Link updated -->
-                <a href="/contactus" class="text-sm accent-color hover:underline">For the full details, please click here</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Full JavaScript for Popups -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const modals = {
-                'privacy-modal': document.getElementById('privacy-modal'),
-                'terms-modal': document.getElementById('terms-modal'),
-                'refund-modal': document.getElementById('refund-modal'),
-                'contact-modal': document.getElementById('contact-modal')
-            };
-
-            const openModal = (modalId) => {
-                const modal = modals[modalId];
-                if (!modal) return;
-                modal.classList.remove('hidden');
-                setTimeout(() => {
-                    modal.classList.remove('opacity-0');
-                    if(modal.querySelector('.modal-container')) {
-                        modal.querySelector('.modal-container').classList.remove('scale-95', 'opacity-0');
-                    }
-                }, 10);
-            };
-
-            const closeModal = (modalId) => {
-                const modal = modals[modalId];
-                if (!modal) return;
-                if(modal.querySelector('.modal-container')) {
-                    modal.querySelector('.modal-container').classList.add('scale-95', 'opacity-0');
-                }
-                modal.classList.add('opacity-0');
-                setTimeout(() => {
-                    modal.classList.add('hidden');
-                }, 300);
-            };
-
-            document.getElementById('privacy-policy-link')?.addEventListener('click', (e) => {
-                e.preventDefault();
-                openModal('privacy-modal');
-            });
-
-            document.getElementById('terms-of-use-link')?.addEventListener('click', (e) => {
-                e.preventDefault();
-                openModal('terms-modal');
-            });
-
-            document.getElementById('refund-policy-link')?.addEventListener('click', (e) => {
-                e.preventDefault();
-                openModal('refund-modal');
-            });
-
-            document.getElementById('contact-us-link')?.addEventListener('click', (e) => {
-                e.preventDefault();
-                openModal('contact-modal');
-            });
-            
-            document.querySelectorAll('[data-close-modal]').forEach(button => {
-                button.addEventListener('click', () => {
-                    closeModal(button.dataset.closeModal);
-                });
-            });
-
-            document.querySelectorAll('.modal-overlay').forEach(overlay => {
-                overlay.addEventListener('click', (e) => {
-                    if (e.target === overlay) {
-                        closeModal(overlay.id);
-                    }
-                });
-            });
-        });
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.zerofundedhustle.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Terms of Use",
+              "item": "https://www.zerofundedhustle.com/termsofuse"
+            }
+          ]
+        },
+        {
+          "@type": "Organization",
+          "name": "zerofundedhustle",
+          "url": "https://www.zerofundedhustle.com/",
+          "logo": "https://www.zerofundedhustle.com/ebookcover.png",
+          "sameAs": ["https://www.instagram.com/zerofundedhustle/"]
+        }
+      ]
+    }
     </script>
 </body>
 </html>
-
-
