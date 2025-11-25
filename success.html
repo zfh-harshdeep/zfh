@@ -59,6 +59,8 @@
             overflow-x: hidden; 
             background-color: #0B1221; /* navy-900 */
             color: #E6EDF3;
+            /* Added margin-bottom: 0px to ensure the sticky footer is flush */
+            margin-bottom: 0 !important; 
         }
         
         .hero-bg {
@@ -180,7 +182,8 @@
     <div id="confetti-container" class="fixed inset-0 pointer-events-none z-[60] overflow-hidden"></div>
 
     <!-- Main Success Content -->
-    <main class="flex-grow py-12 sm:py-24 md:py-32 flex items-center justify-center relative z-20 hero-bg">
+    <!-- ADDED pt-24 TO PUSH CONTENT BELOW FIXED HEADER -->
+    <main class="flex-grow pt-24 pb-12 sm:pb-24 md:pb-32 flex items-center justify-center relative z-20 hero-bg">
         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-teal-accent/5 rounded-full blur-3xl -z-10"></div>
         <div class="container mx-auto px-6 max-w-4xl">
             
