@@ -1,18 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://zerofundedhustle.com/</loc>
-  </url>
-  <url>
-    <loc>https://zerofundedhustle.com/privacypolicy</loc>
-  </url>
-  <url>
-    <loc>https://zerofundedhustle.com/refundpolicy</loc>
-  </url>
-  <url>
-    <loc>https://zerofundedhustle.com/termsofuse</loc>
-  </url>
-  <url>
-    <loc>https://zerofundedhustle.com/contactus</loc>
-  </url>
+
+    <!-- Homepage: Highest priority, most frequent changes -->
+    <url>
+        <loc>https://www.zerofundedhustle.com/</loc>
+        <lastmod>2025-11-26</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+    <!-- Essential Pages: High priority -->
+    <url>
+        <loc>https://www.zerofundedhustle.com/contactus</loc>
+        <lastmod>2025-11-26</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.zerofundedhustle.com/sitemap</loc>
+        <lastmod>2025-11-26</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Legal Pages: Medium priority, static content -->
+    <url>
+        <loc>https://www.zerofundedhustle.com/privacypolicy</loc>
+        <lastmod>2025-11-26</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://www.zerofundedhustle.com/termsofuse</loc>
+        <lastmod>2025-11-26</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://www.zerofundedhustle.com/refundpolicy</loc>
+        <lastmod>2025-11-26</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.5</priority>
+    </url>
+
 </urlset>
