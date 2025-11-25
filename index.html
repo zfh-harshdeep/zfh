@@ -54,7 +54,18 @@
     <!-- 🟢 HIGH PRIORITY: RENDER BLOCKING CSS MOVED HERE 🟢 -->
     <!-- The custom styles are critical for the initial paint, so they stay embedded -->
     <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; background-color: #FFFFFF; }
+        /* FOUC FIX - STEP 1: Set body background to deep navy immediately AND hide all content */
+        /* JS will restore opacity on DOMContentLoaded */
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            overflow-x: hidden; 
+            background-color: #0B1221; /* Deepest Navy */
+            color: #6b7280; 
+            opacity: 0; /* Hide FOUC */
+            transition: opacity 0.5s ease; /* Smooth reveal */
+            /* Mobile Layout Fix: Removed unnecessary padding-bottom (pb-28) from body as footer covers this. */
+            padding-bottom: 0 !important;
+        }
         
         /* Custom Utility for slightly wider than md (32rem) to fix wrapping issue */
         @media (min-width: 640px) {
@@ -68,7 +79,7 @@
             background-color: #111827;
             background: radial-gradient(circle at 50% 50%, #1F2937 0%, #0B1221 100%);
         }
-        
+
         /* Custom Gradient for the new card */
         .bg-lime-card-gradient {
             background: linear-gradient(135deg, #D4FF00 0%, #2DD4BF 100%);
@@ -624,7 +635,7 @@
                 <span class="text-teal-accent text-xs font-bold uppercase tracking-[0.2em]">Reality Check</span>
                 <div class="h-px w-12 bg-gray-600"></div>
             </div>
-            <!-- CORRECTED: Applied inline-block and whitespace-nowrap to the second line's parent span, and removed the <br> tag for maximum non-wrapping -->
+            <!-- Mobile Layout Fix: Ensure text does not cause horizontal overflow/shift on small screens -->
             <h3 class="text-2xl md:text-3xl font-bold text-white leading-relaxed max-w-4xl mx-auto">
                 Don't let another year pass stuck in the same spot. 
                 <span class="inline-block whitespace-nowrap">
@@ -1200,6 +1211,9 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             
+            // FOUC FIX - STEP 2: Restore body opacity after DOM is fully parsed
+            document.body.style.opacity = '1';
+
             // --- GLOBAL STATE ---
             let hasInteractedWithEmailInput = false; // For better pop-up control (Fix 3)
             let notificationIntervalId; // To store the interval ID for stopping the notifications
@@ -1876,8 +1890,9 @@
             }
             
             // TASK 8: Added initial 10s delay before the first notification runs
-            if (footer && footer.getBoundingClientRect().top >= window.innerHeight) {
-                 setTimeout(scheduleNextNotification, 10000);
+            // Corrected logic to ensure it runs regardless of footer visibility status on load
+            if (!notificationIntervalId) {
+                setTimeout(scheduleNextNotification, 10000);
             }
 
             // Intersection Observer for Blueprint Cards (Staggered Fade-in)
