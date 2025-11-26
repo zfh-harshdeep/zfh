@@ -1,46 +1,426 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO META TAGS -->
+    <title>Sitemap | All Pages of zerofundedhustle</title>
+    <meta name="description" content="A comprehensive list of all pages and sections available on the zerofundedhustle website, improving navigation for users and search engines.">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Sitemap | zerofundedhustle">
+    <meta property="og:description" content="Comprehensive directory of all site pages.">
+    <!-- Favicon and Image references updated to favicon.png -->
+    <meta property="og:image" content="favicon.png">
+    <meta property="og:url" content="https://www.zerofundedhustle.com/sitemap">
+    <meta property="og:type" content="website">
 
-    <!-- Homepage: Highest priority, most frequent changes -->
-    <url>
-        <loc>https://www.zerofundedhustle.com/</loc>
-        <lastmod>2025-11-26</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>1.0</priority>
-    </url>
+    <!-- Canonical + Favicon -->
+    <link rel="canonical" href="https://www.zerofundedhustle.com/sitemap">
+    <link rel="icon" type="image/png" href="favicon.png">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Inter Font for Logo -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome (Deferred) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    
+    <script>
+        // Custom Tailwind Config from index.html
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            900: '#0B1221', // Deepest background
+                            800: '#1F2937', // Hero bg
+                            700: '#2D3A4F', // Card bg
+                        },
+                        lime: {
+                            neon: '#D4FF00',
+                            hover: '#B8E600'
+                        },
+                        teal: {
+                            accent: '#2DD4BF'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
 
-    <!-- Essential Pages: High priority -->
-    <url>
-        <loc>https://www.zerofundedhustle.com/contactus</loc>
-        <lastmod>2025-11-26</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://www.zerofundedhustle.com/sitemap</loc>
-        <lastmod>2025-11-26</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; background-color: #FFFFFF; }
+        .hero-bg {
+            background-color: #111827;
+            background: radial-gradient(circle at 50% 50%, #1F2937 0%, #0B1221 100%);
+        }
+        nav.scrolled { 
+            background-color: rgba(11, 18, 33, 0.95); 
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3); 
+            padding-top: 1rem; 
+            padding-bottom: 1rem; 
+        }
+        .sitemap-link {
+            color: #2DD4BF; /* teal-accent */
+            transition: color 0.2s;
+        }
+        .sitemap-link:hover {
+            color: #D4FF00; /* lime-neon */
+            text-decoration: underline;
+        }
 
-    <!-- Legal Pages: Medium priority, static content -->
-    <url>
-        <loc>https://www.zerofundedhustle.com/privacypolicy</loc>
-        <lastmod>2025-11-26</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.5</priority>
-    </url>
-    <url>
-        <loc>https://www.zerofundedhustle.com/termsofuse</loc>
-        <lastmod>2025-11-26</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.5</priority>
-    </url>
-    <url>
-        <loc>https://www.zerofundedhustle.com/refundpolicy</loc>
-        <lastmod>2025-11-26</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.5</priority>
-    </url>
+        /* Modal Styles */
+        .modal-overlay { transition: opacity 0.3s ease; }
+        .modal-container { transition: transform 0.3s ease, opacity 0.3s ease; }
+        .modal-content::-webkit-scrollbar { width: 8px; }
+        .modal-content::-webkit-scrollbar-track { background: #0B1221; }
+        .modal-content::-webkit-scrollbar-thumb { background-color: #1F2937; border-radius: 4px; border: 2px solid #0B1221; }
+        .modal-content::-webkit-scrollbar-thumb:hover { background-color: #2DD4BF; }
+    </style>
+</head>
+<body>
 
-</urlset>
+    <!-- HEADER (Simplified, Centered Logo, and Back Button) -->
+    <nav id="main-nav" class="fixed w-full z-50 transition-all duration-300 bg-[#111827]/90 backdrop-blur-md border-b border-gray-800 py-4 scrolled">
+        <div class="container mx-auto px-6 lg:px-12 relative flex justify-center items-center">
+            <!-- Back to Home Link (Absolute Positioned Top-Left) -->
+            <a href="/" class="absolute left-6 lg:left-12 top-1/2 transform -translate-y-1/2 text-lime-neon hover:text-white text-base font-semibold transition-colors flex items-center gap-2 group">
+                <i class="fa-solid fa-arrow-left text-lg group-hover:-translate-x-1 transition-transform"></i>
+                <span class="hidden sm:inline">Back to Home</span>
+            </a>
+
+            <!-- Logo (Center) -->
+            <a href="/" class="flex items-center group hover:opacity-90 transition-opacity">
+                <span class="text-2xl font-extrabold tracking-tight" style="font-family: 'Inter', sans-serif;">
+                    <span class="text-white">zero</span><span class="text-[#22c55e]">funded</span><span class="text-white">hustle</span>
+                </span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION - Page Title -->
+    <section class="hero-bg pt-32 pb-20 lg:pt-48 lg:pb-32 relative overflow-hidden">
+        <div class="container mx-auto px-6 lg:px-12 relative z-10 text-center">
+            <h1 class="text-4xl lg:text-6xl font-bold text-white mb-4">Site Map</h1>
+            <p class="text-gray-400 text-lg max-w-2xl mx-auto">A directory of all major pages and sections on <strong>zerofundedhustle</strong>.</p>
+        </div>
+    </section>
+
+    <!-- CONTENT SECTION -->
+    <section class="py-24 bg-white">
+        <div class="container mx-auto px-6 lg:px-12 max-w-4xl content">
+            
+            <p class="mb-8 text-gray-600">This map provides a clear, hierarchical view of the website structure for both human visitors and search engines.</p>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
+                
+                <!-- Main Pages -->
+                <div>
+                    <h3 class="text-2xl font-bold text-navy-900 mb-4 flex items-center gap-2"><i class="fa-solid fa-house text-lime-neon"></i> Primary Pages</h3>
+                    <ul class="space-y-2 text-lg">
+                        <li><a href="/" class="sitemap-link">Homepage (Landing Page)</a></li>
+                        <li><a href="contactus" class="sitemap-link">Contact Us</a></li>
+                        <li><a href="sitemap" class="sitemap-link">Sitemap (You Are Here)</a></li>
+                    </ul>
+                </div>
+
+                <!-- Landing Page Sections -->
+                <div>
+                    <h3 class="text-2xl font-bold text-navy-900 mb-4 flex items-center gap-2"><i class="fa-solid fa-layer-group text-lime-neon"></i> Homepage Sections</h3>
+                    <ul class="space-y-2 text-lg">
+                        <li><a href="/#blueprint" class="sitemap-link">The Blueprint (Product Details)</a></li>
+                        <li><a href="/#proof" class="sitemap-link">Proof (Income & Testimonials)</a></li>
+                        <li><a href="/#bonuses" class="sitemap-link">Bonuses (Free Resources)</a></li>
+                        <li><a href="/#reviews" class="sitemap-link">Reviews / Testimonials</a></li>
+                        <li><a href="/#faq" class="sitemap-link">FAQ (Frequently Asked Questions)</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal Pages -->
+                <div>
+                    <h3 class="text-2xl font-bold text-navy-900 mb-4 flex items-center gap-2"><i class="fa-solid fa-scale-balanced text-lime-neon"></i> Legal & Compliance</h3>
+                    <ul class="space-y-4 text-lg">
+                        <li><a href="privacypolicy" class="sitemap-link">Privacy Policy</a></li>
+                        <li><a href="termsofuse" class="sitemap-link">Terms of Use</a></li>
+                        <li><a href="refundpolicy" class="sitemap-link">Refund Policy (14-Day Guarantee)</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-16 pt-8 border-t border-gray-200">
+                <h3 class="text-2xl font-bold text-navy-900 mb-4 flex items-center gap-2"><i class="fa-solid fa-robot text-teal-accent"></i> For Search Engines (XML)</h3>
+                <p class="text-gray-600 mb-4">This website also provides a machine-readable XML Sitemap for search engine crawlers:</p>
+                <a href="sitemap.xml" class="inline-flex items-center gap-2 bg-navy-900 text-white font-bold py-3 px-6 rounded-full hover:bg-gray-800 transition-colors">
+                    View sitemap.xml <i class="fa-solid fa-file-code"></i>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- FOOTER (MATCHED TO LATEST INDEX FILE) -->
+    <footer class="bg-navy-900 text-white pt-20 pb-10 border-t border-gray-800">
+        <div class="container mx-auto px-6 lg:px-12">
+            <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
+                <div class="lg:col-span-2 pr-8">
+                    <a href="/" class="flex items-center gap-2 mb-6">
+                        <span class="text-2xl font-extrabold tracking-tight" style="font-family: 'Inter', sans-serif;">
+                            <span class="text-white">zero</span><span class="text-[#22c55e]">funded</span><span class="text-white">hustle</span>
+                        </span>
+                    </a>
+                    <p class="text-gray-400 text-sm mb-8 leading-relaxed">Built in India, for the Indian Hustler. We provide the <strong>blueprints</strong> you need to <strong>escape the rat race</strong> without investors or debt.</p>
+                    <div class="flex space-x-4 mt-6">
+                        <!-- Social Icons -->
+                        <a href="https://twitter.com/zerofundedhustle" target="_blank" class="text-gray-400 hover:text-lime-neon transition-colors" aria-label="Twitter"><i class="fa-brands fa-twitter text-xl"></i></a>
+                        <a href="https://facebook.com/zerofundedhustle" target="_blank" class="text-gray-400 hover:text-lime-neon transition-colors" aria-label="Facebook"><i class="fa-brands fa-facebook-f text-xl"></i></a>
+                        <a href="https://www.instagram.com/zerofundedhustle/" target="_blank" class="text-gray-400 hover:text-lime-neon transition-colors" aria-label="Instagram"><i class="fa-brands fa-instagram text-xl"></i></a>
+                    </div>
+                </div>
+                <div><h4 class="font-bold mb-6 text-sm uppercase tracking-wider text-gray-300">Product</h4><ul class="space-y-4 text-sm text-gray-400"><li><a href="/#blueprint" class="hover:text-lime-neon transition-colors">The Blueprint</a></li><li><a href="/#proof" class="hover:text-lime-neon transition-colors">Proof</a></li><li><a href="/#bonuses" class="hover:text-lime-neon transition-colors">Bonuses</a></li><li><a href="/#reviews" class="hover:text-lime-neon transition-colors">Reviews</a></li></ul></div>
+                <div><h4 class="font-bold mb-6 text-sm uppercase tracking-wider text-gray-300">Legal</h4><ul class="space-y-4 text-sm text-gray-400">
+                    <li><a id="privacy-policy-link" href="#" class="hover:text-lime-neon transition-colors text-left">Privacy Policy</a></li>
+                    <li><a id="terms-of-use-link" href="#" class="hover:text-lime-neon transition-colors text-left">Terms of Use</a></li>
+                    <li><a id="refund-policy-link" href="#" class="hover:text-lime-neon transition-colors text-left">Refund Policy</a></li>
+                </ul></div>
+                <div><h4 class="font-bold mb-6 text-sm uppercase tracking-wider text-gray-300">Connect</h4><ul class="space-y-4 text-sm text-gray-400">
+                    <li><a id="contact-us-link" href="#" class="hover:text-lime-neon transition-colors text-left">Contact Us</a></li>
+                    <li><a href="sitemap" class="hover:text-lime-neon transition-colors text-left">Sitemap</a></li>
+                </ul></div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4"><p class="text-gray-500 text-xs">Copyright © 2025 <strong>zerofundedhustle</strong>. All Rights Reserved.</p></div>
+        </div>
+    </footer>
+
+
+    <!-- MODALS (Copied from success-page, links updated to clean URLs) -->
+    <div id="privacy-modal" class="hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4 modal-overlay opacity-0">
+        <div class="modal-container bg-navy-900 border border-gray-800 rounded-lg w-full max-w-3xl max-h-[90vh] flex flex-col transform scale-95 opacity-0">
+            <div class="flex-shrink-0 p-6 border-b border-gray-800 flex justify-between items-center">
+                <h2 class="text-2xl font-bold text-white">Privacy Policy</h2>
+                <button data-close-modal="privacy-modal" class="text-gray-500 hover:text-white text-3xl">&times;</button>
+            </div>
+            <div class="modal-content flex-grow overflow-y-auto p-6">
+                <p class="text-sm text-gray-500 mb-6">Last Updated: November 24, 2025</p>
+                <div class="space-y-4 text-gray-400">
+                    <p>Welcome to <strong class="font-semibold text-white">zerofundedhustle</strong> (“we,” “our,” “us”). Your privacy matters to us. This Privacy Policy explains how we collect, use, and protect your personal information when you visit <strong class="font-semibold text-white">zerofundedhustle.com</strong> or make a purchase from us.</p>
+                    <div><h3 class="font-semibold text-white text-xl mt-4">1. Information We Collect</h3><p>We collect details like your name and email when you purchase, basic usage data (IP address, browser type), and use cookies to improve site performance.</p></div>
+                    <div><h3 class="font-semibold text-white text-xl mt-4">2. How We Use Your Information</h3><p>We use your data to: Process and deliver ebook purchases, communicate with you, send updates (if you opt in), and improve our website.</p></div>
+                    <div><h3 class="font-semibold text-white text-xl mt-4">3. Payments</h3><p>All payments are processed securely through our chosen provider (e.g., PayU). We don’t store your card details.</p></div>
+                    <div><h3 class="font-semibold text-white text-xl mt-4">4. Data Sharing</h3><p>We do not sell or rent your data. We only share it with essential service providers like payment processors.</p></div>
+                    <div><h3 class="font-semibold text-white text-xl mt-4">5. Contact Us</h3><p>Questions? Contact us at: Email: zerofundedhustle@gmail.com</p></div>
+                </div>
+            </div>
+            <div class="flex-shrink-0 p-4 border-t border-gray-800 text-center">
+                <a href="privacypolicy" class="text-lime-neon hover:underline text-sm font-medium">For the full details, please click here</a>
+            </div>
+        </div>
+    </div>
+    <div id="terms-modal" class="hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4 modal-overlay opacity-0">
+         <div class="modal-container bg-navy-900 border border-gray-800 rounded-lg w-full max-w-3xl max-h-[90vh] flex flex-col transform scale-95 opacity-0">
+            <div class="flex-shrink-0 p-6 border-b border-gray-800 flex justify-between items-center">
+                <h2 class="text-2xl font-bold text-white">Terms of Use</h2>
+                <button data-close-modal="terms-modal" class="text-gray-500 hover:text-white text-3xl">&times;</button>
+            </div>
+            <div class="modal-content flex-grow overflow-y-auto p-6">
+                <p class="text-sm text-gray-500 mb-6">Last Updated: November 24, 2025</p>
+                <div class="space-y-4 text-gray-400">
+                    <p>By accessing or using <strong class="font-semibold text-white">zerofundedhustle.com</strong>, you agree to these Terms of Use. If you don’t agree, please don’t use the site.</p>
+                    <div><h3 class="font-semibold text-white text-xl mt-4">1. Use of Our Website</h3><p>You agree to use this website only for lawful purposes. You must not reproduce, sell, or distribute our content or ebooks without permission.</p></div>
+                    <div><h3 class="font-semibold text-white text-xl mt-4">2. Products and Payments</h3><p>All prices are in INR. Payments are processed securely. As our products are digital, please refer to our Refund Policy for details on eligibility.</p></div>
+                    <div><h3 class="font-semibold text-white text-xl mt-4">3. Intellectual Property</h3><p>All content on this website, including the blueprint, belongs to <strong class="font-semibold text-white">zerofundedhustle</strong>. Purchasing the blueprint grants you a personal license to use it, not to share or resell it.</p></div>
+                    <div><h3 class="font-semibold text-white text-xl mt-4">4. Disclaimer</h3><p>All content is for educational purposes only. We don’t guarantee specific results. Any actions you take are your responsibility.</p></div>
+                     <div><h3 class="font-semibold text-white text-xl mt-4">5. Governing Law</h3><p>These terms are governed by the laws of India. Any disputes will be handled in the courts of Punjab, India.</p></div>
+                    <div><h3 class="font-semibold text-white text-xl mt-4">6. Contact</h3><p>For any questions about these Terms, reach us at: Email: zerofundedhustle@gmail.com</p></div>
+                </div>
+            </div>
+             <div class="flex-shrink-0 p-4 border-t border-gray-800 text-center">
+                <a href="termsofuse" class="text-lime-neon hover:underline text-sm font-medium">For the full details, please click here</a>
+            </div>
+        </div>
+    </div>
+     <div id="refund-modal" class="hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4 modal-overlay opacity-0">
+        <div class="modal-container bg-navy-900 border border-gray-800 rounded-lg w-full max-w-3xl max-h-[90vh] flex flex-col transform scale-95 opacity-0">
+            <div class="flex-shrink-0 p-6 border-b border-gray-800 flex justify-between items-center">
+                <h2 class="text-2xl font-bold text-white">Refund Policy</h2>
+                <button data-close-modal="refund-modal" class="text-gray-500 hover:text-white text-3xl">&times;</button>
+            </div>
+            <div class="modal-content flex-grow overflow-y-auto p-6">
+                <p class="text-sm text-gray-500 mb-6">Last Updated: November 24, 2025</p>
+                <div class="space-y-4 text-gray-400">
+                    <p>At <strong class="font-semibold text-white">zerofundedhustle</strong>, we offer a <strong>14-Day Action-Based Refund Guarantee</strong>.</p>
+                    <div><h3 class="font-semibold text-white text-xl mt-4">1. Our 14-Day Action-Based Guarantee</h3><p>If you’ve read the blueprint, actively applied the lessons (with proof), and still feel you didn’t gain value, you can request a full refund within 14 days of purchase. We require documentation proving you executed at least one of the 6 core business models.</p></div>
+                    <div><h3 class="font-semibold text-white text-xl mt-4">2. How to Request a Refund</h3><p>Email zerofundedhustle@gmail.com with your order number and the required proof of work.</p></div>
+                    <div><h3 class="font-semibold text-white text-xl mt-4">3. Eligibility</h3><p>Refunds will not be granted for buyers who haven’t shown documented proof of effort. This policy is designed to reward action-takers.</p></div>
+                    <div><h3 class="font-semibold text-white text-xl mt-4">4. Contact</h3><p>Reach out at: Email: zerofundedhustle@gmail.com</p></div>
+                </div>
+            </div>
+             <div class="flex-shrink-0 p-4 border-t border-gray-800 text-center">
+                <a href="refundpolicy" class="text-lime-neon hover:underline text-sm font-medium">For the full details, please click here</a>
+            </div>
+        </div>
+    </dialog>
+    <div id="contact-modal" class="hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4 modal-overlay opacity-0">
+        <div class="modal-container bg-navy-900 border border-gray-800 rounded-lg w-full max-w-3xl max-h-[90vh] flex flex-col transform scale-95 opacity-0">
+            <div class="flex-shrink-0 p-6 border-b border-gray-800 flex justify-between items-center">
+                <h2 class="text-2xl font-bold text-white">Contact Us</h2>
+                <button data-close-modal="contact-modal" class="text-gray-500 hover:text-white text-3xl">&times;</button>
+            </div>
+            <div class="modal-content flex-grow overflow-y-auto p-6">
+                 <p class="text-sm text-gray-500 mb-6">Last Updated: November 24, 2025</p>
+                <div class="space-y-4 text-gray-400">
+                    <p class="text-lg">We’re here to help. If you have any questions about your purchase, need support, or just want to share feedback, reach out — we actually read every message.</p>
+                    <div>
+                        <h3 class="font-semibold text-white text-lg">📬 Email</h3>
+                        <a href="mailto:zerofundedhustle@gmail.com" class="text-lime-neon hover:underline">zerofundedhustle@gmail.com</a>
+                        <p class="text-sm">We typically reply within 24–48 hours (Mon–Fri).</p>
+                    </div>
+                     <div>
+                        <h3 class="font-semibold text-white text-lg mt-6">🧭 Common Reasons to Contact Us</h3>
+                        <ul class="list-disc list-inside mt-2">
+                            <li>Questions about the blueprint or future releases</li>
+                            <li>Issues with payments or downloads</li>
+                            <li>Refund or guarantee requests</li>
+                            <li>General feedback or support</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-shrink-0 p-4 border-t border-gray-800 text-center">
+                <a href="contactus" class="text-lime-neon hover:underline text-sm font-medium">For the full details, please click here</a>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal Popup & Animation JS (Shared Logic) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- MODAL POPUP LOGIC (Generic logic for legal pages) ---
+            const modals = {
+                'privacy-modal': document.getElementById('privacy-modal'),
+                'terms-modal': document.getElementById('terms-modal'),
+                'refund-modal': document.getElementById('refund-modal'),
+                'contact-modal': document.getElementById('contact-modal')
+            };
+
+            const openModal = (modalId) => {
+                const modal = modals[modalId];
+                if (!modal) return;
+                modal.classList.remove('hidden');
+                setTimeout(() => {
+                    modal.classList.remove('opacity-0');
+                    if(modal.querySelector('.modal-container')) {
+                        modal.querySelector('.modal-container').classList.remove('scale-95', 'opacity-0');
+                    }
+                }, 10);
+            };
+
+            const closeModal = (modalId) => {
+                const modal = modals[modalId];
+                if (!modal) return;
+                if(modal.querySelector('.modal-container')) {
+                    modal.querySelector('.modal-container').classList.add('scale-95', 'opacity-0');
+                }
+                modal.classList.add('opacity-0');
+                setTimeout(() => {
+                    modal.classList.add('hidden');
+                }, 300);
+            };
+
+            // Event Listeners for Footer Links (Open Modals on Click)
+            document.getElementById('privacy-policy-link')?.addEventListener('click', (e) => {
+                e.preventDefault();
+                openModal('privacy-modal');
+            });
+
+            document.getElementById('terms-of-use-link')?.addEventListener('click', (e) => {
+                e.preventDefault();
+                openModal('terms-modal');
+            });
+
+            document.getElementById('refund-policy-link')?.addEventListener('click', (e) => {
+                e.preventDefault();
+                openModal('refund-modal');
+            });
+
+            document.getElementById('contact-us-link')?.addEventListener('click', (e) => {
+                e.preventDefault();
+                openModal('contact-modal');
+            });
+            
+            // Close buttons and overlay click listeners
+            document.querySelectorAll('[data-close-modal]').forEach(button => {
+                button.addEventListener('click', () => {
+                    closeModal(button.dataset.closeModal);
+                });
+            });
+
+            document.querySelectorAll('.modal-overlay').forEach(overlay => {
+                overlay.addEventListener('click', (e) => {
+                    // Check if the click target is the modal overlay itself, not the content
+                    if (e.target === overlay) {
+                        // The overlay ID is the same as the modalId string
+                        closeModal(overlay.id); 
+                    }
+                });
+            });
+            // --- END MODAL POPUP LOGIC ---
+        });
+    </script>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.zerofundedhustle.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Contact Us",
+              "item": "https://www.zerofundedhustle.com/contactus"
+            }
+          ]
+        },
+        {
+          "@type": "ContactPage",
+          "name": "Contact zerofundedhustle Support",
+          "url": "https://www.zerofundedhustle.com/contactus",
+          "description": "Contact the official support team for the Zero Investment Side Hustle Blueprint.",
+          "contactPoint": [
+            {
+              "@type": "ContactPoint",
+              "telephone": null,
+              "contactType": "customer service",
+              "email": "zerofundedhustle@gmail.com",
+              "areaServed": "IN",
+              "availableLanguage": "English"
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+</body>
+</html>
