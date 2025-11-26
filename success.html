@@ -54,16 +54,13 @@
     
     <!-- Site-wide Styles & New UI/Animation Styles -->
     <style>
-        html, body {
-            margin: 0;
-            padding: 0;
-            /* Ensure no default browser spacing causes footer gap */
-        }
         body { 
             font-family: 'Plus Jakarta Sans', sans-serif; 
+            /* FIX 1: Prevent horizontal scrolling/page shifting */
             overflow-x: hidden; 
             background-color: #0B1221; /* navy-900 */
             color: #E6EDF3;
+            /* Ensure the body and html stretch fully */
             margin-bottom: 0 !important; 
         }
         
@@ -229,8 +226,8 @@
                         </ul>
                     </div>
                     
-                    <!-- DELIVERY LINE FIX: Removed whitespace-nowrap and reduced font size for fluid wrap on small screens -->
-                    <p class="text-base font-semibold text-gray-300 mb-6 max-w-xl mx-auto">
+                    <!-- NEW DELIVERY LINE (Forced to single line using CSS: whitespace-nowrap) -->
+                    <p class="text-md font-semibold text-gray-300 mb-6 max-w-xl mx-auto whitespace-nowrap">
                         The blueprint is delivered to your email, and you can also download it from here.
                     </p>
 
