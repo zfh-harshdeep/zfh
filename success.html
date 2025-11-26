@@ -3,78 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success! Your ZeroFunded Blueprint Awaits</title>
     
-    <!-- SEO META TAGS -->
-    <title>Escape 9-5 Job: Zero Investment Side Hustle Blueprint (₹299) | ZeroFundedHustle</title>
-    <meta name="description" content="Stuck in 9-5 debt? Get my proven ₹0-investment blueprint to earn ₹50K–₹1.5L/month online. Free 2 chapters inside. Escape the cage today.">
-    
-    <!-- RESTORED: Primary Keywords from Old Design -->
-    <meta name="keywords" content="escape 9-5 india, zero investment business, side hustle india, make money online without investment, debt to freedom, online income india, financial freedom blueprint, zerofundedhustle, harshdeep singh">
-    <meta name="author" content="Harshdeep Singh">
-    
-    <!-- Open Graph -->
-    <meta property="og:title" content="Escape 9-5: Zero-Funded Hustle Blueprint (₹299)">
-    <meta property="og:description" content="From ₹32L debt to ₹5L/month — zero investment. Free chapters inside.">
-    <!-- UPDATED: Open Graph image reference -->
-    <meta property="og:image" content="favicon.png">
-    <meta property="og:url" content="https://www.zerofundedhustle.com">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="ZeroFundedHustle">
-
-    <!-- RESTORED: Twitter Card Data -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@zerofundedhustle">
-    <meta name="twitter:title" content="Escape 9-5: Zero Investment Blueprint (₹299)">
-    <meta name="twitter:description" content="Stuck in 9-5? Free 2 chapters + full ebook for ₹299.">
-    <!-- UPDATED: Twitter Card image reference -->
-    <meta property="twitter:image" content="favicon.png">
-
     <!-- Canonical + Favicon -->
-    <link rel="canonical" href="https://www.zerofundedhustle.com">
-    <!-- UPDATED: Fixed Favicon reference -->
+    <link rel="canonical" href="https://www.zerofundedhustle.com/success">
     <link rel="icon" type="image/png" href="favicon.png">
     
-    <!-- 🟢 MEDIUM PRIORITY: GOOGLE ANALYTICS PLACEHOLDER 🟢 -->
-    <!-- Place your Google Analytics or Tag Manager script here (non-render blocking methods encouraged) -->
-    <!-- End GA Placeholder -->
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Google Fonts: Plus Jakarta Sans (CRITICAL FONT LOADING) -->
+    <!-- Google Fonts: Plus Jakarta Sans (Main Body) and Inter (Logo) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- TASK 10: Verified display=swap for performance hint -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Inter Font for Logo -->
-    <!-- TASK 10: Verified display=swap for performance hint -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome (Deferred for non-critical resources) -->
-    <!-- This method ensures the file is non-render blocking -->
+    <!-- Font Awesome (Deferred) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+
+    <script>
+        // Custom Tailwind Config from index.html
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            900: '#0B1221', // Deepest background
+                            800: '#1F2937', // Hero bg
+                            700: '#2D3A4F', // Card bg
+                        },
+                        lime: {
+                            neon: '#D4FF00',
+                            hover: '#B8E600'
+                        },
+                        teal: {
+                            accent: '#2DD4BF'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'glow': '0 0 20px rgba(212, 255, 0, 0.3)',
+                        'neon-border': '0 0 0 4px rgba(212, 255, 0, 0.5), 0 0 20px rgba(212, 255, 0, 0.5)',
+                    }
+                }
+            }
+        }
+    </script>
     
-    <!-- 🟢 HIGH PRIORITY: RENDER BLOCKING CSS MOVED HERE 🟢 -->
-    <!-- The custom styles are critical for the initial paint, so they stay embedded -->
+    <!-- Site-wide Styles & New UI/Animation Styles -->
     <style>
-        /* FOUC FIX - STEP 1: Set body background to deep navy immediately AND hide all content */
-        /* JS will restore opacity on DOMContentLoaded */
         body { 
             font-family: 'Plus Jakarta Sans', sans-serif; 
-            /* FIX 1: Enforcing these rules strictly to eliminate horizontal scroll and left gap issue across the site. */
-            overflow-x: hidden !important; 
-            max-width: 100vw !important;    
-            background-color: #0B1221; /* Deepest Navy */
-            color: #6b7280; 
-            opacity: 0; /* Hide FOUC */
-            transition: opacity 0.5s ease; /* Smooth reveal */
-            /* Mobile Layout Fix: Removed unnecessary padding-bottom (pb-28) from body as footer covers this. */
-            padding-bottom: 0 !important;
+            overflow-x: hidden; 
+            background-color: #0B1221; /* navy-900 */
+            color: #E6EDF3;
+            min-height: 100vh;
         }
         
-        /* Custom Utility for slightly wider than md (32rem) to fix wrapping issue */
-        @media (min-width: 640px) {
-            .max-w-sm-lg { max-width: 32rem; } /* 512px */
-        }
-        @media (max-width: 639px) {
-            .max-w-sm-lg { max-width: 90vw; } /* Fallback for very small screens */
+        /* FIX: Ensure no horizontal scroll */
+        body {
+            overflow-x: hidden;
         }
         
         .hero-bg {
@@ -82,175 +72,96 @@
             background: radial-gradient(circle at 50% 50%, #1F2937 0%, #0B1221 100%);
         }
 
-        /* Custom Gradient for the new card */
-        .bg-lime-card-gradient {
-            background: linear-gradient(135deg, #D4FF00 0%, #2DD4BF 100%);
+        /* Nav consistency */
+        nav.scrolled { 
+            background-color: rgba(11, 18, 33, 0.95); 
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3); 
+            padding-top: 1rem; 
+            padding-bottom: 1rem; 
         }
 
-        /* Mobile Optimization Fixes */
-        @media (max-width: 1023px) {
-            .hero-bg { padding-top: 6rem !important; padding-bottom: 4rem !important; }
-            h1 { font-size: 2.5rem !important; line-height: 1.2 !important; }
-            /* TASK 1 & 6: Hide floating icons on mobile for reduced cognitive load */
-            .floating-icon { display: none !important; } 
-            
-            /* FIX 2: REMOVED the rule that hid the testimonial arrows on mobile/tablet */
+        /* FIX: Aggressive containment for main section elements */
+        .main-container-content {
+            overflow-x: hidden;
+            max-width: 100%;
         }
         
-        /* FIX: Removed redundant media query positioning as it's now handled by Tailwind classes on the buttons */
-
-        /* Smooth Reveal Animation */
-        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
-
-        /* Custom Card Hover Effect */
-        .feature-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
-        .feature-card:hover { transform: translateY(-8px); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1); }
-
-        /* Scrolling Banner */
-        .banner-scroller { overflow: hidden; white-space: nowrap; }
-        .banner-scroller__inner { display: inline-block; animation: scroll-banner 40s linear infinite; }
-        @keyframes scroll-banner { from { transform: translateX(0%); } to { transform: translateX(-50%); } }
-
-        /* Ebook 3D Effect */
-        .ebook-3d { transform: rotateY(-15deg) rotateX(5deg); box-shadow: -15px 20px 30px rgba(0,0,0,0.3); transition: transform 0.5s ease; }
-        .ebook-3d:hover { transform: rotateY(0deg) rotateX(0deg) scale(1.05); }
-
-        /* FAQ Content Transition (CRITICAL FOR ANIMATION) */
-        .faq-content { 
-            max-height: 0; 
-            overflow: hidden; 
-            transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out; 
-            padding-top: 0;
-            padding-bottom: 0;
-        }
-        .faq-item.active .faq-content { 
-            /* max-height is set via JS for dynamic content, but CSS transition remains */
-            padding-top: 1.5rem; /* py-6 is 1.5rem */
-            padding-bottom: 1.5rem; /* py-6 is 1.5rem */
-        }
-        .faq-item.active .faq-icon { transform: rotate(180deg); }
-
-        /* Mobile Menu Transition */
-        #mobile-menu.hidden-menu { transform: translateY(-20px); opacity: 0; pointer-events: none; }
-        #mobile-menu.visible-menu { transform: translateY(0); opacity: 1; pointer-events: auto; }
+        /* --- ANIMATION STYLES --- */
         
-        /* Sticky Header State */
-        nav.scrolled { background-color: rgba(11, 18, 33, 0.95); box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3); padding-top: 1rem; padding-bottom: 1rem; }
-
-        /* Button Loading Spinner - FIXED: Added position: relative requirement */
-        @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-        .button-loading { color: transparent !important; pointer-events: none; position: relative; } 
-        .button-loading::after { 
-            content: ''; 
-            position: absolute; 
-            left: 50%; 
-            top: 50%; 
-            margin-top: -12px; 
-            margin-left: -12px; 
-            width: 24px; 
-            height: 24px; 
-            border: 3px solid rgba(0, 0, 0, 0.3); 
-            border-top-color: #000000; /* Dark color for visibility against light buttons */
-            border-radius: 50%; 
-            animation: spin 0.8s linear infinite; 
-        }
-        /* Style for loading button on dark backgrounds */
-        .bg-navy-900.button-loading::after, .bg-gray-800.button-loading::after {
-             border: 3px solid rgba(255, 255, 255, 0.3); 
-             border-top-color: #FFFFFF; 
-        }
-        /* Social Proof Notification styles */
-        #notification-popup {
-            transition: transform 0.5s ease-in-out;
+        /* Container for the loader/tick */
+        #animation-container {
+            transition: all 0.5s ease-out;
+            height: 80px; /* Ensure space for the animation */
         }
 
-        /* CUSTOM GLOWING BORDER CLASS */
-        .border-neon-glow {
-            border-color: rgba(212, 255, 0, 0.5); /* lime-neon */
-            box-shadow: 0 0 0 2px rgba(212, 255, 0, 0.5), 0 0 10px rgba(212, 255, 0, 0.5);
-            transition: box-shadow 0.3s ease-out;
+        /* Class to shrink and move the container up to integrate with the card */
+        .move-up-and-shrink {
+            height: 40px; 
+            margin-bottom: 16px; 
         }
-        .border-neon-glow:hover {
-            box-shadow: 0 0 0 4px rgba(212, 255, 0, 0.7), 0 0 20px rgba(212, 255, 0, 0.7);
+
+        /* Loading Spinner - Branded Colors */
+        .loader {
+            border: 4px solid #1F2937; /* navy-800 */
+            border-top: 4px solid #D4FF00; /* lime-neon */
+            border-radius: 50%;
+            width: 40px; 
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Animated Tick - Branded Colors */
+        .svg-tick {
+            width: 50px; 
+            height: 50px;
+        }
+        .svg-tick path {
+            stroke: #D4FF00; /* lime-neon */
+            stroke-width: 4;
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: draw-check 1.5s ease-out forwards;
+        }
+        @keyframes draw-check {
+            to {
+                stroke-dashoffset: 0;
+            }
         }
         
-        /* TASK 1: Pulsating Glow animation duration changed from 3s to 4s */
-        @keyframes pulse-glow {
-            0% { box-shadow: 0 0 0 4px rgba(212, 255, 0, 0.7), 0 0 20px rgba(212, 255, 0, 0.7); }
-            50% { box-shadow: 0 0 0 8px rgba(212, 255, 0, 0.2), 0 0 30px rgba(212, 255, 0, 1); }
-            100% { box-shadow: 0 0 0 4px rgba(212, 255, 0, 0.7), 0 0 20px rgba(212, 255, 0, 0.7); }
-        }
-        .animate-pulse-glow {
-            animation: pulse-glow 4s infinite alternate ease-in-out;
-        }
-
-        /* NEW: Gradient Shift for Audience Filter Card */
-        @keyframes gradient-shift {
-            0% { background-position: 0% 50%; }
-            100% { background-position: 100% 50%; }
-        }
-        .animate-gradient-shift {
-            background-size: 200% 100%;
-            animation: gradient-shift 10s ease-in-out infinite alternate;
-        }
-
-        /* NEW: Staggered Fade-in for Blueprint Cards */
-        .blueprint-card {
+        /* Content Fade-in */
+        .fade-in {
+            animation: fadeIn 1s ease-out forwards;
             opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
-        .blueprint-card.active {
-            opacity: 1;
-            transform: translateY(0);
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
         }
 
-        /* Style for the Debt Trap Visual */
-        .debt-trap-card {
-            background-color: #FEE2E2; /* Red-100 */
-            border-color: #F87171; /* Red-400 */
-            color: #991B1B; /* Red-800 */
-            box-shadow: 0 10px 20px rgba(239, 68, 68, 0.1);
-            position: relative;
-        }
-        .debt-trap-card::before {
-            content: '';
+        /* Confetti Simulation - Branded Colors */
+        .confetti-piece {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: repeating-linear-gradient(
-                -45deg,
-                rgba(254, 215, 215, 0.5), /* red-100 with opacity */
-                rgba(254, 215, 215, 0.5) 10px,
-                transparent 10px,
-                transparent 20px
-            );
-            opacity: 0.3;
-            z-index: 1;
-        }
-        .debt-trap-content {
-            position: relative;
-            z-index: 2;
-        }
-        
-        /* TESTIMONIAL DOTS STYLES */
-        .dot {
             width: 10px;
             height: 10px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.4); /* Inactive dot */
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease;
+            background-color: var(--confetti-color);
+            opacity: 0;
+            animation: fall 3s ease-in-out forwards;
+            /* FIX: Ensure confetti renders above the header */
+            z-index: 55; 
         }
-        .dot.active {
-            background-color: white; /* Active dot */
-            transform: scale(1.2);
+
+        /* FIX: Start position adjusted for absolute top visibility (using a large negative top margin) */
+        @keyframes fall {
+            0% { transform: translate(var(--x-start), -100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translate(var(--x-end), 100vh) rotate(720deg); opacity: 0; }
         }
-        
-        /* MODAL Styles (from success page) */
+
+        /* Modal Styles (Adapted to new theme) */
         .modal-overlay { transition: opacity 0.3s ease; }
         .modal-container { transition: transform 0.3s ease, opacity 0.3s ease; }
         .modal-content::-webkit-scrollbar { width: 8px; }
@@ -259,1194 +170,138 @@
         .modal-content::-webkit-scrollbar-thumb:hover { background-color: #2DD4BF; }
     </style>
 </head>
-<body class="text-gray-600 antialiased pb-28 lg:pb-0">
+<body class="flex flex-col">
 
-    <!-- HEADER -->
-    <nav id="main-nav" class="fixed w-full z-50 transition-all duration-300 bg-[#111827]/90 backdrop-blur-md border-b border-gray-800 py-4">
-        <div class="container mx-auto px-6 lg:px-12 flex justify-between items-center">
+    <!-- HEADER (Copied structure from legal pages for consistency) -->
+    <nav id="main-nav" class="fixed w-full z-50 transition-all duration-300 bg-[#111827]/90 backdrop-blur-md border-b border-gray-800 py-4 scrolled">
+        <div class="container mx-auto px-6 lg:px-12 relative flex justify-center items-center">
+            <!-- Back to Home Link (Added for UX) -->
+            <a href="/" class="absolute left-6 lg:left-12 top-1/2 transform -translate-y-1/2 text-lime-neon hover:text-white text-base font-semibold transition-colors flex items-center gap-2 group">
+                <i class="fa-solid fa-arrow-left text-lg group-hover:-translate-x-1 transition-transform"></i>
+                <span class="hidden sm:inline">Back to Home</span>
+            </a>
+
+            <!-- Logo (Center) -->
             <a href="/" class="flex items-center group hover:opacity-90 transition-opacity">
-                <!-- TASK 5: Removed inline style for logo typography consistency -->
-                <span class="text-2xl font-bold tracking-tight">
+                <span class="text-2xl font-extrabold tracking-tight" style="font-family: 'Inter', sans-serif;">
                     <span class="text-white">zero</span><span class="text-[#22c55e]">funded</span><span class="text-white">hustle</span>
                 </span>
             </a>
-            <div class="hidden lg:flex items-center gap-8">
-                <a href="#blueprint" class="text-gray-300 hover:text-white text-sm font-medium transition-colors">The Blueprint</a>
-                <a href="#proof" class="text-gray-300 hover:text-white text-sm font-medium transition-colors">Proof</a>
-                <a href="#bonuses" class="text-gray-300 hover:text-white text-sm font-medium transition-colors">Bonuses</a>
-                <a href="#reviews" class="text-gray-300 hover:text-white text-sm font-medium transition-colors">Reviews</a>
-            </div>
-            <!-- REMOVED: The 'Free Preview' link from the primary desktop navigation for single conversion focus -->
-            <div class="hidden lg:flex items-center gap-4">
-                <a href="https://u.payu.in/nIsRdQdIBGDX" class="bg-lime-neon hover:bg-lime-hover text-navy-900 font-bold py-2.5 px-6 rounded-full text-sm transition-all transform hover:scale-105 shadow-glow">
-                    Get Access (₹299)
-                </a>
-            </div>
-            <!-- TASK 7: Added ARIA attributes to mobile menu button -->
-            <button id="mobile-menu-btn" class="lg:hidden text-white text-2xl focus:outline-none" aria-label="Toggle mobile menu" aria-expanded="false">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-        </div>
-        <div id="mobile-menu" class="absolute top-full left-0 w-full bg-navy-900 border-b border-gray-800 hidden-menu flex flex-col p-6 shadow-2xl transition-all duration-300">
-            <a href="#blueprint" class="text-gray-300 hover:text-lime-neon py-3 border-b border-gray-800 transition-colors mobile-menu-link">Blueprint</a>
-            <a href="#proof" class="text-gray-300 hover:text-lime-neon py-3 border-b border-gray-800 transition-colors mobile-menu-link">Proof</a>
-            <a href="#bonuses" class="text-gray-300 hover:text-lime-neon py-3 border-b border-gray-800 transition-colors mobile-menu-link">Bonuses</a>
-            <a href="#reviews" class="text-gray-300 hover:text-lime-neon py-3 border-b border-gray-800 transition-colors mobile-menu-link">Reviews</a>
-            <!-- Kept Free Chapter link for mobile convenience, nested in the menu -->
-            <a href="#lead-magnet" class="text-gray-300 hover:text-lime-neon py-3 border-b border-gray-800 transition-colors mobile-menu-link">Free Preview Chapter</a>
-            <a href="https://u.payu.in/nIsRdQdIBGDX" class="mt-4 bg-lime-neon text-navy-900 font-bold py-3 rounded-xl text-center hover:bg-lime-hover transition-colors mobile-menu-link-cta">Get Access Now</a>
         </div>
     </nav>
 
-    <!-- HERO SECTION -->
-    <section id="hero-section" class="hero-bg pt-32 pb-20 lg:pt-48 lg:pb-32 relative overflow-hidden">
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-teal-accent/5 rounded-full blur-3xl -z-10"></div>
-        <!-- TASK 1 & 6: These floating icons are hidden on screens <= 768px via CSS @media rule -->
-        <div class="floating-icon absolute top-32 left-[10%] lg:left-[20%] animate-bounce duration-[3000ms]">
-            <div class="w-12 h-12 bg-navy-800 rounded-full border border-gray-700 flex items-center justify-center shadow-glow"><i class="fa-solid fa-bolt text-lime-neon text-xl"></i></div>
-        </div>
-        <div class="floating-icon absolute top-40 right-[10%] lg:right-[20%] animate-bounce duration-[4000ms]">
-            <div class="w-10 h-10 bg-navy-800 rounded-full border border-gray-700 flex items-center justify-center shadow-lg"><i class="fa-solid fa-chart-line text-teal-accent text-lg"></i></div>
-        </div>
-        <div class="floating-icon absolute bottom-32 left-[5%] lg:left-[15%] animate-bounce duration-[3500ms]">
-            <div class="w-14 h-14 bg-navy-800 rounded-full border border-gray-700 flex items-center justify-center shadow-lg"><i class="fa-solid fa-sack-dollar text-lime-neon text-2xl"></i></div>
-        </div>
-        <div class="floating-icon absolute bottom-40 right-[5%] lg:right-[15%] animate-bounce duration-[4500ms]">
-            <div class="w-12 h-12 bg-navy-800 rounded-full border border-gray-700 flex items-center justify-center shadow-glow"><i class="fa-solid fa-shield-halved text-teal-accent text-xl"></i></div>
-        </div>
+    <!-- Confetti Container -->
+    <div id="confetti-container" class="fixed inset-0 pointer-events-none z-10 overflow-hidden w-screen"></div>
 
-        <div class="container mx-auto px-6 lg:px-12 relative z-10">
-            <div class="max-w-4xl mx-auto text-center">
-                <div class="inline-flex items-center gap-2 bg-navy-800/80 border border-gray-700 rounded-full px-4 py-1.5 mb-8 backdrop-blur-sm reveal active">
-                    <span class="w-2 h-2 bg-lime-neon rounded-full animate-pulse"></span>
-                    <span class="text-gray-300 text-xs font-bold tracking-wide uppercase">Zero-Risk Side Hustle Blueprint</span>
-                </div>
-                <h1 class="text-5xl lg:text-[72px] leading-[1.1] font-bold text-white mb-6 reveal active delay-100">
-                    YOUR SALARY IS A CAGE. <br>
-                    <span class="relative inline-block">
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-lime-neon to-teal-accent">BUILD THE KEY.</span>
-                        <svg class="absolute w-full h-3 -bottom-1 left-0 text-teal-accent opacity-60" viewBox="0 0 200 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.00025 6.99997C58.5002 6.99997 118.001 -2.00003 198.001 2.99997" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
-                    </span>
-                </h1>
-                <div class="reveal active delay-200">
-                    <p class="text-gray-300 text-lg md:text-xl font-bold mb-2">
-                        From <span class="text-red-400 line-through decoration-red-500/50">₹32 Lakh Debt</span> & <span class="text-gray-400">27k/mo</span> → <span class="text-lime-neon">+₹5 Lakh/Month</span>
-                    </p>
-                    <p class="text-gray-400 text-lg max-w-2xl mx-auto leading-relaxed mb-10">
-                        The zero-risk blueprint for building a real side business that replaces your income, even if you have no time, no money, and no experience.
-                    </p>
-                </div>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center reveal active delay-300">
-                    <a href="https://u.payu.in/nIsRdQdIBGDX" class="bg-lime-neon text-navy-900 font-bold py-4 px-10 rounded-full text-center hover:bg-lime-hover transition-all shadow-glow flex items-center justify-center gap-2 min-w-[220px]">
-                        Get The Blueprint (₹299) <i class="fa-solid fa-arrow-right text-sm"></i>
-                    </a>
-                    <a href="#lead-magnet" class="text-white font-semibold py-4 px-8 rounded-full border border-gray-700 bg-navy-800 hover:bg-navy-700 transition-all flex items-center justify-center gap-2 group min-w-[200px]">
-                        <div class="w-8 h-8 rounded-full bg-navy-800 border border-gray-600 flex items-center justify-center group-hover:border-lime-neon transition-colors">
-                            <i class="fa-solid fa-book-open text-lime-neon text-xs"></i>
-                        </div>
-                        Get Free Chapter
-                    </a>
-                </div>
-                <div class="mt-12 pt-8 border-t border-gray-800/50 flex justify-center reveal active delay-500">
-                    <div class="flex items-center gap-4">
-                         <div class="flex -space-x-3">
-                             <img src="https://randomuser.me/api/portraits/men/32.jpg" loading="lazy" class="w-10 h-10 rounded-full border-2 border-navy-800" alt="User">
-                             <img src="https://randomuser.me/api/portraits/women/44.jpg" loading="lazy" class="w-10 h-10 rounded-full border-2 border-navy-800" alt="User">
-                             <img src="https://randomuser.me/api/portraits/men/85.jpg" loading="lazy" class="w-10 h-10 rounded-full border-2 border-navy-800" alt="User">
-                         </div>
-                         <!-- DYNAMIC COUNTER RESTORED -->
-                         <div class="text-white font-bold text-sm flex items-center gap-2">
-                             <i class="fa-solid fa-check-circle text-lime-neon"></i> <span id="trust-download-count">2,923+ Hustlers Escaped</span>
-                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- TRUST SIGNAL BANNER -->
-    <section class="bg-white py-6 border-y border-gray-100">
-      <div class="container mx-auto px-6">
-        <div class="flex flex-wrap justify-center items-center gap-8 text-sm text-gray-600">
-          <div class="flex items-center gap-2">
-            <div class="w-8 h-8 bg-green-50 rounded-full flex items-center justify-center">
-              <i class="fa-solid fa-shield-halved text-green-600"></i>
-            </div>
-            <span class="font-medium">100% Secure Payment</span>
-          </div>
-          <div class="w-px h-6 bg-gray-300 hidden md:block"></div>
-          <div class="flex items-center gap-2">
-            <div class="w-8 h-8 bg-green-50 rounded-full flex items-center justify-center">
-              <i class="fa-solid fa-lock text-green-600"></i>
-            </div>
-            <span class="font-medium">SSL Encrypted</span>
-          </div>
-          <div class="w-px h-6 bg-gray-300 hidden md:block"></div>
-          <div class="flex items-center gap-2">
-            <div class="w-8 h-8 bg-green-50 rounded-full flex items-center justify-center">
-              <i class="fa-solid fa-rotate-left text-green-600"></i>
-            </div>
-            <span class="font-medium">14-Day Money-Back Guarantee</span>
-          </div>
-          <div class="w-px h-6 bg-gray-300 hidden md:block"></div>
-          <div class="flex items-center gap-2">
-            <div class="w-8 h-8 bg-green-50 rounded-full flex items-center justify-center">
-              <i class="fa-solid fa-download text-green-600"></i>
-            </div>
-            <span class="font-medium">Instant Digital Delivery</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SCROLLING TICKER -->
-    <div class="bg-navy-900 border-y border-gray-800 py-4 banner-scroller">
-        <div class="banner-scroller__inner text-gray-400 text-sm font-bold uppercase tracking-widest">
-            <span class="mx-8"><i class="fa-solid fa-chart-line text-lime-neon mr-2"></i> From ₹32L Debt → To ₹5L/Month</span>
-            <span class="mx-8"><i class="fa-solid fa-lock text-teal-accent mr-2"></i> Escape 9-5 Cage</span>
-            <span class="mx-8"><i class="fa-solid fa-lightbulb text-lime-neon mr-2"></i> 6 Proven Methods</span>
-            <span class="mx-8"><i class="fa-solid fa-calendar text-teal-accent mr-2"></i> 6-Month Action Plan</span>
-            <span class="mx-8"><i class="fa-solid fa-bullseye text-lime-neon mr-2"></i> ₹0 to ₹50K/Month</span>
-            <span class="mx-8"><i class="fa-solid fa-shield text-teal-accent mr-2"></i> Zero Risk</span>
-            <span class="mx-8"><i class="fa-solid fa-chart-line text-lime-neon mr-2"></i> From ₹32L Debt → To ₹5L/Month</span>
-            <span class="mx-8"><i class="fa-solid fa-lock text-teal-accent mr-2"></i> Escape 9-5 Cage</span>
-            <span class="mx-8"><i class="fa-solid fa-lightbulb text-lime-neon mr-2"></i> 6 Proven Methods</span>
-            <span class="mx-8"><i class="fa-solid fa-calendar text-teal-accent mr-2"></i> 6-Month Action Plan</span>
-        </div>
-    </div>
-
-    <!-- LEAD MAGNET SECTION -->
-    <section id="lead-magnet" class="py-24 bg-navy-900 border-b border-gray-800 relative overflow-hidden">
-        <div class="absolute inset-0 bg-teal-accent/5 pointer-events-none"></div>
-        <div class="container mx-auto px-6 lg:px-12 relative z-10">
-            <div class="bg-gray-800/50 backdrop-blur-md rounded-3xl p-8 md:p-16 flex flex-col md:flex-row items-center justify-between gap-12 border border-gray-700 shadow-2xl">
-                <div class="md:w-1/2">
-                    <span class="bg-teal-accent/20 text-teal-accent text-xs font-bold px-3 py-1 rounded-full mb-4 inline-block">FREE PREVIEW</span>
-                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 leading-tight">Read the Blueprint <br> Before You Buy.</h2>
-                    <p class="text-gray-400 mb-8 leading-relaxed">Get <strong>Chapter 1: The 9-5 Trap</strong> and <strong>Chapter 6: The E-commerce Hustle</strong> sent directly to your inbox for free. See the quality for yourself.</p>
-                    <ul class="space-y-3 text-gray-300 text-sm">
-                        <li class="flex items-center gap-3"><div class="bg-lime-neon/20 p-1 rounded-full"><i class="fa-solid fa-check text-lime-neon text-xs"></i></div> The essential mindset shift</li>
-                        <li class="flex items-center gap-3"><div class="bg-lime-neon/20 p-1 rounded-full"><i class="fa-solid fa-check text-lime-neon text-xs"></i></div> One complete, zero-cost business blueprint</li>
-                    </ul>
-                </div>
-                <div class="md:w-1/2 w-full max-w-md">
-                    <!-- TASK 1: Pulsing glow animation applied here -->
-                    <div class="bg-navy-900 p-6 rounded-2xl border border-gray-700 shadow-lg relative z-20 border-neon-glow animate-pulse-glow">
-                        <form id="lead-magnet-form" class="space-y-4">
-                            <div id="form-fields" class="space-y-4 transition-opacity duration-300">
-                                <div>
-                                    <label class="block text-gray-400 text-xs font-bold mb-2 uppercase tracking-wide">Email Address</label>
-                                    <input type="email" id="lead-email" name="email" placeholder="Enter your best email..." class="w-full bg-navy-800 border border-gray-600 rounded-xl px-5 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-lime-neon transition-all focus:ring-1 focus:ring-lime-neon" required>
-                                </div>
-                                <button type="submit" class="w-full bg-white text-navy-900 font-bold rounded-xl px-5 py-4 hover:bg-lime-neon transition-all shadow-md transform hover:-translate-y-1 relative z-30 cursor-pointer">Send My Free Chapters</button>
-                                <p class="text-center text-xs text-gray-500 mt-4">We respect your privacy. No spam, ever.</p>
-                            </div>
-                            <div id="lead-success-container" class="hidden flex flex-col items-center justify-center py-8 text-center animate-fade-in-up">
-                                <div class="w-16 h-16 bg-lime-neon/20 rounded-full flex items-center justify-center mb-4"><i class="fa-solid fa-check text-3xl text-lime-neon"></i></div>
-                                <h3 class="text-xl font-bold text-white mb-2">You're In!</h3>
-                                <p class="text-gray-400 text-sm">Check your inbox. Your free chapters are on their way.</p>
-                            </div>
-                            <p id="lead-error-message" class="text-red-400 text-center text-sm mt-4 hidden">Something went wrong. Please try again.</p>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PAIN POINTS SECTION -->
-    <section class="py-24 bg-white">
-        <div class="container mx-auto px-6 lg:px-12">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-navy-900 mb-4">ARE YOU FEELING TRAPPED?</h2>
-                <p class="text-gray-500">If you're nodding your head to any of these questions, you're not alone.</p>
-            </div>
-            <!-- REMOVED: Mobile Sticky positioning for better alignment -->
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Card 1 -->
-                <div class="bg-white p-8 rounded-2xl border border-gray-100 hover:border-red-200 hover:shadow-lg transition-all group">
-                    <div class="w-12 h-12 bg-red-50 text-red-500 rounded-xl flex items-center justify-center mb-6 text-xl group-hover:bg-red-500 group-hover:text-white transition-colors"><i class="fa-regular fa-calendar-xmark"></i></div><h3 class="font-bold text-navy-900 text-lg mb-3">Salary Gone by the 15th?</h3><p class="text-gray-500 text-sm leading-relaxed">Living paycheck to paycheck, watching your money disappear before the month ends.</p>
-                </div>
-                <!-- Card 2 -->
-                <div class="bg-white p-8 rounded-2xl border border-gray-100 hover:border-red-200 hover:shadow-lg transition-all group">
-                    <div class="w-12 h-12 bg-red-50 text-red-500 rounded-xl flex items-center justify-center mb-6 text-xl group-hover:bg-red-500 group-hover:text-white transition-colors"><i class="fa-solid fa-triangle-exclamation"></i></div><h3 class="font-bold text-navy-900 text-lg mb-3">Fear of Expenses?</h3><p class="text-gray-500 text-sm leading-relaxed">Do you live in constant fear of one unexpected bill wrecking your entire month?</p></div>
-                <!-- Card 3 -->
-                <div class="bg-white p-8 rounded-2xl border border-gray-100 hover:border-red-200 hover:shadow-lg transition-all group">
-                    <div class="w-12 h-12 bg-red-50 text-red-500 rounded-xl flex items-center justify-center mb-6 text-xl group-hover:bg-red-500 group-hover:text-white transition-colors"><i class="fa-solid fa-briefcase"></i></div><h3 class="font-bold text-navy-900 text-lg mb-3">Is Your Job a Cage?</h3><p class="text-gray-500 text-sm leading-relaxed">Does the thought of being in the same job 5 years from now terrify you?</p></div>
-                <!-- Card 4 -->
-                <div class="bg-white p-8 rounded-2xl border border-gray-100 hover:border-red-200 hover:shadow-lg transition-all group">
-                    <div class="w-12 h-12 bg-red-50 text-red-500 rounded-xl flex items-center justify-center mb-6 text-xl group-hover:bg-red-500 group-hover:text-white transition-colors"><i class="fa-solid fa-eye"></i></div><h3 class="font-bold text-navy-900 text-lg mb-3">Watching Others Win?</h3><p class="text-gray-500 text-sm leading-relaxed">Tired of watching others succeed online while you're stuck on the sidelines?</p></div>
-                <!-- Card 5 -->
-                <div class="bg-white p-8 rounded-2xl border border-gray-100 hover:border-red-200 hover:shadow-lg transition-all group">
-                    <div class="w-12 h-12 bg-red-50 text-red-500 rounded-xl flex items-center justify-center mb-6 text-xl group-hover:bg-red-500 group-hover:text-white transition-colors"><i class="fa-regular fa-lightbulb"></i></div><h3 class="font-bold text-navy-900 text-lg mb-3">Ideas but No Clue?</h3><p class="text-gray-500 text-sm leading-relaxed">Have great ideas but absolutely no clue where to actually start?</p></div>
-                <!-- Card 6 -->
-                <div class="p-8 rounded-2xl border border-gray-100 hover:border-red-200 hover:shadow-lg transition-all group flex flex-col items-center justify-center bg-white"><p class="font-bold text-navy-900 mb-6 text-xl">Yes, That's Me.</p><a href="https://u.payu.in/nIsRdQdIBGDX" class="bg-navy-900 text-white text-sm font-bold px-8 py-4 rounded-lg hover:bg-gray-800 transition-all shadow-lg w-full text-center">I Need A Plan →</a></div>
-            </div>
-        </div>
-    </section>
-
-     <!-- AUDIENCE FILTER SECTION (REFACTORED FOR VISUAL CONTRAST) -->
-    <section id="audience-filter" class="py-24 bg-white overflow-hidden">
-        <div class="container mx-auto px-6 lg:px-12">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-navy-900 mb-6 leading-tight">WHO IS THIS FOR?</h2>
-                <p class="text-gray-500 text-lg">This book only works if you do the work. Be honest with yourself.</p>
-            </div>
-            
-            <!-- Implemented Mobile Staggered Pinning on parent grid to stack and pin -->
-            <div class="grid lg:grid-cols-2 gap-12 items-stretch">
-                
-                <!-- LEFT: WHO IT IS FOR (Green/Lime Theme) - STICKY CARD 1 -->
-                <!-- Removed sticky classes -->
-                <div class="bg-lime-neon/10 border-2 border-lime-neon/30 rounded-3xl p-8 md:p-12 relative overflow-hidden group lg:relative lg:top-auto h-full">
-                    <div class="absolute top-0 left-0 w-full h-2 bg-lime-neon"></div>
-                    <!-- FIX 2: Standardized capitalization -->
-                    <h3 class="text-2xl font-bold text-navy-900 mb-8 flex items-center gap-3">
-                        <div class="w-10 h-10 bg-lime-neon text-navy-900 rounded-full flex items-center justify-center text-lg"><i class="fa-solid fa-check"></i></div>
-                        This Is For You If...
-                    </h3>
-                    <div class="space-y-6">
-                        <div class="flex gap-4 items-start">
-                            <div class="w-6 h-6 mt-1 bg-lime-neon text-navy-900 rounded-full flex items-center justify-center flex-shrink-0 text-xs font-bold"><i class="fa-solid fa-check"></i></div>
-                            <p class="text-navy-900 font-medium">You are currently in debt or living paycheck-to-paycheck.</p>
-                        </div>
-                        <div class="flex gap-4 items-start">
-                            <div class="w-6 h-6 mt-1 bg-lime-neon text-navy-900 rounded-full flex items-center justify-center flex-shrink-0 text-xs font-bold"><i class="fa-solid fa-check"></i></div>
-                            <p class="text-navy-900 font-medium">You have <strong>1-2 hours a day</strong> to dedicate to your hustle.</p>
-                        </div>
-                        <div class="flex gap-4 items-start">
-                            <div class="w-6 h-6 mt-1 bg-lime-neon text-navy-900 rounded-full flex items-center justify-center flex-shrink-0 text-xs font-bold"><i class="fa-solid fa-check"></i></div>
-                            <p class="text-navy-900 font-medium">You are tired of theory and need a step-by-step plan.</p>
-                        </div>
-                        
-                        <!-- NEW VISUAL ELEMENT FOR FINANCIAL FREEDOM (The card) -->
-                        <div class="mt-8 pt-4 border-t border-lime-neon/30">
-                            <div class="w-full rounded-2xl overflow-hidden shadow-xl animate-gradient-shift" 
-                                style="background: linear-gradient(90deg, #D4FF00 0%, #2DD4BF 50%, #D4FF00 100%);">
-                                <!-- Card Content using Tailwind classes to mimic the image -->
-                                <div class="p-6 bg-navy-900/80 backdrop-blur-sm">
-                                    <div class="flex justify-between items-center mb-4">
-                                        <div class="w-8 h-8 bg-lime-neon/20 rounded-lg flex items-center justify-center text-lime-neon">
-                                            <i class="fa-solid fa-credit-card"></i>
-                                        </div>
-                                        <span class="bg-lime-neon text-navy-900 text-xs font-bold px-3 py-1 rounded-full">Pro Hustler</span>
-                                    </div>
-                                    <p class="text-gray-400 text-sm uppercase font-semibold mb-1">Goal Status</p>
-                                    <h4 class="text-3xl font-bold text-white mb-6">Financial Freedom</h4>
-                                    
-                                    <div class="space-y-3 p-4 bg-gray-800/50 rounded-xl border border-gray-700">
-                                        <div class="flex justify-between text-sm">
-                                            <span class="text-gray-400">Debt</span>
-                                            <span class="font-bold text-green-400">₹0.00</span>
-                                        </div>
-                                        <div class="flex justify-between text-sm">
-                                            <span class="text-gray-400">Income Sources</span>
-                                            <span class="font-bold text-lime-neon">6 Active</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
-
-                <!-- RIGHT: WHO IT IS NOT FOR (Red Theme - Restored from Index 11 Logic) - STICKY CARD 2 -->
-                <!-- Removed sticky classes -->
-                <div class="bg-red-50 border-2 border-red-100 rounded-3xl p-8 md:p-12 relative overflow-hidden lg:relative lg:top-auto h-full">
-                    <div class="absolute top-0 left-0 w-full h-2 bg-red-400"></div>
-                    <!-- FIX 2: Standardized capitalization -->
-                    <h3 class="text-2xl font-bold text-navy-900 mb-8 flex items-center gap-3">
-                        <div class="w-10 h-10 bg-red-100 text-red-500 rounded-full flex items-center justify-center text-lg"><i class="fa-solid fa-xmark"></i></div>
-                        This Is Not For You If...
-                    </h3>
-                    <div class="space-y-6">
-                        <div class="flex gap-4 items-start">
-                            <div class="w-6 h-6 mt-1 bg-red-100 text-red-500 rounded-full flex items-center justify-center flex-shrink-0 text-xs font-bold"><i class="fa-solid fa-xmark"></i></div>
-                            <p class="text-navy-900 font-medium text-opacity-80">You want "get rich quick" schemes without effort.</p>
-                        </div>
-                        <div class="flex gap-4 items-start">
-                            <div class="w-6 h-6 mt-1 bg-red-100 text-red-500 rounded-full flex items-center justify-center flex-shrink-0 text-xs font-bold"><i class="fa-solid fa-xmark"></i></div>
-                            <p class="text-navy-900 font-medium text-opacity-80">You are unwilling to learn basic digital skills.</p>
-                        </div>
-                        <div class="flex gap-4 items-start">
-                            <div class="w-6 h-6 mt-1 bg-red-100 text-red-500 rounded-full flex items-center justify-center flex-shrink-0 text-xs font-bold"><i class="fa-solid fa-xmark"></i></div>
-                            <p class="text-navy-900 font-medium text-opacity-80">You expect to make ₹1 Lakh by Friday doing nothing.</p>
-                        </div>
-
-                        <!-- NEW VISUAL ELEMENT FOR THE DEBT TRAP (UPDATED) -->
-                        <div class="mt-8 pt-4 border-t border-red-400/30">
-                            <div class="w-full rounded-2xl overflow-hidden shadow-xl debt-trap-card border-2 border-red-400">
-                                <!-- Card Content using Tailwind classes to mimic the image -->
-                                <div class="p-6 debt-trap-content">
-                                    <div class="flex justify-between items-center mb-4">
-                                        <div class="w-8 h-8 bg-red-400/20 rounded-lg flex items-center justify-center text-red-600">
-                                            <i class="fa-solid fa-hourglass-empty"></i>
-                                        </div>
-                                        <span class="bg-red-400 text-white text-xs font-bold px-3 py-1 rounded-full">Dreamer Status</span>
-                                    </div>
-                                    <p class="text-red-800 text-sm uppercase font-semibold mb-1">Reality Status</p>
-                                    <h4 class="text-3xl font-bold text-red-900 mb-6">Fantasy Status</h4>
-                                    
-                                    <div class="space-y-3 p-4 bg-red-100/50 rounded-xl border border-red-300">
-                                        <div class="flex justify-between text-sm">
-                                            <span class="text-red-800">Effort Invested</span>
-                                            <span class="font-bold text-red-600">0 hours</span>
-                                        </div>
-                                        <div class="flex justify-between text-sm">
-                                            <span class="text-red-800">Total Revenue</span>
-                                            <span class="font-bold text-red-600">₹0.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            
-            <!-- New CTA -->
-            <div class="mt-16 text-center">
-                <a href="https://u.payu.in/nIsRdQdIBGDX" class="inline-flex items-center gap-2 bg-lime-neon text-navy-900 font-bold py-4 px-10 rounded-full hover:bg-lime-hover transition-all shadow-glow group text-lg">
-                    I Qualify. Give Me The Blueprint. <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- AUDIENCE PERSONA SECTION -->
-    <section class="py-24 bg-navy-900 text-white">
-        <div class="container mx-auto px-6 lg:px-12">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 leading-tight">This is for the person who knows they’re meant for more.</h2>
-            <!-- REMOVED: Mobile Sticky positioning for better alignment -->
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Card 1 -->
-                <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 text-center group hover:border-red-500/50 transition-all transform hover:-translate-y-2 duration-300">
-                    <div class="w-16 h-16 mx-auto bg-navy-900 rounded-full border-2 border-red-500 flex items-center justify-center mb-6 shadow-[0_0_20px_rgba(239,68,68,0.2)] group-hover:shadow-[0_0_30px_rgba(239,68,68,0.4)] transition-all"><i class="fa-solid fa-minus text-red-500 text-2xl"></i></div>
-                    <h3 class="text-xl font-bold mb-4">The Employee in Debt</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">Stuck in a loop of EMIs and monthly bills? This is your structured way out.</p>
-                </div>
-                <!-- Card 2 -->
-                <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 text-center group hover:border-yellow-400/50 transition-all transform hover:-translate-y-2 duration-300">
-                    <div class="w-16 h-16 mx-auto bg-navy-900 rounded-full border-2 border-yellow-400 flex items-center justify-center mb-6 shadow-[0_0_20px_rgba(250,204,21,0.2)] group-hover:shadow-[0_0_30px_rgba(250,204,21,0.4)] transition-all"><i class="fa-regular fa-sun text-yellow-400 text-2xl"></i></div>
-                    <h3 class="text-xl font-bold mb-4">The Silent Hustler</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">Grinding after work with no clear direction? This converts your extra hours into consistent income.</p>
-                </div>
-                <!-- Card 3 -->
-                <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 text-center group hover:border-blue-500/50 transition-all transform hover:-translate-y-2 duration-300">
-                    <div class="w-16 h-16 mx-auto bg-navy-900 rounded-full border-2 border-blue-500 flex items-center justify-center mb-6 shadow-[0_0_20px_rgba(59,130,246,0.2)] group-hover:shadow-[0_0_30px_rgba(59,130,246,0.4)] transition-all"><i class="fa-solid fa-graduation-cap text-blue-500 text-2xl"></i></div>
-                    <h3 class="text-xl font-bold mb-4">The Ambitious Student</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">Done with theory that leads nowhere? Think of this as your practical crash-course in launching a real business.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- MENTOR SECTION (RESTORED) -->
-    <section class="py-24 bg-gray-50">
-        <div class="container mx-auto px-6 lg:px-12">
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
-                <div>
-                    <!-- Reverted tag size to original small size (text-xs) -->
-                    <span class="text-lime-hover font-bold tracking-widest uppercase text-xs mb-2 block">MEET YOUR MENTOR</span>
-                    <!-- Reverted main headline size to original standard section size (text-3xl md:text-4xl) -->
-                    <h2 class="text-3xl md:text-4xl font-bold text-navy-900 mb-6 leading-tight">From <span class="text-red-500">₹32 Lakhs Debt</span> to <span class="text-green-600">+₹5 Lakh/Month</span></h2>
-                    <div class="space-y-4 text-gray-600 leading-relaxed">
-                        <p>I'm Harshdeep Singh. I'm not a guru. My story is messy, painful, and 100% real.</p>
-                        <p>At 15, I was earning ₹2 Lakhs/month. By 18, I was <strong>₹32 Lakhs in debt</strong> due to lifestyle inflation. My ₹27k/month job couldn't even cover the interest.</p>
-                        <p>Rock bottom wasn't the debt; it was the realization that the traditional path would never save me. I needed a new way—a way to build wealth without capital I didn't have.</p>
-                        <p>This book is the blueprint I used to not only clear every rupee of that debt, but build a system of zero-funded businesses that now generate a consistent ₹5 Lakh/month.</p>
-                        <div class="bg-white p-4 rounded-xl border-l-4 border-lime-neon shadow-sm mt-4"><p class="italic text-navy-900 font-medium">"I'm not here to sell you dreams. I'm here to give you the exact, battle-tested blueprint I used to escape my financial prison."</p></div>
-                    </div>
-                </div>
-                <div class="relative group">
-                    <div class="bg-navy-900 rounded-[40px] p-2 shadow-2xl transform rotate-2 group-hover:rotate-0 transition-transform duration-500">
-                        <img src="https://images.unsplash.com/photo-1553729459-efe14ef6055d?q=80&w=2070&auto=format&fit=crop" loading="lazy" alt="Harshdeep Singh" class="rounded-[32px] w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
-                    </div>
-                    <div class="absolute bottom-10 -left-6 bg-white p-4 rounded-xl shadow-lg flex items-center gap-3 transition-transform duration-500 group-hover:scale-105">
-                        <div class="bg-teal-accent text-white w-10 h-10 rounded-full flex items-center justify-center font-bold"><i class="fa-solid fa-check"></i></div>
-                        <div><p class="text-xs text-gray-500 font-bold uppercase">Result</p><p class="font-bold text-navy-900">100% Debt Free</p></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- TRANSITION BANNER (NEW) -->
-    <section class="py-16 bg-navy-900 border-y border-gray-800 relative overflow-hidden">
-        <!-- Background decorative element -->
-        <div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-lime-neon/10 via-navy-900 to-navy-900 opacity-50"></div>
+    <!-- Main Success Content -->
+    <main class="flex-grow pt-24 pb-12 sm:pb-24 md:pb-32 flex items-center justify-center relative z-20 hero-bg main-container-content">
+        <!-- Background Blur Circle (Contained to prevent overflow) -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-teal-accent/5 rounded-full blur-3xl -z-10 max-w-full"></div>
         
-        <div class="container mx-auto px-6 text-center relative z-10">
-            <div class="inline-flex items-center justify-center gap-3 mb-4">
-                <div class="h-px w-12 bg-gray-600"></div>
-                <span class="text-teal-accent text-xs font-bold uppercase tracking-[0.2em]">Reality Check</span>
-                <div class="h-px w-12 bg-gray-600"></div>
-            </div>
-            <!-- FIX 3: Removed whitespace-nowrap to allow wrapping on mobile, fixed inline-block to block -->
-            <h3 class="text-2xl md:text-3xl font-bold text-white leading-relaxed max-w-4xl mx-auto">
-                Don't let another year pass stuck in the same spot. 
-                <span class="block mt-1 sm:inline"> 
-                    The only thing standing between you and freedom is a&nbsp;<span class="text-lime-neon border-b-2 border-lime-neon">proven&nbsp;plan</span>.
-                </span>
-            </h3>
-        </div>
-    </section>
-
-    <!-- INCOME PROOF -->
-    <section class="py-24 bg-white" id="proof">
-        <div class="container mx-auto px-6 lg:px-12">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-navy-900 mb-4">THE NUMBERS DON'T LIE.</h2>
-                <p class="text-gray-500 max-w-xl mx-auto">The brutal financial reality I left behind, and the consistent income I built.</p>
-            </div>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-navy-900 rounded-3xl p-8 text-white relative overflow-hidden feature-card group border-2 border-red-500">
-                    <h3 class="text-xl font-bold mb-2 text-red-400">Max Debt Incurred</h3>
-                    <p class="text-gray-400 text-sm mb-8">Starting Point</p>
-                    <div class="mt-4"><span class="text-4xl font-bold text-white count-up" data-target="32">-₹32L</span><span class="text-xs text-gray-400 block mt-2">Paid off completely</span></div>
-                </div>
-                <!-- FIX 4: Added a border to the Old Salary Cap card for visual balance -->
-                <div class="bg-white rounded-3xl p-8 shadow-card flex flex-col items-center justify-center feature-card border-2 border-teal-accent/50">
-                    <h3 class="text-xl font-bold text-navy-900 text-center mb-2">Old Salary Cap</h3>
-                    <p class="text-gray-500 text-xs text-center mb-4">The cage I was tied to.</p>
-                    <div class="relative w-32 h-32 flex items-center justify-center border-4 border-gray-100 rounded-full">
-                        <div class="text-center"><span class="text-2xl font-bold text-navy-900">₹27k</span><span class="block text-[10px] uppercase text-gray-400">Per Month</span></div>
-                    </div>
-                </div>
-                <div class="bg-white rounded-3xl p-8 shadow-card feature-card border-2 border-green-500 relative">
-                    <h3 class="text-xl font-bold text-navy-900 mb-2">Current Income</h3>
-                    <p class="text-gray-500 text-sm mb-10">Zero-investment systems.</p>
-                    <div class="bg-gray-50 rounded-2xl p-4 mb-4">
-                        <p class="text-xs text-gray-400 mb-1">Monthly Revenue</p>
-                        <div class="flex justify-between items-center"><span class="text-2xl font-bold text-navy-900 count-up" data-target="5">+₹5L/mo</span><div class="bg-lime-neon text-navy-900 text-xs font-bold px-2 py-1 rounded-md">18x Growth</div></div>
-                    </div>
-                </div>
-            </div>
-            <div class="mt-12 text-center">
-                <a href="https://u.payu.in/nIsRdQdIBGDX" class="bg-navy-900 text-white font-bold py-4 px-10 rounded-full hover:bg-gray-800 transition-all shadow-lg inline-flex items-center gap-2">
-                    I Want This Financial Freedom <i class="fa-solid fa-arrow-right text-lime-neon"></i>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- BLUEPRINT -->
-    <section class="py-24 bg-white" id="blueprint">
-        <div class="container mx-auto px-6 lg:px-12">
-            <div class="grid lg:grid-cols-2 gap-24 items-center">
-                <!-- Left Column: Book Only (Reverted) -->
-                <div class="relative flex justify-center perspective-1000">
-                    <div class="ebook-3d relative z-20 bg-navy-900 rounded-r-xl rounded-l-sm w-64 h-96 shadow-2xl flex flex-col border-r-4 border-b-4 border-gray-800">
-                        <div class="h-full w-full bg-gradient-to-br from-navy-800 to-black p-6 flex flex-col justify-between rounded-r-lg border-l border-gray-600 relative overflow-hidden">
-                            <div class="absolute top-0 right-0 w-32 h-32 bg-lime-neon/20 rounded-bl-full"></div>
-                            <div>
-                                <p class="text-lime-neon font-bold tracking-widest text-sm">THE BLUEPRINT</p>
-                                <h3 class="text-3xl font-bold text-white mt-2 leading-tight">ESCAPE<br>THE 9-5</h3>
-                            </div>
-                            <div>
-                                <p class="text-gray-400 text-xs mb-2">ZeroFunded Hustle</p>
-                                <p class="text-white font-medium">Harshdeep Singh</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <div class="container mx-auto px-6 max-w-4xl">
+            
+            <!-- Success Card - Styled like the lead magnet form in final25.html -->
+            <div class="bg-navy-900 border border-gray-700 rounded-3xl p-8 sm:p-12 md:p-16 text-center shadow-2xl shadow-black/70" 
+                 style="border: 1px solid rgba(212, 255, 0, 0.5); box-shadow: 0 0 0 4px rgba(212, 255, 0, 0.7), 0 0 20px rgba(212, 255, 0, 0.7);"
+            >
                 
-                <!-- Right Column -->
-                <div>
-                    <h2 class="text-4xl font-bold text-navy-900 mb-6 leading-tight">HERE IS THE EXACT <br> BLUEPRINT</h2>
-                    <p class="text-gray-500 mb-10 text-lg">Inside, you'll find the step-by-step strategies, mindset shifts, and actionable plans I used to build my freedom from zero.</p>
-                    
-                    <!-- Grid Cards -->
-                    <div class="grid sm:grid-cols-2 gap-6 mb-8">
-                        <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-100"><i class="fa-solid fa-shirt text-teal-accent text-2xl mb-3"></i><h4 class="font-bold text-navy-900 mb-1">6 Business Models</h4><p class="text-xs text-gray-500">E-com, T-Shirt Brand, Service Arbitrage & more.</p></div>
-                        <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-100"><i class="fa-solid fa-rocket text-lime-hover text-2xl mb-3"></i><h4 class="font-bold text-navy-900 mb-1">Escape the 9-5 Model</h4><p class="text-xs text-gray-500">The ultimate scalable digital product model.</p></div>
-                    </div>
-                    
-                    <!-- Pricing & CTA (Reverted Style) -->
-                    <div class="flex flex-col sm:flex-row items-center gap-8">
-                        <div>
-                            <div class="flex items-baseline gap-2">
-                                <span class="text-gray-400 text-sm line-through">₹999</span>
-                                <span class="text-4xl font-bold text-navy-900">₹299</span>
-                            </div>
-                            <p class="text-xs text-red-500 font-bold mt-1">Price jumps to ₹999 soon!</p>
-                            <p class="text-xs text-gray-500">Less than a large pizza 🍕</p>
-                        </div>
-                        <a href="https://u.payu.in/nIsRdQdIBGDX" class="flex-1 w-full sm:w-auto bg-lime-neon text-navy-900 font-bold py-4 px-8 rounded-full hover:bg-lime-hover transition-all shadow-glow text-center group whitespace-nowrap">
-                            I’m ready to invest in myself <i class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
-                        </a>
+                <!-- Animation Container -->
+                <div id="animation-container" class="flex items-center justify-center mb-6">
+                    <!-- Loading Spinner -->
+                    <div id="loader" class="loader"></div>
+                    <!-- Animated Tick -->
+                    <div id="tick-container" class="hidden">
+                        <svg class="svg-tick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2">
+                            <path fill="none" stroke-linecap="round" stroke-linejoin="round" d="M10.5 73.5l34.4 34.4 74.8-74.8"/>
+                        </svg>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- GLIMPSE INSIDE SECTION (NEW) -->
-    <section class="py-24 bg-navy-900 border-b border-gray-800" id="glimpse-inside-blueprint">
-        <div class="container mx-auto px-6 lg:px-12">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-lime-neon mb-6">A Glimpse Inside Your Blueprint</h2>
-                <p class="text-gray-400 text-lg">This isn't theory. It's a toolbox of <strong class="text-white">6 proven, step-by-step models</strong> I've personally used to build real income streams from scratch.</p>
-            </div>
-            
-            <!-- REMOVED: Mobile Sticky positioning for better alignment -->
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Card 1 -->
-                <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-lime-neon/50 blueprint-card transition-all group hover:-translate-y-1 duration-300" data-delay="0">
-                    <h3 class="font-bold text-white text-xl mb-3">Blueprint 1: Your First ₹2L/Month E-Com Store</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">My first hustle. Find a product on IndiaMart, sell it on Instagram. I'll show you the exact math that made me ₹2 Lakhs/month as a teenager.</p>
-                </div>
-                <!-- Card 2 -->
-                <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-lime-neon/50 blueprint-card transition-all group hover:-translate-y-1 duration-300" data-delay="100">
-                    <h3 class="font-bold text-white text-xl mb-3">Blueprint 2: Build a T-Shirt Brand With Zero Inventory</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">Use AI to create viral designs and Print-on-Demand to handle all printing & shipping. Sell a culture, not just a t-shirt.</p>
-                </div>
-                <!-- Card 3 -->
-                <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-lime-neon/50 blueprint-card transition-all group hover:-translate-y-1 duration-300" data-delay="200">
-                    <h3 class="font-bold text-white text-xl mb-3">Blueprint 3: Earn ₹50k Commissions (With 0% Risk)</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">Connect online leads to local property dealers for a high 50/50 commission split. One deal can be ₹50,000. You don't need to own the asset.</p>
-                </div>
-                <!-- Card 4 -->
-                <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-lime-neon/50 blueprint-card transition-all group hover:-translate-y-1 duration-300" data-delay="300">
-                    <h3 class="font-bold text-white text-xl mb-3">Blueprint 4: Get Paid to Play (The Right Way)</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">Stop just playing, start performing. The key isn't being the best player; it's being the best entertainer. Get paid to play.</p>
-                </div>
-                <!-- Card 5 -->
-                <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-lime-neon/50 blueprint-card transition-all group hover:-translate-y-1 duration-300" data-delay="400">
-                    <h3 class="font-bold text-white text-xl mb-3">Blueprint 5: Turn Social Media Into a ₹50k/Post Business</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">How I turned my journey from debt into a brand that pays ₹15k-₹50k for a single post. Your face is your fortune.</p>
-                </div>
-                <!-- Card 6 -->
-                <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-lime-neon/50 blueprint-card transition-all group hover:-translate-y-1 duration-300" data-delay="500">
-                    <h3 class="font-6old text-white text-xl mb-3">Blueprint 6: The Pure-Profit ESCAPE THE 9-5 Model (My Secret)</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">Package your skills into an <strong class="text-white">ESCAPE THE 9-5</strong> (like this one!) or course. No inventory, no shipping. The ultimate scalable business model.</p>
-                </div>
-            </div>
+                <!-- Main Content (Hidden by default, will fade in) -->
+                <div id="main-content" class="hidden fade-in w-full">
+                    
+                    <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-white mb-3 leading-tight">
+                        <span class="text-lime-neon">Access Granted.</span><br>The Hustle Begins.
+                    </h1>
+                    <p class="text-lg text-gray-400 mb-8 max-w-lg mx-auto">
+                        Your purchase of the <strong>zerofundedhustle</strong> is complete. You are one step closer to financial freedom.
+                    </p>
 
-            <!-- CTA ADDED -->
-            <div class="mt-16 text-center">
-                <a href="https://u.payu.in/nIsRdQdIBGDX" class="inline-flex items-center gap-2 bg-lime-neon text-navy-900 font-bold py-4 px-10 rounded-full hover:bg-lime-hover transition-all shadow-glow group text-lg">
-                    See All 6 Blueprints Inside (₹299) <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
-                </a>
-            </div>
-        </div>
-    </section>
+                    <!-- What You Received Card -->
+                    <div class="bg-navy-800/70 p-6 rounded-2xl border border-gray-700 max-w-sm mx-auto mb-8 text-left">
+                        <p class="font-bold text-white mb-3 text-xl">What You Received:</p>
+                        <ul class="space-y-2 text-gray-300">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-lime-neon text-sm"></i> <span>Blueprint Ebook (PDF)</span></li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-lime-neon text-sm"></i> <span>7-Day Launchpad Bonus</span></li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-lime-neon text-sm"></i> <span>Debt-Crusher Template Bonus</span></li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-lime-neon text-sm"></i> <span>Zero-Cost Tools Vault Bonus</span></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Delivery Line -->
+                    <p class="text-md text-gray-300 max-w-xl mx-auto mb-6">
+                        The blueprint is delivered to your email, and you can also download it from here.
+                    </p>
 
-    <!-- PRODUCT BENEFITS -->
-    <section class="py-24 bg-white" id="product-benefits">
-        <div class="container mx-auto px-6 lg:px-12">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-navy-900 mb-4">THIS IS MORE THAN AN EBOOK. IT'S YOUR NEW REALITY.</h2>
-            </div>
-            <!-- REMOVED: Mobile Sticky positioning for better alignment -->
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Card 1 -->
-                <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all">
-                    <div class="w-12 h-12 bg-lime-neon/20 rounded-xl flex items-center justify-center mb-4 text-navy-900 text-xl"><i class="fa-solid fa-list-check"></i></div><h3 class="text-xl font-bold text-navy-900 mb-2">6 Blueprints to Earn ₹50k-₹150k</h3><p class="text-gray-500 text-sm">Copy-paste models with real math.</p>
-                </div>
-                <!-- Card 2 -->
-                <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all">
-                    <div class="w-12 h-12 bg-lime-neon/20 rounded-xl flex items-center justify-center mb-4 text-navy-900 text-xl"><i class="fa-solid fa-wallet"></i></div><h3 class="text-xl font-bold text-navy-900 mb-2">Start With ₹0 Investment</h3><p class="text-gray-500 text-sm">Your bank balance doesn't define potential.</p>
-                </div>
-                <!-- Card 3 -->
-                <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all">
-                    <div class="w-12 h-12 bg-lime-neon/20 rounded-xl flex items-center justify-center mb-4 text-navy-900 text-xl"><i class="fa-solid fa-shield-halved"></i></div><h3 class="text-xl font-bold text-navy-900 mb-2">Build a Financial Safety Net</h3><p class="text-gray-500 text-sm">Secure your future with multiple streams.</p>
-                </div>
-                <!-- Card 4 -->
-                <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all">
-                    <div class="w-12 h-12 bg-lime-neon/20 rounded-xl flex items-center justify-center mb-4 text-navy-900 text-xl"><i class="fa-solid fa-map-location-dot"></i></div><h3 class="text-xl font-bold text-navy-900 mb-2">Roadmap to ₹100k/Month</h3><p class="text-gray-500 text-sm">Day-by-day plan from Chapter 9.</p>
-                </div>
-                <!-- Card 5 -->
-                <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all">
-                    <div class="w-12 h-12 bg-lime-neon/20 rounded-xl flex items-center justify-center mb-4 text-navy-900 text-xl"><i class="fa-solid fa-arrows-rotate"></i></div><h3 class="text-xl font-bold text-navy-900 mb-2">Free Lifetime Updates</h3><p class="text-gray-500 text-sm">Digital world changes fast. You get updates.</p>
-                </div>
-                <!-- Card 6 -->
-                <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all">
-                    <div class="w-12 h-12 bg-lime-neon/20 rounded-xl flex items-center justify-center mb-4 text-navy-900 text-xl"><i class="fa-solid fa-envelope-open-text"></i></div><h3 class="text-xl font-bold text-navy-900 mb-2">Direct Email Support</h3><p class="text-gray-500 text-sm">Personal help to guide you through hurdles.</p>
-                </div>
-            </div>
-            <!-- CTA ADDED -->
-            <div class="mt-16 text-center">
-                <a href="https://u.payu.in/nIsRdQdIBGDX" class="inline-flex items-center gap-2 bg-navy-900 text-white font-bold py-4 px-10 rounded-full hover:bg-gray-800 transition-all shadow-lg group text-lg">
-                    Build Your New Reality Today <i class="fa-solid fa-arrow-right text-lime-neon group-hover:translate-x-1 transition-transform"></i>
-                </a>
-            </div>
-        </div>
-    </section>
-    
-    <!-- MISTAKES SECTION (FIXED GRID) -->
-    <section class="py-24 bg-navy-900">
-        <div class="container mx-auto px-6 lg:px-12">
-            <div class="text-center max-w-3xl mx-auto mb-16"><h2 class="text-3xl md:text-4xl font-bold text-white mb-4">I Made the Mistakes So You Don't Have To</h2><p class="text-gray-400">My ₹32 Lakh debt was an expensive education. Here is the wisdom I bought with those failures.</p></div>
-            <!-- REMOVED: Mobile Sticky positioning for better alignment -->
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Card 1 -->
-                <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-red-500/50 transition-colors">
-                    <div class="w-12 h-12 bg-red-500/10 rounded-xl flex items-center justify-center mb-4"><i class="fa-solid fa-arrow-trend-down text-red-500 text-xl"></i></div><h3 class="text-xl font-bold text-white mb-2">Never Tracking Money</h3><p class="text-gray-400 text-sm">I made ₹2L/month but had &lt;20k left. I was making money but not building wealth. A fool's game.</p>
-                </div>
-                <!-- Card 2 -->
-                <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-red-500/50 transition-colors">
-                    <div class="w-12 h-12 bg-red-500/10 rounded-xl flex items-center justify-center mb-4"><i class="fa-solid fa-credit-card text-red-500 text-xl"></i></div><h3 class="text-xl font-bold text-white mb-2">Emotional Spending</h3><p class="text-gray-400 text-sm">Stressed? I'd buy a ₹15,000 watch. The thrill was temporary, but the guilt and bill were permanent.</p>
-                </div>
-                <!-- Card 3 -->
-                <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-red-500/50 transition-colors">
-                    <div class="w-12 h-12 bg-red-500/10 rounded-xl flex items-center justify-center mb-4"><i class="fa-solid fa-rocket text-red-500 text-xl"></i></div><h3 class="text-xl font-bold text-white mb-2">Lifestyle Inflation</h3><p class="text-gray-400 text-sm">As income went up, so did spending. I was running on a financial treadmill, never getting ahead.</p>
-                </div>
-                <!-- Card 4 -->
-                <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-red-500/50 transition-colors">
-                    <div class="w-12 h-12 bg-red-500/10 rounded-xl flex items-center justify-center mb-4"><i class="fa-solid fa-money-bill-transfer text-red-500 text-xl"></i></div><h3 class="text-xl font-bold text-white mb-2">Treating Debt Like Magic Money</h3><p class="text-gray-400 text-sm">Credit cards felt like superpowers. I paid ₹15,000 in extra interest just for the 'privilege' of owning a phone immediately.</p>
-                </div>
-                <!-- Card 5 -->
-                <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-red-500/50 transition-colors">
-                    <div class="w-12 h-12 bg-red-500/10 rounded-xl flex items-center justify-center mb-4"><i class="fa-solid fa-chart-line text-red-500 text-xl"></i></div><h3 class="text-xl font-bold text-white mb-2">Not Investing Early</h3><p class="text-gray-400 text-sm">I thought investing was for 'rich people.' I lost 7 priceless years of compound growth. I'm giving you this guide so you don't.</p>
-                </div>
-                <!-- Card 6 -->
-                <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-lime-neon transition-colors flex flex-col items-center justify-center text-center h-full">
-                    <p class="font-bold text-white mb-6 text-xl">I Don't Want to Make a Mistake.</p>
-                    <a href="https://u.payu.in/nIsRdQdIBGDX" class="bg-lime-neon text-navy-900 text-sm font-bold px-8 py-4 rounded-xl hover:bg-lime-hover transition-all shadow-lg w-full flex items-center justify-center gap-2">
-                        Start Your Journey <i class="fa-solid fa-arrow-right"></i>
+                    <!-- Primary CTA - Download -->
+                    <a href="[YOUR_DIGITAL_DOWNLOAD_LINK_HERE]" 
+                       class="bg-lime-neon text-navy-900 font-bold py-4 px-12 text-lg rounded-full hover:bg-lime-hover transition-all duration-300 shadow-glow inline-flex items-center justify-center gap-3 transform hover:scale-[1.03] w-full max-w-xs sm:max-w-sm mx-auto">
+                        <i class="fa-solid fa-download"></i>
+                        Download Your Blueprint Now
                     </a>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- COMPARISON TABLE -->
-    <section class="py-24 bg-gray-50 border-t border-gray-200" id="comparison-table">
-      <div class="container mx-auto px-6 lg:px-12">
-        <h2 class="text-3xl md:text-4xl font-bold text-center text-navy-900 mb-12">WHY THIS BLUEPRINT VS. EXPENSIVE COURSES?</h2>
-        <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200">
-          <table class="w-full">
-            <thead class="bg-navy-900 text-white">
-              <tr>
-                <th class="py-5 px-6 text-left text-sm md:text-base">Feature</th>
-                <th class="py-5 px-6 text-center text-sm md:text-base bg-navy-800">This Blueprint</th>
-                <th class="py-5 px-6 text-center text-sm md:text-base text-gray-400">Other Courses</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-gray-100">
-              <tr><td class="py-4 px-6 font-medium text-navy-900">Price</td><td class="py-4 px-6 text-center text-lime-600 font-bold bg-gray-50">₹299</td><td class="py-4 px-6 text-center text-gray-500">₹5,000-₹50,000</td></tr>
-              <tr><td class="py-4 px-6 font-medium text-navy-900">Zero Investment Models</td><td class="py-4 px-6 text-center bg-gray-50"><i class="fa-solid fa-check text-lime-600 text-xl"></i></td><td class="py-4 px-6 text-center"><i class="fa-solid fa-xmark text-red-500 text-xl"></i></td></tr>
-              <tr><td class="py-4 px-6 font-medium text-navy-900">India-Specific Strategies</td><td class="py-4 px-6 text-center bg-gray-50"><i class="fa-solid fa-check text-lime-600 text-xl"></i></td><td class="py-4 px-6 text-center"><i class="fa-solid fa-xmark text-red-500 text-xl"></i></td></tr>
-              <tr><td class="py-4 px-6 font-medium text-navy-900">Step-by-Step 6-Month Plan</td><td class="py-4 px-6 text-center bg-gray-50"><i class="fa-solid fa-check text-lime-600 text-xl"></i></td><td class="py-4 px-6 text-center text-gray-500">Generic advice</td></tr>
-              <tr><td class="py-4 px-6 font-medium text-navy-900">Lifetime Updates</td><td class="py-4 px-6 text-center bg-gray-50"><i class="fa-solid fa-check text-lime-600 text-xl"></i></td><td class="py-4 px-6 text-center"><i class="fa-solid fa-xmark text-red-500 text-xl"></i></td></tr>
-              <tr><td class="py-4 px-6 font-medium text-navy-900">Direct Email Support</td><td class="py-4 px-6 text-center bg-gray-50"><i class="fa-solid fa-check text-lime-600 text-xl"></i></td><td class="py-4 px-6 text-center text-gray-500">Community forums only</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <!-- CTA ADDED -->
-        <div class="mt-12 text-center">
-            <a href="https://u.payu.in/nIsRdQdIBGDX" class="inline-flex items-center gap-2 bg-lime-neon text-navy-900 font-bold py-4 px-10 rounded-full hover:bg-lime-hover transition-all shadow-glow group text-lg">
-                Choose The ₹299 Blueprint <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
-            </a>
-        </div>
-      </div>
-    </section>
+                    
+                    <p class="mt-4 text-sm text-gray-500 max-w-xl mx-auto">
+                        A backup download link and receipt have been sent to your email address.
+                    </p>
 
-    <!-- BONUSES -->
-    <section class="py-24 bg-white" id="bonuses">
-        <div class="container mx-auto px-6 lg:px-12 text-center"><span class="bg-navy-900 text-white text-xs font-bold px-3 py-1 rounded-full mb-4 inline-block">INCLUDED TODAY</span><h2 class="text-3xl md:text-4xl font-bold text-navy-900 mb-12">GET ₹4,997 WORTH OF BONUSES FREE</h2>
-        <!-- REMOVED: Mobile Sticky positioning for better alignment -->
-        <div class="grid md:grid-cols-3 gap-8">
-            <!-- Card 1 -->
-            <div class="bg-gray-50 p-8 rounded-2xl shadow-sm border-t-4 border-lime-neon">
-                <h3 class="font-bold text-xl text-navy-900 mb-2">7-Day Launchpad</h3><p class="text-lime-hover font-bold text-sm mb-4">Value: ₹1,499</p><p class="text-gray-500 text-sm">A step-by-step checklist to launch your first Micro-Hustle in just one week.</p>
-            </div>
-            <!-- Card 2 -->
-            <div class="bg-gray-50 p-8 rounded-2xl shadow-sm border-t-4 border-lime-neon">
-                <h3 class="font-bold text-xl text-navy-900 mb-2">Debt-Crusher Template</h3><p class="text-lime-hover font-bold text-sm mb-4">Value: ₹999</p><p class="text-gray-500 text-sm">The exact spreadsheet I used to track spending and clear ₹32 Lakhs in debt.</p>
-            </div>
-            <!-- Card 3 -->
-            <div class="bg-gray-50 p-8 rounded-2xl shadow-sm border-t-4 border-lime-neon">
-                <h3 class="font-bold text-xl text-navy-900 mb-2">Zero-Cost Tools Vault</h3><p class="text-lime-hover font-bold text-sm mb-4">Value: ₹2,500</p><p class="text-gray-500 text-sm">15+ free tools for marketing and design, so you can run all 6 blueprints with zero investment.</p>
-            </div>
-        </div>
-        <div class="mt-12 text-center">
-            <a href="https://u.payu.in/nIsRdQdIBGDX" class="inline-flex items-center gap-2 bg-lime-neon text-navy-900 font-bold py-4 px-10 rounded-full hover:bg-lime-hover transition-all shadow-glow hover:shadow-lg transform hover:-translate-y-1 group">
-                Yes, I want all these bonuses <i class="fa-solid fa-gift"></i>
-            </a>
-        </div>
-        </div>
-    </section>
-
-    <!-- 6-MONTH TIMELINE -->
-    <section class="py-24 bg-gray-50">
-        <div class="container mx-auto px-6 lg:px-12">
-            <div class="grid lg:grid-cols-2 gap-16">
-                <div><h2 class="text-4xl font-bold text-navy-900 mb-6">YOUR 6-MONTH <br> ACTION PLAN</h2><p class="text-gray-500 mb-8">Chapter 9 gives you the exact, step-by-step sprint I used to go from a simple idea to a consistent <strong>₹100,000/month business.</strong></p><a href="https://u.payu.in/nIsRdQdIBGDX" class="inline-block bg-navy-900 text-white font-bold py-3 px-8 rounded-full hover:bg-gray-800 transition-colors">Get The Full Map</a></div>
-                <div class="relative border-l-4 border-gray-200 ml-4 space-y-8 pl-8">
-                    <div class="relative"><div class="absolute -left-[46px] top-0 w-6 h-6 rounded-full bg-lime-neon border-4 border-white shadow-sm"></div><h4 class="font-bold text-navy-900">Month 1: Foundation</h4><p class="text-sm text-gray-500">Get your first paying customer & secure a testimonial.</p></div>
-                    <div class="relative"><div class="absolute -left-[46px] top-0 w-6 h-6 rounded-full bg-white border-4 border-gray-200"></div><h4 class="font-bold text-navy-900">Month 2: Process</h4><p class="text-sm text-gray-500">Refine service, get 3 new clients, cross ₹10,000.</p></div>
-                    <div class="relative"><div class="absolute -left-[46px] top-0 w-6 h-6 rounded-full bg-white border-4 border-gray-200"></div><h4 class="font-bold text-navy-900">Month 3: Traction</h4><p class="text-sm text-gray-500">Double down on marketing. Hit ₹20,000.</p></div>
-                    <div class="relative"><div class="absolute -left-[46px] top-0 w-6 h-6 rounded-full bg-white border-4 border-gray-200"></div><h4 class="font-bold text-navy-900">Month 4: Automation & Leverage</h4><p class="text-sm text-gray-500">Automate admin. Hire VA for 5 hours/week. Aim for ₹40,000.</p></div>
-                    <div class="relative"><div class="absolute -left-[46px] top-0 w-6 h-6 rounded-full bg-white border-4 border-gray-200"></div><h4 class="font-bold text-navy-900">Month 5: Scaling & High-Value Offers</h4><p class="text-sm text-gray-500">Launch mini-product, raise prices. Scale to ₹75,000.</p></div>
-                    <div class="relative"><div class="absolute -left-[46px] top-0 w-6 h-6 rounded-full bg-teal-accent border-4 border-white shadow-sm"></div><h4 class="font-bold text-navy-900">Month 6: Systemization</h4><p class="text-sm text-gray-500">High-ticket retainers. Cross ₹100,000/month.</p></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-   <!-- TESTIMONIALS -->
-    <section class="py-24 bg-white" id="reviews">
-        <div class="container mx-auto px-6 lg:px-12">
-            <h2 class="text-3xl font-bold text-center text-navy-900 mb-16">PROOF FROM PEOPLE LIKE YOU</h2>
-            
-            <!-- FIX 6: Converted the dark box into the main slider container -->
-            <div class="relative max-w-4xl mx-auto group">
-                <!-- Slider Controls -->
-                <!-- FIX: Changed mobile positioning classes from left-2 to left-0 -translate-x-6 (and corresponding right classes) to move the button center to the edge of the testimonial card (half-in/half-out). -->
-                <button id="prevBtn" class="absolute left-0 -translate-x-6 lg:left-0 top-1/2 -translate-y-1/2 lg:-translate-x-12 z-20 w-12 h-12 bg-white hover:bg-lime-neon text-navy-900 rounded-full flex items-center justify-center shadow-lg transition-all disabled:opacity-50" aria-label="Previous testimonial"><i class="fa-solid fa-chevron-left"></i></button>
-                <button id="nextBtn" class="absolute right-0 translate-x-6 lg:right-0 top-1/2 -translate-y-1/2 lg:translate-x-12 z-20 w-12 h-12 bg-white hover:bg-lime-neon text-navy-900 rounded-full flex items-center justify-center shadow-lg transition-all disabled:opacity-50" aria-label="Next testimonial"><i class="fa-solid fa-chevron-right"></i></button>
-
-                <!-- Slider Viewport -->
-                <div class="overflow-hidden rounded-3xl" id="slider-viewport-dark">
-                    <!-- Slider Track -->
-                    <div class="flex transition-transform duration-500 ease-out" id="slider-track-dark">
-                        
-                        <!-- Testimonial 1 -->
-                        <div class="w-full flex-shrink-0 bg-navy-900 p-8 md:p-12 relative overflow-hidden">
-                            <i class="fa-solid fa-quote-right absolute top-8 right-8 text-6xl text-white/5"></i>
-                            <div class="relative z-10 text-white">
-                                <div class="flex gap-1 text-yellow-400 text-sm mb-4">
-                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                                </div>
-                                <p class="text-lg leading-relaxed italic font-light mb-6 opacity-90">"I was skeptical at first, but the E-Commerce blueprint paid for the book 100x over in my first month. It’s the perfect low-risk entry. Finally paid off my credit card debt."</p>
-                                <div class="border-t border-white/10 pt-6">
-                                    <h4 class="font-bold text-lime-neon text-lg">Priya S.</h4>
-                                    <p class="text-sm text-gray-400">Mumbai</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Testimonial 2 -->
-                        <div class="w-full flex-shrink-0 bg-navy-900 p-8 md:p-12 relative overflow-hidden">
-                            <i class="fa-solid fa-quote-right absolute top-8 right-8 text-6xl text-white/5"></i>
-                            <div class="relative z-10 text-white">
-                                <div class="flex gap-1 text-yellow-400 text-sm mb-4">
-                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                                </div>
-                                <p class="text-lg leading-relaxed italic font-light mb-6 opacity-90">"The mindset chapters alone are worth 10x the price. I stopped chasing shiny objects and started building a real system. The clarity this blueprint provides is priceless."</p>
-                                <div class="border-t border-white/10 pt-6">
-                                    <h4 class="font-bold text-lime-neon text-lg">Aman Sharma</h4>
-                                    <p class="text-sm text-gray-400">Bengaluru</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Testimonial 3 -->
-                        <div class="w-full flex-shrink-0 bg-navy-900 p-8 md:p-12 relative overflow-hidden">
-                            <i class="fa-solid fa-quote-right absolute top-8 right-8 text-6xl text-white/5"></i>
-                            <div class="relative z-10 text-white">
-                                <div class="flex gap-1 text-yellow-400 text-sm mb-4">
-                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                                </div>
-                                <p class="text-lg leading-relaxed italic font-light mb-6 opacity-90">"No fluff, no BS. A real, actionable guide for the Indian market. The Service Arbitrage model was exactly what I needed to break through my initial income ceiling."</p>
-                                <div class="border-t border-white/10 pt-6">
-                                    <h4 class="font-bold text-lime-neon text-lg">Rohan V.</h4>
-                                    <p class="text-sm text-gray-400">Delhi</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Testimonial 4 (New) -->
-                        <div class="w-full flex-shrink-0 bg-navy-900 p-8 md:p-12 relative overflow-hidden">
-                            <i class="fa-solid fa-quote-right absolute top-8 right-8 text-6xl text-white/5"></i>
-                            <div class="relative z-10 text-white">
-                                <div class="flex gap-1 text-yellow-400 text-sm mb-4">
-                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
-                                </div>
-                                <p class="text-lg leading-relaxed italic font-light mb-6 opacity-90">"I mainly bought this for the E-commerce blueprint, but the **Zero Inventory T-Shirt Brand** chapter was the surprise winner. Already have my first 10 sales!"</p>
-                                <div class="border-t border-white/10 pt-6">
-                                    <h4 class="font-bold text-lime-neon text-lg">Sameer Tambe</h4>
-                                    <p class="text-sm text-gray-400">Pune</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Testimonial 5 (New) -->
-                        <div class="w-full flex-shrink-0 bg-navy-900 p-8 md:p-12 relative overflow-hidden">
-                            <i class="fa-solid fa-quote-right absolute top-8 right-8 text-6xl text-white/5"></i>
-                            <div class="relative z-10 text-white">
-                                <div class="flex gap-1 text-yellow-400 text-sm mb-4">
-                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                                </div>
-                                <p class="text-lg leading-relaxed italic font-light mb-6 opacity-90">"The step-by-step 6-month plan is a game-changer. It converts those 'I have an idea' moments into a solid, measurable path to ₹1 Lakh/month. Highly recommend."</p>
-                                <div class="border-t border-white/10 pt-6">
-                                    <h4 class="font-bold text-lime-neon text-lg">Kavya R.</h4>
-                                    <p class="text-sm text-gray-400">Hyderabad</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Testimonial 6 (New) -->
-                        <div class="w-full flex-shrink-0 bg-navy-900 p-8 md:p-12 relative overflow-hidden">
-                            <i class="fa-solid fa-quote-right absolute top-8 right-8 text-6xl text-white/5"></i>
-                            <div class="relative z-10 text-white">
-                                <div class="flex gap-1 text-yellow-400 text-sm mb-4">
-                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
-                                </div>
-                                <p class="text-lg leading-relaxed italic font-light mb-6 opacity-90">"The biggest takeaway was the shift in my mindset—that I don't need huge capital to start. It taught me how to leverage my existing skills into pure profit streams."</p>
-                                <div class="border-t border-white/10 pt-6">
-                                    <h4 class="font-bold text-lime-neon text-lg">Nikhil M.</h4>
-                                    <p class="text-sm text-gray-400">Chennai</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Testimonial 7 (New) -->
-                        <div class="w-full flex-shrink-0 bg-navy-900 p-8 md:p-12 relative overflow-hidden">
-                            <i class="fa-solid fa-quote-right absolute top-8 right-8 text-6xl text-white/5"></i>
-                            <div class="relative z-10 text-white">
-                                <div class="flex gap-1 text-yellow-400 text-sm mb-4">
-                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                                </div>
-                                <p class="text-lg leading-relaxed italic font-light mb-6 opacity-90">"Finally, content built for the reality of the Indian market. The examples using local resources like IndiaMart were incredibly useful and saved me weeks of searching."</p>
-                                <div class="border-t border-white/10 pt-6">
-                                    <h4 class="font-bold text-lime-neon text-lg">Jahanvi S.</h4>
-                                    <p class="text-sm text-gray-400">Ahmedabad</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Testimonial 8 (New) -->
-                        <div class="w-full flex-shrink-0 bg-navy-900 p-8 md:p-12 relative overflow-hidden">
-                            <i class="fa-solid fa-quote-right absolute top-8 right-8 text-6xl text-white/5"></i>
-                            <div class="relative z-10 text-white">
-                                <div class="flex gap-1 text-yellow-400 text-sm mb-4">
-                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
-                                </div>
-                                <p class="text-lg leading-relaxed italic font-light mb-6 opacity-90">"I didn't realize how much time I was wasting on one project. This book taught me to build multiple, small, zero-risk income streams. It's the definition of smart hustling."</p>
-                                <div class="border-t border-white/10 pt-6">
-                                    <h4 class="font-bold text-lime-neon text-lg">Harish G.</h4>
-                                    <p class="text-sm text-gray-400">Kolkata</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Testimonial 9 (New) -->
-                        <div class="w-full flex-shrink-0 bg-navy-900 p-8 md:p-12 relative overflow-hidden">
-                            <i class="fa-solid fa-quote-right absolute top-8 right-8 text-6xl text-white/5"></i>
-                            <div class="relative z-10 text-white">
-                                <div class="flex gap-1 text-yellow-400 text-sm mb-4">
-                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                                </div>
-                                <p class="text-lg leading-relaxed italic font-light mb-6 opacity-90">"The section on packaging skills into a high-profit digital product (Blueprint 6) was the missing link for me. I launched my first mini-course last week!"</p>
-                                <div class="border-t border-white/10 pt-6">
-                                    <h4 class="font-bold text-lime-neon text-lg">Mitali D.</h4>
-                                    <p class="text-sm text-gray-400">Pune</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Testimonial 10 (New) -->
-                        <div class="w-full flex-shrink-0 bg-navy-900 p-8 md:p-12 relative overflow-hidden">
-                            <i class="fa-solid fa-quote-right absolute top-8 right-8 text-6xl text-white/5"></i>
-                            <div class="relative z-10 text-white">
-                                <div class="flex gap-1 text-yellow-400 text-sm mb-4">
-                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
-                                </div>
-                                <p class="text-lg leading-relaxed italic font-light mb-6 opacity-90">"Very focused and direct. It skips all the fluff and tells you exactly which platforms and methods work *right now* in India. Worth the tiny investment."</p>
-                                <div class="border-t border-white/10 pt-6">
-                                    <h4 class="font-bold text-lime-neon text-lg">Vikram S.</h4>
-                                    <p class="text-sm text-gray-400">Jaipur</p>
-                                </div>
-                            </div>
-                        </div>
-
+                    <!-- Quote Card -->
+                    <div class="mt-12 pt-8 border-t border-gray-700 max-w-xl mx-auto">
+                        <p class="text-md italic text-gray-300">
+                            "The best investment you can make is in an instrument of profit."
+                        </p>
+                        <p class="text-xs text-gray-500 mt-2">— Harshdeep Singh</p>
+                    </div>
+                    
+                    <!-- Support Links (Refined Layout) -->
+                    <div class="mt-8 flex flex-col items-center gap-4">
+                        <a href="/" 
+                           class="px-8 py-3 text-base font-medium text-teal-accent border border-gray-700 rounded-full hover:bg-navy-800 transition-colors">
+                            Return to Homepage
+                        </a>
+                        <p class="text-sm text-gray-500">
+                            Directly for fast support: <a href="mailto:zerofundedhustle@gmail.com" class="text-teal-accent hover:underline font-medium">zerofundedhustle@gmail.com</a>
+                        </p>
                     </div>
                 </div>
             </div>
-
-            <!-- NEW: Pagination Dots Container -->
-            <div id="slider-dots" class="flex justify-center mt-12">
-                <!-- Dots generated by JavaScript will appear here -->
-            </div>
-            
-            <!-- CTA ADDED -->
-            <div class="mt-16 text-center">
-                <a href="https://u.payu.in/nIsRdQdIBGDX" class="inline-flex items-center gap-2 bg-lime-neon text-navy-900 font-bold py-4 px-10 rounded-full hover:bg-lime-hover transition-all shadow-glow group text-lg">
-                    I'm Ready to Read the Reviews for Myself <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
-                </a>
-            </div>
         </div>
-    </section>
-    
-    <!-- REVIEW SUBMISSION FORM (UPDATED) -->
-    <section class="py-24 bg-navy-900">
-        <div class="container mx-auto px-6 lg:px-12 max-w-2xl">
-            
-            <div class="text-center mb-10">
-                <h2 class="text-3xl font-bold text-white mb-6">Found Value? Share Your Story!</h2>
-                <!-- Toggle Button -->
-                <button id="review-toggle-btn" class="bg-lime-neon text-navy-900 font-bold py-3 px-8 rounded-full hover:bg-lime-hover transition-all shadow-glow flex items-center justify-center gap-2 mx-auto">
-                    Share Your Experience
-                    <i class="fa-solid fa-chevron-down transition-transform duration-300"></i>
-                </button>
-            </div>
-            
-            <!-- Form Container (Hidden by default) -->
-            <div id="review-container" class="hidden opacity-0 transition-all duration-500 ease-in-out">
-                <div class="bg-gray-800/50 backdrop-blur-md p-8 rounded-3xl border border-gray-700 shadow-2xl border-neon-glow">
-                    <form id="review-form" class="space-y-4">
-                        <!-- Error Message Container -->
-                        <div id="review-error-message" class="hidden bg-red-500/10 border border-red-500 text-red-500 text-sm p-3 rounded-lg text-center"></div>
+    </main>
 
-                        <div>
-                            <label class="block text-gray-400 text-xs font-bold mb-2 uppercase tracking-wide">Name <span class="text-red-500">*</span></label>
-                            <input type="text" id="review-name" name="Name" required class="w-full bg-navy-900 border border-gray-600 rounded-xl px-5 py-3 text-white focus:border-lime-neon focus:ring-1 focus:ring-lime-neon outline-none" placeholder="Your Name">
-                        </div>
-                        <div>
-                            <label class="block text-gray-400 text-xs font-bold mb-2 uppercase tracking-wide">Email <span class="text-red-500">*</span></label>
-                            <input type="email" id="review-email" name="Email" required class="w-full bg-navy-900 border border-gray-600 rounded-xl px-5 py-3 text-white focus:border-lime-neon focus:ring-1 focus:ring-lime-neon outline-none" placeholder="your@email.com">
-                        </div>
-                        <div>
-                            <label class="block text-gray-400 text-xs font-bold mb-2 uppercase tracking-wide">Rating <span class="text-red-500">*</span></label>
-                            <div class="flex gap-2 text-2xl text-gray-600 cursor-pointer" id="star-rating">
-                                <!-- No default yellow class -->
-                                <i class="fa-solid fa-star hover:text-yellow-400 transition-colors" data-value="1"></i>
-                                <i class="fa-solid fa-star hover:text-yellow-400 transition-colors" data-value="2"></i>
-                                <i class="fa-solid fa-star hover:text-yellow-400 transition-colors" data-value="3"></i>
-                                <i class="fa-solid fa-star hover:text-yellow-400 transition-colors" data-value="4"></i>
-                                <i class="fa-solid fa-star hover:text-yellow-400 transition-colors" data-value="5"></i>
-                            </div>
-                            <!-- Empty value to force user selection -->
-                            <input type="hidden" name="Rating" id="review-rating" value="">
-                        </div>
-                        <div>
-                            <label class="block text-gray-400 text-xs font-bold mb-2 uppercase tracking-wide">Review <span class="text-red-500">*</span></label>
-                            <textarea id="review-text" name="Review" rows="3" required class="w-full bg-navy-900 border border-gray-600 rounded-xl px-5 py-3 text-white focus:border-lime-neon focus:ring-1 focus:ring-lime-neon outline-none" placeholder="How has this helped you?"></textarea>
-                        </div>
-                        <button type="submit" class="w-full bg-lime-neon text-navy-900 font-bold py-3 rounded-xl hover:bg-lime-hover transition-all shadow-lg">Submit My Review</button>
-                    </form>
-                </div>
-            </div>
-
-            <!-- Success Message (Hidden) -->
-            <div id="review-success" class="hidden text-center py-10 bg-gray-800/50 backdrop-blur-md p-8 rounded-3xl border border-gray-700 shadow-2xl animate-fade-in-up border-neon-glow">
-                <div class="w-16 h-16 bg-lime-neon/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <i class="fa-solid fa-check text-3xl text-lime-neon"></i>
-                </div>
-                <h3 class="text-xl font-bold text-white mb-2">Thank you!</h3>
-                <p class="text-gray-400">Thanks for your review.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="py-24 bg-white" id="faq">
-        <div class="container mx-auto px-6 lg:px-12 max-w-3xl">
-            <h2 class="text-3xl font-bold text-center text-navy-900 mb-12">YOUR DOUBTS, DESTROYED.</h2>
-            <div id="faq-container" class="space-y-4">
-                <!-- FAQs will be injected here by JS -->
-            </div>
-        </div>
-    </section>
-    
-    <!-- MONEY BACK GUARANTEE (NEW) -->
-    <section class="py-24 bg-white">
-        <div class="container mx-auto px-6 lg:px-12">
-            <div class="max-w-3xl mx-auto bg-lime-neon/5 border-2 border-lime-neon rounded-3xl p-8 md:p-12 text-center">
-                <div class="w-20 h-20 bg-lime-neon rounded-full flex items-center justify-center mx-auto mb-6 text-navy-900 text-3xl shadow-glow">
-                    <!-- UPDATED: Replaced generic shield-check with clipboard-list to symbolize "Do The Work" -->
-                    <i class="fa-solid fa-clipboard-list"></i>
-                </div>
-                <h2 class="text-2xl md:text-3xl font-bold text-navy-900 mb-4">My 14-Day "Do The Work" Guarantee</h2>
-                <p class="text-gray-600 text-lg leading-relaxed">If you genuinely read the ESCAPE THE 9-5, apply the strategies, and don't see a clear path to your first ₹10,000, email me your work within 14 days. I'll not only refund you 100%—I'll personally review your work and tell you what to do next.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- FINAL CTA -->
-    <section class="py-24" id="final-cta">
-        <div class="container mx-auto px-6 lg:px-12">
-            <div class="bg-lime-neon rounded-[48px] p-12 text-center relative overflow-hidden">
-                <div class="relative z-10 max-w-3xl mx-auto">
-                    <h2 class="text-4xl md:text-6xl font-bold text-navy-900 mb-6 leading-tight">DON'T JUST DREAM <br> OF FREEDOM.</h2>
-                    <p class="text-navy-900/70 mb-8 font-medium text-lg">Stop trading your life for a salary. For less than a single Swiggy order, you get the exact blueprint that changed my life.</p>
-                    <div class="bg-white/30 backdrop-blur-md inline-block p-6 rounded-2xl border border-white/40 mb-8">
-                        <p class="text-red-500 font-bold text-sm">Price Jumps to ₹999 Soon!</p>
-                        <div class="flex items-center justify-center gap-3 mt-2"><span class="text-5xl font-black text-navy-900">₹299</span><span class="text-xl text-navy-900/50 line-through">₹999</span></div>
-                        <p class="text-navy-900 font-bold text-xs mt-2 uppercase tracking-wider">One-Time Investment</p>
-                    </div>
-                    <div><a href="https://u.payu.in/nIsRdQdIBGDX" class="bg-navy-900 text-white px-8 py-4 rounded-xl inline-flex items-center gap-4 hover:bg-gray-800 transition-all shadow-lg group text-xl font-bold">Get Instant Access Now <i class="fa-solid fa-arrow-right group-hover:translate-x-2 transition-transform"></i></a></div>
-                    <p class="text-xs text-navy-900/60 mt-6 font-bold">14-Day Money Back Guarantee • Secure Payment via UPI/Card</p>
-                </div>
-                <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-white/30 rounded-full blur-3xl"></div>
-                <div class="absolute -top-24 -right-24 w-96 h-96 bg-white/30 rounded-full blur-3xl"></div>
-            </div>
-        </div>
-    </section>
-
-     <!-- FOOTER (Matching structure from success page) -->
-    <footer class="bg-navy-900 text-white pt-20 pb-10 border-t border-gray-800">
+    <!-- FOOTER (Consistent with contactus.html) -->
+    <footer class="bg-navy-900 text-white pt-20 pb-10 border-t border-gray-800 flex-shrink-0">
         <div class="container mx-auto px-6 lg:px-12">
             <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
                 <div class="lg:col-span-2 pr-8">
                     <a href="/" class="flex items-center gap-2 mb-6">
-                        <!-- Logo (Using Inter font as defined in original style) -->
                         <span class="text-2xl font-extrabold tracking-tight" style="font-family: 'Inter', sans-serif;">
                             <span class="text-white">zero</span><span class="text-[#22c55e]">funded</span><span class="text-white">hustle</span>
                         </span>
                     </a>
                     <p class="text-gray-400 text-sm mb-8 leading-relaxed">Built in India, for the Indian Hustler. We provide the <strong>blueprints</strong> you need to <strong>escape the rat race</strong> without investors or debt.</p>
-                    <!-- INSTAGRAM LINK -->
                     <div class="flex space-x-4 mt-6">
                         <a href="https://www.instagram.com/zerofundedhustle/" target="_blank" class="text-gray-400 hover:text-lime-neon transition-colors" aria-label="Instagram"><i class="fa-brands fa-instagram text-xl"></i></a>
                     </div>
                 </div>
-                <div><h4 class="font-bold mb-6 text-sm uppercase tracking-wider text-gray-300">Product</h4><ul class="space-y-4 text-sm text-gray-400">
-                    <li><a href="#blueprint" class="hover:text-lime-neon transition-colors">The Blueprint</a></li>
-                    <li><a href="#proof" class="hover:text-lime-neon transition-colors">Proof</a></li>
-                    <li><a href="#bonuses" class="hover:text-lime-neon transition-colors">Bonuses</a></li>
-                    <li><a href="#reviews" class="hover:text-lime-neon transition-colors">Reviews</a></li>
-                </ul></div>
-                <div><h4 class="font-bold mb-6 text-sm uppercase tracking-wider text-gray-300">Legal</h4><ul class="space-y-4 text-sm text-gray-400">
-                    <!-- Links use IDs to trigger modals, hrefs preserve the original path -->
-                    <li><a id="privacy-policy-link" href="privacypolicy" class="hover:text-lime-neon transition-colors text-left">Privacy Policy</a></li>
-                    <li><a id="terms-of-use-link" href="termsofuse" class="hover:text-lime-neon transition-colors text-left">Terms of Use</a></li>
-                    <li><a id="refund-policy-link" href="refundpolicy" class="hover:text-lime-neon transition-colors text-left">Refund Policy</a></li>
-                </ul></div>
-                <div><h4 class="font-bold mb-6 text-sm uppercase tracking-wider text-gray-300">Connect</h4><ul class="space-y-4 text-sm text-gray-400">
-                    <!-- Links use IDs to trigger modals, hrefs preserve the original path -->
-                    <li><a id="contact-us-link" href="contactus" class="hover:text-lime-neon transition-colors text-left">Contact Us</a></li>
-                    <li><a href="sitemap" class="hover:text-lime-neon transition-colors text-left">Sitemap</a></li>
-                </ul></div>
+                <div><h4 class="font-bold mb-6 text-sm uppercase tracking-wider text-gray-300">Product</h4><ul class="space-y-4 text-sm text-gray-400"><li><a href="/#blueprint" class="hover:text-lime-neon transition-colors">The Blueprint</a></li><li><a href="/#proof" class="hover:text-lime-neon transition-colors">Proof</a></li><li><a href="/#bonuses" class="hover:text-lime-neon transition-colors">Bonuses</a></li><li><a href="/#reviews" class="hover:text-lime-neon transition-colors">Reviews</a></li></ul></div>
+                <div><h4 class="font-bold mb-6 text-sm uppercase tracking-wider text-gray-300">Legal</h4><ul class="space-y-4 text-sm text-gray-400"><li><a id="privacy-policy-link" href="privacypolicy" class="hover:text-lime-neon transition-colors text-left">Privacy Policy</a></li><li><a id="terms-of-use-link" href="termsofuse" class="hover:text-lime-neon transition-colors text-left">Terms of Use</a></li><li><a id="refund-policy-link" href="refundpolicy" class="hover:text-lime-neon transition-colors text-left">Refund Policy</a></li></ul></div>
+                <div><h4 class="font-bold mb-6 text-sm uppercase tracking-wider text-gray-300">Connect</h4><ul class="space-y-4 text-sm text-gray-400"><li><a id="contact-us-link" href="contactus" class="hover:text-lime-neon transition-colors text-left">Contact Us</a></li><li><a href="sitemap" class="hover:text-lime-neon transition-colors text-left">Sitemap</a></li></ul></div>
             </div>
             <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4"><p class="text-gray-500 text-xs">Copyright © 2025 <strong>zerofundedhustle</strong>. All Rights Reserved.</p></div>
         </div>
     </footer>
 
-    <!-- STICKY BOTTOM BANNER (Improved Layout) -->
-    <div id="sticky-banner" class="fixed bottom-0 left-0 w-full z-50 transform translate-y-full transition-transform duration-300">
-        <div class="bg-navy-900 rounded-t-[2.5rem] shadow-[0_-10px_40px_-15px_rgba(0,0,0,0.3)] border-t border-gray-700 px-6 py-3 w-full">
-            <div class="container mx-auto max-w-4xl flex items-center justify-between gap-4">
-                <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4">
-                     <div class="flex items-baseline gap-2">
-                        <span class="text-xl md:text-2xl font-black text-white">₹299</span>
-                        <span class="text-xs md:text-sm text-gray-400 line-through">₹999</span>
-                     </div>
-                     
-                     <!-- Text Wrapper -->
-                     <div class="flex flex-col sm:flex-row sm:items-center gap-0.5 sm:gap-4">
-                         <!-- Urgency Line -->
-                         <span class="text-[10px] sm:text-xs text-red-400 font-bold uppercase tracking-wider animate-pulse">Price jumps to ₹999 soon!</span>
-                         
-                         <!-- Divider Line (Visible on larger screens) -->
-                         <span class="hidden sm:block text-gray-600">|</span>
-                         
-                         <!-- Pizza Comparison Text -->
-                         <span class="text-sm md:text-base text-lime-neon font-bold">Less than a large pizza 🍕</span>
-                     </div>
-                </div>
-                <a href="https://u.payu.in/nIsRdQdIBGDX" class="bg-lime-neon hover:bg-lime-hover text-navy-900 font-bold py-3 px-6 md:px-10 rounded-full text-center transition-all shadow-glow flex items-center justify-center gap-2 text-sm md:text-base min-w-[160px]">
-                    Get Instant Access <i class="fa-solid fa-arrow-right"></i>
-                </a>
-            </div>
-        </div>
-    </div>
 
-    <!-- MODALS -->
-    <dialog id="video-modal" class="p-0 rounded-xl backdrop:bg-black/80 w-[90vw] max-w-4xl border border-gray-700 bg-navy-900 text-white shadow-2xl">
-        <div class="flex justify-between items-center p-4 border-b border-gray-800"><h3 class="font-bold">The ZeroFunded Methodology</h3><button onclick="document.getElementById('video-modal').close()" class="text-gray-400 hover:text-white px-2" aria-label="Close modal"><i class="fa-solid fa-xmark text-xl"></i></button></div>
-        <div class="aspect-video bg-black flex items-center justify-center"><p class="text-gray-500">Video Placeholder (Embed YouTube/Vimeo Here)</p></div>
-    </dialog>
-
-    <!-- POPUP MODAL (UPDATED DESIGN) -->
-    <div id="lead-popup" class="fixed inset-0 z-[100] hidden flex items-center justify-center px-4 bg-black/80 backdrop-blur-sm opacity-0 transition-opacity duration-300">
-        
-        <!-- MODAL BOX -->
-        <!-- FIX 1: Changed max-w-md to max-w-sm-lg for better text wrapping -->
-        <!-- FIX 2: Removed border-neon-glow class and applied permanent border-shadow from CSS -->
-        <div 
-            class="relative w-full max-w-sm-lg p-8 bg-[#0B1221] border border-gray-800 rounded-[32px] shadow-2xl transform scale-95 transition-transform duration-300" 
-            style="border: 1px solid rgba(212, 255, 0, 0.5); box-shadow: 0 0 0 4px rgba(212, 255, 0, 0.7), 0 0 20px rgba(212, 255, 0, 0.7);"
-        >
-            
-            <!-- CLOSE BUTTON (Top Right) -->
-            <button onclick="closePopup()" class="absolute top-6 right-6 text-gray-500 hover:text-white transition-colors">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-            </button>
-    
-            <!-- CONTENT WRAPPER -->
-            <div class="text-center">
-                
-                <!-- BADGE -->
-                <div class="inline-block px-4 py-1.5 mb-6 border border-[#D4FF00]/20 rounded-full bg-[#D4FF00]/10 animate-pulse">
-                    <span class="text-[10px] font-bold tracking-widest text-[#D4FF00] uppercase">
-                        Wait! Don't Leave Empty Handed
-                    </span>
-                </div>
-    
-                <!-- HEADLINE -->
-                <h3 class="mb-3 text-3xl font-bold text-white font-sans">
-                    Get 2 Free Chapters
-                </h3>
-    
-                <!-- SUBTEXT -->
-                <p class="mb-8 text-sm font-medium text-gray-400">
-                    Read "The 9–5 Trap" & "E-Commerce Hustle" before you buy.
-                </p>
-    
-                <!-- FORM -->
-                <form id="popup-lead-form" class="space-y-4">
-                    <!-- EMAIL INPUT -->
-                    <input 
-                        id="popup-email"
-                        name="email"
-                        type="email" 
-                        placeholder="Enter your best email..." 
-                        class="w-full px-6 py-4 text-base text-white placeholder-gray-500 bg-[#161e2e] border border-gray-700 rounded-xl focus:outline-none focus:border-[#D4FF00] focus:ring-1 focus:ring-[#D4FF00] transition-all"
-                        required
-                    >
-    
-                    <!-- SUBMIT BUTTON -->
-                    <button 
-                        type="submit" 
-                        class="w-full px-6 py-4 text-base font-bold text-[#0B1221] bg-[#D4FF00] rounded-xl hover:bg-[#b8e600] hover:-translate-y-0.5 transition-all shadow-[0_0_20px_rgba(212,255,0,0.3)]"
-                    >
-                        Send My Free Chapters
-                    </button>
-                </form>
-    
-                <!-- "NO THANKS" LINK -->
-                <div class="mt-6">
-                    <button onclick="closePopup()" class="text-xs text-gray-500 underline decoration-gray-700 hover:text-[#D4FF00] hover:decoration-[#D4FF00] transition-all">
-                        No thanks, I'll stay stuck.
-                    </button>
-                </div>
-
-                <!-- Success Message (Hidden initially) -->
-                <div id="popup-success" class="hidden absolute inset-0 bg-[#0B1221] rounded-[32px] flex flex-col items-center justify-center p-8 text-center z-20">
-                    <div class="w-16 h-16 bg-[#D4FF00]/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fa-solid fa-check text-3xl text-[#D4FF00]"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-2">Check Your Inbox!</h3>
-                    <p class="text-gray-400 text-sm mb-6">Your free chapters are on the way.</p>
-                    <button onclick="closePopup()" class="text-[#D4FF00] font-bold text-sm hover:underline">Close Window</button>
-                </div>
-    
-            </div>
-        </div>
-    </div>
-
-    <!-- SOCIAL PROOF NOTIFICATION (FIX 2) -->
-    <div id="notification-popup" class="fixed bottom-24 left-4 md:left-6 z-50 bg-white p-4 rounded-xl shadow-2xl border border-gray-200 flex items-center gap-4 transform translate-x-[-150%] transition-transform duration-500">
-        <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 bg-lime-neon/20">
-            <i class="fa-solid fa-check text-lime-600"></i>
-        </div>
-        <div>
-            <p id="notification-name" class="font-bold text-navy-900 text-sm"></p>
-            <p id="notification-action" class="text-gray-500 text-xs"></p>
-        </div>
-    </div>
-    
-    <!-- LEGAL MODALS (Replicated from success page) -->
-    
-    <!-- Privacy Policy Modal -->
+    <!-- MODALS (Hidden content) -->
     <div id="privacy-modal" class="hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4 modal-overlay opacity-0">
         <div class="modal-container bg-navy-900 border border-gray-800 rounded-lg w-full max-w-3xl max-h-[90vh] flex flex-col transform scale-95 opacity-0">
             <div class="flex-shrink-0 p-6 border-b border-gray-800 flex justify-between items-center">
@@ -1469,8 +324,6 @@
             </div>
         </div>
     </div>
-    
-    <!-- Terms of Use Modal -->
     <div id="terms-modal" class="hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4 modal-overlay opacity-0">
          <div class="modal-container bg-navy-900 border border-gray-800 rounded-lg w-full max-w-3xl max-h-[90vh] flex flex-col transform scale-95 opacity-0">
             <div class="flex-shrink-0 p-6 border-b border-gray-800 flex justify-between items-center">
@@ -1494,8 +347,6 @@
             </div>
         </div>
     </div>
-    
-    <!-- Refund Policy Modal -->
      <div id="refund-modal" class="hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4 modal-overlay opacity-0">
         <div class="modal-container bg-navy-900 border border-gray-800 rounded-lg w-full max-w-3xl max-h-[90vh] flex flex-col transform scale-95 opacity-0">
             <div class="flex-shrink-0 p-6 border-b border-gray-800 flex justify-between items-center">
@@ -1517,8 +368,6 @@
             </div>
         </div>
     </div>
-    
-    <!-- Contact Us Modal -->
     <div id="contact-modal" class="hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4 modal-overlay opacity-0">
         <div class="modal-container bg-navy-900 border border-gray-800 rounded-lg w-full max-w-3xl max-h-[90vh] flex flex-col transform scale-95 opacity-0">
             <div class="flex-shrink-0 p-6 border-b border-gray-800 flex justify-between items-center">
@@ -1551,771 +400,35 @@
         </div>
     </div>
 
-
-    <!-- SCRIPTS (Moved to the end for performance) -->
-    <!-- Tailwind CSS (Moved here for render-blocking fix) -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Modal Popup & Animation JS -->
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        navy: {
-                            900: '#0B1221', // Deepest background
-                            800: '#1F2937', // Hero bg
-                            700: '#2D3A4F', // Card bg
-                        },
-                        lime: {
-                            neon: '#D4FF00',
-                            hover: '#B8E600'
-                        },
-                        teal: {
-                            accent: '#2DD4BF'
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Plus Jakarta Sans', 'sans-serif'],
-                    },
-                    boxShadow: {
-                        'card': '0 20px 40px -10px rgba(0, 0, 0, 0.05)',
-                        'glow': '0 0 20px rgba(212, 255, 0, 0.3)',
-                        // Custom neon shadow
-                        'neon-border': '0 0 0 4px rgba(0, 0, 0, 0.05), 0 0 20px rgba(212, 255, 0, 0.5)',
-                    }
-                }
-            }
-        }
-    </script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            
-            // FOUC FIX - STEP 2: Restore body opacity after DOM is fully parsed
-            document.body.style.opacity = '1';
+        document.addEventListener('DOMContentLoaded', function() {
 
-            // --- GLOBAL STATE ---
-            let hasInteractedWithEmailInput = false; // For better pop-up control (Fix 3)
-            let notificationIntervalId; // To store the interval ID for stopping the notifications
-            const LEAD_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwbnPtEGHTNZaw5jze9cVu1JDq1_Sb7q2jfcYSfu_8_2BEhCYeTZ3v0HAG0DTuk1mkR/exec';
-            const REVIEW_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzWcyI4vqvMCBguI-pYj7Snpc1CISGtkTuZR-1JvcUHqr3abGxGAkqdAH6VMksLjuc3JQ/exec';
+            // --- PAYMENT SUCCESS PAGE PROTECTION (RE-ENABLED) ---
+            const urlParams = new URLSearchParams(window.location.search);
+            const txnId = urlParams.get('txnid'); 
+            const status = urlParams.get('status'); 
 
-            // --- Dynamic Download Counter Logic (Supports Hero trust count) ---
-            const MS_PER_DAY = 1000 * 60 * 60 * 24;
-            function updateDownloadCounter() {
-                try {
-                    const baseCount = 2347;
-                    const startDate = new Date('2025-10-20T00:00:00Z').getTime();
-                    const today = new Date().getTime();
-                    
-                    const daysPassed = Math.max(0, Math.floor((today - startDate) / MS_PER_DAY));
-                    
-                    const dailyIncrement = 12 + (new Date(today).getDate() % 15);
-                    const dynamicCount = baseCount + (daysPassed * dailyIncrement);
-
-                    const formattedCount = new Intl.NumberFormat('en-IN').format(dynamicCount);
-                    
-                    // Only update the Hero trust count
-                    const trustDownloadCount = document.getElementById('trust-download-count');
-                    if (trustDownloadCount) {
-                         trustDownloadCount.textContent = `${formattedCount}+ Hustlers Escaped`;
-                    }
-                    
-                } catch (e) {
-                    console.error("Error updating counter:", e);
-                }
-            }
-            updateDownloadCounter();
-            // --- END: Dynamic Download Counter ---
-
-            // 1. NAV & STICKY HEADER
-            const nav = document.getElementById('main-nav');
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 20) { nav.classList.add('scrolled'); } 
-                else { nav.classList.remove('scrolled'); }
-            });
-
-            // 2. MOBILE MENU
-            const mobileBtn = document.getElementById('mobile-menu-btn');
-            const mobileMenu = document.getElementById('mobile-menu');
-            
-            // Function to close the mobile menu
-            const closeMobileMenu = () => {
-                 if (mobileMenu && mobileMenu.classList.contains('visible-menu')) {
-                    mobileMenu.classList.remove('visible-menu');
-                    mobileMenu.classList.add('hidden-menu');
-                    mobileBtn.setAttribute('aria-expanded', 'false');
-                }
-            };
-            
-            if (mobileBtn && mobileMenu) {
-                mobileBtn.addEventListener('click', () => {
-                    if (mobileMenu.classList.contains('hidden-menu')) {
-                        mobileMenu.classList.remove('hidden-menu');
-                        mobileMenu.classList.add('visible-menu');
-                        mobileBtn.setAttribute('aria-expanded', 'true');
-                    } else {
-                        closeMobileMenu(); // Use the new function to close
-                    }
-                });
-
-                // NEW: Add click listener to all mobile menu links to close the menu
-                document.querySelectorAll('.mobile-menu-link, .mobile-menu-link-cta').forEach(link => {
-                    link.addEventListener('click', closeMobileMenu);
-                });
-            }
-
-            // 3. REVEAL ANIMATION (kept as is)
-            const revealElements = document.querySelectorAll('.reveal');
-            const revealOnScroll = () => {
-                const windowHeight = window.innerHeight;
-                const elementVisible = 150;
-                revealElements.forEach((reveal) => {
-                    const elementTop = reveal.getBoundingClientRect().top;
-                    if (elementTop < windowHeight - elementVisible) {
-                        reveal.classList.add('active');
-                    }
-                });
-            };
-            window.addEventListener('scroll', revealOnScroll);
-
-            // 4. STATS COUNT UP (kept as is)
-            const countElements = document.querySelectorAll('.count-up');
-            const statsObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const target = +entry.target.getAttribute('data-target');
-                        let count = 0;
-                        const increment = target / 50; 
-                        const updateCount = () => {
-                            if (count < target) {
-                                count += increment;
-                                entry.target.innerText = (count < 0 ? '-' : '+') + "₹" + Math.abs(Math.ceil(count)) + (target > 30 ? 'L' : 'L/mo');
-                                if(target === 32) entry.target.innerText = "-₹" + Math.ceil(count) + "L"; // Special case for debt
-                                requestAnimationFrame(updateCount);
-                            } else {
-                                entry.target.innerText = (target === 32 ? '-' : '+' ) + "₹" + target + (target === 32 ? 'L' : 'L/mo');
-                            }
-                        };
-                        updateCount();
-                        statsObserver.unobserve(entry.target);
-                    }
-                });
-            });
-            countElements.forEach(el => statsObserver.observe(el));
-
-            // 5. TESTIMONIAL SLIDER (RESTORED FUNCTIONALITY)
-            const sliderTrack = document.getElementById('slider-track-dark');
-            const prevBtn = document.getElementById('prevBtn');
-            const nextBtn = document.getElementById('nextBtn');
-            const sliderViewport = document.getElementById('slider-viewport-dark');
-            const sliderDotsContainer = document.getElementById('slider-dots');
-            const testimonialItems = sliderTrack ? sliderTrack.querySelectorAll('.w-full.flex-shrink-0') : [];
-            let currentIndex = 0;
-
-            // Function to handle dot clicks
-            const goToSlide = (index) => {
-                currentIndex = index;
-                updateSlider();
-            };
-            
-            // Function to generate and update dots
-            const updateDots = () => {
-                if (!sliderDotsContainer || testimonialItems.length === 0) return;
-                
-                sliderDotsContainer.innerHTML = ''; // Clear existing dots
-
-                for (let i = 0; i < testimonialItems.length; i++) {
-                    const dot = document.createElement('div');
-                    dot.className = 'dot mx-1'; 
-                    if (i === currentIndex) {
-                        dot.classList.add('active');
-                    }
-                    dot.setAttribute('data-index', i);
-                    dot.addEventListener('click', () => goToSlide(i));
-                    sliderDotsContainer.appendChild(dot);
-                }
-            };
-            
-
-            const updateSlider = () => {
-                if (!sliderTrack || testimonialItems.length === 0 || !sliderViewport) return;
-
-                // Calculate the width of one testimonial item based on the viewport size
-                const slideWidth = sliderViewport.offsetWidth; 
-                const offset = -currentIndex * slideWidth;
-                
-                // Apply the transform to the track to shift it
-                sliderTrack.style.transform = `translateX(${offset}px)`;
-
-                // Update button states (Boundary checks)
-                prevBtn.disabled = currentIndex === 0;
-                nextBtn.disabled = currentIndex === testimonialItems.length - 1;
-                
-                // Update pagination dots
-                updateDots();
-            };
-
-            if (prevBtn && nextBtn && sliderTrack && sliderViewport && testimonialItems.length > 0) {
-                
-                // Event listener for previous button
-                prevBtn.addEventListener('click', () => {
-                    if (currentIndex > 0) {
-                        currentIndex--;
-                        updateSlider();
-                    }
-                });
-
-                // Event listener for next button
-                nextBtn.addEventListener('click', () => {
-                    if (currentIndex < testimonialItems.length - 1) {
-                        currentIndex++;
-                        updateSlider();
-                    }
-                });
-
-                // Initialize slider on load and resize
-                window.addEventListener('resize', updateSlider);
-                updateSlider(); // Initial call to set position, button state, and dots
-            }
-            // END: TESTIMONIAL SLIDER
-
-            // 6. FAQ ACCORDION (REVISED FOR ANIMATION AND SINGLE-OPEN)
-            const faqContainer = document.getElementById('faq-container');
-            
-            const faqs = [
-                { q: "Is this another 'get rich quick' scheme?", a: "<strong>Absolutely not.</strong> This is a a 'get rich smart' blueprint. 'Get rich quick' is a fantasy that leads to debt. I was <strong>-₹32 Lakh in debt</strong> because I fell for those myths. This book is the exact opposite: real, gradual strategies to build <strong>sustainable, predictable income</strong>." },
-                { q: "How is this different from free content on YouTube?", a: "Free content gives you scattered puzzle pieces. This ESCAPE THE 9-5 gives you the <strong>finished picture and the instruction manual.</strong> It's a battle-tested system designed to save you 5+ years of painful, expensive trial and error. You're not just buying information; <strong>you're buying a proven roadmap and speed.</strong>" },
-                { q: "Is this REALLY for the Indian market?", a: "<strong>100% Yes.</strong> Every example, every currency figure (INR), and every strategy is tailored for the Indian context. This isn't recycled Western advice. It's built by an Indian, for the Indian hustler." },
-                { q: "How to start a business with 0 investment in India?", a: "<strong>Yes. That is the entire point of this book.</strong> I started with less than zero (massive debt!). This book focuses exclusively on businesses you can launch with <strong>₹0 investment</strong>. Your biggest asset will be your time and your hunger to win." },
-                { q: "How can I start a side hustle in India with a full time job?", a: "This was designed for you. The system works in <strong>focused 2-hour blocks</strong> that you can fit into your evenings or weekends. Your 9-5 is your safety net while you build your escape route. <strong>This book shows you how to build the boat before you jump off the ship.</strong>" },
-                { q: "What if I fail?", a: "The old way of failing is catastrophic. The new way—the ZeroFundedHustle way—is to <strong>fail smart, small, and fast.</strong> The models are designed to have virtually zero financial risk, so you can test ideas without fear of losing your savings. The real failure is staying stuck in a job you hate for the next 40 years." },
-                { q: "How quickly can I see results?", a: "I can't promise you a specific income, but I can promise you a specific plan. If you follow the 6-month roadmap and put in <strong>consistent effort</strong>, seeing your first <strong>₹10,000-₹20,000 is a very realistic goal.</strong> From there, you scale." },
-                { q: "What if I'm not a 'business person'?", a: "Neither was I. I was just a guy who was desperate to get out of a financial hole. This book breaks down everything into simple, non-jargon steps. If you can follow a recipe, you can follow this blueprint." }
-            ];
-
-            // Helper function to set max-height for smooth transition
-            const updateAccordion = (item, open) => {
-                const content = item.querySelector('.faq-content');
-                const contentInner = content.querySelector('div');
-                
-                if (open) {
-                    item.classList.add('active');
-                    // Set max-height to the actual scroll height of the inner content plus padding
-                    const height = contentInner.scrollHeight + 30; // +30 for the py-6 (1.5rem * 2)
-                    content.style.maxHeight = height + 'px';
-                } else {
-                    item.classList.remove('active');
-                    content.style.maxHeight = '0';
-                }
-            };
-
-
-            if (faqContainer) {
-                faqContainer.innerHTML = '';
-                
-                faqs.forEach(faq => {
-                    const faqItem = document.createElement('div');
-                    faqItem.className = 'faq-item border border-gray-200 rounded-xl overflow-hidden bg-white'; 
-                    faqItem.innerHTML = `
-                        <button class="w-full p-6 text-left flex justify-between items-center bg-gray-50 hover:bg-gray-100 transition-colors font-bold text-navy-900" type="button" aria-expanded="false">
-                            <span>${faq.q}</span>
-                            <i class="fa-solid fa-chevron-down faq-icon transition-transform duration-300"></i>
-                        </button>
-                        <div class="faq-content bg-white text-gray-600 px-6">
-                            <div class="py-0 border-t border-gray-100 text-sm leading-relaxed">${faq.a}</div>
-                        </div>
-                    `;
-                    faqContainer.appendChild(faqItem);
-                });
-
-                const accordionItems = faqContainer.querySelectorAll('.faq-item');
-
-                accordionItems.forEach(item => {
-                    const button = item.querySelector('button');
-                    
-                    // Initial set up (ensure content padding is 0 for closed state)
-                    const contentInner = item.querySelector('.faq-content div');
-                    contentInner.classList.remove('py-6');
-                    
-                    button.addEventListener('click', () => {
-                        const isOpen = item.classList.contains('active');
-                        
-                        // Close all items first (smoothly)
-                        accordionItems.forEach(otherItem => {
-                            if (otherItem !== item) {
-                                otherItem.classList.remove('active');
-                                otherItem.querySelector('button').setAttribute('aria-expanded', 'false');
-                                updateAccordion(otherItem, false);
-                            }
-                        });
-
-                        // If it wasn't open, open it now
-                        if (!isOpen) {
-                            item.classList.add('active');
-                            button.setAttribute('aria-expanded', 'true');
-                            updateAccordion(item, true);
-                        } else {
-                            // If it was open, close it (smoothly)
-                            item.classList.remove('active');
-                            button.setAttribute('aria-expanded', 'false');
-                            updateAccordion(item, false);
-                        }
-                    });
-                });
+            // 1. Check if the transaction ID is missing OR status is not 'success'
+            if (!txnId || status !== 'success') {
+                // FIX: If validation fails, redirect to home using a robust absolute URL.
+                window.location.href = window.location.origin + '/'; 
+                return; 
             }
             
-            // 7. LEAD MAGNET FORM (Update: Add Interaction Tracker)
-            const leadForm = document.getElementById('lead-magnet-form');
-            const leadEmailInput = document.getElementById('lead-email');
-
-            if (leadEmailInput) {
-                leadEmailInput.addEventListener('input', () => {
-                    hasInteractedWithEmailInput = leadEmailInput.value.length > 0;
-                });
+            // 2. Clean the URL in the browser bar
+            try {
+                // This attempts to set the URL without the query parameters (txnId, status)
+                const cleanUrl = window.location.protocol + "//" + window.location.host + window.location.pathname;
+                window.history.replaceState({}, '', cleanUrl);
+            } catch (e) {
+                // Catch the SecurityError (common in restricted iFrames) and suppress it.
+                console.warn("Could not clean URL history state:", e.message);
             }
-
-            if (leadForm) {
-                if (document.cookie.includes('hasSubscribed=true')) {
-                     // Keep cookie check for main form too, though usually it's for popup
-                }
-                
-                leadForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    const email = leadEmailInput.value;
-                    const submitButton = this.querySelector('button[type="submit"]');
-                    const formFields = document.getElementById('form-fields');
-                    const successContainer = document.getElementById('lead-success-container');
-                    const errorMessage = document.getElementById('lead-error-message');
-                    const originalBtnText = submitButton.innerText;
-                    
-                    submitButton.classList.add('button-loading'); 
-                    submitButton.innerText = ''; 
-                    submitButton.disabled = true;
-                    errorMessage.classList.add('hidden');
-                    
-                    fetch(LEAD_SCRIPT_URL, {
-                        method: 'POST',
-                        mode: 'no-cors', 
-                        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-                        body: 'email=' + encodeURIComponent(email)
-                    })
-                    .then(response => {
-                        formFields.style.display = 'none'; 
-                        successContainer.classList.remove('hidden'); 
-                        // Set long-lived cookie upon successful submission
-                        document.cookie = "hasSubscribed=true; path=/; max-age=31536000; SameSite=Lax";
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                        errorMessage.textContent = 'Network error. Please check your connection and try again.';
-                        errorMessage.classList.remove('hidden');
-                    })
-                    .finally(() => {
-                        submitButton.classList.remove('button-loading');
-                        submitButton.innerText = originalBtnText;
-                        submitButton.disabled = false;
-                    });
-                });
-            }
-
-            // 8. STICKY BANNER LOGIC (kept as is)
-            const banner = document.getElementById('sticky-banner');
-            const finalCtaSection = document.getElementById('final-cta');
-
-            const handleScroll = () => {
-                if (!finalCtaSection || !banner) return;
-
-                const currentScroll = window.scrollY;
-                
-                const showThreshold = 100; 
-                
-                const finalCtaBtn = finalCtaSection.querySelector('a');
-                
-                let isButtonVisible = false;
-                if (finalCtaBtn) {
-                    const btnRect = finalCtaBtn.getBoundingClientRect();
-                    isButtonVisible = btnRect.top < window.innerHeight;
-                } else {
-                    const finalCtaTop = finalCtaSection.offsetTop;
-                    const viewportBottom = currentScroll + window.innerHeight;
-                    isButtonVisible = viewportBottom > finalCtaTop + 100;
-                }
-
-                const shouldShow = (currentScroll > showThreshold) && !isButtonVisible;
-
-                if (shouldShow) {
-                    banner.classList.remove('translate-y-full');
-                } else {
-                    banner.classList.add('translate-y-full');
-                }
-            };
-            window.addEventListener('scroll', handleScroll);
-            handleScroll(); 
-            
-            // 9. REVIEW FORM LOGIC (FIX 1: Loading animation moved to button)
-            const reviewFormContainer = document.getElementById('review-container');
-            const reviewToggleBtn = document.getElementById('review-toggle-btn');
-            const reviewForm = document.getElementById('review-form');
-            const reviewSuccessMessage = document.getElementById('review-success');
-            const reviewErrorMessage = document.getElementById('review-error-message');
-            const reviewIcon = reviewToggleBtn ? reviewToggleBtn.querySelector('i') : null;
-
-            // Toggle Form Visibility Logic (kept as is)
-            if (reviewToggleBtn && reviewFormContainer) {
-                reviewToggleBtn.addEventListener('click', () => {
-                    if (reviewFormContainer.classList.contains('hidden')) {
-                        reviewFormContainer.classList.remove('hidden');
-                        setTimeout(() => {
-                            reviewFormContainer.classList.remove('opacity-0');
-                        }, 10);
-                        if(reviewIcon) reviewIcon.classList.add('rotate-180');
-                    } else {
-                        reviewFormContainer.classList.add('opacity-0');
-                        if(reviewIcon) reviewIcon.classList.remove('rotate-180');
-                        setTimeout(() => {
-                            reviewFormContainer.classList.add('hidden');
-                        }, 500); 
-                    }
-                });
-            }
-
-            // Star Rating Logic (kept as is)
-            const stars = document.querySelectorAll('#star-rating i');
-            const reviewRatingInput = document.getElementById('review-rating');
-
-            if (stars.length > 0 && reviewRatingInput) {
-                stars.forEach(star => {
-                    star.addEventListener('click', () => {
-                        const value = star.getAttribute('data-value');
-                        reviewRatingInput.value = value;
-                        
-                        if(reviewErrorMessage) reviewErrorMessage.classList.add('hidden');
-
-                        stars.forEach(s => {
-                            if (s.getAttribute('data-value') <= value) {
-                                s.classList.add('text-yellow-400');
-                            } else {
-                                s.classList.remove('text-yellow-400');
-                            }
-                        });
-                    });
-                });
-            }
-
-            // Form Submission Logic (FIX 1: Loading/Error handling improved)
-            if (reviewForm && reviewSuccessMessage && reviewFormContainer && reviewErrorMessage) {
-                reviewForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    
-                    const submitButton = this.querySelector('button[type="submit"]');
-                    const originalBtnText = submitButton.innerText;
-
-                    // Validation: Ensure Rating is Selected
-                    const ratingValue = reviewRatingInput.value;
-                    if (!ratingValue) {
-                        reviewErrorMessage.textContent = 'Please select a star rating.';
-                        reviewErrorMessage.classList.remove('hidden');
-                        return;
-                    }
-                    
-                    // START LOADING ANIMATION (FIX 1)
-                    submitButton.classList.add('button-loading');
-                    submitButton.innerText = ''; 
-                    submitButton.disabled = true;
-
-                    reviewSuccessMessage.classList.add('hidden');
-                    reviewErrorMessage.classList.add('hidden');
-
-                    const name = document.getElementById('review-name').value;
-                    const email = document.getElementById('review-email').value;
-                    const review = document.getElementById('review-text').value;
-                    
-                    const formData = new URLSearchParams();
-                    formData.append('name', name);
-                    formData.append('email', email);
-                    formData.append('rating', ratingValue);
-                    formData.append('review', review);
-
-                    fetch(REVIEW_SCRIPT_URL, {
-                        method: 'POST',
-                        mode: 'no-cors', 
-                        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-                        body: formData.toString()
-                    })
-                    .then(response => {
-                        // Success handling
-                        reviewFormContainer.classList.add('hidden');
-                        if(reviewToggleBtn) reviewToggleBtn.style.display = 'none';
-                        reviewSuccessMessage.classList.remove('hidden');
-                        reviewSuccessMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    })
-                    .catch(error => {
-                        // Error handling
-                        console.error('Error:', error);
-                        reviewErrorMessage.textContent = 'Network error. Please check your connection.';
-                        reviewErrorMessage.classList.remove('hidden');
-                    })
-                    .finally(() => {
-                        // STOP LOADING ANIMATION
-                        submitButton.classList.remove('button-loading');
-                        submitButton.innerText = originalBtnText;
-                        submitButton.disabled = false;
-                    });
-                });
-            } 
-            
-            // 11. POPUP LOGIC
-            const popup = document.getElementById('lead-popup');
-            const popupContent = popup.querySelector('div.relative'); 
-            const popupForm = document.getElementById('popup-lead-form');
-            const popupEmail = document.getElementById('popup-email');
-            const popupSuccess = document.getElementById('popup-success');
-            const audienceFilterSection = document.getElementById('audience-filter');
-            let popupShown = false;
-
-            // Helper to open popup
-            const openPopup = () => {
-                 if (popupShown || document.cookie.includes('hasSubscribed=true') || hasInteractedWithEmailInput) {
-                     return;
-                 }
-                 
-                 popup.classList.remove('hidden');
-                 setTimeout(() => {
-                     popup.classList.remove('opacity-0');
-                     popupContent.classList.remove('scale-95');
-                     popupContent.classList.add('scale-100');
-                 }, 10);
-                 popupShown = true;
-            };
-
-            // Helper to close popup
-            window.closePopup = () => {
-                popup.classList.add('opacity-0');
-                popupContent.classList.remove('scale-100');
-                popupContent.classList.add('scale-95');
-                setTimeout(() => {
-                    popup.classList.add('hidden');
-                }, 300); 
-            };
-            
-            // New Trigger: Scroll to 'WHO IS THIS FOR' section
-            if(audienceFilterSection) {
-                const scrollObserver = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            // TASK 8: Added initial delay to openPopup
-                            setTimeout(openPopup, 10000); 
-                            scrollObserver.unobserve(entry.target);
-                        }
-                    });
-                }, { threshold: 0.1 }); 
-                
-                scrollObserver.observe(audienceFilterSection);
-            }
-            
-            // ADDED: Backdrop click listener for closing the popup
-            if (popup) {
-                popup.addEventListener('click', (e) => {
-                    // Check if the click target is the backdrop itself (the popup container)
-                    if (e.target === popup) {
-                        window.closePopup();
-                    }
-                });
-            }
-            
-            // TASK 9: Added Escape key listener for modal closing
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && !popup.classList.contains('hidden')) {
-                    window.closePopup();
-                }
-            });
+            // --- END OF PROTECTION SCRIPT ---
 
 
-            // Handle Popup Form Submission 
-            if (popupForm) {
-                popupForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    const email = popupEmail.value;
-                    const submitBtn = this.querySelector('button');
-                    const originalText = submitBtn.innerText;
-
-                    // START LOADING ANIMATION
-                    submitBtn.classList.add('button-loading'); 
-                    submitBtn.innerText = ''; 
-                    submitBtn.disabled = true;
-
-                    fetch(LEAD_SCRIPT_URL, {
-                        method: 'POST',
-                        mode: 'no-cors',
-                        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-                        body: 'email=' + encodeURIComponent(email)
-                    })
-                    .then(() => {
-                        document.cookie = "hasSubscribed=true; path=/; max-age=31536000; SameSite=Lax";
-                        popupForm.style.display = 'none'; // Hide form
-                        popupSuccess.classList.remove('hidden');
-                        
-                        // FIX 2: Auto-close the window 2 seconds after success
-                        setTimeout(closePopup, 2000); 
-                    })
-                    .catch(err => {
-                        console.error(err);
-                        console.error('Popup Lead Error: Please try again.');
-                    })
-                    .finally(() => {
-                        // STOP LOADING ANIMATION
-                        submitBtn.classList.remove('button-loading');
-                        submitBtn.innerText = originalText;
-                        submitBtn.disabled = false;
-                    });
-                });
-            }
-
-            // 13. Smart Social Proof Notifications (UPDATED LOGIC)
-            const hustlers = [
-                { name: "Arjun", city: "Mumbai" }, { name: "Sneha", city: "Pune" }, { name: "Rohan", city: "Delhi" },
-                { name: "Ananya", city: "Bangalore" }, { name: "Vikram", city: "Hyderabad" }, { name: "Kavya", city: "Chennai" },
-                { name: "Aditya", city: "Jaipur" }, { name: "Nisha", city: "Lucknow" }, { name: "Siddharth", city: "Ahmedabad" },
-                { name: "Meera", city: "Kolkata" }, { name: "Varun", city: "Chandigarh" }, { name: "Ishita", city: "Indore" },
-                { name: "Kabir", city: "Gurgaon" }, { name: "Riya", city: "Noida" }, { name: "Dev", city: "Surat" },
-                { name: "Zara", city: "Kochi" }, { name: "Ayaan", city: "Bhopal" }, { name: "Sana", city: "Nagpur" },
-                { name: "Dhruv", city: "Patna" }, { name: "Kiara", city: "Ludhiana" }, { name: "Reyansh", city: "Agra" },
-                { name: "Myra", city: "Nashik" }, { name: "Aarav", city: "Vadodara" }, { name: "Jhanvi", city: "Ghaziabad" },
-                { name: "Vihaan", city: "Kanpur" }
-            ];
-
-            // Shuffle function (FIXED: Added [] around assignment values)
-            function shuffleArray(array) {
-                for (let i = array.length - 1; i > 0; i--) {
-                    const j = Math.floor(Math.random() * (i + 1));
-                    [array[i], array[j]] = [array[j], array[i]];
-                }
-            }
-
-            // Initial shuffle
-            shuffleArray(hustlers);
-
-            let customerIndex = 0;
-            const notifPopup = document.getElementById('notification-popup');
-            const notifName = document.getElementById('notification-name');
-            const notifAction = document.getElementById('notification-action');
-            const footer = document.querySelector('footer');
-            
-            // Function to hide the notification immediately
-            const hideNotification = () => {
-                notifPopup.classList.remove('translate-x-0');
-                notifPopup.classList.add('translate-x-[-150%]');
-            };
-
-            // Function to show and manage notifications
-            const showNotification = () => {
-                // If the user is currently viewing the footer area, skip the notification loop
-                if (footer && footer.getBoundingClientRect().top < window.innerHeight) {
-                    hideNotification();
-                    // Schedule check to restart after a short delay if footer scrolls out
-                    notificationIntervalId = setTimeout(scheduleNextNotification, 5000); 
-                    return;
-                }
-
-                // 1. Get current person
-                const person = hustlers[customerIndex];
-
-                // 2. Determine Action (60% Free Chapter, 40% Purchase)
-                const isFreeChapter = Math.random() < 0.6;
-                const actionText = isFreeChapter ? "Just downloaded the free chapter" : "Just purchased the blueprint";
-                // Using existing Tailwind/FA classes
-                const iconClass = isFreeChapter ? "fa-book-open" : "fa-check"; 
-                const iconColor = isFreeChapter ? "text-teal-accent" : "text-lime-600"; // Teal for Free, Lime for Buy
-                const bgColor = isFreeChapter ? "bg-teal-accent/20" : "bg-lime-neon/20"; 
-
-                // 3. Update UI
-                notifName.textContent = `${person.name} from ${person.city}`;
-                notifAction.textContent = actionText;
-                
-                // Update Icon
-                const iconContainer = notifPopup.querySelector('div');
-                const icon = iconContainer.querySelector('i');
-                
-                // Reset classes
-                iconContainer.className = `w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 ${bgColor}`;
-                icon.className = `fa-solid ${iconClass} ${iconColor}`;
-
-                // 4. Show Animation
-                notifPopup.classList.remove('translate-x-[-150%]');
-                notifPopup.classList.add('translate-x-0');
-
-
-                // 5. Hide after 4s
-                setTimeout(() => {
-                    hideNotification();
-                }, 4000);
-
-                // 6. Prepare next iteration
-                customerIndex++;
-                if (customerIndex >= hustlers.length) {
-                    customerIndex = 0;
-                    shuffleArray(hustlers); // Reshuffle when we hit the end
-                }
-
-                // 7. Schedule next random interval (between 20s and 30s)
-                scheduleNextNotification();
-            };
-            
-            const scheduleNextNotification = () => {
-                if (notificationIntervalId) clearTimeout(notificationIntervalId);
-                // TASK 2: Changed interval calculation from 8-15s to 20-30s
-                const nextInterval = Math.floor(Math.random() * 10000) + 20000;
-                notificationIntervalId = setTimeout(showNotification, nextInterval);
-            };
-
-            // Intersection Observer to stop/start notifications when hitting the footer area
-            if (footer) {
-                const footerObserver = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            // Footer is visible, stop notifications and hide current one
-                            if (notificationIntervalId) clearTimeout(notificationIntervalId);
-                            notificationIntervalId = null; // Clear interval ID
-                            hideNotification();
-                        } else {
-                            // Footer scrolled out of view, resume notifications
-                            if (!notificationIntervalId && document.body.style.opacity === '1') {
-                                scheduleNextNotification();
-                            }
-                        }
-                    });
-                }, { threshold: 0.1 }); // Trigger when 10% of footer is visible
-
-                footerObserver.observe(footer);
-            }
-            
-            // TASK 8: Added initial 10s delay before the first notification runs
-            // Corrected logic to ensure it runs regardless of footer visibility status on load
-            // Only schedule if it hasn't been scheduled by the observer already
-            if (!notificationIntervalId) {
-                setTimeout(scheduleNextNotification, 10000);
-            }
-
-            // Intersection Observer for Blueprint Cards (Staggered Fade-in)
-            const blueprintCards = document.querySelectorAll('.blueprint-card');
-            if (blueprintCards.length > 0) {
-                const blueprintObserver = new IntersectionObserver((entries, observer) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            const delay = parseInt(entry.target.getAttribute('data-delay') || '0', 10);
-                            setTimeout(() => {
-                                entry.target.classList.add('active');
-                            }, delay);
-                            observer.unobserve(entry.target); 
-                        }
-                    });
-                }, { threshold: 0.2 }); 
-
-                blueprintCards.forEach(card => {
-                    blueprintObserver.observe(card);
-                });
-            }
-            
-            // --- MODAL POPUP LOGIC (Generic logic for legal pages, replicated from success page) ---
+            // --- MODAL POPUP LOGIC (Generic logic for legal pages) ---
             const modals = {
                 'privacy-modal': document.getElementById('privacy-modal'),
                 'terms-modal': document.getElementById('terms-modal'),
@@ -2377,37 +490,75 @@
 
             document.querySelectorAll('.modal-overlay').forEach(overlay => {
                 overlay.addEventListener('click', (e) => {
-                    // The overlay itself has the modal ID
                     if (e.target === overlay) {
                         closeModal(overlay.id);
                     }
                 });
             });
 
+
+            // --- ANIMATION LOGIC (Updated for new design flow) ---
+            const loader = document.getElementById('loader');
+            const tickContainer = document.getElementById('tick-container');
+            const mainContent = document.getElementById('main-content');
+            const animationContainer = document.getElementById('animation-container'); 
+            const confettiContainer = document.getElementById('confetti-container');
+
+            // Confetti Generation Function (Branded Colors)
+            function launchConfetti() {
+                const colors = ['#D4FF00', '#2DD4BF', '#0B1221', '#E6EDF3'];
+                for (let i = 0; i < 50; i++) {
+                    const piece = document.createElement('div');
+                    piece.classList.add('confetti-piece');
+                    
+                    // Randomize properties
+                    const size = Math.random() * 8 + 4; 
+                    piece.style.width = `${size}px`;
+                    piece.style.height = `${size}px`;
+                    piece.style.setProperty('--confetti-color', colors[Math.floor(Math.random() * colors.length)]);
+                    piece.style.left = `${Math.random() * 100}vw`;
+                    piece.style.animationDelay = `${Math.random() * 0.5}s`;
+                    piece.style.animationDuration = `${Math.random() * 2 + 3}s`;
+                    
+                    // Custom CSS variables for randomized animation
+                    piece.style.setProperty('--x-start', `${(Math.random() - 0.5) * 300}px`);
+                    piece.style.setProperty('--x-end', `${(Math.random() - 0.5) * 300}px`);
+                    
+                    confettiContainer.appendChild(piece);
+                    
+                    // Clean up confetti pieces after animation ends
+                    piece.addEventListener('animationend', () => piece.remove());
+                }
+            }
+
+
+            if (loader && tickContainer && mainContent && animationContainer) { 
+                // 1. Show loader for 1.5 seconds (simulating processing)
+                setTimeout(() => {
+                    // Hide loader
+                    loader.classList.add('hidden');
+                    
+                    // Show animated tick
+                    tickContainer.classList.remove('hidden');
+                    
+                    // Launch confetti right after the tick appears
+                    launchConfetti();
+                    
+                    // 2. After tick animation (1.5s), move tick up AND fade in content
+                    setTimeout(() => {
+                        // Move the tick container up and shrink it
+                        animationContainer.classList.add('move-up-and-shrink');
+                        
+                        // Show the main content to fade in
+                        mainContent.classList.remove('hidden');
+                    }, 1500); // Wait 1.5s for tick to draw
+
+                }, 1500); // Wait 1.5s for "processing"
+            }
+            // --- END OF ANIMATION LOGIC ---
         });
     </script>
-    <!-- Schema JSON-LD -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Product",
-      "name": "Escape 9-5: Zero-Funded Hustle Blueprint",
-      "description": "The zero-risk blueprint for building a real side business that replaces your income.",
-      "brand": {"@type": "Brand", "name": "ZeroFundedHustle"},
-      "offers": {
-        "@type": "Offer",
-        "price": "299",
-        "priceCurrency": "INR",
-        "availability": "https://schema.org/InStock",
-        "url": "https://www.zerofundedhustle.com"
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5",
-        "reviewCount": "2923"
-      },
-      "author": {"@type": "Person", "name": "Harshdeep Singh"}
-    }
-    </script>
+    
 </body>
 </html>
+
