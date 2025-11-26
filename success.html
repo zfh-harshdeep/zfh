@@ -54,12 +54,16 @@
     
     <!-- Site-wide Styles & New UI/Animation Styles -->
     <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            /* Ensure no default browser spacing causes footer gap */
+        }
         body { 
             font-family: 'Plus Jakarta Sans', sans-serif; 
             overflow-x: hidden; 
             background-color: #0B1221; /* navy-900 */
             color: #E6EDF3;
-            /* Added margin-bottom: 0px to ensure the sticky footer is flush */
             margin-bottom: 0 !important; 
         }
         
@@ -225,8 +229,8 @@
                         </ul>
                     </div>
                     
-                    <!-- NEW DELIVERY LINE (Forced to single line using CSS: whitespace-nowrap) -->
-                    <p class="text-md font-semibold text-gray-300 mb-6 max-w-xl mx-auto whitespace-nowrap">
+                    <!-- DELIVERY LINE FIX: Removed whitespace-nowrap and reduced font size for fluid wrap on small screens -->
+                    <p class="text-base font-semibold text-gray-300 mb-6 max-w-xl mx-auto">
                         The blueprint is delivered to your email, and you can also download it from here.
                     </p>
 
@@ -552,3 +556,4 @@
     
 </body>
 </html>
+
