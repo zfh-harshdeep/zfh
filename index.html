@@ -94,17 +94,10 @@
             /* TASK 1 & 6: Hide floating icons on mobile for reduced cognitive load */
             .floating-icon { display: none !important; } 
             
-            /* FIX 2: Hide testimonial slider arrows on mobile/tablet (<= 1023px) */
-            #prevBtn, #nextBtn { display: none !important; }
+            /* FIX 2: REMOVED the rule that hid the testimonial arrows on mobile/tablet */
         }
         
-        /* FIX: Adjust slider controls for smaller screens to prevent overflow */
-        /* On screens smaller than large (lg), buttons are hidden via media query above */
-        @media (min-width: 1024px) {
-            /* Desktop/Large screen positioning for slider arrows */
-            #prevBtn { transform: translateY(-50%) translateX(-3rem) !important; } /* Equivalent to -translate-x-12 */
-            #nextBtn { transform: translateY(-50%) translateX(3rem) !important; } /* Equivalent to translate-x-12 */
-        }
+        /* FIX: Removed redundant media query positioning as it's now handled by Tailwind classes on the buttons */
 
         /* Smooth Reveal Animation */
         .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
@@ -982,9 +975,9 @@
             <!-- FIX 6: Converted the dark box into the main slider container -->
             <div class="relative max-w-4xl mx-auto group">
                 <!-- Slider Controls -->
-                <!-- FIX 2: Hiding controls on screens smaller than lg (1024px) is now handled via CSS @media query -->
-                <button id="prevBtn" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 z-20 w-12 h-12 bg-white hover:bg-lime-neon text-navy-900 rounded-full flex items-center justify-center shadow-lg transition-all disabled:opacity-50" aria-label="Previous testimonial"><i class="fa-solid fa-chevron-left"></i></button>
-                <button id="nextBtn" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 z-20 w-12 h-12 bg-white hover:bg-lime-neon text-navy-900 rounded-full flex items-center justify-center shadow-lg transition-all disabled:opacity-50" aria-label="Next testimonial"><i class="fa-solid fa-chevron-right"></i></button>
+                <!-- UPDATED: Added responsive positioning classes. On mobile (default), buttons are positioned 8px from the left/right edge. On desktop (lg+), they move outside the card using translate-x. -->
+                <button id="prevBtn" class="absolute left-2 lg:left-0 top-1/2 -translate-y-1/2 lg:-translate-x-12 z-20 w-12 h-12 bg-white hover:bg-lime-neon text-navy-900 rounded-full flex items-center justify-center shadow-lg transition-all disabled:opacity-50" aria-label="Previous testimonial"><i class="fa-solid fa-chevron-left"></i></button>
+                <button id="nextBtn" class="absolute right-2 lg:right-0 top-1/2 -translate-y-1/2 lg:translate-x-12 z-20 w-12 h-12 bg-white hover:bg-lime-neon text-navy-900 rounded-full flex items-center justify-center shadow-lg transition-all disabled:opacity-50" aria-label="Next testimonial"><i class="fa-solid fa-chevron-right"></i></button>
 
                 <!-- Slider Viewport -->
                 <div class="overflow-hidden rounded-3xl" id="slider-viewport-dark">
@@ -1597,7 +1590,6 @@
                 sliderTrack.style.transform = `translateX(${offset}px)`;
 
                 // Update button states (Boundary checks)
-                // Note: Buttons are now hidden via CSS on mobile/tablet, so these checks only apply on desktop
                 prevBtn.disabled = currentIndex === 0;
                 nextBtn.disabled = currentIndex === testimonialItems.length - 1;
             };
