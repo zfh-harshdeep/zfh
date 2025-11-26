@@ -180,13 +180,15 @@
     </nav>
 
     <!-- Confetti Container - INCREASED Z-INDEX TO BE ABOVE NAV (z-50) -->
+    <!-- Added w-screen to ensure containment -->
     <div id="confetti-container" class="fixed inset-0 pointer-events-none z-[60] overflow-hidden w-screen"></div>
 
     <!-- Main Success Content -->
     <!-- pt-24 PUSHES CONTENT BELOW FIXED HEADER -->
-    <main class="flex-grow pt-24 pb-12 sm:pb-24 md:pb-32 flex items-center justify-center relative z-20 hero-bg">
-        <!-- The blurred circle background element might be the cause of minor overflow, keeping it contained -->
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] max-w-[150vw] h-[600px] bg-teal-accent/5 rounded-full blur-3xl -z-10"></div>
+    <!-- Added overflow-x-hidden for aggressive horizontal containment -->
+    <main class="flex-grow pt-24 pb-12 sm:pb-24 md:pb-32 flex items-center justify-center relative z-20 hero-bg overflow-x-hidden">
+        <!-- Background circle element - Constraining width to prevent spill -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[1000px] h-[600px] bg-teal-accent/5 rounded-full blur-3xl -z-10"></div>
         <div class="container mx-auto px-6 max-w-4xl">
             
             <!-- Success Card - Styled like the lead magnet form in final25.html -->
@@ -227,7 +229,7 @@
                         </ul>
                     </div>
                     
-                    <!-- DELIVERY LINE - FIX 2: REMOVED whitespace-nowrap to allow natural wrapping -->
+                    <!-- DELIVERY LINE - Correctly wrapping -->
                     <p class="text-md font-semibold text-gray-300 mb-6 max-w-xl mx-auto">
                         The blueprint is delivered to your email, and you can also download it from here.
                     </p>
