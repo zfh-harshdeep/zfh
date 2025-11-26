@@ -975,9 +975,9 @@
             <!-- FIX 6: Converted the dark box into the main slider container -->
             <div class="relative max-w-4xl mx-auto group">
                 <!-- Slider Controls -->
-                <!-- UPDATED: Added responsive positioning classes. On mobile (default), buttons are positioned 8px from the left/right edge. On desktop (lg+), they move outside the card using translate-x. -->
-                <button id="prevBtn" class="absolute left-2 lg:left-0 top-1/2 -translate-y-1/2 lg:-translate-x-12 z-20 w-12 h-12 bg-white hover:bg-lime-neon text-navy-900 rounded-full flex items-center justify-center shadow-lg transition-all disabled:opacity-50" aria-label="Previous testimonial"><i class="fa-solid fa-chevron-left"></i></button>
-                <button id="nextBtn" class="absolute right-2 lg:right-0 top-1/2 -translate-y-1/2 lg:translate-x-12 z-20 w-12 h-12 bg-white hover:bg-lime-neon text-navy-900 rounded-full flex items-center justify-center shadow-lg transition-all disabled:opacity-50" aria-label="Next testimonial"><i class="fa-solid fa-chevron-right"></i></button>
+                <!-- FIX: Changed mobile positioning classes from left-2 to left-0 -translate-x-6 (and corresponding right classes) to move the button center to the edge of the testimonial card (half-in/half-out). -->
+                <button id="prevBtn" class="absolute left-0 -translate-x-6 lg:left-0 top-1/2 -translate-y-1/2 lg:-translate-x-12 z-20 w-12 h-12 bg-white hover:bg-lime-neon text-navy-900 rounded-full flex items-center justify-center shadow-lg transition-all disabled:opacity-50" aria-label="Previous testimonial"><i class="fa-solid fa-chevron-left"></i></button>
+                <button id="nextBtn" class="absolute right-0 translate-x-6 lg:right-0 top-1/2 -translate-y-1/2 lg:translate-x-12 z-20 w-12 h-12 bg-white hover:bg-lime-neon text-navy-900 rounded-full flex items-center justify-center shadow-lg transition-all disabled:opacity-50" aria-label="Next testimonial"><i class="fa-solid fa-chevron-right"></i></button>
 
                 <!-- Slider Viewport -->
                 <div class="overflow-hidden rounded-3xl" id="slider-viewport-dark">
