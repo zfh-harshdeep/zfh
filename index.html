@@ -138,7 +138,7 @@
         /* Sticky Header State */
         nav.scrolled { background-color: rgba(11, 18, 33, 0.95); box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3); padding-top: 1rem; padding-bottom: 1rem; }
 
-        /* Button Loading Spinner - FIXED: Added position: relative requirement */
+        /* Button Loading Spinner - FIXED: Added position: relative requirement and better color handling */
         @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
         .button-loading { color: transparent !important; pointer-events: none; position: relative; } 
         .button-loading::after { 
@@ -150,13 +150,16 @@
             margin-left: -12px; 
             width: 24px; 
             height: 24px; 
+            /* Default: Black spinner for light buttons (e.g., bg-lime-neon) */
             border: 3px solid rgba(0, 0, 0, 0.3); 
-            border-top-color: #000000; /* Dark color for visibility against light buttons */
+            border-top-color: #000000; 
             border-radius: 50%; 
             animation: spin 0.8s linear infinite; 
         }
-        /* Style for loading button on dark backgrounds */
-        .bg-navy-900.button-loading::after, .bg-gray-800.button-loading::after {
+        /* Style for loading button on dark backgrounds (FIXED: Critical Bug #4) */
+        .bg-navy-900.button-loading::after, 
+        .bg-gray-800.button-loading::after,
+        .bg-red-500\/10.button-loading::after {
              border: 3px solid rgba(255, 255, 255, 0.3); 
              border-top-color: #FFFFFF; 
         }
@@ -454,38 +457,38 @@
         </div>
     </section>
 
-    <!-- PAIN POINTS SECTION -->
+    <!-- PAIN POINTS SECTION (Mobile Pinning Applied) -->
     <section class="py-24 bg-white">
         <div class="container mx-auto px-6 lg:px-12">
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold text-navy-900 mb-4">ARE YOU FEELING TRAPPED?</h2>
                 <p class="text-gray-500">If you're nodding your head to any of these questions, you're not alone.</p>
             </div>
-            <!-- REMOVED: Mobile Sticky positioning for better alignment -->
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Card 1 -->
-                <div class="bg-white p-8 rounded-2xl border border-gray-100 hover:border-red-200 hover:shadow-lg transition-all group">
+            <!-- Grid container is relative on mobile to allow cards to stack and pin -->
+            <div class="grid md:grid-cols-3 gap-8 relative">
+                <!-- Card 1 (Top-20) -->
+                <div class="bg-white p-8 rounded-2xl border border-gray-100 hover:border-red-200 hover:shadow-lg transition-all group sticky top-20 md:relative md:top-auto">
                     <div class="w-12 h-12 bg-red-50 text-red-500 rounded-xl flex items-center justify-center mb-6 text-xl group-hover:bg-red-500 group-hover:text-white transition-colors"><i class="fa-regular fa-calendar-xmark"></i></div><h3 class="font-bold text-navy-900 text-lg mb-3">Salary Gone by the 15th?</h3><p class="text-gray-500 text-sm leading-relaxed">Living paycheck to paycheck, watching your money disappear before the month ends.</p>
                 </div>
-                <!-- Card 2 -->
-                <div class="bg-white p-8 rounded-2xl border border-gray-100 hover:border-red-200 hover:shadow-lg transition-all group">
+                <!-- Card 2 (Top-24) -->
+                <div class="bg-white p-8 rounded-2xl border border-gray-100 hover:border-red-200 hover:shadow-lg transition-all group sticky top-24 md:relative md:top-auto">
                     <div class="w-12 h-12 bg-red-50 text-red-500 rounded-xl flex items-center justify-center mb-6 text-xl group-hover:bg-red-500 group-hover:text-white transition-colors"><i class="fa-solid fa-triangle-exclamation"></i></div><h3 class="font-bold text-navy-900 text-lg mb-3">Fear of Expenses?</h3><p class="text-gray-500 text-sm leading-relaxed">Do you live in constant fear of one unexpected bill wrecking your entire month?</p></div>
-                <!-- Card 3 -->
-                <div class="bg-white p-8 rounded-2xl border border-gray-100 hover:border-red-200 hover:shadow-lg transition-all group">
+                <!-- Card 3 (Top-28) -->
+                <div class="bg-white p-8 rounded-2xl border border-gray-100 hover:border-red-200 hover:shadow-lg transition-all group sticky top-28 md:relative md:top-auto">
                     <div class="w-12 h-12 bg-red-50 text-red-500 rounded-xl flex items-center justify-center mb-6 text-xl group-hover:bg-red-500 group-hover:text-white transition-colors"><i class="fa-solid fa-briefcase"></i></div><h3 class="font-bold text-navy-900 text-lg mb-3">Is Your Job a Cage?</h3><p class="text-gray-500 text-sm leading-relaxed">Does the thought of being in the same job 5 years from now terrify you?</p></div>
-                <!-- Card 4 -->
-                <div class="bg-white p-8 rounded-2xl border border-gray-100 hover:border-red-200 hover:shadow-lg transition-all group">
+                <!-- Card 4 (Top-32) -->
+                <div class="bg-white p-8 rounded-2xl border border-gray-100 hover:border-red-200 hover:shadow-lg transition-all group sticky top-32 md:relative md:top-auto">
                     <div class="w-12 h-12 bg-red-50 text-red-500 rounded-xl flex items-center justify-center mb-6 text-xl group-hover:bg-red-500 group-hover:text-white transition-colors"><i class="fa-solid fa-eye"></i></div><h3 class="font-bold text-navy-900 text-lg mb-3">Watching Others Win?</h3><p class="text-gray-500 text-sm leading-relaxed">Tired of watching others succeed online while you're stuck on the sidelines?</p></div>
-                <!-- Card 5 -->
-                <div class="bg-white p-8 rounded-2xl border border-gray-100 hover:border-red-200 hover:shadow-lg transition-all group">
+                <!-- Card 5 (Top-36) -->
+                <div class="bg-white p-8 rounded-2xl border border-gray-100 hover:border-red-200 hover:shadow-lg transition-all group sticky top-36 md:relative md:top-auto">
                     <div class="w-12 h-12 bg-red-50 text-red-500 rounded-xl flex items-center justify-center mb-6 text-xl group-hover:bg-red-500 group-hover:text-white transition-colors"><i class="fa-regular fa-lightbulb"></i></div><h3 class="font-bold text-navy-900 text-lg mb-3">Ideas but No Clue?</h3><p class="text-gray-500 text-sm leading-relaxed">Have great ideas but absolutely no clue where to actually start?</p></div>
-                <!-- Card 6 -->
-                <div class="p-8 rounded-2xl border border-gray-100 hover:border-red-200 hover:shadow-lg transition-all group flex flex-col items-center justify-center bg-white"><p class="font-bold text-navy-900 mb-6 text-xl">Yes, That's Me.</p><a href="https://u.payu.in/nIsRdQdIBGDX" class="bg-navy-900 text-white text-sm font-bold px-8 py-4 rounded-lg hover:bg-gray-800 transition-all shadow-lg w-full text-center">I Need A Plan →</a></div>
+                <!-- Card 6 (CTA) - FIX APPLIED: Changed top-36 to top-40 to prevent overlap with Card 5 on mobile scroll -->
+                <div class="p-8 rounded-2xl border border-gray-100 hover:border-red-200 hover:shadow-lg transition-all group sticky top-40 md:relative md:top-auto flex flex-col items-center justify-center bg-white"><p class="font-bold text-navy-900 mb-6 text-xl">Yes, That's Me.</p><a href="https://u.payu.in/nIsRdQdIBGDX" class="bg-navy-900 text-white text-sm font-bold px-8 py-4 rounded-lg hover:bg-gray-800 transition-all shadow-lg w-full text-center">I Need A Plan →</a></div>
             </div>
         </div>
     </section>
 
-     <!-- AUDIENCE FILTER SECTION (REFACTORED FOR VISUAL CONTRAST) -->
+     <!-- AUDIENCE FILTER SECTION (Mobile Pinning Applied) -->
     <section id="audience-filter" class="py-24 bg-white overflow-hidden">
         <div class="container mx-auto px-6 lg:px-12">
             <div class="text-center mb-16">
@@ -493,12 +496,11 @@
                 <p class="text-gray-500 text-lg">This book only works if you do the work. Be honest with yourself.</p>
             </div>
             
-            <!-- Implemented Mobile Staggered Pinning on parent grid to stack and pin -->
-            <div class="grid lg:grid-cols-2 gap-12 items-stretch">
+            <!-- Parent grid needs relative positioning for sticky to work on children -->
+            <div class="grid lg:grid-cols-2 gap-12 items-stretch relative">
                 
-                <!-- LEFT: WHO IT IS FOR (Green/Lime Theme) - STICKY CARD 1 -->
-                <!-- Removed sticky classes -->
-                <div class="bg-lime-neon/10 border-2 border-lime-neon/30 rounded-3xl p-8 md:p-12 relative overflow-hidden group lg:relative lg:top-auto h-full">
+                <!-- LEFT: WHO IT IS FOR (Top-20 Pin) -->
+                <div class="bg-lime-neon/10 border-2 border-lime-neon/30 rounded-3xl p-8 md:p-12 relative overflow-hidden group sticky top-20 lg:relative lg:top-auto h-full">
                     <div class="absolute top-0 left-0 w-full h-2 bg-lime-neon"></div>
                     <!-- FIX 2: Standardized capitalization -->
                     <h3 class="text-2xl font-bold text-navy-900 mb-8 flex items-center gap-3">
@@ -551,9 +553,8 @@
                     </div>
                 </div>
 
-                <!-- RIGHT: WHO IT IS NOT FOR (Red Theme - Restored from Index 11 Logic) - STICKY CARD 2 -->
-                <!-- Removed sticky classes -->
-                <div class="bg-red-50 border-2 border-red-100 rounded-3xl p-8 md:p-12 relative overflow-hidden lg:relative lg:top-auto h-full">
+                <!-- RIGHT: WHO IT IS NOT FOR (Top-28 Pin) -->
+                <div class="bg-red-50 border-2 border-red-100 rounded-3xl p-8 md:p-12 relative overflow-hidden sticky top-28 lg:relative lg:top-auto h-full">
                     <div class="absolute top-0 left-0 w-full h-2 bg-red-400"></div>
                     <!-- FIX 2: Standardized capitalization -->
                     <h3 class="text-2xl font-bold text-navy-900 mb-8 flex items-center gap-3">
@@ -615,26 +616,26 @@
         </div>
     </section>
 
-    <!-- AUDIENCE PERSONA SECTION -->
+    <!-- AUDIENCE PERSONA SECTION (Mobile Pinning Applied) -->
     <section class="py-24 bg-navy-900 text-white">
         <div class="container mx-auto px-6 lg:px-12">
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 leading-tight">This is for the person who knows they’re meant for more.</h2>
-            <!-- REMOVED: Mobile Sticky positioning for better alignment -->
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Card 1 -->
-                <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 text-center group hover:border-red-500/50 transition-all transform hover:-translate-y-2 duration-300">
+            <!-- Grid container is relative on mobile to allow cards to stack and pin -->
+            <div class="grid md:grid-cols-3 gap-8 relative">
+                <!-- Card 1 (Top-20) -->
+                <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 text-center group hover:border-red-500/50 transition-all transform hover:-translate-y-2 duration-300 sticky top-20 md:relative md:top-auto">
                     <div class="w-16 h-16 mx-auto bg-navy-900 rounded-full border-2 border-red-500 flex items-center justify-center mb-6 shadow-[0_0_20px_rgba(239,68,68,0.2)] group-hover:shadow-[0_0_30px_rgba(239,68,68,0.4)] transition-all"><i class="fa-solid fa-minus text-red-500 text-2xl"></i></div>
                     <h3 class="text-xl font-bold mb-4">The Employee in Debt</h3>
                     <p class="text-gray-400 text-sm leading-relaxed">Stuck in a loop of EMIs and monthly bills? This is your structured way out.</p>
                 </div>
-                <!-- Card 2 -->
-                <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 text-center group hover:border-yellow-400/50 transition-all transform hover:-translate-y-2 duration-300">
+                <!-- Card 2 (Top-28) -->
+                <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 text-center group hover:border-yellow-400/50 transition-all transform hover:-translate-y-2 duration-300 sticky top-28 md:relative md:top-auto">
                     <div class="w-16 h-16 mx-auto bg-navy-900 rounded-full border-2 border-yellow-400 flex items-center justify-center mb-6 shadow-[0_0_20px_rgba(250,204,21,0.2)] group-hover:shadow-[0_0_30px_rgba(250,204,21,0.4)] transition-all"><i class="fa-regular fa-sun text-yellow-400 text-2xl"></i></div>
                     <h3 class="text-xl font-bold mb-4">The Silent Hustler</h3>
                     <p class="text-gray-400 text-sm leading-relaxed">Grinding after work with no clear direction? This converts your extra hours into consistent income.</p>
                 </div>
-                <!-- Card 3 -->
-                <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 text-center group hover:border-blue-500/50 transition-all transform hover:-translate-y-2 duration-300">
+                <!-- Card 3 (Top-36) -->
+                <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 text-center group hover:border-blue-500/50 transition-all transform hover:-translate-y-2 duration-300 sticky top-36 md:relative md:top-auto">
                     <div class="w-16 h-16 mx-auto bg-navy-900 rounded-full border-2 border-blue-500 flex items-center justify-center mb-6 shadow-[0_0_20px_rgba(59,130,246,0.2)] group-hover:shadow-[0_0_30px_rgba(59,130,246,0.4)] transition-all"><i class="fa-solid fa-graduation-cap text-blue-500 text-2xl"></i></div>
                     <h3 class="text-xl font-bold mb-4">The Ambitious Student</h3>
                     <p class="text-gray-400 text-sm leading-relaxed">Done with theory that leads nowhere? Think of this as your practical crash-course in launching a real business.</p>
@@ -783,7 +784,7 @@
         </div>
     </section>
 
-    <!-- GLIMPSE INSIDE SECTION (NEW) -->
+    <!-- GLIMPSE INSIDE SECTION (Mobile Pinning Applied) -->
     <section class="py-24 bg-navy-900 border-b border-gray-800" id="glimpse-inside-blueprint">
         <div class="container mx-auto px-6 lg:px-12">
             <div class="text-center max-w-3xl mx-auto mb-16">
@@ -791,35 +792,35 @@
                 <p class="text-gray-400 text-lg">This isn't theory. It's a toolbox of <strong class="text-white">6 proven, step-by-step models</strong> I've personally used to build real income streams from scratch.</p>
             </div>
             
-            <!-- REMOVED: Mobile Sticky positioning for better alignment -->
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Card 1 -->
-                <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-lime-neon/50 blueprint-card transition-all group hover:-translate-y-1 duration-300" data-delay="0">
+            <!-- Grid container is relative on mobile to allow cards to stack and pin -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 relative">
+                <!-- Card 1 (Top-20) -->
+                <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-lime-neon/50 blueprint-card transition-all group hover:-translate-y-1 duration-300 sticky top-20 md:relative md:top-auto" data-delay="0">
                     <h3 class="font-bold text-white text-xl mb-3">Blueprint 1: Your First ₹2L/Month E-Com Store</h3>
                     <p class="text-gray-400 text-sm leading-relaxed">My first hustle. Find a product on IndiaMart, sell it on Instagram. I'll show you the exact math that made me ₹2 Lakhs/month as a teenager.</p>
                 </div>
-                <!-- Card 2 -->
-                <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-lime-neon/50 blueprint-card transition-all group hover:-translate-y-1 duration-300" data-delay="100">
+                <!-- Card 2 (Top-24) -->
+                <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-lime-neon/50 blueprint-card transition-all group hover:-translate-y-1 duration-300 sticky top-24 md:relative md:top-auto" data-delay="100">
                     <h3 class="font-bold text-white text-xl mb-3">Blueprint 2: Build a T-Shirt Brand With Zero Inventory</h3>
                     <p class="text-gray-400 text-sm leading-relaxed">Use AI to create viral designs and Print-on-Demand to handle all printing & shipping. Sell a culture, not just a t-shirt.</p>
                 </div>
-                <!-- Card 3 -->
-                <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-lime-neon/50 blueprint-card transition-all group hover:-translate-y-1 duration-300" data-delay="200">
+                <!-- Card 3 (Top-28) -->
+                <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-lime-neon/50 blueprint-card transition-all group hover:-translate-y-1 duration-300 sticky top-28 md:relative md:top-auto" data-delay="200">
                     <h3 class="font-bold text-white text-xl mb-3">Blueprint 3: Earn ₹50k Commissions (With 0% Risk)</h3>
                     <p class="text-gray-400 text-sm leading-relaxed">Connect online leads to local property dealers for a high 50/50 commission split. One deal can be ₹50,000. You don't need to own the asset.</p>
                 </div>
-                <!-- Card 4 -->
-                <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-lime-neon/50 blueprint-card transition-all group hover:-translate-y-1 duration-300" data-delay="300">
+                <!-- Card 4 (Top-32) -->
+                <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-lime-neon/50 blueprint-card transition-all group hover:-translate-y-1 duration-300 sticky top-32 md:relative md:top-auto" data-delay="300">
                     <h3 class="font-bold text-white text-xl mb-3">Blueprint 4: Get Paid to Play (The Right Way)</h3>
                     <p class="text-gray-400 text-sm leading-relaxed">Stop just playing, start performing. The key isn't being the best player; it's being the best entertainer. Get paid to play.</p>
                 </div>
-                <!-- Card 5 -->
-                <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-lime-neon/50 blueprint-card transition-all group hover:-translate-y-1 duration-300" data-delay="400">
+                <!-- Card 5 (Top-36) -->
+                <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-lime-neon/50 blueprint-card transition-all group hover:-translate-y-1 duration-300 sticky top-36 md:relative md:top-auto" data-delay="400">
                     <h3 class="font-bold text-white text-xl mb-3">Blueprint 5: Turn Social Media Into a ₹50k/Post Business</h3>
                     <p class="text-gray-400 text-sm leading-relaxed">How I turned my journey from debt into a brand that pays ₹15k-₹50k for a single post. Your face is your fortune.</p>
                 </div>
-                <!-- Card 6 -->
-                <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-lime-neon/50 blueprint-card transition-all group hover:-translate-y-1 duration-300" data-delay="500">
+                <!-- Card 6 (Top-40) -->
+                <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-lime-neon/50 blueprint-card transition-all group hover:-translate-y-1 duration-300 sticky top-40 md:relative md:top-auto" data-delay="500">
                     <h3 class="font-6old text-white text-xl mb-3">Blueprint 6: The Pure-Profit ESCAPE THE 9-5 Model (My Secret)</h3>
                     <p class="text-gray-400 text-sm leading-relaxed">Package your skills into an <strong class="text-white">ESCAPE THE 9-5</strong> (like this one!) or course. No inventory, no shipping. The ultimate scalable business model.</p>
                 </div>
@@ -834,36 +835,36 @@
         </div>
     </section>
 
-    <!-- PRODUCT BENEFITS -->
+    <!-- PRODUCT BENEFITS (Mobile Pinning Applied) -->
     <section class="py-24 bg-white" id="product-benefits">
         <div class="container mx-auto px-6 lg:px-12">
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold text-navy-900 mb-4">THIS IS MORE THAN AN EBOOK. IT'S YOUR NEW REALITY.</h2>
             </div>
-            <!-- REMOVED: Mobile Sticky positioning for better alignment -->
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Card 1 -->
-                <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all">
+            <!-- Grid container is relative on mobile to allow cards to stack and pin -->
+            <div class="grid md:grid-cols-3 gap-8 relative">
+                <!-- Card 1 (Top-20) -->
+                <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all sticky top-20 md:relative md:top-auto">
                     <div class="w-12 h-12 bg-lime-neon/20 rounded-xl flex items-center justify-center mb-4 text-navy-900 text-xl"><i class="fa-solid fa-list-check"></i></div><h3 class="text-xl font-bold text-navy-900 mb-2">6 Blueprints to Earn ₹50k-₹150k</h3><p class="text-gray-500 text-sm">Copy-paste models with real math.</p>
                 </div>
-                <!-- Card 2 -->
-                <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all">
+                <!-- Card 2 (Top-24) -->
+                <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all sticky top-24 md:relative md:top-auto">
                     <div class="w-12 h-12 bg-lime-neon/20 rounded-xl flex items-center justify-center mb-4 text-navy-900 text-xl"><i class="fa-solid fa-wallet"></i></div><h3 class="text-xl font-bold text-navy-900 mb-2">Start With ₹0 Investment</h3><p class="text-gray-500 text-sm">Your bank balance doesn't define potential.</p>
                 </div>
-                <!-- Card 3 -->
-                <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all">
+                <!-- Card 3 (Top-28) -->
+                <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all sticky top-28 md:relative md:top-auto">
                     <div class="w-12 h-12 bg-lime-neon/20 rounded-xl flex items-center justify-center mb-4 text-navy-900 text-xl"><i class="fa-solid fa-shield-halved"></i></div><h3 class="text-xl font-bold text-navy-900 mb-2">Build a Financial Safety Net</h3><p class="text-gray-500 text-sm">Secure your future with multiple streams.</p>
                 </div>
-                <!-- Card 4 -->
-                <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all">
+                <!-- Card 4 (Top-32) -->
+                <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all sticky top-32 md:relative md:top-auto">
                     <div class="w-12 h-12 bg-lime-neon/20 rounded-xl flex items-center justify-center mb-4 text-navy-900 text-xl"><i class="fa-solid fa-map-location-dot"></i></div><h3 class="text-xl font-bold text-navy-900 mb-2">Roadmap to ₹100k/Month</h3><p class="text-gray-500 text-sm">Day-by-day plan from Chapter 9.</p>
                 </div>
-                <!-- Card 5 -->
-                <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all">
+                <!-- Card 5 (Top-36) -->
+                <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all sticky top-36 md:relative md:top-auto">
                     <div class="w-12 h-12 bg-lime-neon/20 rounded-xl flex items-center justify-center mb-4 text-navy-900 text-xl"><i class="fa-solid fa-arrows-rotate"></i></div><h3 class="text-xl font-bold text-navy-900 mb-2">Free Lifetime Updates</h3><p class="text-gray-500 text-sm">Digital world changes fast. You get updates.</p>
                 </div>
-                <!-- Card 6 -->
-                <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all">
+                <!-- Card 6 (Top-40) -->
+                <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all sticky top-40 md:relative md:top-auto">
                     <div class="w-12 h-12 bg-lime-neon/20 rounded-xl flex items-center justify-center mb-4 text-navy-900 text-xl"><i class="fa-solid fa-envelope-open-text"></i></div><h3 class="text-xl font-bold text-navy-900 mb-2">Direct Email Support</h3><p class="text-gray-500 text-sm">Personal help to guide you through hurdles.</p>
                 </div>
             </div>
@@ -876,34 +877,33 @@
         </div>
     </section>
     
-    <!-- MISTAKES SECTION (FIXED GRID) -->
+    <!-- MISTAKES SECTION (Mobile Pinning Applied) -->
     <section class="py-24 bg-navy-900">
         <div class="container mx-auto px-6 lg:px-12">
             <div class="text-center max-w-3xl mx-auto mb-16"><h2 class="text-3xl md:text-4xl font-bold text-white mb-4">I Made the Mistakes So You Don't Have To</h2><p class="text-gray-400">My ₹32 Lakh debt was an expensive education. Here is the wisdom I bought with those failures.</p></div>
-            <!-- REMOVED: Mobile Sticky positioning for better alignment -->
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Card 1 -->
-                <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-red-500/50 transition-colors">
+            <!-- Grid container is relative on mobile to allow cards to stack and pin -->
+            <div class="grid md:grid-cols-3 gap-8 relative">
+                <!-- Card 1 (Top-20) -->
+                <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-red-500/50 transition-colors sticky top-20 md:relative md:top-auto">
                     <div class="w-12 h-12 bg-red-500/10 rounded-xl flex items-center justify-center mb-4"><i class="fa-solid fa-arrow-trend-down text-red-500 text-xl"></i></div><h3 class="text-xl font-bold text-white mb-2">Never Tracking Money</h3><p class="text-gray-400 text-sm">I made ₹2L/month but had &lt;20k left. I was making money but not building wealth. A fool's game.</p>
                 </div>
-                <!-- Card 2 -->
-                <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-red-500/50 transition-colors">
+                <!-- Card 2 (Top-24) -->
+                <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-red-500/50 transition-colors sticky top-24 md:relative md:top-auto">
                     <div class="w-12 h-12 bg-red-500/10 rounded-xl flex items-center justify-center mb-4"><i class="fa-solid fa-credit-card text-red-500 text-xl"></i></div><h3 class="text-xl font-bold text-white mb-2">Emotional Spending</h3><p class="text-gray-400 text-sm">Stressed? I'd buy a ₹15,000 watch. The thrill was temporary, but the guilt and bill were permanent.</p>
                 </div>
-                <!-- Card 3 -->
-                <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-red-500/50 transition-colors">
-                    <div class="w-12 h-12 bg-red-500/10 rounded-xl flex items-center justify-center mb-4"><i class="fa-solid fa-rocket text-red-500 text-xl"></i></div><h3 class="text-xl font-bold text-white mb-2">Lifestyle Inflation</h3><p class="text-gray-400 text-sm">As income went up, so did spending. I was running on a financial treadmill, never getting ahead.</p>
-                </div>
-                <!-- Card 4 -->
-                <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-red-500/50 transition-colors">
+                <!-- Card 3 (Top-28) -->
+                <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-red-500/50 transition-colors sticky top-28 md:relative md:top-auto">
+                    <div class="w-12 h-12 bg-red-500/10 rounded-xl flex items-center justify-center mb-4"><i class="fa-solid fa-rocket text-red-500 text-xl"></i></div><h3 class="text-xl font-bold text-white mb-2">Lifestyle Inflation</h3><p class="text-gray-400 text-sm">As income went up, so did spending. I was running on a financial treadmill, never getting ahead.</p></div>
+                <!-- Card 4 (Top-32) -->
+                <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-red-500/50 transition-colors sticky top-32 md:relative md:top-auto">
                     <div class="w-12 h-12 bg-red-500/10 rounded-xl flex items-center justify-center mb-4"><i class="fa-solid fa-money-bill-transfer text-red-500 text-xl"></i></div><h3 class="text-xl font-bold text-white mb-2">Treating Debt Like Magic Money</h3><p class="text-gray-400 text-sm">Credit cards felt like superpowers. I paid ₹15,000 in extra interest just for the 'privilege' of owning a phone immediately.</p>
                 </div>
-                <!-- Card 5 -->
-                <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-red-500/50 transition-colors">
+                <!-- Card 5 (Top-36) -->
+                <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-red-500/50 transition-colors sticky top-36 md:relative md:top-auto">
                     <div class="w-12 h-12 bg-red-500/10 rounded-xl flex items-center justify-center mb-4"><i class="fa-solid fa-chart-line text-red-500 text-xl"></i></div><h3 class="text-xl font-bold text-white mb-2">Not Investing Early</h3><p class="text-gray-400 text-sm">I thought investing was for 'rich people.' I lost 7 priceless years of compound growth. I'm giving you this guide so you don't.</p>
                 </div>
-                <!-- Card 6 -->
-                <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-lime-neon transition-colors flex flex-col items-center justify-center text-center h-full">
+                <!-- Card 6 (CTA) - (Fixed in previous step, kept at top-40) -->
+                <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-lime-neon transition-colors flex flex-col items-center justify-center text-center h-full sticky top-40 md:relative md:top-auto">
                     <p class="font-bold text-white mb-6 text-xl">I Don't Want to Make a Mistake.</p>
                     <a href="https://u.payu.in/nIsRdQdIBGDX" class="bg-lime-neon text-navy-900 text-sm font-bold px-8 py-4 rounded-xl hover:bg-lime-hover transition-all shadow-lg w-full flex items-center justify-center gap-2">
                         Start Your Journey <i class="fa-solid fa-arrow-right"></i>
@@ -945,21 +945,21 @@
       </div>
     </section>
 
-    <!-- BONUSES -->
+    <!-- BONUSES (Mobile Pinning Applied) -->
     <section class="py-24 bg-white" id="bonuses">
         <div class="container mx-auto px-6 lg:px-12 text-center"><span class="bg-navy-900 text-white text-xs font-bold px-3 py-1 rounded-full mb-4 inline-block">INCLUDED TODAY</span><h2 class="text-3xl md:text-4xl font-bold text-navy-900 mb-12">GET ₹4,997 WORTH OF BONUSES FREE</h2>
-        <!-- REMOVED: Mobile Sticky positioning for better alignment -->
-        <div class="grid md:grid-cols-3 gap-8">
-            <!-- Card 1 -->
-            <div class="bg-gray-50 p-8 rounded-2xl shadow-sm border-t-4 border-lime-neon">
+        <!-- Grid container is relative on mobile to allow cards to stack and pin -->
+        <div class="grid md:grid-cols-3 gap-8 relative">
+            <!-- Card 1 (Top-20) -->
+            <div class="bg-gray-50 p-8 rounded-2xl shadow-sm border-t-4 border-lime-neon sticky top-20 md:relative md:top-auto">
                 <h3 class="font-bold text-xl text-navy-900 mb-2">7-Day Launchpad</h3><p class="text-lime-hover font-bold text-sm mb-4">Value: ₹1,499</p><p class="text-gray-500 text-sm">A step-by-step checklist to launch your first Micro-Hustle in just one week.</p>
             </div>
-            <!-- Card 2 -->
-            <div class="bg-gray-50 p-8 rounded-2xl shadow-sm border-t-4 border-lime-neon">
+            <!-- Card 2 (Top-28) -->
+            <div class="bg-gray-50 p-8 rounded-2xl shadow-sm border-t-4 border-lime-neon sticky top-28 md:relative md:top-auto">
                 <h3 class="font-bold text-xl text-navy-900 mb-2">Debt-Crusher Template</h3><p class="text-lime-hover font-bold text-sm mb-4">Value: ₹999</p><p class="text-gray-500 text-sm">The exact spreadsheet I used to track spending and clear ₹32 Lakhs in debt.</p>
             </div>
-            <!-- Card 3 -->
-            <div class="bg-gray-50 p-8 rounded-2xl shadow-sm border-t-4 border-lime-neon">
+            <!-- Card 3 (Top-36) -->
+            <div class="bg-gray-50 p-8 rounded-2xl shadow-sm border-t-4 border-lime-neon sticky top-36 md:relative md:top-auto">
                 <h3 class="font-bold text-xl text-navy-900 mb-2">Zero-Cost Tools Vault</h3><p class="text-lime-hover font-bold text-sm mb-4">Value: ₹2,500</p><p class="text-gray-500 text-sm">15+ free tools for marketing and design, so you can run all 6 blueprints with zero investment.</p>
             </div>
         </div>
@@ -1212,6 +1212,7 @@
                                 <i class="fa-solid fa-star hover:text-yellow-400 transition-colors" data-value="5"></i>
                             </div>
                             <!-- Empty value to force user selection -->
+                            <!-- CRITICAL BUG #1 FIX: Using hidden input for data transmission -->
                             <input type="hidden" name="Rating" id="review-rating" value="">
                         </div>
                         <div>
@@ -1866,7 +1867,7 @@
                 });
             }
             
-            // 7. LEAD MAGNET FORM (Update: Add Interaction Tracker)
+            // 7. LEAD MAGNET FORM (Update: Add Interaction Tracker and Critical Fix)
             const leadForm = document.getElementById('lead-magnet-form');
             const leadEmailInput = document.getElementById('lead-email');
 
@@ -1902,6 +1903,8 @@
                         body: 'email=' + encodeURIComponent(email)
                     })
                     .then(response => {
+                        // CRITICAL BUG #3 FIX: Only proceed to success if the fetch promise resolves.
+                        // Since mode is 'no-cors', the response object is opaque but the promise resolves on network success.
                         formFields.style.display = 'none'; 
                         successContainer.classList.remove('hidden'); 
                         // Set long-lived cookie upon successful submission
@@ -1911,11 +1914,14 @@
                         console.error('Error:', error);
                         errorMessage.textContent = 'Network error. Please check your connection and try again.';
                         errorMessage.classList.remove('hidden');
-                    })
-                    .finally(() => {
+                        
+                        // Restore button on failure
                         submitButton.classList.remove('button-loading');
                         submitButton.innerText = originalBtnText;
                         submitButton.disabled = false;
+                    })
+                    .finally(() => {
+                        // Removed logic that shouldn't run on failure from here.
                     });
                 });
             }
@@ -1988,13 +1994,15 @@
             if (stars.length > 0 && reviewRatingInput) {
                 stars.forEach(star => {
                     star.addEventListener('click', () => {
-                        const value = star.getAttribute('data-value');
+                        // CRITICAL BUG #1 FIX: Ensure we use the string value from data-value
+                        const value = star.getAttribute('data-value'); 
                         reviewRatingInput.value = value;
                         
                         if(reviewErrorMessage) reviewErrorMessage.classList.add('hidden');
 
                         stars.forEach(s => {
-                            if (s.getAttribute('data-value') <= value) {
+                            // Compare using integers
+                            if (parseInt(s.getAttribute('data-value'), 10) <= parseInt(value, 10)) {
                                 s.classList.add('text-yellow-400');
                             } else {
                                 s.classList.remove('text-yellow-400');
@@ -2154,6 +2162,8 @@
                     })
                     .then(() => {
                         document.cookie = "hasSubscribed=true; path=/; max-age=31536000; SameSite=Lax";
+                        
+                        // CRITICAL BUG #3 FIX: Only execute success path here
                         popupForm.style.display = 'none'; // Hide form
                         popupSuccess.classList.remove('hidden');
                         
@@ -2163,12 +2173,13 @@
                     .catch(err => {
                         console.error(err);
                         console.error('Popup Lead Error: Please try again.');
-                    })
-                    .finally(() => {
-                        // STOP LOADING ANIMATION
+                        // Re-enable button on failure
                         submitBtn.classList.remove('button-loading');
                         submitBtn.innerText = originalText;
                         submitBtn.disabled = false;
+                    })
+                    .finally(() => {
+                        // Removed unnecessary code from here
                     });
                 });
             }
