@@ -34,9 +34,24 @@
     <!-- UPDATED: Fixed Favicon reference -->
     <link rel="icon" type="image/png" href="favicon.png">
     
-    <!-- 🟢 MEDIUM PRIORITY: GOOGLE ANALYTICS PLACEHOLDER 🟢 -->
-    <!-- Place your Google Analytics or Tag Manager script here (non-render blocking methods encouraged) -->
-    <!-- End GA Placeholder -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-04JX59EMGB"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-04JX59EMGB');
+    </script>
+
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "txqq6zxghr");
+    </script>
     
     <!-- CHANGELOG FIX P3: Combined two Google Fonts into a single request for performance. -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -551,7 +566,6 @@
             <div class="grid lg:grid-cols-2 gap-12 items-stretch">
                 
                 <!-- LEFT: WHO IT IS FOR (Green/Lime Theme) - STICKY CARD 1 -->
-                <!-- Removed sticky classes -->
                 <div class="bg-lime-neon/10 border-2 border-lime-neon/30 rounded-3xl p-8 md:p-12 relative overflow-hidden group lg:relative lg:top-auto h-full">
                     <div class="absolute top-0 left-0 w-full h-2 bg-lime-neon"></div>
                     <!-- FIX 2: Standardized capitalization -->
@@ -603,10 +617,16 @@
                         </div>
                         
                     </div>
+                     <!-- CTA for "FOR YOU" (Centered Alignment Fix) -->
+                    <div class="mt-10 text-center">
+                        <!-- CHANGELOG FIX P5: Added rel="noopener noreferrer" for security best practice on external link. -->
+                        <a href="https://u.payu.in/nIsRdQdIBGDX" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 bg-lime-neon text-navy-900 font-bold py-3 px-8 rounded-full hover:bg-lime-hover transition-all shadow-lg text-sm">
+                            I'm Ready To Hustle →
+                        </a>
+                    </div>
                 </div>
 
                 <!-- RIGHT: WHO IT IS NOT FOR (Red Theme - Restored from Index 11 Logic) - STICKY CARD 2 -->
-                <!-- Removed sticky classes -->
                 <div class="bg-red-50 border-2 border-red-100 rounded-3xl p-8 md:p-12 relative overflow-hidden lg:relative lg:top-auto h-full">
                     <div class="absolute top-0 left-0 w-full h-2 bg-red-400"></div>
                     <!-- FIX 2: Standardized capitalization -->
@@ -656,11 +676,20 @@
                             </div>
                         </div>
                     </div>
+                     <!-- CTA for "NOT FOR YOU" (Centered Alignment Fix) -->
+                    <div class="mt-10 text-center">
+                        <!-- CHANGELOG FIX P5: Added rel="noopener noreferrer" for security best practice on external link. -->
+                        <a href="#faq" class="inline-flex items-center gap-3 bg-red-500 text-white font-bold py-3 px-8 rounded-full hover:bg-red-600 transition-all shadow-lg text-sm">
+                            I Need to Ask a Question →
+                        </a>
+                    </div>
                 </div>
 
             </div>
             
-            <!-- New CTA -->
+            <!-- REMOVED: Mid-Section CTA (Suggestion 3 was here, now split into card footers) -->
+            
+            <!-- Existing Primary CTA (Now positioned correctly below the dual card structure) -->
             <div class="mt-16 text-center">
                  <!-- CHANGELOG FIX P5: Added rel="noopener noreferrer" for security best practice on external link. -->
                 <a href="https://u.payu.in/nIsRdQdIBGDX" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-lime-neon text-navy-900 font-bold py-4 px-10 rounded-full hover:bg-lime-hover transition-all shadow-glow group text-lg">
@@ -789,6 +818,47 @@
         </div>
     </section>
 
+    <!-- NEW: SEO Content Authority Section - The 3 Pillars (Suggestion 1) -->
+    <section class="py-24 bg-navy-900" id="authority-pillars">
+        <div class="container mx-auto px-6 lg:px-12">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">THE 3 PILLARS OF ZERO-FUNDED HUSTLING</h2>
+                <p class="text-gray-400 text-lg">Before the strategy, you need the foundation. These are the core tenets that separate the 9-5 employee from the entrepreneur.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Pillar 1: Mindset -->
+                <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-teal-accent/50 transition-all group">
+                    <div class="w-12 h-12 bg-teal-accent/20 text-teal-accent rounded-xl flex items-center justify-center mb-4 text-xl"><i class="fa-solid fa-head-side-virus"></i></div>
+                    <h3 class="font-bold text-white text-xl mb-2">Pillar 1: The 'Zero-Risk' Mindset</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Most people only see risk. We see <strong>zero-cost opportunity</strong>. Focus on leveraging existing, free tools and services to validate demand *before* investing a rupee. This shifts the failure penalty from financial to educational.</p>
+                </div>
+                
+                <!-- Pillar 2: Systemization -->
+                <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-lime-neon/50 transition-all group">
+                    <div class="w-12 h-12 bg-lime-neon/20 text-lime-neon rounded-xl flex items-center justify-center mb-4 text-xl"><i class="fa-solid fa-cogs"></i></div>
+                    <h3 class="font-bold text-white text-xl mb-2">Pillar 2: System Over Income</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Your job pays you for hours. Your hustle must pay you for <strong>systems</strong>. Build automated income streams that run while you sleep or work your 9-5. This is the only way to scale past a few thousand rupees.</p>
+                </div>
+                
+                <!-- Pillar 3: Scalability -->
+                <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-teal-accent/50 transition-all group">
+                    <div class="w-12 h-12 bg-teal-accent/20 text-teal-accent rounded-xl flex items-center justify-center mb-4 text-xl"><i class="fa-solid fa-layer-group"></i></div>
+                    <h3 class="font-bold text-white text-xl mb-2">Pillar 3: The Profit Layering Model</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Never rely on one income stream. The key is <strong>layering</strong> small, zero-cost hustles (like service arbitrage and digital products) so your combined income creates the financial cushion you need to quit.</p>
+                </div>
+            </div>
+            
+             <div class="mt-16 text-center">
+                 <!-- CHANGELOG FIX P5: Added rel="noopener noreferrer" for security best practice on external link. -->
+                <a href="https://u.payu.in/nIsRdQdIBGDX" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-lime-neon text-navy-900 font-bold py-4 px-10 rounded-full hover:bg-lime-hover transition-all shadow-glow group text-lg">
+                    Build My Foundation (₹299) <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- END: SEO Content Authority Section -->
+
     <!-- BLUEPRINT -->
     <section class="py-24 bg-white" id="blueprint">
         <div class="container mx-auto px-6 lg:px-12">
@@ -840,7 +910,7 @@
         <div class="container mx-auto px-6 lg:px-12">
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold text-lime-neon mb-6">A Glimpse Inside Your Blueprint</h2>
-                <p class="text-gray-400 text-lg">This isn't theory. It's a toolbox of <strong class="text-white">6 proven, step-by-step models</strong> I've personally used to build real income streams from scratch.</p>
+                <p class="text-gray-400 text-lg">This isn't theory. It's a toolbox of <strong>6 proven, step-by-step models</strong> I've personally used to build real income streams from scratch.</p>
             </div>
             
             <!-- REMOVED: Mobile Sticky positioning for better alignment -->
@@ -874,7 +944,7 @@
                 <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-lime-neon/50 blueprint-card transition-all group hover:-translate-y-1 duration-300" data-delay="500">
                     <!-- CHANGELOG FIX C2: Corrected typo 'font-6old' to 'font-bold'. -->
                     <h3 class="font-bold text-white text-xl mb-3">Blueprint 6: The Pure-Profit ESCAPE THE 9-5 Model (My Secret)</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">Package your skills into an <strong class="text-white">ESCAPE THE 9-5</strong> (like this one!) or course. No inventory, no shipping. The ultimate scalable business model.</p>
+                    <p class="text-gray-400 text-sm leading-relaxed">Package your skills into an <strong>ESCAPE THE 9-5</strong> (like this one!) or course. No inventory, no shipping. The ultimate scalable business model.</p>
                 </div>
             </div>
 
@@ -1030,22 +1100,57 @@
         </div>
     </section>
 
-    <!-- 6-MONTH TIMELINE -->
-    <section class="py-24 bg-gray-50">
+    <!-- 6-MONTH TIMELINE (UPDATED TO 4-STAGE ESCAPE JOURNEY CARDS) -->
+    <section class="py-24 bg-gray-50" id="6-month-timeline">
         <div class="container mx-auto px-6 lg:px-12">
-            <div class="grid lg:grid-cols-2 gap-16">
-                <div><h2 class="text-4xl font-bold text-navy-900 mb-6">YOUR 6-MONTH <br> ACTION PLAN</h2><p class="text-gray-500 mb-8">Chapter 9 gives you the exact, step-by-step sprint I used to go from a simple idea to a consistent <strong>₹100,000/month business.</strong></p>
-                <!-- CHANGELOG FIX P5: Added rel="noopener noreferrer" for security best practice on external link. -->
-                <a href="https://u.payu.in/nIsRdQdIBGDX" target="_blank" rel="noopener noreferrer" class="inline-block bg-navy-900 text-white font-bold py-3 px-8 rounded-full hover:bg-gray-800 transition-colors">Get The Full Map</a></div>
-                <div class="relative border-l-4 border-gray-200 ml-4 space-y-8 pl-8">
-                    <div class="relative"><div class="absolute -left-[46px] top-0 w-6 h-6 rounded-full bg-lime-neon border-4 border-white shadow-sm"></div><h4 class="font-bold text-navy-900">Month 1: Foundation</h4><p class="text-sm text-gray-500">Get your first paying customer & secure a testimonial.</p></div>
-                    <div class="relative"><div class="absolute -left-[46px] top-0 w-6 h-6 rounded-full bg-white border-4 border-gray-200"></div><h4 class="font-bold text-navy-900">Month 2: Process</h4><p class="text-sm text-gray-500">Refine service, get 3 new clients, cross ₹10,000.</p></div>
-                    <div class="relative"><div class="absolute -left-[46px] top-0 w-6 h-6 rounded-full bg-white border-4 border-gray-200"></div><h4 class="font-bold text-navy-900">Month 3: Traction</h4><p class="text-sm text-gray-500">Double down on marketing. Hit ₹20,000.</p></div>
-                    <div class="relative"><div class="absolute -left-[46px] top-0 w-6 h-6 rounded-full bg-white border-4 border-gray-200"></div><h4 class="font-bold text-navy-900">Month 4: Automation & Leverage</h4><p class="text-sm text-gray-500">Automate admin. Hire VA for 5 hours/week. Aim for ₹40,000.</p></div>
-                    <div class="relative"><div class="absolute -left-[46px] top-0 w-6 h-6 rounded-full bg-white border-4 border-gray-200"></div><h4 class="font-bold text-navy-900">Month 5: Scaling & High-Value Offers</h4><p class="text-sm text-gray-500">Launch mini-product, raise prices. Scale to ₹75,000.</p></div>
-                    <div class="relative"><div class="absolute -left-[46px] top-0 w-6 h-6 rounded-full bg-teal-accent border-4 border-white shadow-sm"></div><h4 class="font-bold text-navy-900">Month 6: Systemization</h4><p class="text-sm text-gray-500">High-ticket retainers. Cross ₹100,000/month.</p></div>
+            
+            <!-- HEADER (Centered style matching product-benefits) -->
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-navy-900 mb-4">YOUR 4-STAGE ESCAPE JOURNEY</h2>
+                <p class="text-gray-500 text-lg">Forget monthly deadlines. This simplified roadmap works for all 6 blueprints, focusing on the mindset and actions required for reliable growth.</p>
+            </div>
+            
+            <!-- CARD GRID (Matching product-benefits card style) -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+                
+                <!-- Card 1: Start Small & Start Fast -->
+                <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all h-full flex flex-col">
+                    <div class="w-12 h-12 bg-lime-neon/20 rounded-xl flex items-center justify-center mb-4 text-navy-900 text-xl"><i class="fa-solid fa-bolt"></i></div>
+                    <h3 class="text-xl font-bold text-navy-900 mb-2">Stage 1: Start Fast</h3>
+                    <p class="text-gray-500 text-sm flex-grow"><strong>Mindset:</strong> "Don’t wait. Done is better than perfect."<br><strong>Action:</strong> Choose one blueprint and launch a minimal version using zero-cost tools.</p>
+                    <p class="text-xs text-lime-600 font-bold mt-3">Goal: Get your first small win.</p>
+                </div>
+                
+                <!-- Card 2: Get Proof That Your Hustle Works -->
+                <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all h-full flex flex-col">
+                    <div class="w-12 h-12 bg-lime-neon/20 rounded-xl flex items-center justify-center mb-4 text-navy-900 text-xl"><i class="fa-solid fa-eye"></i></div>
+                    <h3 class="text-xl font-bold text-navy-900 mb-2">Stage 2: Get Proof</h3>
+                    <p class="text-gray-500 text-sm flex-grow"><strong>Mindset:</strong> "What works once, can work again."<br><strong>Action:</strong> Improve your offer based on feedback. Get 1-3 paying customers and collect testimonials.</p>
+                    <p class="text-xs text-lime-600 font-bold mt-3">Goal: Repeatable results & belief.</p>
+                </div>
+
+                <!-- Card 3: Build Your Routine & Systems -->
+                <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all h-full flex flex-col">
+                    <div class="w-12 h-12 bg-lime-neon/20 rounded-xl flex items-center justify-center mb-4 text-navy-900 text-xl"><i class="fa-solid fa-cogs"></i></div>
+                    <h3 class="text-xl font-bold text-navy-900 mb-2">Stage 3: Systemize</h3>
+                    <p class="text-gray-500 text-sm flex-grow"><strong>Mindset:</strong> "Consistency beats speed."<br><strong>Action:</strong> Define a weekly hustle routine. Implement simple checklists and templates to remove chaos and stress.</p>
+                    <p class="text-xs text-lime-600 font-bold mt-3">Goal: Hustle consistently without stress.</p>
+                </div>
+                
+                <!-- Card 4: Grow Bigger & Grow Smarter -->
+                <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all h-full flex flex-col">
+                    <div class="w-12 h-12 bg-lime-neon/20 rounded-xl flex items-center justify-center mb-4 text-navy-900 text-xl"><i class="fa-solid fa-chart-line"></i></div>
+                    <h3 class="text-xl font-bold text-navy-900 mb-2">Stage 4: Scale Smart</h3>
+                    <p class="text-gray-500 text-sm flex-grow"><strong>Mindset:</strong> "Work smart, not harder."<br><strong>Action:</strong> Raise your prices, launch a high-value offer, or layer a second zero-funded blueprint.</p>
+                    <p class="text-xs text-lime-600 font-bold mt-3">Goal: Sustainable income growth.</p>
                 </div>
             </div>
+            
+            <!-- CTA (Centered style) -->
+            <div class="mt-16 text-center">
+                <a href="https://u.payu.in/nIsRdQdIBGDX" target="_blank" rel="noopener noreferrer" class="inline-block bg-navy-900 text-white font-bold py-4 px-10 rounded-full hover:bg-gray-800 transition-colors">Start My Escape Journey Now</a>
+            </div>
+            
         </div>
     </section>
 
@@ -1118,7 +1223,7 @@
                                 <div class="flex gap-1 text-yellow-400 text-sm mb-4">
                                     <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
                                 </div>
-                                <p class="text-lg leading-relaxed italic font-light mb-6 opacity-90">"I mainly bought this for the E-commerce blueprint, but the **Zero Inventory T-Shirt Brand** chapter was the surprise winner. Already have my first 10 sales!"</p>
+                                <p class="text-lg leading-relaxed italic font-light mb-6 opacity-90">"I mainly bought this for the E-commerce blueprint, but the <strong>Zero Inventory T-Shirt Brand</strong> chapter was the surprise winner. Already have my first 10 sales!"</p>
                                 <div class="border-t border-white/10 pt-6">
                                     <h4 class="font-bold text-lime-neon text-lg">Sameer Tambe</h4>
                                     <p class="text-sm text-gray-400">Pune</p>
@@ -1507,7 +1612,7 @@
                     <!-- CHANGELOG FIX O6: Updated success message for non-CORS form submission. -->
                     <h3 class="text-xl font-bold text-white mb-2">Request submitted!</h3>
                     <p class="text-gray-400 text-sm mb-6">Check your inbox in 5 minutes (and your spam folder).</p>
-                    <!-- CHANGELOG FIX P6: Removed the aggressive auto-close timeout. User must now manually close, ensuring they read the success message. -->
+                    <!-- CHANGELOG FIX P6: Removed aggressive auto-close timeout. User must now manually close, ensuring they read the success message. -->
                     <button onclick="closePopup()" class="text-[#D4FF00] font-bold text-sm hover:underline">Close Window</button>
                 </div>
     
@@ -1838,7 +1943,7 @@
             const faqContainer = document.getElementById('faq-container');
             
             const faqs = [
-                { q: "Is this another 'get rich quick' scheme?", a: "<strong>Absolutely not.</strong> This is a a 'get rich smart' blueprint. 'Get rich quick' is a fantasy that leads to debt. I was <strong>-₹32 Lakh in debt</strong> because I fell for those myths. This book is the exact opposite: real, gradual strategies to build <strong>sustainable, predictable income</strong>." },
+                { q: "Is this another 'get rich quick' scheme?", a: "<strong>Absolutely not.</strong> This is a a 'get rich smart' blueprint. 'Get rich quick' is a fantasy that leads to debt. I was <strong>-₹32 Lakh in debt</strong> because I fell for those myths. This book focuses on real, gradual strategies to build <strong>sustainable, predictable income</strong>." },
                 { q: "How is this different from free content on YouTube?", a: "Free content gives you scattered puzzle pieces. This ESCAPE THE 9-5 gives you the <strong>finished picture and the instruction manual.</strong> It's a battle-tested system designed to save you 5+ years of painful, expensive trial and error. You're not just buying information; <strong>you're buying a proven roadmap and speed.</strong>" },
                 { q: "Is this REALLY for the Indian market?", a: "<strong>100% Yes.</strong> Every example, every currency figure (INR), and every strategy is tailored for the Indian context. This isn't recycled Western advice. It's built by an Indian, for the Indian hustler." },
                 { q: "How to start a business with 0 investment in India?", a: "<strong>Yes. That is the entire point of this book.</strong> I started with less than zero (massive debt!). This book focuses exclusively on businesses you can launch with <strong>₹0 investment</strong>. Your biggest asset will be your time and your hunger to win." },
@@ -2041,7 +2146,7 @@
 
             if (starLabels.length > 0) {
                  // Function to update visual state of stars
-                const updateStarVisuals = (selectedValue) => {
+                updateStarVisuals = (selectedValue) => {
                     starLabels.forEach(label => {
                         const starInput = document.getElementById(label.getAttribute('for'));
                         if (starInput && parseInt(starInput.value) <= selectedValue) {
@@ -2156,7 +2261,7 @@
             // Helper to open popup
             const openPopup = () => {
                  // CHANGELOG FIX S5-b: Added check for localStorage and cookie to prevent repeated/aggressive firing.
-                 if (popupShown || document.cookie.includes('hasSubscribed=true') || hasInteractedWithEmailInput || localStorage.getItem('hasSubmittedLeadForm') === 'true') {
+                 if (popupShown || document.cookie.includes('hasSubscribed=true') || hasInteractedWithEmailInput || localStorage.getItem('hasSubmittedLeadForm', 'true') === 'true') {
                      return;
                  }
                  
