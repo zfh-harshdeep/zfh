@@ -398,7 +398,7 @@
                         From <span class="text-red-400 line-through decoration-red-500/50">₹32 Lakh Debt</span> & <span class="text-gray-400">27k/mo</span> → <span class="text-lime-neon">+₹5 Lakh/Month</span>
                     </p>
                     <p class="text-gray-400 text-lg max-w-2xl mx-auto leading-relaxed mb-10">
-                        The zero-risk blueprint for building a real side business that replaces your income, even if you have no time, no money, and no experience.
+                        <span class="relative inline-block">The zero-risk blueprint for building a real side business that replaces your income, even if you have no time, no money, and no experience.</span>
                     </p>
                 </div>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center items-center reveal active delay-300">
@@ -679,8 +679,8 @@
                     </div>
                      <!-- CTA for "NOT FOR YOU" (Centered Alignment Fix) -->
                     <div class="mt-10 text-center">
-                        <!-- CHANGELOG FIX P5: Added rel="noopener noreferrer" for security best practice on external link. -->
-                        <a href="#faq" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 bg-red-500 text-white font-bold py-3 px-8 rounded-full hover:bg-red-600 transition-all shadow-lg text-sm">
+                        <!-- FIX: Removed target="_blank" and rel="noopener noreferrer" to enable smooth in-page scroll -->
+                        <a href="#faq" class="inline-flex items-center gap-3 bg-red-500 text-white font-bold py-3 px-8 rounded-full hover:bg-red-600 transition-all shadow-lg text-sm">
                             I Need to Ask a Question →
                         </a>
                     </div>
@@ -2159,17 +2159,18 @@
                 };
 
                 // Handle click on label (which triggers the hidden radio button)
-                starLabels.forEach(label => {
-                    const starInput = document.getElementById(label.getAttribute('for'));
-
-                    // Handle interaction (click/change on the radio input)
-                    starInput.addEventListener('change', () => {
-                         const selectedValue = parseInt(starInput.value);
+                starInputs.forEach(input => {
+                    input.addEventListener('change', () => {
+                         const selectedValue = parseInt(input.value);
                          updateStarVisuals(selectedValue);
                          if(reviewErrorMessage) reviewErrorMessage.classList.add('hidden');
                     });
+                });
+                
+                // Visual hover effect: since radio buttons are hidden, we use mouseenter/mouseleave on the label
+                starLabels.forEach(label => {
+                    const starInput = document.getElementById(label.getAttribute('for'));
 
-                    // Visual hover effect: since radio buttons are hidden, we use mouseenter/mouseleave on the label
                     label.addEventListener('mouseenter', () => {
                         const hoverValue = parseInt(starInput.value);
                         updateStarVisuals(hoverValue);
@@ -2182,6 +2183,7 @@
                         updateStarVisuals(selectedValue);
                     });
                 });
+
             }
 
 
