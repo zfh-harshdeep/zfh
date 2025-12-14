@@ -1048,8 +1048,7 @@
                 <!-- CTA card accent updated -->
                 <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-emerald-600 transition-colors flex flex-col items-center justify-center text-center h-full">
                     <p class="font-bold text-white mb-6 text-xl">I Don't Want to Make a Mistake.</p>
-                    <a href="https://u.payu.in/nIsRdQdIBGDX" target="_blank" rel="noopener noreferrer" class="bg-emerald-600 text-navy-900 text-sm font-bold px-8 py-4 rounded-xl hover:bg-emerald-700 transition-all shadow-lg w-full flex items-center justify-center gap-2">
-                        Start Your Journey <i class="fa-solid fa-arrow-right"></i>
+                    <a href="https://u.payu.in/nIsRdQdIBGDX" target="_blank" rel="noopener noreferrer" class="bg-emerald-600 text-navy-900 text-sm font-bold px-8 py-4 rounded-xl hover:bg-emerald-700 transition-all shadow-lg w-full text-center">                        Start Your Journey <i class="fa-solid fa-arrow-right"></i>
                     </a>
                 </div>
             </div>
@@ -1546,6 +1545,41 @@
         </div>
     </div>
 
+    <!-- COOKIE CONSENT MODAL (NEW FULL SCREEN BLOCKING MODAL) -->
+    <div id="cookie-modal" class="fixed inset-0 z-[300] hidden flex items-center justify-center px-4 bg-black/80 backdrop-blur-sm opacity-0 transition-opacity duration-300">
+        <div 
+            class="relative w-full max-w-lg p-8 bg-navy-900 border border-gray-700 rounded-2xl shadow-2xl transform scale-95 transition-transform duration-300 text-center" 
+            style="box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);"
+        >
+            <div class="w-16 h-16 bg-emerald-600/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                <i class="fa-solid fa-cookie-bite text-3xl text-emerald-600"></i>
+            </div>
+            
+            <h3 class="mb-3 text-3xl font-bold text-white font-sans">
+                Manage Your Privacy
+            </h3>
+            
+            <p class="mb-8 text-sm font-medium text-gray-400">
+                We use strictly necessary cookies to ensure the website functions correctly. Please confirm your consent to continue.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button id="cookie-reject-btn" class="bg-gray-700 text-white font-bold py-3 px-8 rounded-full text-sm hover:bg-gray-600 transition-colors w-full sm:w-auto">
+                    Reject (Essential Only)
+                </button>
+                <button id="cookie-accept-btn" class="bg-emerald-600 text-navy-900 font-bold py-3 px-8 rounded-full text-sm hover:bg-emerald-700 transition-colors w-full sm:w-auto shadow-glow">
+                    Accept & Continue
+                </button>
+            </div>
+            
+            <div class="mt-6">
+                 <a id="cookie-privacy-link-modal" href="#" class="text-xs text-gray-500 hover:text-emerald-600 hover:underline transition-all">
+                    View Privacy Policy Details
+                </a>
+            </div>
+        </div>
+    </div>
+
     <!-- MODALS -->
     <dialog id="video-modal" class="p-0 rounded-xl backdrop:bg-black/80 w-[90vw] max-w-4xl border border-gray-700 bg-navy-900 text-white shadow-2xl">
         <div class="flex justify-between items-center p-4 border-b border-gray-800"><h3 class="font-bold">The ZeroFunded Methodology</h3><button onclick="document.getElementById('video-modal').close()" class="text-gray-400 hover:text-white px-2" aria-label="Close modal"><i class="fa-solid fa-xmark text-xl"></i></button></div>
@@ -1762,6 +1796,30 @@
                  REVIEW_SCRIPT_URL: 'https://script.google.com/macros/s/AKfycbzWcyI4vqvMCBguI-pYj7Snpc1CISGtkTuZR-1JvcUHqr3abGxGAkqdAH6VMksLjuc3JQ/exec'
             };
             let currentReviewCount = 2923; // Initial number for Schema Injection
+
+            // --- COOKIE UTILITIES (NEW) ---
+            const getCookie = (name) => {
+                const nameEQ = name + "=";
+                const ca = document.cookie.split(';');
+                for(let i = 0; i < ca.length; i++) {
+                    let c = ca[i];
+                    while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+                    if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+                }
+                return null;
+            };
+
+            const setCookie = (name, value, days) => {
+                let expires = "";
+                if (days) {
+                    const date = new Date();
+                    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                    expires = "; expires=" + date.toUTCString();
+                }
+                // Secure, SameSite=Lax for modern browsers
+                document.cookie = name + "=" + (value || "")  + expires + "; path=/; SameSite=Lax";
+            };
+            // --- END COOKIE UTILITIES ---
 
             // --- Dynamic Download Counter Logic (Supports Hero trust count) ---
             const MS_PER_DAY = 1000 * 60 * 60 * 24;
@@ -2110,26 +2168,26 @@
                 });
             }
 
-            // 8. STICKY BANNER LOGIC (Refined for consistent end-of-page behavior)
+            // 8. STICKY BANNER LOGIC (Revised)
             const banner = document.getElementById('sticky-banner');
-            const footer = document.querySelector('footer'); // Use the footer element for the trigger
+            const heroSection = document.getElementById('hero-section');
+            const finalCta = document.getElementById('final-cta');
             
             const handleScroll = () => {
-                if (!footer || !banner) return;
+                if (!banner || !heroSection || !finalCta) return;
 
-                const currentScroll = window.scrollY;
-                const windowHeight = window.innerHeight;
+                const heroRect = heroSection.getBoundingClientRect();
+                const finalCtaRect = finalCta.getBoundingClientRect();
+
+                // 1. Show: When user scrolls past the bottom of the Hero section (0px is the viewport top)
+                const shouldShow = heroRect.bottom < 0; 
                 
-                // Banner should appear after the Hero section (e.g., scroll down 500px)
-                const showThreshold = 500; 
-                
-                // Banner should hide when the user sees the footer (e.g., 200px before the footer is fully visible)
-                const footerRect = footer.getBoundingClientRect();
-                const footerVisibleThreshold = windowHeight - 200; // Footer starts being visible 200px from the bottom
+                // 2. Hide: When the Final CTA section enters the viewport (200px before its top edge)
+                const shouldHide = finalCtaRect.top < window.innerHeight - 200;
 
-                const shouldShow = (currentScroll > showThreshold) && (footerRect.top > footerVisibleThreshold);
-
-                if (shouldShow) {
+                if (shouldHide) {
+                    banner.classList.add('translate-y-full');
+                } else if (shouldShow) {
                     banner.classList.remove('translate-y-full');
                 } else {
                     banner.classList.add('translate-y-full');
@@ -2287,11 +2345,16 @@
             const popupForm = document.getElementById('popup-lead-form');
             const popupEmail = document.getElementById('popup-email');
             const popupSuccess = document.getElementById('popup-success');
-            const audienceFilterSection = document.getElementById('audience-filter');
+            const audienceFilterSection = document.getElementById('audience-filter'); // Unused but kept for context
             let popupShown = false;
 
             // Helper to open popup
             const openPopup = () => {
+                 // Check 1: Has cookie consent been addressed?
+                 if (getCookie('cookie_consent') !== 'accepted' && getCookie('cookie_consent') !== 'rejected') {
+                     return; 
+                 }
+
                  // Prevent aggressive firing if already shown or user has converted
                  if (popupShown || document.cookie.includes('hasSubscribed=true') || hasInteractedWithEmailInput || localStorage.getItem('hasSubmittedLeadForm', 'true') === 'true') {
                      return;
@@ -2319,13 +2382,15 @@
             };
             
             // 🟢 NEW: Exit Intent Trigger (High Priority CRO) 🟢
-            // Detect mouse moving outside the top boundary of the viewport
+            // Only fires if consent is set (handled in the initialization step)
             const handleExitIntent = (e) => {
-                if (e.clientY < 20) {
-                    openPopup();
+                // Check if consent has been given (or rejected) before showing the exit intent popup
+                if (getCookie('cookie_consent') === 'accepted' || getCookie('cookie_consent') === 'rejected') {
+                    if (e.clientY < 20) {
+                        openPopup();
+                    }
                 }
             };
-            document.addEventListener('mouseleave', handleExitIntent);
             
             // ADDED: Backdrop click listener for closing the popup
             if (popup) {
@@ -2457,6 +2522,79 @@
                 });
             });
             // --- END MODAL POPUP LOGIC ---
+
+
+            // --- COOKIE CONSENT LOGIC (NEW FULL MODAL) ---
+            const cookieModal = document.getElementById('cookie-modal');
+            const acceptBtn = document.getElementById('cookie-accept-btn');
+            const rejectBtn = document.getElementById('cookie-reject-btn');
+            const cookiePrivacyLink = document.getElementById('cookie-privacy-link-modal'); // Corrected ID
+
+            const showCookieModal = () => {
+                 if (cookieModal) {
+                    cookieModal.classList.remove('hidden');
+                    // Use a short delay to trigger transition
+                    setTimeout(() => { 
+                        cookieModal.classList.remove('opacity-0');
+                        cookieModal.querySelector('.relative').classList.remove('scale-95');
+                    }, 10);
+                 }
+            };
+            
+            const hideCookieModal = () => {
+                 if (cookieModal) {
+                    cookieModal.classList.add('opacity-0');
+                    cookieModal.querySelector('.relative').classList.add('scale-95');
+                    // Hide after transition
+                    setTimeout(() => { cookieModal.classList.add('hidden'); }, 300);
+                 }
+            };
+
+            const initializeConsent = () => {
+                if (getCookie('cookie_consent')) {
+                    // Consent already given (accepted or rejected), proceed
+                    hideCookieModal();
+                    // Enable lead magnet listener immediately
+                    document.addEventListener('mouseleave', handleExitIntent);
+                } else {
+                    // No consent yet, show blocking modal
+                    showCookieModal();
+                }
+            };
+
+            if (acceptBtn && rejectBtn) {
+                const handleConsentAction = (consentType) => {
+                    // 1. Set the cookie
+                    setCookie('cookie_consent', consentType, 365); // Consent lasts 1 year
+                    // 2. Hide the modal
+                    hideCookieModal();
+                    // 3. Enable the lead magnet pop-up functionality
+                    document.addEventListener('mouseleave', handleExitIntent);
+                };
+
+                acceptBtn.addEventListener('click', () => handleConsentAction('accepted'));
+                rejectBtn.addEventListener('click', () => handleConsentAction('rejected'));
+
+                // Handle link click to open privacy policy modal
+                cookiePrivacyLink.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    openModal('privacy-modal');
+                    // Do NOT hide cookie modal here, keep it blocking if the user closes the legal modal
+                });
+
+                // Add backdrop click to close cookie modal (if not clicked on inner content)
+                 cookieModal.addEventListener('click', (e) => {
+                    if (e.target === cookieModal) {
+                        // If they click outside, enforce action by reappearing/keeping visible.
+                        // We do nothing here, letting the modal remain visible and blocking.
+                    }
+                 });
+            }
+            
+            // Run initialization immediately on DOM load
+            initializeConsent();
+            // --- END COOKIE CONSENT LOGIC ---
+            
             
             // --- SEO: JSON-LD Schema Dynamic Injection ---
             function injectProductSchema(reviewCount) {
