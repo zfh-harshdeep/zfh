@@ -20,21 +20,19 @@
     <link rel="canonical" href="https://www.zerofundedhustle.com/sitemap">
     <link rel="icon" type="image/png" href="favicon.png">
     
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts: Plus Jakarta Sans -->
+    <!-- Google Fonts: Plus Jakarta Sans (Main Body) and Inter (Logo) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Inter Font for Logo -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
     
     <!-- Font Awesome (Deferred) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
     
     <script>
-        // Custom Tailwind Config from index.html
+        // Custom Tailwind Config from index.html (Updated to Emerald)
         tailwind.config = {
             theme: {
                 extend: {
@@ -44,12 +42,19 @@
                             800: '#1F2937', // Hero bg
                             700: '#2D3A4F', // Card bg
                         },
+                        // NEW ACCENT COLOR: LOGO GREEN (#22c55e)
+                        emerald: {
+                            DEFAULT: '#22c55e', 
+                            600: '#22c55e', // LOGO GREEN
+                            700: '#1f9b50', // Darker shade for hover/active
+                        },
+                        // Fallback lime/teal are now mapped to emerald if needed
                         lime: {
-                            neon: '#D4FF00',
-                            hover: '#B8E600'
+                            neon: '#22c55e', // Mapped to Emerald
+                            hover: '#1f9b50' // Mapped to Emerald 700
                         },
                         teal: {
-                            accent: '#2DD4BF'
+                            accent: '#2DD4BF' // Kept this for original gradient (h1) reference, but using Emerald for main accents
                         }
                     },
                     fontFamily: {
@@ -61,8 +66,17 @@
     </script>
 
     <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; background-color: #FFFFFF; }
+        /* Base styles matching previous pages */
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            overflow-x: hidden; 
+            max-width: 100vw;    
+            background-color: #FFFFFF; /* White Background */
+            color: #4B5563; /* Dark Gray */
+            padding-bottom: 0;
+        }
         .hero-bg {
+            /* Keep Hero section dark for visual pop */
             background-color: #111827;
             background: radial-gradient(circle at 50% 50%, #1F2937 0%, #0B1221 100%);
         }
@@ -73,38 +87,55 @@
             padding-bottom: 1rem; 
         }
         .sitemap-link {
-            color: #2DD4BF; /* teal-accent */
+            color: #22c55e; /* Emerald accent */
             transition: color 0.2s;
+            font-weight: 500;
         }
         .sitemap-link:hover {
-            color: #D4FF00; /* lime-neon */
+            color: #1f9b50; /* Emerald 700 */
             text-decoration: underline;
         }
 
-        /* Modal Styles */
+        /* Content Styling */
+        .content h3 {
+            font-size: 1.5rem; /* text-2xl */
+            font-weight: 700; /* font-bold */
+            margin-bottom: 1rem;
+            color: #0B1221; /* Deep Navy */
+        }
+        .content li {
+            margin-bottom: 0.5rem;
+        }
+        .content ul {
+            list-style-type: none; /* Removed bullets for cleaner directory */
+            padding-left: 0;
+        }
+
+
+        /* Modal Styles (Consistent with homepage) */
         .modal-overlay { transition: opacity 0.3s ease; }
         .modal-container { transition: transform 0.3s ease, opacity 0.3s ease; }
         .modal-content::-webkit-scrollbar { width: 8px; }
         .modal-content::-webkit-scrollbar-track { background: #0B1221; }
         .modal-content::-webkit-scrollbar-thumb { background-color: #1F2937; border-radius: 4px; border: 2px solid #0B1221; }
-        .modal-content::-webkit-scrollbar-thumb:hover { background-color: #2DD4BF; }
+        .modal-content::-webkit-scrollbar-thumb:hover { background-color: #22c55e; } 
     </style>
 </head>
 <body>
 
-    <!-- HEADER (Simplified, Centered Logo, and Back Button) -->
+    <!-- HEADER (Simplified, Centered Logo, and Back Button - Matches Legal Page Standard) -->
     <nav id="main-nav" class="fixed w-full z-50 transition-all duration-300 bg-[#111827]/90 backdrop-blur-md border-b border-gray-800 py-4 scrolled">
         <div class="container mx-auto px-6 lg:px-12 relative flex justify-center items-center">
-            <!-- Back to Home Link (Absolute Positioned Top-Left) -->
-            <a href="/" class="absolute left-6 lg:left-12 top-1/2 transform -translate-y-1/2 text-lime-neon hover:text-white text-base font-semibold transition-colors flex items-center gap-2 group">
+            <!-- Back to Home Link -->
+            <a href="/" class="absolute left-6 lg:left-12 top-1/2 transform -translate-y-1/2 text-emerald-600 hover:text-white text-base font-semibold transition-colors flex items-center gap-2 group">
                 <i class="fa-solid fa-arrow-left text-lg group-hover:-translate-x-1 transition-transform"></i>
                 <span class="hidden sm:inline">Back to Home</span>
             </a>
 
-            <!-- Logo (Center) -->
+            <!-- Logo (Center - Matches homepage) -->
             <a href="/" class="flex items-center group hover:opacity-90 transition-opacity">
-                <span class="text-2xl font-extrabold tracking-tight" style="font-family: 'Inter', sans-serif;">
-                    <span class="text-white">zero</span><span class="text-[#22c55e]">funded</span><span class="text-white">hustle</span>
+                 <span class="text-2xl font-extrabold tracking-tight" style="font-family: 'Inter', sans-serif;">
+                    <span class="text-white">zero</span><span class="text-emerald-600">funded</span><span class="text-white">hustle</span>
                 </span>
             </a>
         </div>
@@ -118,7 +149,7 @@
         </div>
     </section>
 
-    <!-- CONTENT SECTION -->
+    <!-- CONTENT SECTION (White Background) -->
     <section class="py-24 bg-white">
         <div class="container mx-auto px-6 lg:px-12 max-w-4xl content">
             
@@ -128,39 +159,43 @@
                 
                 <!-- Main Pages -->
                 <div>
-                    <h3 class="text-2xl font-bold text-navy-900 mb-4 flex items-center gap-2"><i class="fa-solid fa-house text-lime-neon"></i> Primary Pages</h3>
-                    <ul class="space-y-2 text-lg">
-                        <li><a href="/" class="sitemap-link">Homepage (Landing Page)</a></li>
-                        <li><a href="contactus" class="sitemap-link">Contact Us</a></li>
-                        <li><a href="sitemap" class="sitemap-link">Sitemap (You Are Here)</a></li>
+                    <!-- Icon updated to Emerald -->
+                    <h3 class="text-2xl font-bold text-navy-900 mb-4 flex items-center gap-2"><i class="fa-solid fa-house text-emerald-600"></i> Primary Pages</h3>
+                    <ul class="space-y-4 text-lg">
+                        <li><i class="fa-solid fa-arrow-right text-emerald-600 text-sm mr-2"></i><a href="/" class="sitemap-link">Homepage (Landing Page)</a></li>
+                        <li><i class="fa-solid fa-arrow-right text-emerald-600 text-sm mr-2"></i><a href="contactus" class="sitemap-link">Contact Us</a></li>
+                        <li><i class="fa-solid fa-arrow-right text-emerald-600 text-sm mr-2"></i><a href="sitemap" class="sitemap-link">Sitemap (You Are Here)</a></li>
+                        <li><i class="fa-solid fa-arrow-right text-emerald-600 text-sm mr-2"></i><a href="success" class="sitemap-link">Success Page (Post-Purchase)</a></li>
                     </ul>
                 </div>
 
                 <!-- Landing Page Sections -->
                 <div>
-                    <h3 class="text-2xl font-bold text-navy-900 mb-4 flex items-center gap-2"><i class="fa-solid fa-layer-group text-lime-neon"></i> Homepage Sections</h3>
-                    <ul class="space-y-2 text-lg">
-                        <li><a href="/#blueprint" class="sitemap-link">The Blueprint (Product Details)</a></li>
-                        <li><a href="/#proof" class="sitemap-link">Proof (Income & Testimonials)</a></li>
-                        <li><a href="/#bonuses" class="sitemap-link">Bonuses (Free Resources)</a></li>
-                        <li><a href="/#reviews" class="sitemap-link">Reviews / Testimonials</a></li>
-                        <li><a href="/#faq" class="sitemap-link">FAQ (Frequently Asked Questions)</a></li>
+                    <!-- Icon updated to Emerald -->
+                    <h3 class="text-2xl font-bold text-navy-900 mb-4 flex items-center gap-2"><i class="fa-solid fa-layer-group text-emerald-600"></i> Homepage Sections</h3>
+                    <ul class="space-y-4 text-lg">
+                        <li><i class="fa-solid fa-arrow-right text-emerald-600 text-sm mr-2"></i><a href="/#blueprint" class="sitemap-link">The Blueprint (Product Details)</a></li>
+                        <li><i class="fa-solid fa-arrow-right text-emerald-600 text-sm mr-2"></i><a href="/#proof" class="sitemap-link">Proof (Income & Testimonials)</a></li>
+                        <li><i class="fa-solid fa-arrow-right text-emerald-600 text-sm mr-2"></i><a href="/#bonuses" class="sitemap-link">Bonuses (Free Resources)</a></li>
+                        <li><i class="fa-solid fa-arrow-right text-emerald-600 text-sm mr-2"></i><a href="/#reviews" class="sitemap-link">Reviews / Testimonials</a></li>
+                        <li><i class="fa-solid fa-arrow-right text-emerald-600 text-sm mr-2"></i><a href="/#faq" class="sitemap-link">FAQ (Frequently Asked Questions)</a></li>
                     </ul>
                 </div>
 
                 <!-- Legal Pages -->
                 <div>
-                    <h3 class="text-2xl font-bold text-navy-900 mb-4 flex items-center gap-2"><i class="fa-solid fa-scale-balanced text-lime-neon"></i> Legal & Compliance</h3>
+                    <!-- Icon updated to Emerald -->
+                    <h3 class="text-2xl font-bold text-navy-900 mb-4 flex items-center gap-2"><i class="fa-solid fa-scale-balanced text-emerald-600"></i> Legal & Compliance</h3>
                     <ul class="space-y-4 text-lg">
-                        <li><a href="privacypolicy" class="sitemap-link">Privacy Policy</a></li>
-                        <li><a href="termsofuse" class="sitemap-link">Terms of Use</a></li>
-                        <li><a href="refundpolicy" class="sitemap-link">Refund Policy (14-Day Guarantee)</a></li>
+                        <li><i class="fa-solid fa-arrow-right text-emerald-600 text-sm mr-2"></i><a id="privacy-policy-link-content" href="privacypolicy" class="sitemap-link">Privacy Policy</a></li>
+                        <li><i class="fa-solid fa-arrow-right text-emerald-600 text-sm mr-2"></i><a id="terms-of-use-link-content" href="termsofuse" class="sitemap-link">Terms of Use</a></li>
+                        <li><i class="fa-solid fa-arrow-right text-emerald-600 text-sm mr-2"></i><a id="refund-policy-link-content" href="refundpolicy" class="sitemap-link">Refund Policy (14-Day Guarantee)</a></li>
                     </ul>
                 </div>
             </div>
 
             <div class="mt-16 pt-8 border-t border-gray-200">
-                <h3 class="text-2xl font-bold text-navy-900 mb-4 flex items-center gap-2"><i class="fa-solid fa-robot text-teal-accent"></i> For Search Engines (XML)</h3>
+                <h3 class="text-2xl font-bold text-navy-900 mb-4 flex items-center gap-2"><i class="fa-solid fa-robot text-emerald-600"></i> For Search Engines (XML)</h3>
                 <p class="text-gray-600 mb-4">This website also provides a machine-readable XML Sitemap for search engine crawlers:</p>
                 <a href="sitemap.xml" class="inline-flex items-center gap-2 bg-navy-900 text-white font-bold py-3 px-6 rounded-full hover:bg-gray-800 transition-colors">
                     View sitemap.xml <i class="fa-solid fa-file-code"></i>
@@ -171,41 +206,54 @@
     </section>
 
 
-    <!-- FOOTER (MATCHED TO LATEST INDEX FILE) -->
+    <!-- FOOTER (MATCHED TO HOMEPAGE.HTML) -->
     <footer class="bg-navy-900 text-white pt-20 pb-10 border-t border-gray-800">
         <div class="container mx-auto px-6 lg:px-12">
-            <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
-                <div class="lg:col-span-2 pr-8">
+            <!-- Adjusted vertical gap for better mobile spacing -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-y-10 md:gap-y-12 gap-x-12 mb-16">
+                <!-- Col 1: Logo and Socials -->
+                <div class="lg:col-span-2 lg:pr-8">
                     <a href="/" class="flex items-center gap-2 mb-6">
                         <span class="text-2xl font-extrabold tracking-tight" style="font-family: 'Inter', sans-serif;">
-                            <span class="text-white">zero</span><span class="text-[#22c55e]">funded</span><span class="text-white">hustle</span>
+                            <span class="text-white">zero</span><span class="text-emerald-600">funded</span><span class="text-white">hustle</span>
                         </span>
                     </a>
                     <p class="text-gray-400 text-sm mb-8 leading-relaxed">Built in India, for the Indian Hustler. We provide the <strong>blueprints</strong> you need to <strong>escape the rat race</strong> without investors or debt.</p>
                     <div class="flex space-x-4 mt-6">
-                        <!-- Social Icons -->
-                        <a href="https://twitter.com/zerofundedhustle" target="_blank" class="text-gray-400 hover:text-lime-neon transition-colors" aria-label="Twitter"><i class="fa-brands fa-twitter text-xl"></i></a>
-                        <a href="https://facebook.com/zerofundedhustle" target="_blank" class="text-gray-400 hover:text-lime-neon transition-colors" aria-label="Facebook"><i class="fa-brands fa-facebook-f text-xl"></i></a>
-                        <a href="https://www.instagram.com/zerofundedhustle/" target="_blank" class="text-gray-400 hover:text-lime-neon transition-colors" aria-label="Instagram"><i class="fa-brands fa-instagram text-xl"></i></a>
+                        <!-- Social Icons (Updated to use Emerald-based hover) -->
+                        <a href="https://twitter.com/zerofundedhustl" target="_blank" class="text-gray-400 hover:text-emerald-600 transition-colors" aria-label="Twitter"><i class="fa-brands fa-twitter text-xl"></i></a>
+                        <a href="https://facebook.com/zerofundedhustle" target="_blank" class="text-gray-400 hover:text-emerald-600 transition-colors" aria-label="Facebook"><i class="fa-brands fa-facebook-f text-xl"></i></a>
+                        <a href="https://www.instagram.com/zerofundedhustle/" target="_blank" class="text-gray-400 hover:text-emerald-600 transition-colors" aria-label="Instagram"><i class="fa-brands fa-instagram text-xl"></i></a>
                     </div>
                 </div>
-                <div><h4 class="font-bold mb-6 text-sm uppercase tracking-wider text-gray-300">Product</h4><ul class="space-y-4 text-sm text-gray-400"><li><a href="/#blueprint" class="hover:text-lime-neon transition-colors">The Blueprint</a></li><li><a href="/#proof" class="hover:text-lime-neon transition-colors">Proof</a></li><li><a href="/#bonuses" class="hover:text-lime-neon transition-colors">Bonuses</a></li><li><a href="/#reviews" class="hover:text-lime-neon transition-colors">Reviews</a></li></ul></div>
-                <div><h4 class="font-bold mb-6 text-sm uppercase tracking-wider text-gray-300">Legal</h4><ul class="space-y-4 text-sm text-gray-400">
-                    <li><a id="privacy-policy-link" href="#" class="hover:text-lime-neon transition-colors text-left">Privacy Policy</a></li>
-                    <li><a id="terms-of-use-link" href="#" class="hover:text-lime-neon transition-colors text-left">Terms of Use</a></li>
-                    <li><a id="refund-policy-link" href="#" class="hover:text-lime-neon transition-colors text-left">Refund Policy</a></li>
+                
+                <!-- Col 2: Product -->
+                <div><h4 class="font-bold mb-6 text-sm uppercase tracking-wider text-gray-300">Product</h4><ul class="space-y-4 text-sm text-gray-400">
+                    <li><a href="/#blueprint" class="hover:text-emerald-600 transition-colors">The Blueprint</a></li>
+                    <li><a href="/#proof" class="hover:text-emerald-600 transition-colors">Proof</a></li>
+                    <li><a href="/#bonuses" class="hover:text-emerald-600 transition-colors">Bonuses</a></li>
+                    <li><a href="/#reviews" class="hover:text-emerald-600 transition-colors">Reviews</a></li>
                 </ul></div>
+                
+                <!-- Col 3: Legal -->
+                <div><h4 class="font-bold mb-6 text-sm uppercase tracking-wider text-gray-300">Legal</h4><ul class="space-y-4 text-sm text-gray-400">
+                    <li><a id="privacy-policy-link" href="privacypolicy" class="hover:text-emerald-600 transition-colors text-left">Privacy Policy</a></li>
+                    <li><a id="terms-of-use-link" href="termsofuse" class="hover:text-emerald-600 transition-colors text-left">Terms of Use</a></li>
+                    <li><a id="refund-policy-link" href="refundpolicy" class="hover:text-emerald-600 transition-colors text-left">Refund Policy</a></li>
+                </ul></div>
+                
+                <!-- Col 4: Connect -->
                 <div><h4 class="font-bold mb-6 text-sm uppercase tracking-wider text-gray-300">Connect</h4><ul class="space-y-4 text-sm text-gray-400">
-                    <li><a id="contact-us-link" href="#" class="hover:text-lime-neon transition-colors text-left">Contact Us</a></li>
-                    <li><a href="sitemap" class="hover:text-lime-neon transition-colors text-left">Sitemap</a></li>
+                    <li><a id="contact-us-link" href="contactus" class="hover:text-emerald-600 transition-colors text-left">Contact Us</a></li>
+                    <li><a href="sitemap" class="hover:text-emerald-600 transition-colors text-left">Sitemap</a></li>
                 </ul></div>
             </div>
             <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4"><p class="text-gray-500 text-xs">Copyright © 2025 <strong>zerofundedhustle</strong>. All Rights Reserved.</p></div>
         </div>
     </footer>
 
-
-    <!-- MODALS (Copied from success-page, links updated to clean URLs) -->
+    <!-- MODALS (These are included on every page for consistency) -->
+    <!-- Privacy Policy Modal -->
     <div id="privacy-modal" class="hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4 modal-overlay opacity-0">
         <div class="modal-container bg-navy-900 border border-gray-800 rounded-lg w-full max-w-3xl max-h-[90vh] flex flex-col transform scale-95 opacity-0">
             <div class="flex-shrink-0 p-6 border-b border-gray-800 flex justify-between items-center">
@@ -224,7 +272,7 @@
                 </div>
             </div>
             <div class="flex-shrink-0 p-4 border-t border-gray-800 text-center">
-                <a href="privacypolicy" class="text-lime-neon hover:underline text-sm font-medium">For the full details, please click here</a>
+                <a href="privacypolicy" class="text-emerald-600 hover:underline text-sm font-medium">For the full details, please click here</a>
             </div>
         </div>
     </div>
@@ -247,11 +295,11 @@
                 </div>
             </div>
              <div class="flex-shrink-0 p-4 border-t border-gray-800 text-center">
-                <a href="termsofuse" class="text-lime-neon hover:underline text-sm font-medium">For the full details, please click here</a>
+                <a href="termsofuse" class="text-emerald-600 hover:underline text-sm font-medium">For the full details, please click here</a>
             </div>
         </div>
     </div>
-     <div id="refund-modal" class="hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4 modal-overlay opacity-0">
+    <div id="refund-modal" class="hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4 modal-overlay opacity-0">
         <div class="modal-container bg-navy-900 border border-gray-800 rounded-lg w-full max-w-3xl max-h-[90vh] flex flex-col transform scale-95 opacity-0">
             <div class="flex-shrink-0 p-6 border-b border-gray-800 flex justify-between items-center">
                 <h2 class="text-2xl font-bold text-white">Refund Policy</h2>
@@ -268,10 +316,10 @@
                 </div>
             </div>
              <div class="flex-shrink-0 p-4 border-t border-gray-800 text-center">
-                <a href="refundpolicy" class="text-lime-neon hover:underline text-sm font-medium">For the full details, please click here</a>
+                <a href="refundpolicy" class="text-emerald-600 hover:underline text-sm font-medium">For the full details, please click here</a>
             </div>
         </div>
-    </dialog>
+    </div>
     <div id="contact-modal" class="hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4 modal-overlay opacity-0">
         <div class="modal-container bg-navy-900 border border-gray-800 rounded-lg w-full max-w-3xl max-h-[90vh] flex flex-col transform scale-95 opacity-0">
             <div class="flex-shrink-0 p-6 border-b border-gray-800 flex justify-between items-center">
@@ -284,7 +332,7 @@
                     <p class="text-lg">We’re here to help. If you have any questions about your purchase, need support, or just want to share feedback, reach out — we actually read every message.</p>
                     <div>
                         <h3 class="font-semibold text-white text-lg">📬 Email</h3>
-                        <a href="mailto:zerofundedhustle@gmail.com" class="text-lime-neon hover:underline">zerofundedhustle@gmail.com</a>
+                        <a href="mailto:zerofundedhustle@gmail.com" class="text-emerald-600 hover:underline">zerofundedhustle@gmail.com</a>
                         <p class="text-sm">We typically reply within 24–48 hours (Mon–Fri).</p>
                     </div>
                      <div>
@@ -299,7 +347,7 @@
                 </div>
             </div>
             <div class="flex-shrink-0 p-4 border-t border-gray-800 text-center">
-                <a href="contactus" class="text-lime-neon hover:underline text-sm font-medium">For the full details, please click here</a>
+                <a href="contactus" class="text-emerald-600 hover:underline text-sm font-medium">For the full details, please click here</a>
             </div>
         </div>
     </div>
@@ -307,8 +355,55 @@
 
     <!-- Modal Popup & Animation JS (Shared Logic) -->
     <script>
+        // --- GOOGLE APPS SCRIPT URL FOR CONTACT FORM ---
+        const CONTACT_FORM_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxxxx/exec'; 
+
         document.addEventListener('DOMContentLoaded', function() {
-            // --- MODAL POPUP LOGIC (Generic logic for legal pages) ---
+            // --- CONTACT FORM LOGIC (MOCK) ---
+            const contactForm = document.getElementById('contact-form');
+            const successMessage = document.getElementById('contact-success');
+            const errorMessage = document.getElementById('contact-error-message');
+            const formContainer = document.getElementById('contact-form-container');
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const submitButton = this.querySelector('button[type="submit"]');
+                    const originalBtnText = submitButton.innerText;
+                    
+                    // START LOADING ANIMATION
+                    submitButton.classList.add('button-loading'); 
+                    submitButton.innerText = ''; 
+                    submitButton.disabled = true;
+
+                    errorMessage.classList.add('hidden');
+                    
+                    // Mock Fetch Call (Simulating success for this template)
+                    setTimeout(() => {
+                        const success = true; 
+
+                        if (success) {
+                            formContainer.classList.add('hidden');
+                            successMessage.classList.remove('hidden');
+                            successMessage.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        } else {
+                            // Simulate Error
+                            errorMessage.textContent = 'There was an issue sending your message. Please try again or email us directly.';
+                            errorMessage.classList.remove('hidden');
+                        }
+                        
+                        // STOP LOADING ANIMATION
+                        submitButton.classList.remove('button-loading');
+                        submitButton.innerText = originalBtnText;
+                        submitButton.disabled = false;
+
+                    }, 1500); // Simulated delay for network response
+                });
+            }
+
+
+            // --- MODAL POPUP LOGIC (Generic logic for legal pages, copied for self-contained page) ---
             const modals = {
                 'privacy-modal': document.getElementById('privacy-modal'),
                 'terms-modal': document.getElementById('terms-modal'),
@@ -377,7 +472,9 @@
                     }
                 });
             });
-            // --- END MODAL POPUP LOGIC ---
+
+            // --- STICKY BANNER LOGIC (REMOVED) ---
+            // Removed sticky banner logic per user request.
         });
     </script>
 
