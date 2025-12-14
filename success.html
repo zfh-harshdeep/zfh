@@ -9,20 +9,19 @@
     <link rel="canonical" href="https://www.zerofundedhustle.com/success">
     <link rel="icon" type="image/png" href="favicon.png">
     
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
     <!-- Google Fonts: Plus Jakarta Sans (Main Body) and Inter (Logo) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
     
     <!-- Font Awesome (Deferred) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
 
     <script>
-        // Custom Tailwind Config from index.html
+        // Custom Tailwind Config from index.html (Updated to Emerald)
         tailwind.config = {
             theme: {
                 extend: {
@@ -32,20 +31,29 @@
                             800: '#1F2937', // Hero bg
                             700: '#2D3A4F', // Card bg
                         },
+                        // NEW ACCENT COLOR: LOGO GREEN (#22c55e)
+                        emerald: {
+                            DEFAULT: '#22c55e', 
+                            600: '#22c55e', // LOGO GREEN
+                            700: '#1f9b50', // Darker shade for hover/active
+                        },
+                        // Fallback lime/teal now mapped to Emerald
                         lime: {
-                            neon: '#D4FF00',
-                            hover: '#B8E600'
+                            neon: '#22c55e', // Mapped to Emerald
+                            hover: '#1f9b50' // Mapped to Emerald 700
                         },
                         teal: {
-                            accent: '#2DD4BF'
+                            accent: '#2DD4BF' 
                         }
                     },
                     fontFamily: {
                         sans: ['Plus Jakarta Sans', 'sans-serif'],
                     },
                     boxShadow: {
-                        'glow': '0 0 20px rgba(212, 255, 0, 0.3)',
-                        'neon-border': '0 0 0 4px rgba(212, 255, 0, 0.5), 0 0 20px rgba(212, 255, 0, 0.5)',
+                        // Matching the glow used on the homepage lead magnet
+                        'glow': '0 0 20px rgba(34, 197, 94, 0.3)',
+                        // Updated to use Emerald for neon glow
+                        'neon-glow': '0 0 0 4px rgba(34, 197, 94, 0.7), 0 0 20px rgba(34, 197, 94, 0.7)',
                     }
                 }
             }
@@ -57,17 +65,14 @@
         body { 
             font-family: 'Plus Jakarta Sans', sans-serif; 
             overflow-x: hidden; 
-            background-color: #0B1221; /* navy-900 */
-            color: #E6EDF3;
+            /* White background as per user request for utility pages */
+            background-color: #FFFFFF; 
+            color: #4B5563;
             min-height: 100vh;
         }
         
-        /* FIX: Ensure no horizontal scroll */
-        body {
-            overflow-x: hidden;
-        }
-        
         .hero-bg {
+            /* Keep Hero section dark for visual pop */
             background-color: #111827;
             background: radial-gradient(circle at 50% 50%, #1F2937 0%, #0B1221 100%);
         }
@@ -79,7 +84,7 @@
             padding-top: 1rem; 
             padding-bottom: 1rem; 
         }
-
+        
         /* FIX: Aggressive containment for main section elements */
         .main-container-content {
             overflow-x: hidden;
@@ -88,22 +93,21 @@
         
         /* --- ANIMATION STYLES --- */
         
-        /* Container for the loader/tick */
         #animation-container {
             transition: all 0.5s ease-out;
-            height: 80px; /* Ensure space for the animation */
+            height: 80px; 
+            position: relative;
         }
 
-        /* Class to shrink and move the container up to integrate with the card */
         .move-up-and-shrink {
             height: 40px; 
             margin-bottom: 16px; 
         }
 
-        /* Loading Spinner - Branded Colors */
+        /* Loading Spinner - Branded Colors (Emerald Top) */
         .loader {
-            border: 4px solid #1F2937; /* navy-800 */
-            border-top: 4px solid #D4FF00; /* lime-neon */
+            border: 4px solid #1F2937; /* Navy 800 */
+            border-top: 4px solid #22c55e; /* Emerald */
             border-radius: 50%;
             width: 40px; 
             height: 40px;
@@ -114,13 +118,13 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* Animated Tick - Branded Colors */
+        /* Animated Tick - Branded Colors (Emerald Stroke) */
         .svg-tick {
             width: 50px; 
             height: 50px;
         }
         .svg-tick path {
-            stroke: #D4FF00; /* lime-neon */
+            stroke: #22c55e; /* Emerald */
             stroke-width: 4;
             stroke-dasharray: 1000;
             stroke-dashoffset: 1000;
@@ -143,7 +147,7 @@
             }
         }
 
-        /* Confetti Simulation - Branded Colors */
+        /* Confetti Simulation - Branded Colors (Updated to Emerald/Navy palette) */
         .confetti-piece {
             position: absolute;
             width: 10px;
@@ -151,40 +155,37 @@
             background-color: var(--confetti-color);
             opacity: 0;
             animation: fall 3s ease-in-out forwards;
-            /* FIX: Ensure confetti renders above the header */
             z-index: 55; 
         }
-
-        /* FIX: Start position adjusted for absolute top visibility (using a large negative top margin) */
         @keyframes fall {
             0% { transform: translate(var(--x-start), -100vh) rotate(0deg); opacity: 1; }
             100% { transform: translate(var(--x-end), 100vh) rotate(720deg); opacity: 0; }
         }
 
-        /* Modal Styles (Adapted to new theme) */
+        /* Modal Styles (Consistent with homepage) */
         .modal-overlay { transition: opacity 0.3s ease; }
         .modal-container { transition: transform 0.3s ease, opacity 0.3s ease; }
         .modal-content::-webkit-scrollbar { width: 8px; }
         .modal-content::-webkit-scrollbar-track { background: #0B1221; }
         .modal-content::-webkit-scrollbar-thumb { background-color: #1F2937; border-radius: 4px; border: 2px solid #0B1221; }
-        .modal-content::-webkit-scrollbar-thumb:hover { background-color: #2DD4BF; }
+        .modal-content::-webkit-scrollbar-thumb:hover { background-color: #22c55e; }
     </style>
 </head>
 <body class="flex flex-col">
 
-    <!-- HEADER (Copied structure from legal pages for consistency) -->
+    <!-- HEADER (Simplified, Centered Logo, and Back Button - Matches Legal Page Standard) -->
     <nav id="main-nav" class="fixed w-full z-50 transition-all duration-300 bg-[#111827]/90 backdrop-blur-md border-b border-gray-800 py-4 scrolled">
         <div class="container mx-auto px-6 lg:px-12 relative flex justify-center items-center">
-            <!-- Back to Home Link (Added for UX) -->
-            <a href="/" class="absolute left-6 lg:left-12 top-1/2 transform -translate-y-1/2 text-lime-neon hover:text-white text-base font-semibold transition-colors flex items-center gap-2 group">
+            <!-- Back to Home Link (Updated to Emerald text) -->
+            <a href="/" class="absolute left-6 lg:left-12 top-1/2 transform -translate-y-1/2 text-emerald-600 hover:text-white text-base font-semibold transition-colors flex items-center gap-2 group">
                 <i class="fa-solid fa-arrow-left text-lg group-hover:-translate-x-1 transition-transform"></i>
                 <span class="hidden sm:inline">Back to Home</span>
             </a>
 
-            <!-- Logo (Center) -->
+            <!-- Logo (Center - Matches homepage) -->
             <a href="/" class="flex items-center group hover:opacity-90 transition-opacity">
-                <span class="text-2xl font-extrabold tracking-tight" style="font-family: 'Inter', sans-serif;">
-                    <span class="text-white">zero</span><span class="text-[#22c55e]">funded</span><span class="text-white">hustle</span>
+                 <span class="text-2xl font-extrabold tracking-tight" style="font-family: 'Inter', sans-serif;">
+                    <span class="text-white">zero</span><span class="text-emerald-600">funded</span><span class="text-white">hustle</span>
                 </span>
             </a>
         </div>
@@ -195,21 +196,21 @@
 
     <!-- Main Success Content -->
     <main class="flex-grow pt-24 pb-12 sm:pb-24 md:pb-32 flex items-center justify-center relative z-20 hero-bg main-container-content">
-        <!-- Background Blur Circle (Contained to prevent overflow) -->
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-teal-accent/5 rounded-full blur-3xl -z-10 max-w-full"></div>
+        <!-- Background Blur Circle (Updated to Emerald/5) -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-emerald-600/5 rounded-full blur-3xl -z-10 max-w-full"></div>
         
         <div class="container mx-auto px-6 max-w-4xl">
             
-            <!-- Success Card - Styled like the lead magnet form in final25.html -->
+            <!-- Success Card - Dark card with Emerald glow -->
             <div class="bg-navy-900 border border-gray-700 rounded-3xl p-8 sm:p-12 md:p-16 text-center shadow-2xl shadow-black/70" 
-                 style="border: 1px solid rgba(212, 255, 0, 0.5); box-shadow: 0 0 0 4px rgba(212, 255, 0, 0.7), 0 0 20px rgba(212, 255, 0, 0.7);"
+                 style="box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.7), 0 0 20px rgba(34, 197, 94, 0.7);"
             >
                 
                 <!-- Animation Container -->
                 <div id="animation-container" class="flex items-center justify-center mb-6">
-                    <!-- Loading Spinner -->
+                    <!-- Loading Spinner (Styled via CSS in <style> block using Emerald) -->
                     <div id="loader" class="loader"></div>
-                    <!-- Animated Tick -->
+                    <!-- Animated Tick (Styled via CSS in <style> block using Emerald) -->
                     <div id="tick-container" class="hidden">
                         <svg class="svg-tick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2">
                             <path fill="none" stroke-linecap="round" stroke-linejoin="round" d="M10.5 73.5l34.4 34.4 74.8-74.8"/>
@@ -221,7 +222,8 @@
                 <div id="main-content" class="hidden fade-in w-full">
                     
                     <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-white mb-3 leading-tight">
-                        <span class="text-lime-neon">Access Granted.</span><br>The Hustle Begins.
+                        <!-- Text color updated to Emerald -->
+                        <span class="text-emerald-600">Access Granted.</span><br>The Hustle Begins.
                     </h1>
                     <p class="text-lg text-gray-400 mb-8 max-w-lg mx-auto">
                         Your purchase of the <strong>zerofundedhustle</strong> is complete. You are one step closer to financial freedom.
@@ -231,21 +233,22 @@
                     <div class="bg-navy-800/70 p-6 rounded-2xl border border-gray-700 max-w-sm mx-auto mb-8 text-left">
                         <p class="font-bold text-white mb-3 text-xl">What You Received:</p>
                         <ul class="space-y-2 text-gray-300">
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-lime-neon text-sm"></i> <span>Blueprint Ebook (PDF)</span></li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-lime-neon text-sm"></i> <span>7-Day Launchpad Bonus</span></li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-lime-neon text-sm"></i> <span>Debt-Crusher Template Bonus</span></li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-lime-neon text-sm"></i> <span>Zero-Cost Tools Vault Bonus</span></li>
+                            <!-- Icons updated to Emerald -->
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600 text-sm"></i> <span>Blueprint Ebook (PDF)</span></li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600 text-sm"></i> <span>7-Day Launchpad Bonus</span></li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600 text-sm"></i> <span>Debt-Crusher Template Bonus</span></li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600 text-sm"></i> <span>Zero-Cost Tools Vault Bonus</span></li>
                         </ul>
                     </div>
                     
-                    <!-- Delivery Line -->
-                    <p class="text-md text-gray-300 max-w-xl mx-auto mb-6">
-                        The blueprint is delivered to your email, and you can also download it from here.
+                    <!-- Delivery Line (UPDATED: Single line, non-breaking orphan fix) -->
+                    <p class="text-base sm:text-lg text-gray-300 w-full max-w-3xl mx-auto mb-8 whitespace-normal md:whitespace-nowrap">
+                        The blueprint has been delivered to your email, and you can also download it from&nbsp;here.
                     </p>
 
-                    <!-- Primary CTA - Download -->
+                    <!-- Primary CTA - Download (UPDATED: Single line enforced) -->
                     <a href="[YOUR_DIGITAL_DOWNLOAD_LINK_HERE]" 
-                       class="bg-lime-neon text-navy-900 font-bold py-4 px-12 text-lg rounded-full hover:bg-lime-hover transition-all duration-300 shadow-glow inline-flex items-center justify-center gap-3 transform hover:scale-[1.03] w-full max-w-xs sm:max-w-sm mx-auto">
+                       class="bg-emerald-600 text-navy-900 font-bold py-4 px-6 sm:px-10 text-lg rounded-full hover:bg-emerald-700 transition-all duration-300 shadow-glow inline-flex items-center justify-center gap-3 transform hover:scale-[1.03] w-auto whitespace-nowrap mx-auto min-w-[280px]">
                         <i class="fa-solid fa-download"></i>
                         Download Your Blueprint Now
                     </a>
@@ -265,11 +268,11 @@
                     <!-- Support Links (Refined Layout) -->
                     <div class="mt-8 flex flex-col items-center gap-4">
                         <a href="/" 
-                           class="px-8 py-3 text-base font-medium text-teal-accent border border-gray-700 rounded-full hover:bg-navy-800 transition-colors">
+                           class="px-8 py-3 text-base font-medium text-emerald-600 border border-gray-700 rounded-full hover:bg-navy-800 hover:text-white transition-colors">
                             Return to Homepage
                         </a>
                         <p class="text-sm text-gray-500">
-                            Directly for fast support: <a href="mailto:zerofundedhustle@gmail.com" class="text-teal-accent hover:underline font-medium">zerofundedhustle@gmail.com</a>
+                            Directly for fast support: <a href="mailto:zerofundedhustle@gmail.com" class="text-emerald-600 hover:underline font-medium">zerofundedhustle@gmail.com</a>
                         </p>
                     </div>
                 </div>
@@ -277,24 +280,45 @@
         </div>
     </main>
 
-    <!-- FOOTER (Consistent with contactus.html) -->
+    <!-- FOOTER (Consistent with other utility pages) -->
     <footer class="bg-navy-900 text-white pt-20 pb-10 border-t border-gray-800 flex-shrink-0">
         <div class="container mx-auto px-6 lg:px-12">
-            <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
-                <div class="lg:col-span-2 pr-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-y-10 md:gap-y-12 gap-x-12 mb-16">
+                <!-- Col 1: Logo and Socials -->
+                <div class="lg:col-span-2 lg:pr-8">
                     <a href="/" class="flex items-center gap-2 mb-6">
                         <span class="text-2xl font-extrabold tracking-tight" style="font-family: 'Inter', sans-serif;">
-                            <span class="text-white">zero</span><span class="text-[#22c55e]">funded</span><span class="text-white">hustle</span>
+                            <span class="text-white">zero</span><span class="text-emerald-600">funded</span><span class="text-white">hustle</span>
                         </span>
                     </a>
                     <p class="text-gray-400 text-sm mb-8 leading-relaxed">Built in India, for the Indian Hustler. We provide the <strong>blueprints</strong> you need to <strong>escape the rat race</strong> without investors or debt.</p>
                     <div class="flex space-x-4 mt-6">
-                        <a href="https://www.instagram.com/zerofundedhustle/" target="_blank" class="text-gray-400 hover:text-lime-neon transition-colors" aria-label="Instagram"><i class="fa-brands fa-instagram text-xl"></i></a>
+                        <a href="https://twitter.com/zerofundedhustl" target="_blank" class="text-gray-400 hover:text-emerald-600 transition-colors" aria-label="Twitter"><i class="fa-brands fa-twitter text-xl"></i></a>
+                        <a href="https://facebook.com/zerofundedhustle" target="_blank" class="text-gray-400 hover:text-emerald-600 transition-colors" aria-label="Facebook"><i class="fa-brands fa-facebook-f text-xl"></i></a>
+                        <a href="https://www.instagram.com/zerofundedhustle/" target="_blank" class="text-gray-400 hover:text-emerald-600 transition-colors" aria-label="Instagram"><i class="fa-brands fa-instagram text-xl"></i></a>
                     </div>
                 </div>
-                <div><h4 class="font-bold mb-6 text-sm uppercase tracking-wider text-gray-300">Product</h4><ul class="space-y-4 text-sm text-gray-400"><li><a href="/#blueprint" class="hover:text-lime-neon transition-colors">The Blueprint</a></li><li><a href="/#proof" class="hover:text-lime-neon transition-colors">Proof</a></li><li><a href="/#bonuses" class="hover:text-lime-neon transition-colors">Bonuses</a></li><li><a href="/#reviews" class="hover:text-lime-neon transition-colors">Reviews</a></li></ul></div>
-                <div><h4 class="font-bold mb-6 text-sm uppercase tracking-wider text-gray-300">Legal</h4><ul class="space-y-4 text-sm text-gray-400"><li><a id="privacy-policy-link" href="privacypolicy" class="hover:text-lime-neon transition-colors text-left">Privacy Policy</a></li><li><a id="terms-of-use-link" href="termsofuse" class="hover:text-lime-neon transition-colors text-left">Terms of Use</a></li><li><a id="refund-policy-link" href="refundpolicy" class="hover:text-lime-neon transition-colors text-left">Refund Policy</a></li></ul></div>
-                <div><h4 class="font-bold mb-6 text-sm uppercase tracking-wider text-gray-300">Connect</h4><ul class="space-y-4 text-sm text-gray-400"><li><a id="contact-us-link" href="contactus" class="hover:text-lime-neon transition-colors text-left">Contact Us</a></li><li><a href="sitemap" class="hover:text-lime-neon transition-colors text-left">Sitemap</a></li></ul></div>
+                
+                <!-- Col 2: Product -->
+                <div><h4 class="font-bold mb-6 text-sm uppercase tracking-wider text-gray-300">Product</h4><ul class="space-y-4 text-sm text-gray-400">
+                    <li><a href="/#blueprint" class="hover:text-emerald-600 transition-colors">The Blueprint</a></li>
+                    <li><a href="/#proof" class="hover:text-emerald-600 transition-colors">Proof</a></li>
+                    <li><a href="/#bonuses" class="hover:text-emerald-600 transition-colors">Bonuses</a></li>
+                    <li><a href="/#reviews" class="hover:text-emerald-600 transition-colors">Reviews</a></li>
+                </ul></div>
+                
+                <!-- Col 3: Legal -->
+                <div><h4 class="font-bold mb-6 text-sm uppercase tracking-wider text-gray-300">Legal</h4><ul class="space-y-4 text-sm text-gray-400">
+                    <li><a id="privacy-policy-link" href="privacypolicy" class="hover:text-emerald-600 transition-colors text-left">Privacy Policy</a></li>
+                    <li><a id="terms-of-use-link" href="termsofuse" class="hover:text-emerald-600 transition-colors text-left">Terms of Use</a></li>
+                    <li><a id="refund-policy-link" href="refundpolicy" class="hover:text-emerald-600 transition-colors text-left">Refund Policy</a></li>
+                </ul></div>
+                
+                <!-- Col 4: Connect -->
+                <div><h4 class="font-bold mb-6 text-sm uppercase tracking-wider text-gray-300">Connect</h4><ul class="space-y-4 text-sm text-gray-400">
+                    <li><a id="contact-us-link" href="contactus" class="hover:text-emerald-600 transition-colors text-left">Contact Us</a></li>
+                    <li><a href="sitemap" class="hover:text-emerald-600 transition-colors text-left">Sitemap</a></li>
+                </ul></div>
             </div>
             <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4"><p class="text-gray-500 text-xs">Copyright © 2025 <strong>zerofundedhustle</strong>. All Rights Reserved.</p></div>
         </div>
@@ -320,7 +344,7 @@
                 </div>
             </div>
             <div class="flex-shrink-0 p-4 border-t border-gray-800 text-center">
-                <a href="privacypolicy" class="text-lime-neon hover:underline text-sm font-medium">For the full details, please click here</a>
+                <a href="privacypolicy" class="text-emerald-600 hover:underline text-sm font-medium">For the full details, please click here</a>
             </div>
         </div>
     </div>
@@ -342,12 +366,12 @@
                     <div><h3 class="font-semibold text-white text-xl mt-4">6. Contact</h3><p>For any questions about these Terms, reach us at: Email: zerofundedhustle@gmail.com</p></div>
                 </div>
             </div>
-            <div class="flex-shrink-0 p-4 border-t border-gray-800 text-center">
-                <a href="termsofuse" class="text-lime-neon hover:underline text-sm font-medium">For the full details, please click here</a>
+             <div class="flex-shrink-0 p-4 border-t border-gray-800 text-center">
+                <a href="termsofuse" class="text-emerald-600 hover:underline text-sm font-medium">For the full details, please click here</a>
             </div>
         </div>
     </div>
-     <div id="refund-modal" class="hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4 modal-overlay opacity-0">
+    <div id="refund-modal" class="hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4 modal-overlay opacity-0">
         <div class="modal-container bg-navy-900 border border-gray-800 rounded-lg w-full max-w-3xl max-h-[90vh] flex flex-col transform scale-95 opacity-0">
             <div class="flex-shrink-0 p-6 border-b border-gray-800 flex justify-between items-center">
                 <h2 class="text-2xl font-bold text-white">Refund Policy</h2>
@@ -356,7 +380,7 @@
             <div class="modal-content flex-grow overflow-y-auto p-6">
                 <p class="text-sm text-gray-500 mb-6">Last Updated: November 24, 2025</p>
                 <div class="space-y-4 text-gray-400">
-                    <p>At <strong class="font-semibold text-white">zerofundedhustle</strong>, we offer a **14-Day Action-Based Refund Guarantee**.</p>
+                    <p>At <strong class="font-semibold text-white">zerofundedhustle</strong>, we offer a <strong>14-Day Action-Based Refund Guarantee</strong>.</p>
                     <div><h3 class="font-semibold text-white text-xl mt-4">1. Our 14-Day Action-Based Guarantee</h3><p>If you’ve read the blueprint, actively applied the lessons (with proof), and still feel you didn’t gain value, you can request a full refund within 14 days of purchase. We require documentation proving you executed at least one of the 6 core business models.</p></div>
                     <div><h3 class="font-semibold text-white text-xl mt-4">2. How to Request a Refund</h3><p>Email zerofundedhustle@gmail.com with your order number and the required proof of work.</p></div>
                     <div><h3 class="font-semibold text-white text-xl mt-4">3. Eligibility</h3><p>Refunds will not be granted for buyers who haven’t shown documented proof of effort. This policy is designed to reward action-takers.</p></div>
@@ -364,7 +388,7 @@
                 </div>
             </div>
              <div class="flex-shrink-0 p-4 border-t border-gray-800 text-center">
-                <a href="refundpolicy" class="text-lime-neon hover:underline text-sm font-medium">For the full details, please click here</a>
+                <a href="refundpolicy" class="text-emerald-600 hover:underline text-sm font-medium">For the full details, please click here</a>
             </div>
         </div>
     </div>
@@ -380,7 +404,7 @@
                     <p class="text-lg">We’re here to help. If you have any questions about your purchase, need support, or just want to share feedback, reach out — we actually read every message.</p>
                     <div>
                         <h3 class="font-semibold text-white text-lg">📬 Email</h3>
-                        <a href="mailto:zerofundedhustle@gmail.com" class="text-lime-neon hover:underline">zerofundedhustle@gmail.com</a>
+                        <a href="mailto:zerofundedhustle@gmail.com" class="text-emerald-600 hover:underline">zerofundedhustle@gmail.com</a>
                         <p class="text-sm">We typically reply within 24–48 hours (Mon–Fri).</p>
                     </div>
                      <div>
@@ -395,7 +419,7 @@
                 </div>
             </div>
             <div class="flex-shrink-0 p-4 border-t border-gray-800 text-center">
-                <a href="contactus" class="text-lime-neon hover:underline text-sm font-medium">For the full details, please click here</a>
+                <a href="contactus" class="text-emerald-600 hover:underline text-sm font-medium">For the full details, please click here</a>
             </div>
         </div>
     </div>
@@ -410,19 +434,19 @@
             const status = urlParams.get('status'); 
 
             // 1. Check if the transaction ID is missing OR status is not 'success'
+            // NOTE: This check prevents unauthorized access by redirecting users who didn't come from PayU.
             if (!txnId || status !== 'success') {
-                // FIX: If validation fails, redirect to home using a robust absolute URL.
+                // If validation fails, redirect to home immediately.
+                // FIX: Use absolute path for redirection to avoid syntax errors with simple "/" in some environments.
                 window.location.href = window.location.origin + '/'; 
                 return; 
             }
             
             // 2. Clean the URL in the browser bar
             try {
-                // This attempts to set the URL without the query parameters (txnId, status)
                 const cleanUrl = window.location.protocol + "//" + window.location.host + window.location.pathname;
                 window.history.replaceState({}, '', cleanUrl);
             } catch (e) {
-                // Catch the SecurityError (common in restricted iFrames) and suppress it.
                 console.warn("Could not clean URL history state:", e.message);
             }
             // --- END OF PROTECTION SCRIPT ---
@@ -506,7 +530,8 @@
 
             // Confetti Generation Function (Branded Colors)
             function launchConfetti() {
-                const colors = ['#D4FF00', '#2DD4BF', '#0B1221', '#E6EDF3'];
+                // Using Emerald, Navy, and White for confetti colors
+                const colors = ['#22c55e', '#0B1221', '#E6EDF3'];
                 for (let i = 0; i < 50; i++) {
                     const piece = document.createElement('div');
                     piece.classList.add('confetti-piece');
@@ -561,4 +586,3 @@
     
 </body>
 </html>
-
