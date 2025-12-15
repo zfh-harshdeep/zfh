@@ -224,17 +224,23 @@
         .ebook-3d { transform: rotateY(-15deg) rotateX(5deg); box-shadow: -15px 20px 30px rgba(0,0,0,0.3); transition: transform 0.5s ease; }
         .ebook-3d:hover { transform: rotateY(0deg) rotateX(0deg) scale(1.05); }
 
-        /* FAQ Content Transition (CRITICAL FOR ANIMATION) */
+        /* CHANGELOG FIX Q3: FAQ Content Transition - Removed border-t and py-0 on inner div */
         .faq-content { 
             max-height: 0; 
             overflow: hidden; 
-            transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out; 
+            transition: max-height 0.3s ease-in-out; 
             padding-top: 0;
             padding-bottom: 0;
+            /* Added margin-top to content to remove the line border gap */
+        }
+        .faq-content > div {
+             padding-top: 0;
+             padding-bottom: 0;
         }
         .faq-item.active .faq-content { 
-            padding-top: 1.5rem; /* py-6 is 1.5rem */
-            padding-bottom: 1.5rem; /* py-6 is 1.5rem */
+            /* Adjusted padding to remove the large gap, using pt-4 pb-6 (1rem top, 1.5rem bottom) for cleaner look */
+            padding-top: 1rem;
+            padding-bottom: 1.5rem; 
         }
         /* FIX: Ensure FAQ icons rotate correctly */
         .faq-item.active .faq-icon { transform: rotate(180deg); }
@@ -367,6 +373,16 @@
             border-color: #EF4444; /* Red-500 */
             box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.3);
         }
+        
+        /* CHANGELOG FIX Q2: Anchor offset for fixed header */
+        /* This prevents sections from being obscured by the fixed header */
+        .anchor-offset::before {
+            content: "";
+            display: block;
+            height: 6rem; /* Height of the sticky header + some padding */
+            margin-top: -6rem; /* Negative margin to counteract the padding */
+            visibility: hidden;
+        }
     </style>
     <!-- --- END COLOR PALETTE REVISION --- -->
 </head>
@@ -385,10 +401,11 @@
                 </span>
             </a>
             <div class="hidden lg:flex items-center gap-8">
-                <a href="#blueprint" class="text-gray-300 hover:text-white text-sm font-medium transition-colors">The Blueprint</a>
-                <a href="#proof" class="text-gray-300 hover:text-white text-sm font-medium transition-colors">Proof</a>
-                <a href="#bonuses" class="text-gray-300 hover:text-white text-sm font-medium transition-colors">Bonuses</a>
-                <a href="#reviews" class="text-gray-300 hover:text-white text-sm font-medium transition-colors">Reviews</a>
+                <!-- CHANGELOG FIX Q2: Added data-scroll-to attribute for smooth scrolling in JS -->
+                <a href="#blueprint" data-scroll-to="#blueprint" class="text-gray-300 hover:text-white text-sm font-medium transition-colors">The Blueprint</a>
+                <a href="#proof" data-scroll-to="#proof" class="text-gray-300 hover:text-white text-sm font-medium transition-colors">Proof</a>
+                <a href="#bonuses" data-scroll-to="#bonuses" class="text-gray-300 hover:text-white text-sm font-medium transition-colors">Bonuses</a>
+                <a href="#reviews" data-scroll-to="#reviews" class="text-gray-300 hover:text-white text-sm font-medium transition-colors">Reviews</a>
             </div>
             <!-- CTA Button Updated -->
             <div class="hidden lg:flex items-center gap-4">
@@ -402,11 +419,12 @@
             </button>
         </div>
         <div id="mobile-menu" class="absolute top-full left-0 w-full bg-navy-900 border-b border-gray-800 hidden-menu flex flex-col p-6 shadow-2xl transition-all duration-300">
-            <a href="#blueprint" class="text-gray-300 hover:text-emerald-600 py-3 border-b border-gray-800 transition-colors mobile-menu-link">Blueprint</a>
-            <a href="#proof" class="text-gray-300 hover:text-emerald-600 py-3 border-b border-gray-800 transition-colors mobile-menu-link">Proof</a>
-            <a href="#bonuses" class="text-gray-300 hover:text-emerald-600 py-3 border-b border-gray-800 transition-colors mobile-menu-link">Bonuses</a>
-            <a href="#reviews" class="text-gray-300 hover:text-emerald-600 py-3 border-b border-gray-800 transition-colors mobile-menu-link">Reviews</a>
-            <a href="#lead-magnet" class="text-gray-300 hover:text-emerald-600 py-3 border-b border-gray-800 transition-colors mobile-menu-link">Free Preview Chapter</a>
+             <!-- CHANGELOG FIX Q2: Added data-scroll-to attribute for smooth scrolling in JS -->
+            <a href="#blueprint" data-scroll-to="#blueprint" class="text-gray-300 hover:text-emerald-600 py-3 border-b border-gray-800 transition-colors mobile-menu-link">Blueprint</a>
+            <a href="#proof" data-scroll-to="#proof" class="text-gray-300 hover:text-emerald-600 py-3 border-b border-gray-800 transition-colors mobile-menu-link">Proof</a>
+            <a href="#bonuses" data-scroll-to="#bonuses" class="text-gray-300 hover:text-emerald-600 py-3 border-b border-gray-800 transition-colors mobile-menu-link">Bonuses</a>
+            <a href="#reviews" data-scroll-to="#reviews" class="text-gray-300 hover:text-emerald-600 py-3 border-b border-gray-800 transition-colors mobile-menu-link">Reviews</a>
+            <a href="#lead-magnet" data-scroll-to="#lead-magnet" class="text-gray-300 hover:text-emerald-600 py-3 border-b border-gray-800 transition-colors mobile-menu-link">Free Preview Chapter</a>
             <a href="https://u.payu.in/nIsRdQdIBGDX" target="_blank" rel="noopener noreferrer" class="mt-4 bg-emerald-600 text-navy-900 font-bold py-3 rounded-xl text-center hover:bg-emerald-700 transition-colors mobile-menu-link-cta">Get Access Now</a>
         </div>
     </nav>
@@ -460,7 +478,8 @@
                     <a href="https://u.payu.in/nIsRdQdIBGDX" target="_blank" rel="noopener noreferrer" class="bg-emerald-600 text-navy-900 font-bold py-4 px-10 rounded-full text-center hover:bg-emerald-700 transition-all shadow-glow flex items-center justify-center gap-2 min-w-[220px]">
                         Get The Blueprint (₹499) <i class="fa-solid fa-arrow-right text-sm"></i>
                     </a>
-                    <a href="#lead-magnet" class="text-white font-semibold py-4 px-8 rounded-full border border-gray-700 bg-navy-800 hover:bg-navy-700 transition-all flex items-center justify-center gap-2 group min-w-[200px]">
+                     <!-- CHANGELOG FIX Q2: Added data-scroll-to attribute for smooth scrolling in JS -->
+                    <a href="#lead-magnet" data-scroll-to="#lead-magnet" class="text-white font-semibold py-4 px-8 rounded-full border border-gray-700 bg-navy-800 hover:bg-navy-700 transition-all flex items-center justify-center gap-2 group min-w-[200px]">
                         <div class="w-8 h-8 rounded-full bg-navy-800 border border-gray-600 flex items-center justify-center group-hover:border-emerald-600 transition-colors">
                             <i class="fa-solid fa-book-open text-emerald-600 text-xs"></i>
                         </div>
@@ -536,7 +555,7 @@
     </div>
 
     <!-- LEAD MAGNET SECTION -->
-    <section id="lead-magnet" class="py-24 bg-navy-900 border-b border-gray-800 relative overflow-hidden">
+    <section id="lead-magnet" class="anchor-offset py-24 bg-navy-900 border-b border-gray-800 relative overflow-hidden">
         <div class="absolute inset-0 bg-emerald-600/5 pointer-events-none"></div>
         <div class="container mx-auto px-6 lg:px-12 relative z-10">
             <div class="bg-gray-800/50 backdrop-blur-md rounded-3xl p-8 md:p-16 flex flex-col md:flex-row items-center justify-between gap-12 border border-gray-700 shadow-2xl">
@@ -721,7 +740,7 @@
                     </div>
                      <!-- CTA for "NOT FOR YOU" (Centered Alignment Fix) -->
                     <div class="mt-10 text-center">
-                        <a href="#faq" class="inline-flex items-center gap-3 bg-red-500 text-white font-bold py-3 px-8 rounded-full hover:bg-red-600 transition-all shadow-lg text-sm">
+                        <a href="#faq" data-scroll-to="#faq" class="inline-flex items-center gap-3 bg-red-500 text-white font-bold py-3 px-8 rounded-full hover:bg-red-600 transition-all shadow-lg text-sm">
                             I Need to Ask a Question →
                         </a>
                     </div>
@@ -818,7 +837,7 @@
     </section>
 
     <!-- INCOME PROOF -->
-    <section class="py-24 bg-white" id="proof">
+    <section class="py-24 bg-white anchor-offset" id="proof">
         <div class="container mx-auto px-6 lg:px-12">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold text-navy-900 mb-4">THE NUMBERS DON'T LIE.</h2>
@@ -897,7 +916,7 @@
     <!-- END: SEO Content Authority Section -->
 
     <!-- BLUEPRINT -->
-    <section class="py-24 bg-white" id="blueprint">
+    <section class="py-24 bg-white anchor-offset" id="blueprint">
         <div class="container mx-auto px-6 lg:px-12">
             <div class="grid lg:grid-cols-2 gap-24 items-center">
                 <!-- Left Column: Book Only (Updated to use mock image with CSS 3D effect) -->
@@ -1089,7 +1108,7 @@
     </section>
 
     <!-- BONUSES -->
-    <section class="py-24 bg-white" id="bonuses">
+    <section class="py-24 bg-white anchor-offset" id="bonuses">
         <div class="container mx-auto px-6 lg:px-12 text-center"><span class="bg-navy-900 text-white text-xs font-bold px-3 py-1 rounded-full mb-4 inline-block">INCLUDED TODAY</span><h2 class="text-3xl md:text-4xl font-bold text-navy-900 mb-12">GET ₹4,997 WORTH OF BONUSES FREE</h2>
         <!-- Card accents updated -->
         <div class="grid md:grid-cols-3 gap-8">
@@ -1162,7 +1181,7 @@
     </section>
 
    <!-- TESTIMONIALS -->
-    <section class="py-24 bg-white" id="reviews">
+    <section class="py-24 bg-white anchor-offset" id="reviews">
         <div class="container mx-auto px-6 lg:px-12">
             <h2 class="text-3xl font-bold text-center text-navy-900 mb-16">PROOF FROM PEOPLE LIKE YOU</h2>
             
@@ -1412,7 +1431,7 @@
     </section>
 
     <!-- FAQ -->
-    <section class="py-24 bg-white" id="faq">
+    <section class="py-24 bg-white anchor-offset" id="faq">
         <div class="container mx-auto px-6 lg:px-12 max-w-3xl">
             <h2 class="text-3xl font-bold text-center text-navy-900 mb-12">YOUR DOUBTS, DESTROYED.</h2>
             <div id="faq-container" class="space-y-4">
@@ -1494,10 +1513,10 @@
                     </div>
                 </div>
                 <div><h4 class="font-bold mb-6 text-sm uppercase tracking-wider text-gray-300">Product</h4><ul class="space-y-4 text-sm text-gray-400">
-                    <li><a href="#blueprint" class="hover:text-emerald-600 transition-colors">The Blueprint</a></li>
-                    <li><a href="#proof" class="hover:text-emerald-600 transition-colors">Proof</a></li>
-                    <li><a href="#bonuses" class="hover:text-emerald-600 transition-colors">Bonuses</a></li>
-                    <li><a href="#reviews" class="hover:text-emerald-600 transition-colors">Reviews</a></li>
+                    <li><a href="#blueprint" data-scroll-to="#blueprint" class="hover:text-emerald-600 transition-colors">The Blueprint</a></li>
+                    <li><a href="#proof" data-scroll-to="#proof" class="hover:text-emerald-600 transition-colors">Proof</a></li>
+                    <li><a href="#bonuses" data-scroll-to="#bonuses" class="hover:text-emerald-600 transition-colors">Bonuses</a></li>
+                    <li><a href="#reviews" data-scroll-to="#reviews" class="hover:text-emerald-600 transition-colors">Reviews</a></li>
                 </ul></div>
                 <div><h4 class="font-bold mb-6 text-sm uppercase tracking-wider text-gray-300">Legal</h4><ul class="space-y-4 text-sm text-gray-400">
                     <!-- Links text updated -->
@@ -1545,40 +1564,7 @@
         </div>
     </div>
 
-    <!-- COOKIE CONSENT MODAL (NEW FULL SCREEN BLOCKING MODAL) -->
-    <div id="cookie-modal" class="fixed inset-0 z-[300] hidden flex items-center justify-center px-4 bg-black/80 backdrop-blur-sm opacity-0 transition-opacity duration-300">
-        <div 
-            class="relative w-full max-w-lg p-8 bg-navy-900 border border-gray-700 rounded-2xl shadow-2xl transform scale-95 transition-transform duration-300 text-center" 
-            style="box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);"
-        >
-            <div class="w-16 h-16 bg-emerald-600/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                <i class="fa-solid fa-cookie-bite text-3xl text-emerald-600"></i>
-            </div>
-            
-            <h3 class="mb-3 text-3xl font-bold text-white font-sans">
-                Manage Your Privacy
-            </h3>
-            
-            <p class="mb-8 text-sm font-medium text-gray-400">
-                We use strictly necessary cookies to ensure the website functions correctly. Please confirm your consent to continue.
-            </p>
-
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <button id="cookie-reject-btn" class="bg-gray-700 text-white font-bold py-3 px-8 rounded-full text-sm hover:bg-gray-600 transition-colors w-full sm:w-auto">
-                    Reject (Essential Only)
-                </button>
-                <button id="cookie-accept-btn" class="bg-emerald-600 text-navy-900 font-bold py-3 px-8 rounded-full text-sm hover:bg-emerald-700 transition-colors w-full sm:w-auto shadow-glow">
-                    Accept & Continue
-                </button>
-            </div>
-            
-            <div class="mt-6">
-                 <a id="cookie-privacy-link-modal" href="#" class="text-xs text-gray-500 hover:text-emerald-600 hover:underline transition-all">
-                    View Privacy Policy Details
-                </a>
-            </div>
-        </div>
-    </div>
+    <!-- CHANGELOG FIX Q1: Removed COOKIE CONSENT MODAL HTML -->
 
     <!-- MODALS -->
     <dialog id="video-modal" class="p-0 rounded-xl backdrop:bg-black/80 w-[90vw] max-w-4xl border border-gray-700 bg-navy-900 text-white shadow-2xl">
@@ -1785,9 +1771,6 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             
-            // FOUC FIX - STEP 2: Restore body opacity after DOM is fully parsed
-            // document.body.style.opacity = '1'; // Removed FOUC fix as per analysis
-
             // --- GLOBAL CONFIG & STATE ---
             let hasInteractedWithEmailInput = false; // For better pop-up control (Fix 3)
             
@@ -1864,6 +1847,35 @@
                 if (window.scrollY > 20) { nav.classList.add('scrolled'); } 
                 else { nav.classList.remove('scrolled'); }
             });
+            
+            // CHANGELOG FIX Q2: Smooth Scroll Functionality
+            const fixedNavHeight = 96; // Approximate height of the fixed header in pixels (pt-32 in hero + nav height)
+
+            const smoothScroll = (targetElement) => {
+                if (!targetElement) return;
+
+                const targetPosition = targetElement.offsetTop - fixedNavHeight;
+
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            };
+
+            // Attach listeners to all scroll-to links
+            document.querySelectorAll('a[data-scroll-to]').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('data-scroll-to');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    // Close mobile menu if open
+                    closeMobileMenu(); 
+
+                    smoothScroll(targetElement);
+                });
+            });
+
 
             // 2. MOBILE MENU
             const mobileBtn = document.getElementById('mobile-menu-btn');
@@ -1889,10 +1901,8 @@
                     }
                 });
 
-                // NEW: Add click listener to all mobile menu links to close the menu
-                document.querySelectorAll('.mobile-menu-link, .mobile-menu-link-cta').forEach(link => {
-                    link.addEventListener('click', closeMobileMenu);
-                });
+                // NOTE: Scroll links already handled by the general 'a[data-scroll-to]' listener above, 
+                // which includes a call to closeMobileMenu().
             }
 
             // 3. REVEAL ANIMATION (kept as is)
@@ -2014,10 +2024,10 @@
             const faqContainer = document.getElementById('faq-container');
             
             const faqs = [
-                { q: "Is this another 'get rich quick' scheme?", a: "<strong>Absolutely not.</strong> This is a a 'get rich smart' blueprint. 'Get rich quick' is a fantasy that leads to debt. I was <strong>-₹32 Lakh in debt</strong> because I fell for those myths. This book focuses on real, gradual strategies to build <strong>sustainable, predictable income</strong>." },
+                { q: "Is this another 'get rich quick' scheme?", a: "<strong>Absolutely not.</strong> This is a a 'get rich smart' blueprint. 'Get rich quick' is a fantasy that leads to debt. I was <strong>-₹32 Lakh in debt</strong> because I fell for those myths. This book focuses on real, gradual strategies to build <strong>sustainable, predictable income.</strong>" },
                 { q: "How is this different from free content on YouTube?", a: "Free content gives you scattered puzzle pieces. This ESCAPE THE 9-5 gives you the <strong>finished picture and the instruction manual.</strong> It's a battle-tested system designed to save you 5+ years of painful, expensive trial and error. You're not just buying information; <strong>you're buying a proven roadmap and speed.</strong>" },
                 { q: "Is this REALLY for the Indian market?", a: "<strong>100% Yes.</strong> Every example, every currency figure (INR), and every strategy is tailored for the Indian context. This isn't recycled Western advice. It's built by an Indian, for the Indian hustler." },
-                { q: "How to start a business with 0 investment in India?", a: "<strong>Yes. That is the entire point of this book.</strong> I started with less than zero (massive debt!). This book focuses exclusively on businesses you can launch with <strong>₹0 investment</strong>. Your biggest asset will be your time and your hunger to win." },
+                { q: "How to start a business with 0 investment in India?", a: "<strong>Yes. That is the entire point of this book.</strong> I started with less than zero (massive debt!). This book focuses exclusively on businesses you can launch with <strong>₹0 investment.</strong> Your biggest asset will be your time and your hunger to win." },
                 { q: "How can I start a side hustle in India with a full time job?", a: "This was designed for you. The system works in <strong>focused 2-hour blocks</strong> that you can fit into your evenings or weekends. Your 9-5 is your safety net while you build your escape route. <strong>This book shows you how to build the boat before you jump off the ship.</strong>" },
                 { q: "What if I fail?", a: "The old way of failing is catastrophic. The new way—the ZeroFundedHustle way—is to <strong>fail smart, small, and fast.</strong> The models are designed to have virtually zero financial risk, so you can test ideas without fear of losing your savings. The real failure is staying stuck in a job you hate for the next 40 years." },
                 { q: "How quickly can I see results?", a: "I can't promise you a specific income, but I can promise you a specific plan. If you follow the 6-month roadmap and put in <strong>consistent effort</strong>, seeing your first <strong>₹10,000-₹20,000 is a very realistic goal.</strong> From there, you scale." },
@@ -2032,13 +2042,17 @@
                 if (open) {
                     item.classList.add('active');
                     // Set max-height to the actual scroll height of the inner content plus padding
-                    const height = contentInner.scrollHeight + 30; // +30 for the py-6 (1.5rem * 2)
+                    const height = contentInner.scrollHeight + 40; // Approx 1rem top, 1.5rem bottom
                     content.style.maxHeight = height + 'px';
                     item.querySelector('button').setAttribute('aria-expanded', 'true');
+                    // CHANGELOG FIX Q3: Remove border-t from inner content on open
+                    contentInner.classList.remove('border-t');
                 } else {
                     item.classList.remove('active');
                     content.style.maxHeight = '0';
                     item.querySelector('button').setAttribute('aria-expanded', 'false');
+                    // Ensure the border-t is present on the inner content when closed
+                    contentInner.classList.add('border-t'); 
                 }
             };
 
@@ -2350,11 +2364,6 @@
 
             // Helper to open popup
             const openPopup = () => {
-                 // Check 1: Has cookie consent been addressed?
-                 if (getCookie('cookie_consent') !== 'accepted' && getCookie('cookie_consent') !== 'rejected') {
-                     return; 
-                 }
-
                  // Prevent aggressive firing if already shown or user has converted
                  if (popupShown || document.cookie.includes('hasSubscribed=true') || hasInteractedWithEmailInput || localStorage.getItem('hasSubmittedLeadForm', 'true') === 'true') {
                      return;
@@ -2367,7 +2376,7 @@
                      popupContent.classList.add('scale-100');
                  }, 10);
                  popupShown = true;
-                 // Remove the exit intent listener once the popup is shown once
+                 // Enable lead magnet listener immediately since cookie modal is removed
                  document.removeEventListener('mouseleave', handleExitIntent);
             };
 
@@ -2382,13 +2391,10 @@
             };
             
             // 🟢 NEW: Exit Intent Trigger (High Priority CRO) 🟢
-            // Only fires if consent is set (handled in the initialization step)
             const handleExitIntent = (e) => {
-                // Check if consent has been given (or rejected) before showing the exit intent popup
-                if (getCookie('cookie_consent') === 'accepted' || getCookie('cookie_consent') === 'rejected') {
-                    if (e.clientY < 20) {
-                        openPopup();
-                    }
+                // Since the cookie modal is removed, we fire immediately on exit intent
+                if (e.clientY < 20) {
+                    openPopup();
                 }
             };
             
@@ -2523,77 +2529,10 @@
             });
             // --- END MODAL POPUP LOGIC ---
 
-
-            // --- COOKIE CONSENT LOGIC (NEW FULL MODAL) ---
-            const cookieModal = document.getElementById('cookie-modal');
-            const acceptBtn = document.getElementById('cookie-accept-btn');
-            const rejectBtn = document.getElementById('cookie-reject-btn');
-            const cookiePrivacyLink = document.getElementById('cookie-privacy-link-modal'); // Corrected ID
-
-            const showCookieModal = () => {
-                 if (cookieModal) {
-                    cookieModal.classList.remove('hidden');
-                    // Use a short delay to trigger transition
-                    setTimeout(() => { 
-                        cookieModal.classList.remove('opacity-0');
-                        cookieModal.querySelector('.relative').classList.remove('scale-95');
-                    }, 10);
-                 }
-            };
+            // CHANGELOG FIX Q1: Removed Cookie Consent Logic Initialization
             
-            const hideCookieModal = () => {
-                 if (cookieModal) {
-                    cookieModal.classList.add('opacity-0');
-                    cookieModal.querySelector('.relative').classList.add('scale-95');
-                    // Hide after transition
-                    setTimeout(() => { cookieModal.classList.add('hidden'); }, 300);
-                 }
-            };
-
-            const initializeConsent = () => {
-                if (getCookie('cookie_consent')) {
-                    // Consent already given (accepted or rejected), proceed
-                    hideCookieModal();
-                    // Enable lead magnet listener immediately
-                    document.addEventListener('mouseleave', handleExitIntent);
-                } else {
-                    // No consent yet, show blocking modal
-                    showCookieModal();
-                }
-            };
-
-            if (acceptBtn && rejectBtn) {
-                const handleConsentAction = (consentType) => {
-                    // 1. Set the cookie
-                    setCookie('cookie_consent', consentType, 365); // Consent lasts 1 year
-                    // 2. Hide the modal
-                    hideCookieModal();
-                    // 3. Enable the lead magnet pop-up functionality
-                    document.addEventListener('mouseleave', handleExitIntent);
-                };
-
-                acceptBtn.addEventListener('click', () => handleConsentAction('accepted'));
-                rejectBtn.addEventListener('click', () => handleConsentAction('rejected'));
-
-                // Handle link click to open privacy policy modal
-                cookiePrivacyLink.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    openModal('privacy-modal');
-                    // Do NOT hide cookie modal here, keep it blocking if the user closes the legal modal
-                });
-
-                // Add backdrop click to close cookie modal (if not clicked on inner content)
-                 cookieModal.addEventListener('click', (e) => {
-                    if (e.target === cookieModal) {
-                        // If they click outside, enforce action by reappearing/keeping visible.
-                        // We do nothing here, letting the modal remain visible and blocking.
-                    }
-                 });
-            }
-            
-            // Run initialization immediately on DOM load
-            initializeConsent();
-            // --- END COOKIE CONSENT LOGIC ---
+            // Initialize Exit Intent Listener now that the cookie modal is gone
+            document.addEventListener('mouseleave', handleExitIntent);
             
             
             // --- SEO: JSON-LD Schema Dynamic Injection ---
