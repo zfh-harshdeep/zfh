@@ -256,7 +256,7 @@
         };
 
         const Modal = ({ isOpen, onClose, title, children }) => {
-            // Handle Escape key to close modal & Initialize icons
+            // Handle Escape key to close modal
             useEffect(() => {
                 const handleEsc = (e) => {
                     if (e.key === 'Escape') onClose();
@@ -264,10 +264,6 @@
                 
                 if (isOpen) {
                     window.addEventListener('keydown', handleEsc);
-                    // Re-run Lucide icons for new content
-                    setTimeout(() => {
-                        if (window.lucide) window.lucide.createIcons();
-                    }, 0);
                 }
                 return () => window.removeEventListener('keydown', handleEsc);
             }, [isOpen, onClose]);
@@ -276,18 +272,21 @@
             
             return (
                 <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm" onClick={onClose}>
-                    <div className="bg-[#0B1221] border border-white/10 w-full max-w-3xl max-h-[90vh] rounded-2xl flex flex-col shadow-2xl overflow-hidden relative" onClick={e => e.stopPropagation()}>
-                        <div className="flex justify-between items-center p-6 border-b border-white/10 bg-white/5 sticky top-0 z-10">
-                            <h3 className="text-xl md:text-2xl font-bold font-display text-white">{title}</h3>
+                    <div className="bg-[#0B1221] border border-white/10 w-full max-w-lg max-h-[85vh] rounded-2xl flex flex-col shadow-2xl overflow-hidden relative" onClick={e => e.stopPropagation()}>
+                        <div className="flex justify-between items-center p-5 border-b border-white/10 bg-white/5 sticky top-0 z-10">
+                            <h3 className="text-lg md:text-xl font-bold font-display text-white">{title}</h3>
                             <button 
                                 onClick={onClose} 
                                 aria-label="Close"
-                                className="text-gray-300 hover:text-white bg-white/10 hover:bg-white/20 p-2 rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                className="flex-shrink-0 text-white bg-white/10 hover:bg-white/20 p-2 rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-blue-500"
                             >
-                                <i data-lucide="x" className="w-6 h-6"></i>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                                </svg>
                             </button>
                         </div>
-                        <div className="p-6 overflow-y-auto text-gray-300 leading-relaxed space-y-4">
+                        <div className="p-5 overflow-y-auto text-gray-300 text-sm leading-relaxed space-y-4">
                             {children}
                         </div>
                     </div>
@@ -397,7 +396,7 @@
                 setHasClosed(true);
             };
 
-            // Handle Escape key to close popup & Initialize icons
+            // Handle Escape key to close popup
             useEffect(() => {
                 const handleEsc = (e) => {
                     if (e.key === 'Escape' && showPopup) closePopup();
@@ -405,10 +404,6 @@
                 
                 if (showPopup) {
                     window.addEventListener('keydown', handleEsc);
-                    // Re-run Lucide icons for new content
-                    setTimeout(() => {
-                        if (window.lucide) window.lucide.createIcons();
-                    }, 0);
                 }
                 return () => window.removeEventListener('keydown', handleEsc);
             }, [showPopup]);
@@ -431,9 +426,12 @@
                                 <button 
                                     onClick={closePopup} 
                                     aria-label="Close"
-                                    className="absolute top-4 right-4 text-gray-300 hover:text-white bg-white/10 hover:bg-white/20 p-2 rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 z-50"
+                                    className="absolute top-4 right-4 text-white bg-white/10 hover:bg-white/20 p-2 rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 z-50"
                                 >
-                                    <i data-lucide="x" className="w-6 h-6"></i>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                                    </svg>
                                 </button>
                                 
                                 <div className="text-center mb-6">
@@ -1242,58 +1240,105 @@
             const [activeModal, setActiveModal] = useState(null);
 
             useEffect(() => {
-                lucide.createIcons();
+                if (window.lucide) lucide.createIcons();
+            }, [activeModal]);
+
+            useEffect(() => {
+                const interval = setInterval(() => {
+                    if (window.lucide) lucide.createIcons();
+                }, 2000);
+                return () => clearInterval(interval);
             }, []);
+
+            const LegalLinks = () => (
+                <div className="mt-8 pt-6 border-t border-white/10 text-xs text-gray-500">
+                    <p className="mb-2 font-bold text-white">View other policies:</p>
+                    <div className="flex flex-wrap gap-3">
+                        <button onClick={() => setActiveModal('privacy')} className={`hover:text-blue-400 transition-colors ${activeModal === 'privacy' ? 'text-blue-400 font-bold' : ''}`}>Privacy</button>
+                        <button onClick={() => setActiveModal('terms')} className={`hover:text-blue-400 transition-colors ${activeModal === 'terms' ? 'text-blue-400 font-bold' : ''}`}>Terms</button>
+                        <button onClick={() => setActiveModal('refund')} className={`hover:text-blue-400 transition-colors ${activeModal === 'refund' ? 'text-blue-400 font-bold' : ''}`}>Refunds</button>
+                        <button onClick={() => setActiveModal('contact')} className={`hover:text-blue-400 transition-colors ${activeModal === 'contact' ? 'text-blue-400 font-bold' : ''}`}>Contact</button>
+                    </div>
+                </div>
+            );
 
             const modalContent = {
                 privacy: (
                     <>
-                        <p><strong>Last Updated: November 24, 2025</strong></p>
-                        <p>Welcome to zerofundedhustle. Your privacy matters to us. This Privacy Policy explains how we collect, use, and protect your personal information.</p>
-                        <h4 className="text-white font-bold mt-4">1. Information We Collect</h4>
-                        <p>We collect details like your name and email when you purchase, basic usage data (IP address, browser type), and use cookies to improve site performance.</p>
-                        <h4 className="text-white font-bold mt-4">2. How We Use Your Information</h4>
-                        <p>We use your data to: Process and deliver ebook purchases, communicate with you, and improve our website.</p>
-                        <h4 className="text-white font-bold mt-4">3. Payments</h4>
-                        <p>All payments are processed securely through PayU. We don’t store your card details.</p>
-                        <h4 className="text-white font-bold mt-4">4. Contact Us</h4>
-                        <p>Email: zerofundedhustle@gmail.com</p>
+                        <div className="space-y-4 text-sm">
+                            <p><strong>Last Updated: November 24, 2025</strong></p>
+                            <p>Welcome to zerofundedhustle. Your privacy matters to us. This Privacy Policy explains how we collect, use, and protect your personal information.</p>
+                            <h4 className="text-white font-bold mt-2">1. Information We Collect</h4>
+                            <p>We collect details like your name and email when you purchase, basic usage data (IP address, browser type), and use cookies to improve site performance.</p>
+                            <h4 className="text-white font-bold mt-2">2. How We Use Your Information</h4>
+                            <p>We use your data to: Process and deliver ebook purchases, communicate with you, and improve our website.</p>
+                            <h4 className="text-white font-bold mt-2">3. Payments</h4>
+                            <p>All payments are processed securely through PayU. We don’t store your card details.</p>
+                            <h4 className="text-white font-bold mt-2">4. Contact Us</h4>
+                            <p>Email: zerofundedhustle@gmail.com</p>
+                            
+                            <a href="/privacypolicy.html" className="block text-blue-400 hover:text-blue-300 underline mt-6 font-medium">
+                                For more information, click here to view the full Privacy Policy.
+                            </a>
+                        </div>
+                        <LegalLinks />
                     </>
                 ),
                 terms: (
                     <>
-                        <p><strong>Last Updated: November 24, 2025</strong></p>
-                        <p>By accessing zerofundedhustle.com, you agree to these Terms of Use.</p>
-                        <h4 className="text-white font-bold mt-4">1. Use of Our Website</h4>
-                        <p>You agree to use this website only for lawful purposes. You must not reproduce, sell, or distribute our content without permission.</p>
-                        <h4 className="text-white font-bold mt-4">2. Intellectual Property</h4>
-                        <p>All content belongs to zerofundedhustle. Purchasing the blueprint grants you a personal license to use it, not to share or resell it.</p>
-                        <h4 className="text-white font-bold mt-4">3. Disclaimer</h4>
-                        <p>All content is for educational purposes only. We don’t guarantee specific results.</p>
+                        <div className="space-y-4 text-sm">
+                            <p><strong>Last Updated: November 24, 2025</strong></p>
+                            <p>By accessing zerofundedhustle.com, you agree to these Terms of Use.</p>
+                            <h4 className="text-white font-bold mt-2">1. Use of Our Website</h4>
+                            <p>You agree to use this website only for lawful purposes. You must not reproduce, sell, or distribute our content without permission.</p>
+                            <h4 className="text-white font-bold mt-2">2. Intellectual Property</h4>
+                            <p>All content belongs to zerofundedhustle. Purchasing the blueprint grants you a personal license to use it, not to share or resell it.</p>
+                            <h4 className="text-white font-bold mt-2">3. Disclaimer</h4>
+                            <p>All content is for educational purposes only. We don’t guarantee specific results.</p>
+                            
+                            <a href="/termsofuse.html" className="block text-blue-400 hover:text-blue-300 underline mt-6 font-medium">
+                                For more information, click here to view the full Terms of Use.
+                            </a>
+                        </div>
+                        <LegalLinks />
                     </>
                 ),
                 refund: (
                     <>
-                        <p><strong>14-Day Action-Based Refund Guarantee</strong></p>
-                        <p>If you’ve read the blueprint, actively applied the lessons (with proof), and still feel you didn’t gain value, you can request a full refund within 14 days of purchase.</p>
-                        <h4 className="text-white font-bold mt-4">How to Request</h4>
-                        <p>Email zerofundedhustle@gmail.com with your order number and documented proof of effort.</p>
-                        <h4 className="text-white font-bold mt-4">Eligibility</h4>
-                        <p>Refunds will not be granted for buyers who haven’t shown documented proof of effort. This policy is designed to reward action-takers.</p>
+                        <div className="space-y-4 text-sm">
+                            <p><strong>14-Day Action-Based Refund Guarantee</strong></p>
+                            <p>If you’ve read the blueprint, actively applied the lessons (with proof), and still feel you didn’t gain value, you can request a full refund within 14 days of purchase.</p>
+                            <h4 className="text-white font-bold mt-2">How to Request</h4>
+                            <p>Email zerofundedhustle@gmail.com with your order number and documented proof of effort.</p>
+                            <h4 className="text-white font-bold mt-2">Eligibility</h4>
+                            <p>Refunds will not be granted for buyers who haven’t shown documented proof of effort. This policy is designed to reward action-takers.</p>
+                            
+                            <a href="/refundpolicy.html" className="block text-blue-400 hover:text-blue-300 underline mt-6 font-medium">
+                                For more information, click here to view the full Refund Policy.
+                            </a>
+                        </div>
+                        <LegalLinks />
                     </>
                 ),
                 contact: (
                     <>
-                        <p>We’re here to help. Reach out — we actually read every message.</p>
-                        <h4 className="text-white font-bold mt-4">📬 Email</h4>
-                        <a href="mailto:zerofundedhustle@gmail.com" className="text-blue-400 hover:underline">zerofundedhustle@gmail.com</a>
-                        <p className="text-sm mt-1">We typically reply within 24–48 hours (Mon–Fri).</p>
-                        <h4 className="text-white font-bold mt-4">Common Reasons to Contact</h4>
-                        <ul className="list-disc pl-5 mt-2 space-y-1">
-                            <li>Questions about the blueprint</li>
-                            <li>Issues with payments or downloads</li>
-                            <li>Refund requests</li>
-                        </ul>
+                        <div className="space-y-4 text-sm">
+                            <p>We’re here to help. Reach out — we actually read every message.</p>
+                            <h4 className="text-white font-bold mt-2">📬 Email</h4>
+                            <a href="mailto:zerofundedhustle@gmail.com" className="text-blue-400 hover:underline">zerofundedhustle@gmail.com</a>
+                            <p className="text-xs mt-1">We typically reply within 24–48 hours (Mon–Fri).</p>
+                            <h4 className="text-white font-bold mt-2">Common Reasons to Contact</h4>
+                            <ul className="list-disc pl-5 mt-2 space-y-1">
+                                <li>Questions about the blueprint</li>
+                                <li>Issues with payments or downloads</li>
+                                <li>Refund requests</li>
+                            </ul>
+                            
+                            <a href="/contactus.html" className="block text-blue-400 hover:text-blue-300 underline mt-6 font-medium">
+                                For more information, click here to visit our Contact page.
+                            </a>
+                        </div>
+                        <LegalLinks />
                     </>
                 )
             };
