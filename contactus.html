@@ -3,564 +3,492 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#030304">
     
     <!-- SEO META TAGS -->
     <title>Contact zerofundedhustle Support | Get in Touch</title>
     <meta name="description" content="Contact the official zerofundedhustle support team for help with your purchase, product questions, refund status, or general inquiries about the Zero Investment Side Hustle Blueprint.">
+    <meta name="author" content="Harshdeep Singh">
     
-    <!-- Open Graph -->
+    <!-- OPEN GRAPH -->
     <meta property="og:title" content="Contact Us | zerofundedhustle">
     <meta property="og:description" content="Get in touch with the support team.">
-    <meta property="og:image" content="favicon.png">
-    <meta property="og:url" content="https://www.zerofundedhustle.com/contactus">
+    <meta property="og:image" content="https://www.zerofundedhustle.com/ebookcover.png">
+    <meta property="og:url" content="https://www.zerofundedhustle.com/contactus.html">
     <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZeroFundedHustle">
 
-    <!-- Canonical + Favicon -->
-    <link rel="canonical" href="https://www.zerofundedhustle.com/contactus">
+    <!-- TWITTER CARD -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@zerofundedhustl">
+    <meta name="twitter:title" content="Contact Us | zerofundedhustle">
+    <meta name="twitter:description" content="Get in touch with the support team.">
+    <meta name="twitter:image" content="https://www.zerofundedhustle.com/ebookcover.png">
+
+    <link rel="canonical" href="https://www.zerofundedhustle.com/contactus.html">
     <link rel="icon" type="image/png" href="favicon.png">
     
-    <!-- Google Fonts: Plus Jakarta Sans (Main Body) and Inter (Logo) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Tailwind CSS -->
+    <!-- Tailwind CSS (Stable Production CDN) -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Font Awesome (Deferred) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
-    
-    <script>
-        // Custom Tailwind Config from index.html (Updated to Emerald)
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        navy: {
-                            900: '#0B1221', // Deepest background
-                            800: '#1F2937', // Hero bg
-                            700: '#2D3A4F', // Card bg
-                        },
-                        // NEW ACCENT COLOR: LOGO GREEN (#22c55e)
-                        emerald: {
-                            DEFAULT: '#22c55e', 
-                            600: '#22c55e', // LOGO GREEN
-                            700: '#1f9b50', // Darker shade for hover/active
-                        },
-                        // Fallback lime/teal are now mapped to emerald if needed
-                        lime: {
-                            neon: '#22c55e', // Mapped to Emerald
-                            hover: '#1f9b50' // Mapped to Emerald 700
-                        },
-                        teal: {
-                            accent: '#2DD4BF' // Kept this for original gradient (h1) reference, but using Emerald for main accents
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Plus Jakarta Sans', 'sans-serif'],
-                    },
-                     boxShadow: {
-                        // Matching the glow used on the homepage lead magnet
-                        'neon-glow': '0 0 0 4px rgba(34, 197, 94, 0.7), 0 0 20px rgba(34, 197, 94, 0.7)',
-                    }
-                }
-            }
-        }
-    </script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://unpkg.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+    <!-- CUSTOM STYLES -->
     <style>
-        /* Base styles matching homepage */
-        body { 
-            font-family: 'Plus Jakarta Sans', sans-serif; 
-            overflow-x: hidden; 
-            max-width: 100vw;    
-            background-color: #FFFFFF; /* Changed to White */
-            color: #4B5563; /* Dark Gray */
-            padding-bottom: 0; /* Remove padding from sticky banner */
+        html { scroll-padding-top: 80px; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #030304;
+            color: #ffffff;
+            overflow-x: hidden;
         }
-        .hero-bg {
-            /* Keep Hero section dark for visual pop */
-            background-color: #111827;
-            background: radial-gradient(circle at 50% 50%, #1F2937 0%, #0B1221 100%);
-        }
-        nav.scrolled { 
-            background-color: rgba(11, 18, 33, 0.95); 
-            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3); 
-            padding-top: 1rem; 
-            padding-bottom: 1rem; 
-        }
-        /* Page Content Styling for Legibility (Light Theme Adaptation) */
-        .content h2 {
-            font-size: 1.875rem; /* text-3xl */
-            font-weight: 700; /* font-bold */
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-            color: #0B1221; /* Deep Navy */
-        }
-        .content h3 {
-            font-size: 1.25rem; /* text-xl */
-            font-weight: 600; /* font-semibold */
-            margin-top: 1.5rem;
-            margin-bottom: 0.75rem;
-            color: #1F2937; /* Navy 800 */
-        }
-        /* Input overrides for white theme form */
-        .form-input {
-            background-color: #F9FAFB; /* Gray-50 */
-            border-color: #D1D5DB; /* Gray-300 */
-            color: #1F2937;
-            placeholder-color: #9CA3AF;
-        }
-        .form-input:focus {
-            outline: none;
-            border-color: #22c55e;
-            box-shadow: 0 0 0 1px #22c55e;
-        }
+        h1, h2, h3, h4, .font-display { font-family: 'Space Grotesk', sans-serif; }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0a0a0a; }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #555; }
 
-        /* Modal Styles (Consistent with homepage) */
-        .modal-overlay { transition: opacity 0.3s ease; }
-        .modal-container { transition: transform 0.3s ease, opacity 0.3s ease; }
-        .modal-content::-webkit-scrollbar { width: 8px; }
-        .modal-content::-webkit-scrollbar-track { background: #0B1221; }
-        .modal-content::-webkit-scrollbar-thumb { background-color: #1F2937; border-radius: 4px; border: 2px solid #0B1221; }
-        .modal-content::-webkit-scrollbar-thumb:hover { background-color: #22c55e; } /* Updated to Emerald */
-
-        /* Button Loading Spinner - Copied from index.html */
-        @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-        .button-loading { color: transparent !important; pointer-events: none; position: relative; } 
-        .button-loading::after { 
-            content: ''; 
-            position: absolute; 
-            left: 50%; 
-            top: 50%; 
-            margin-top: -12px; 
-            margin-left: -12px; 
-            width: 24px; 
-            height: 24px; 
-            /* White spinner on a colored button */
-            border: 3px solid rgba(255, 255, 255, 0.3); 
-            border-top-color: #FFFFFF;
-            border-radius: 50%; 
-            animation: spin 0.8s linear infinite; 
+        /* Utilities - Blue/Purple Theme */
+        .bg-grid {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-nav {
+            background: rgba(3, 3, 4, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .glow-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.4;
+            z-index: -1;
+        }
+        
+        /* Modal transitions */
+        .modal-overlay {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
+        }
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* Loading spinner */
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        .spinner {
+            animation: spin 1s linear infinite;
         }
     </style>
 </head>
 <body>
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-blue-500 text-white px-4 py-2 rounded-lg font-bold z-[100]">Skip to main content</a>
 
-    <!-- HEADER (Simplified, Centered Logo, and Back Button - Matches Legal Page Standard) -->
-    <nav id="main-nav" class="fixed w-full z-50 transition-all duration-300 bg-[#111827]/90 backdrop-blur-md border-b border-gray-800 py-4 scrolled">
-        <div class="container mx-auto px-6 lg:px-12 relative flex justify-center items-center">
-            <!-- Back to Home Link -->
-            <a href="/" class="absolute left-6 lg:left-12 top-1/2 transform -translate-y-1/2 text-emerald-600 hover:text-white text-base font-semibold transition-colors flex items-center gap-2 group">
-                <i class="fa-solid fa-arrow-left text-lg group-hover:-translate-x-1 transition-transform"></i>
-                <span class="hidden sm:inline">Back to Home</span>
+    <!-- NAVBAR -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-transparent py-6">
+        <div class="container mx-auto px-6 flex items-center justify-between relative">
+            <a href="index.html" class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors z-10">
+                <i data-lucide="arrow-left" class="w-5 h-5"></i>
+                <span class="font-medium hidden sm:inline">Back to Home</span>
             </a>
-
-            <!-- Logo (Center - Matches homepage) -->
-            <a href="/" class="flex items-center group hover:opacity-90 transition-opacity">
-                 <span class="text-2xl font-extrabold tracking-tight" style="font-family: 'Inter', sans-serif;">
-                    <span class="text-white">zero</span><span class="text-emerald-600">funded</span><span class="text-white">hustle</span>
+            <a href="index.html" class="absolute left-1/2 -translate-x-1/2 flex items-center gap-2 cursor-pointer group">
+                <span class="font-display font-bold text-2xl md:text-3xl tracking-tight text-white group-hover:text-blue-200 transition-colors">
+                    zero<span class="text-blue-500">funded</span>hustle
                 </span>
             </a>
+            <div class="w-20 hidden sm:block"></div>
         </div>
     </nav>
 
-    <!-- HERO SECTION - Page Title -->
-    <section class="hero-bg pt-32 pb-20 lg:pt-48 lg:pb-32 relative overflow-hidden">
-        <div class="container mx-auto px-6 lg:px-12 relative z-10 text-center">
-            <h1 class="text-4xl lg:text-6xl font-bold text-white mb-4">Contact Us</h1>
-            <p class="text-gray-400 text-lg max-w-2xl mx-auto">Have a <strong>question</strong> about the <strong>blueprint</strong>? Need <strong>support</strong> with your <strong>order</strong>? Send a message.</p>
-        </div>
-    </section>
+    <main id="main-content">
+        <!-- HERO SECTION -->
+        <section class="relative pt-32 pb-12 md:pt-48 md:pb-16 overflow-hidden">
+            <div class="glow-orb w-[500px] h-[500px] bg-blue-600/20 top-[-100px] left-[-100px]"></div>
+            <div class="absolute inset-0 bg-grid opacity-20 z-0"></div>
+            <div class="container mx-auto px-6 relative z-10 text-center">
+                <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-4">Contact Us</h1>
+                <p class="text-lg text-gray-400 max-w-2xl mx-auto">Have a <strong class="text-white">question</strong> about the <strong class="text-white">blueprint</strong>? Need <strong class="text-white">support</strong> with your <strong class="text-white">order</strong>? Send a message.</p>
+            </div>
+        </section>
 
-    <!-- CONTACT FORM SECTION (White Theme adaptation) -->
-    <section class="py-24 bg-white">
-        <div class="container mx-auto px-6 lg:px-12 max-w-2xl">
-            <!-- Form Card styled as a light, premium box with an emerald accent border -->
-            <div id="contact-form-container" class="bg-white border border-gray-200 rounded-3xl p-8 shadow-xl" 
-                 style="box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.1), 0 0 20px rgba(34, 197, 94, 0.3);">
-                
-                <h2 class="text-3xl font-bold text-navy-900 mb-8 text-center">Send Us a Message</h2>
-                <form id="contact-form" class="space-y-6">
-                    <!-- Error Message Container -->
-                    <div id="contact-error-message" class="hidden bg-red-100 border border-red-500 text-red-700 text-sm p-3 rounded-lg text-center" role="alert"></div>
+        <!-- CONTENT SECTION -->
+        <section class="py-12 relative z-10 border-b border-white/5">
+            <div class="container mx-auto px-6 max-w-5xl">
+                <div class="grid md:grid-cols-5 gap-12 items-start">
                     
-                    <div>
-                        <label for="contact-name" class="block text-gray-700 text-xs font-bold mb-2 uppercase tracking-wide">Your Name <span class="text-red-500">*</span></label>
-                        <!-- Input uses generic form-input class for unified styling -->
-                        <input type="text" id="contact-name" name="Name" required class="w-full form-input rounded-xl px-5 py-4 text-navy-900 placeholder-gray-500 focus:outline-none transition-all focus:ring-1" placeholder="Enter your full name">
+                    <!-- Form Column -->
+                    <div class="md:col-span-3">
+                        <div id="contact-form-container" class="glass-card rounded-3xl p-8 shadow-[0_0_40px_rgba(59,130,246,0.1)] relative">
+                            <h2 class="text-2xl font-bold text-white mb-8 font-display">Send Us a Message</h2>
+                            
+                            <form id="contact-form" class="space-y-5">
+                                <div id="contact-error-message" class="hidden bg-red-500/10 border border-red-500/30 text-red-400 text-sm p-4 rounded-xl text-center" role="alert"></div>
+                                
+                                <div>
+                                    <label for="contact-name" class="block text-gray-400 text-xs font-bold mb-2 uppercase tracking-wide">Your Name <span class="text-red-500">*</span></label>
+                                    <input type="text" id="contact-name" name="Name" required class="w-full bg-white/5 border border-white/20 rounded-xl px-5 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all" placeholder="Enter your full name">
+                                </div>
+                                
+                                <div>
+                                    <label for="contact-email" class="block text-gray-400 text-xs font-bold mb-2 uppercase tracking-wide">Email Address <span class="text-red-500">*</span></label>
+                                    <input type="email" id="contact-email" name="Email" required class="w-full bg-white/5 border border-white/20 rounded-xl px-5 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all" placeholder="your@email.com">
+                                </div>
+                                
+                                <div class="relative">
+                                    <label for="contact-subject" class="block text-gray-400 text-xs font-bold mb-2 uppercase tracking-wide">Subject</label>
+                                    <select id="contact-subject" name="Subject" class="w-full bg-white/5 border border-white/20 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all appearance-none cursor-pointer">
+                                        <option value="General Inquiry" class="bg-[#0B1221] text-white">General Inquiry</option>
+                                        <option value="Product Support/Question" class="bg-[#0B1221] text-white">Product Support/Question</option>
+                                        <option value="Refund Request Status" class="bg-[#0B1221] text-white">Refund Request Status</option>
+                                        <option value="Billing/Payment Issue" class="bg-[#0B1221] text-white">Billing/Payment Issue</option>
+                                    </select>
+                                    <i data-lucide="chevron-down" class="absolute right-5 top-[2.4rem] mt-2 text-gray-500 pointer-events-none w-5 h-5"></i>
+                                </div>
+                                
+                                <div>
+                                    <label for="contact-message" class="block text-gray-400 text-xs font-bold mb-2 uppercase tracking-wide">Message <span class="text-red-500">*</span></label>
+                                    <textarea id="contact-message" name="Message" rows="5" required class="w-full bg-white/5 border border-white/20 rounded-xl px-5 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all resize-y" placeholder="Type your detailed message here..."></textarea>
+                                </div>
+                                
+                                <button type="submit" class="w-full bg-white text-black font-bold rounded-xl px-6 py-4 hover:bg-gray-200 transition-all shadow-lg flex items-center justify-center gap-2 mt-4">
+                                    <span class="btn-text">Send Message</span>
+                                    <span class="btn-loader hidden spinner w-5 h-5 border-2 border-black border-t-transparent rounded-full"></span>
+                                </button>
+                            </form>
+                        </div>
+                        
+                        <!-- Success Message -->
+                        <div id="contact-success" class="hidden text-center py-10 bg-green-500/5 border border-green-500/20 rounded-3xl p-8 shadow-xl">
+                            <div class="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i data-lucide="check" class="w-8 h-8 text-green-400"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-2 font-display">Message Sent!</h3>
+                            <p class="text-gray-400">Thanks for reaching out. We will respond to your inquiry within <strong class="text-white">48 business hours</strong>.</p>
+                        </div>
                     </div>
-                    <div>
-                        <label for="contact-email" class="block text-gray-700 text-xs font-bold mb-2 uppercase tracking-wide">Email Address <span class="text-red-500">*</span></label>
-                        <input type="email" id="contact-email" name="Email" required class="w-full form-input rounded-xl px-5 py-4 text-navy-900 placeholder-gray-500 focus:outline-none transition-all focus:ring-1" placeholder="your@email.com">
-                    </div>
-                    <div class="relative">
-                        <label for="contact-subject" class="block text-gray-700 text-xs font-bold mb-2 uppercase tracking-wide">Subject</label>
-                        <!-- Select adapted for light theme with dark options -->
-                        <select id="contact-subject" name="Subject" class="w-full form-input rounded-xl px-5 py-4 text-navy-900 focus:outline-none transition-all focus:ring-1 appearance-none">
-                            <option value="General Inquiry" class="bg-white text-navy-900">General Inquiry</option>
-                            <option value="Product Support/Question" class="bg-white text-navy-900">Product Support/Question</option>
-                            <option value="Refund Request Status" class="bg-white text-navy-900">Refund Request Status</option>
-                            <option value="Billing/Payment Issue" class="bg-white text-navy-900">Billing/Payment Issue</option>
-                        </select>
-                        <i class="fa-solid fa-chevron-down absolute right-5 top-1/2 mt-2 -translate-y-1/2 text-gray-500 pointer-events-none"></i>
-                    </div>
-                    <div>
-                        <label for="contact-message" class="block text-gray-700 text-xs font-bold mb-2 uppercase tracking-wide">Message <span class="text-red-500">*</span></label>
-                        <textarea id="contact-message" name="Message" rows="5" required class="w-full form-input rounded-xl px-5 py-4 text-navy-900 placeholder-gray-500 focus:outline-none transition-all focus:ring-1" placeholder="Type your detailed message here..."></textarea>
-                    </div>
-                    <!-- Submit button styled to match homepage CTA -->
-                    <button type="submit" class="w-full bg-emerald-600 text-navy-900 font-bold rounded-xl px-5 py-4 hover:bg-emerald-700 transition-all shadow-lg text-lg">Send Message</button>
-                </form>
-            </div>
-            
-            <!-- Success Message (Hidden) -->
-            <div id="contact-success" class="hidden text-center py-10 bg-emerald-50 border border-emerald-300 rounded-3xl p-8 mt-8 shadow-xl" 
-                 style="box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.1), 0 0 20px rgba(34, 197, 94, 0.3);">
-                <div class="w-16 h-16 bg-emerald-600/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <i class="fa-solid fa-check text-3xl text-emerald-600"></i>
-                </div>
-                <h3 class="text-xl font-bold text-navy-900 mb-2">Message Sent!</h3>
-                <p class="text-gray-700">Thanks for reaching out. We will respond to your inquiry within <strong>48 business hours</strong>.</p>
-            </div>
-        </div>
-    </section>
-    
-    <!-- DIRECT CONTACT INFO SECTION (Gray Background for contrast) -->
-    <section class="py-24 bg-gray-50">
-        <div class="container mx-auto px-6 lg:px-12 max-w-4xl">
-            <h2 class="text-3xl font-bold text-navy-900 mb-10 text-center">Other Ways to Connect</h2>
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- Card 1: Email -->
-                <div class="bg-white p-8 rounded-2xl border border-gray-100 flex items-start gap-4 shadow-sm hover:shadow-lg transition-shadow">
-                    <i class="fa-solid fa-envelope text-3xl text-emerald-600 flex-shrink-0 mt-1"></i>
-                    <div>
-                        <h3 class="text-xl font-bold text-navy-900 mb-2">Email Support</h3>
-                        <p class="text-gray-600">For <strong>urgent matters</strong> or to send <strong>attachments</strong> (like refund proof), email us directly.</p>
-                        <!-- Link updated to Emerald color -->
-                        <a href="mailto:zerofundedhustle@gmail.com" class="text-emerald-600 font-bold mt-2 inline-block hover:underline"><strong>zerofundedhustle@gmail.com</strong></a>
-                    </div>
-                </div>
-                <!-- Card 2: Business Hours -->
-                <div class="bg-white p-8 rounded-2xl border border-gray-100 flex items-start gap-4 shadow-sm hover:shadow-lg transition-shadow">
-                    <i class="fa-solid fa-calendar-check text-3xl text-emerald-600 flex-shrink-0 mt-1"></i>
-                    <div>
-                        <h3 class="text-xl font-bold text-navy-900 mb-2">Business Hours</h3>
-                        <p class="text-gray-600">Our <strong>support team</strong> operates on <strong>Indian Standard Time (IST)</strong>.</p>
-                        <p class="text-navy-900 font-bold mt-2"><strong>Monday - Friday: 10:00 AM to 6:00 PM IST</strong></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
+                    <!-- Contact Info Column -->
+                    <div class="md:col-span-2 space-y-6">
+                        <h2 class="text-2xl font-bold text-white mb-4 font-display">Other Ways to Connect</h2>
+                        
+                        <!-- Email Card -->
+                        <div class="glass-card p-6 rounded-2xl border border-white/10 hover:border-blue-500/30 transition-all flex items-start gap-4">
+                            <div class="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center text-blue-400 flex-shrink-0">
+                                <i data-lucide="mail" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-white mb-1">Email Support</h3>
+                                <p class="text-gray-400 text-sm mb-3">For urgent matters or to send attachments (like refund proof), email us directly.</p>
+                                <a href="mailto:zerofundedhustle@gmail.com" class="text-blue-400 font-bold text-sm hover:text-blue-300 hover:underline">zerofundedhustle@gmail.com</a>
+                            </div>
+                        </div>
 
-    <!-- FOOTER (MATCHED TO HOMEPAGE.HTML) -->
-    <footer class="bg-navy-900 text-white pt-20 pb-10 border-t border-gray-800">
-        <div class="container mx-auto px-6 lg:px-12">
-            <!-- Adjusted vertical gap for better mobile spacing -->
-            <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-y-10 md:gap-y-12 gap-x-12 mb-16">
-                <!-- Col 1: Logo and Socials -->
-                <div class="lg:col-span-2 lg:pr-8">
-                    <a href="/" class="flex items-center gap-2 mb-6">
-                        <span class="text-2xl font-extrabold tracking-tight" style="font-family: 'Inter', sans-serif;">
-                            <span class="text-white">zero</span><span class="text-emerald-600">funded</span><span class="text-white">hustle</span>
-                        </span>
-                    </a>
-                    <p class="text-gray-400 text-sm mb-8 leading-relaxed">Built in India, for the Indian Hustler. We provide the <strong>blueprints</strong> you need to <strong>escape the rat race</strong> without investors or debt.</p>
-                    <div class="flex space-x-4 mt-6">
-                        <!-- Social Icons (Updated to use Emerald-based hover) -->
-                        <a href="https://twitter.com/zerofundedhustl" target="_blank" class="text-gray-400 hover:text-emerald-600 transition-colors" aria-label="Twitter"><i class="fa-brands fa-twitter text-xl"></i></a>
-                        <a href="https://facebook.com/zerofundedhustle" target="_blank" class="text-gray-400 hover:text-emerald-600 transition-colors" aria-label="Facebook"><i class="fa-brands fa-facebook-f text-xl"></i></a>
-                        <a href="https://www.instagram.com/zerofundedhustle/" target="_blank" class="text-gray-400 hover:text-emerald-600 transition-colors" aria-label="Instagram"><i class="fa-brands fa-instagram text-xl"></i></a>
+                        <!-- Hours Card -->
+                        <div class="glass-card p-6 rounded-2xl border border-white/10 hover:border-purple-500/30 transition-all flex items-start gap-4">
+                            <div class="w-12 h-12 bg-purple-500/10 rounded-xl flex items-center justify-center text-purple-400 flex-shrink-0">
+                                <i data-lucide="calendar-clock" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-white mb-1">Business Hours</h3>
+                                <p class="text-gray-400 text-sm mb-3">Our support team operates on Indian Standard Time (IST).</p>
+                                <p class="text-white font-bold text-sm">Mon - Fri: 10:00 AM to 6:00 PM</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                
-                <!-- Col 2: Product -->
-                <div><h4 class="font-bold mb-6 text-sm uppercase tracking-wider text-gray-300">Product</h4><ul class="space-y-4 text-sm text-gray-400">
-                    <li><a href="/#blueprint" class="hover:text-emerald-600 transition-colors">The Blueprint</a></li>
-                    <li><a href="/#proof" class="hover:text-emerald-600 transition-colors">Proof</a></li>
-                    <li><a href="/#bonuses" class="hover:text-emerald-600 transition-colors">Bonuses</a></li>
-                    <li><a href="/#reviews" class="hover:text-emerald-600 transition-colors">Reviews</a></li>
-                </ul></div>
-                
-                <!-- Col 3: Legal -->
-                <div><h4 class="font-bold mb-6 text-sm uppercase tracking-wider text-gray-300">Legal</h4><ul class="space-y-4 text-sm text-gray-400">
-                    <li><a id="privacy-policy-link" href="privacypolicy" class="hover:text-emerald-600 transition-colors text-left">Privacy Policy</a></li>
-                    <li><a id="terms-of-use-link" href="termsofuse" class="hover:text-emerald-600 transition-colors text-left">Terms of Use</a></li>
-                    <li><a id="refund-policy-link" href="refundpolicy" class="hover:text-emerald-600 transition-colors text-left">Refund Policy</a></li>
-                </ul></div>
-                
-                <!-- Col 4: Connect -->
-                <div><h4 class="font-bold mb-6 text-sm uppercase tracking-wider text-gray-300">Connect</h4><ul class="space-y-4 text-sm text-gray-400">
-                    <li><a id="contact-us-link" href="contactus" class="hover:text-emerald-600 transition-colors text-left">Contact Us</a></li>
-                    <li><a href="sitemap" class="hover:text-emerald-600 transition-colors text-left">Sitemap</a></li>
-                </ul></div>
-            </div>
-            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4"><p class="text-gray-500 text-xs">Copyright © 2025 <strong>zerofundedhustle</strong>. All Rights Reserved.</p></div>
-        </div>
-    </footer>
 
+                </div>
+            </div>
+        </section>
 
-    <!-- MODALS (These are included on every page for consistency) -->
-    <!-- Privacy Policy Modal -->
-    <div id="privacy-modal" class="hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4 modal-overlay opacity-0">
-        <div class="modal-container bg-navy-900 border border-gray-800 rounded-lg w-full max-w-3xl max-h-[90vh] flex flex-col transform scale-95 opacity-0">
-            <div class="flex-shrink-0 p-6 border-b border-gray-800 flex justify-between items-center">
-                <h2 class="text-2xl font-bold text-white">Privacy Policy</h2>
-                <button data-close-modal="privacy-modal" class="text-gray-500 hover:text-white text-3xl">&times;</button>
-            </div>
-            <div class="modal-content flex-grow overflow-y-auto p-6">
-                <p class="text-sm text-gray-500 mb-6">Last Updated: November 24, 2025</p>
-                <div class="space-y-4 text-gray-400">
-                    <p>Welcome to <strong class="font-semibold text-white">zerofundedhustle</strong> (“we,” “our,” “us”). Your privacy matters to us. This Privacy Policy explains how we collect, use, and protect your personal information when you visit <strong class="font-semibold text-white">zerofundedhustle.com</strong> or make a purchase from us.</p>
-                    <div><h3 class="font-semibold text-white text-xl mt-4">1. Information We Collect</h3><p>We collect details like your name and email when you purchase, basic usage data (IP address, browser type), and use cookies to improve site performance.</p></div>
-                    <div><h3 class="font-semibold text-white text-xl mt-4">2. How We Use Your Information</h3><p>We use your data to: Process and deliver ebook purchases, communicate with you, send updates (if you opt in), and improve our website.</p></div>
-                    <div><h3 class="font-semibold text-white text-xl mt-4">3. Payments</h3><p>All payments are processed securely through our chosen provider (e.g., PayU). We don’t store your card details.</p></div>
-                    <div><h3 class="font-semibold text-white text-xl mt-4">4. Data Sharing</h3><p>We do not sell or rent your data. We only share it with essential service providers like payment processors.</p></div>
-                    <div><h3 class="font-semibold text-white text-xl mt-4">5. Contact Us</h3><p>Questions? Contact us at: Email: zerofundedhustle@gmail.com</p></div>
-                </div>
-            </div>
-            <div class="flex-shrink-0 p-4 border-t border-gray-800 text-center">
-                <a href="privacypolicy" class="text-emerald-600 hover:underline text-sm font-medium">For the full details, please click here</a>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Terms of Use Modal -->
-    <div id="terms-modal" class="hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4 modal-overlay opacity-0">
-         <div class="modal-container bg-navy-900 border border-gray-800 rounded-lg w-full max-w-3xl max-h-[90vh] flex flex-col transform scale-95 opacity-0">
-            <div class="flex-shrink-0 p-6 border-b border-gray-800 flex justify-between items-center">
-                <h2 class="text-2xl font-bold text-white">Terms of Use</h2>
-                <button data-close-modal="terms-modal" class="text-gray-500 hover:text-white text-3xl">&times;</button>
-            </div>
-            <div class="modal-content flex-grow overflow-y-auto p-6">
-                <p class="text-sm text-gray-500 mb-6">Last Updated: November 24, 2025</p>
-                <div class="space-y-4 text-gray-400">
-                    <p>By accessing or using <strong class="font-semibold text-white">zerofundedhustle.com</strong>, you agree to these Terms of Use. If you don’t agree, please don’t use the site.</p>
-                    <div><h3 class="font-semibold text-white text-xl mt-4">1. Use of Our Website</h3><p>You agree to use this website only for lawful purposes. You must not reproduce, sell, or distribute our content or ebooks without permission.</p></div>
-                    <div><h3 class="font-semibold text-white text-xl mt-4">2. Products and Payments</h3><p>All prices are in INR. Payments are processed securely. As our products are digital, please refer to our Refund Policy for details on eligibility.</p></div>
-                    <div><h3 class="font-semibold text-white text-xl mt-4">3. Intellectual Property</h3><p>All content on this website, including the blueprint, belongs to <strong class="font-semibold text-white">zerofundedhustle</strong>. Purchasing the blueprint grants you a personal license to use it, not to share or resell it.</p></div>
-                    <div><h3 class="font-semibold text-white text-xl mt-4">4. Disclaimer</h3><p>All content is for educational purposes only. We don’t guarantee specific results. Any actions you take are your responsibility.</p></div>
-                     <div><h3 class="font-semibold text-white text-xl mt-4">5. Governing Law</h3><p>These terms are governed by the laws of India. Any disputes will be handled in the courts of Punjab, India.</p></div>
-                    <div><h3 class="font-semibold text-white text-xl mt-4">6. Contact</h3><p>For any questions about these Terms, reach us at: Email: zerofundedhustle@gmail.com</p></div>
-                </div>
-            </div>
-             <div class="flex-shrink-0 p-4 border-t border-gray-800 text-center">
-                <a href="termsofuse" class="text-emerald-600 hover:underline text-sm font-medium">For the full details, please click here</a>
-            </div>
-        </div>
-    </div>
-    <div id="refund-modal" class="hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4 modal-overlay opacity-0">
-        <div class="modal-container bg-navy-900 border border-gray-800 rounded-lg w-full max-w-3xl max-h-[90vh] flex flex-col transform scale-95 opacity-0">
-            <div class="flex-shrink-0 p-6 border-b border-gray-800 flex justify-between items-center">
-                <h2 class="text-2xl font-bold text-white">Refund Policy</h2>
-                <button data-close-modal="refund-modal" class="text-gray-500 hover:text-white text-3xl">&times;</button>
-            </div>
-            <div class="modal-content flex-grow overflow-y-auto p-6">
-                <p class="text-sm text-gray-500 mb-6">Last Updated: November 24, 2025</p>
-                <div class="space-y-4 text-gray-400">
-                    <p>At <strong class="font-semibold text-white">zerofundedhustle</strong>, we offer a <strong>14-Day Action-Based Refund Guarantee</strong>.</p>
-                    <div><h3 class="font-semibold text-white text-xl mt-4">1. Our 14-Day Action-Based Guarantee</h3><p>If you’ve read the blueprint, actively applied the lessons (with proof), and still feel you didn’t gain value, you can request a full refund within 14 days of purchase. We require documentation proving you executed at least one of the 6 core business models.</p></div>
-                    <div><h3 class="font-semibold text-white text-xl mt-4">2. How to Request a Refund</h3><p>Email zerofundedhustle@gmail.com with your order number and the required proof of work.</p></div>
-                    <div><h3 class="font-semibold text-white text-xl mt-4">3. Eligibility</h3><p>Refunds will not be granted for buyers who haven’t shown documented proof of effort. This policy is designed to reward action-takers.</p></div>
-                    <div><h3 class="font-semibold text-white text-xl mt-4">4. Contact</h3><p>Reach out at: Email: zerofundedhustle@gmail.com</p></div>
-                </div>
-            </div>
-             <div class="flex-shrink-0 p-4 border-t border-gray-800 text-center">
-                <a href="refundpolicy" class="text-emerald-600 hover:underline text-sm font-medium">For the full details, please click here</a>
-            </div>
-        </div>
-    </div>
-    <div id="contact-modal" class="hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4 modal-overlay opacity-0">
-        <div class="modal-container bg-navy-900 border border-gray-800 rounded-lg w-full max-w-3xl max-h-[90vh] flex flex-col transform scale-95 opacity-0">
-            <div class="flex-shrink-0 p-6 border-b border-gray-800 flex justify-between items-center">
-                <h2 class="text-2xl font-bold text-white">Contact Us</h2>
-                <button data-close-modal="contact-modal" class="text-gray-500 hover:text-white text-3xl">&times;</button>
-            </div>
-            <div class="modal-content flex-grow overflow-y-auto p-6">
-                 <p class="text-sm text-gray-500 mb-6">Last Updated: November 24, 2025</p>
-                <div class="space-y-4 text-gray-400">
-                    <p class="text-lg">We’re here to help. If you have any questions about your purchase, need support, or just want to share feedback, reach out — we actually read every message.</p>
+        <!-- FOOTER -->
+        <footer class="bg-black border-t border-white/10 pt-20 pb-10">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                    <div class="col-span-1 lg:col-span-2">
+                        <div class="flex items-center gap-2 mb-4">
+                            <span class="font-display font-bold text-3xl tracking-tight text-white group-hover:text-blue-200 transition-colors">
+                                zero<span class="text-blue-500">funded</span>hustle
+                            </span>
+                        </div>
+                        <p class="text-gray-500 text-sm max-w-sm mb-6">Built in India, for the Indian Hustler. We provide the blueprints you need to escape the rat race without investors or debt.</p>
+                        <div class="flex gap-4">
+                            <a href="https://twitter.com/zerofundedhustl" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors" aria-label="Twitter"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                            <a href="https://www.instagram.com/zerofundedhustle/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors" aria-label="Instagram"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                            <a href="https://facebook.com/zerofundedhustle" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors" aria-label="Facebook"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                        </div>
+                    </div>
                     <div>
-                        <h3 class="font-semibold text-white text-lg">📬 Email</h3>
-                        <a href="mailto:zerofundedhustle@gmail.com" class="text-emerald-600 hover:underline">zerofundedhustle@gmail.com</a>
-                        <p class="text-sm">We typically reply within 24–48 hours (Mon–Fri).</p>
+                        <h4 class="font-bold text-white mb-6">Product</h4>
+                        <ul class="space-y-4 text-sm text-gray-500">
+                            <li><a href="index.html#curriculum" class="hover:text-white transition-colors">Curriculum</a></li>
+                            <li><a href="index.html#bonuses" class="hover:text-white transition-colors">Bonuses</a></li>
+                            <li><a href="index.html#testimonials" class="hover:text-white transition-colors">Reviews</a></li>
+                            <li><a href="https://u.payu.in/nIsRdQdIBGDX" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Get Access</a></li>
+                        </ul>
                     </div>
-                     <div>
-                        <h3 class="font-semibold text-white text-lg mt-6">🧭 Common Reasons to Contact Us</h3>
-                        <ul class="list-disc list-inside mt-2">
-                            <li>Questions about the blueprint or future releases</li>
-                            <li>Issues with payments or downloads</li>
-                            <li>Refund or guarantee requests</li>
-                            <li>General feedback or support</li>
+                    <div>
+                        <h4 class="font-bold text-white mb-6">Legal</h4>
+                        <ul class="space-y-4 text-sm text-gray-500">
+                            <li><button onclick="openModal('privacy')" class="hover:text-white transition-colors">Privacy Policy</button></li>
+                            <li><button onclick="openModal('terms')" class="hover:text-white transition-colors">Terms of Use</button></li>
+                            <li><button onclick="openModal('refund')" class="hover:text-white transition-colors">Refund Policy</button></li>
+                            <li><button onclick="openModal('contact')" class="hover:text-white transition-colors">Contact Us</button></li>
+                            <li><a href="sitemap.html" class="hover:text-white transition-colors">Sitemap</a></li>
                         </ul>
                     </div>
                 </div>
+                <div class="border-t border-white/5 pt-10 text-center flex flex-col items-center">
+                    <p class="text-gray-600 text-sm mb-2">© 2026 Zero Funded Hustle. All rights reserved.</p>
+                    <p class="text-gray-700 text-xs max-w-md">Disclaimer: Results may vary. This is an educational product and does not guarantee financial success. Your results depend on your effort and market conditions.</p>
+                </div>
             </div>
-            <div class="flex-shrink-0 p-4 border-t border-gray-800 text-center">
-                <a href="contactus" class="text-emerald-600 hover:underline text-sm font-medium">For the full details, please click here</a>
+        </footer>
+    </main>
+
+    <!-- MODAL -->
+    <div id="modal" class="modal-overlay fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm" onclick="closeModal(event)">
+        <div class="bg-[#0B1221] border border-white/10 w-full max-w-lg max-h-[85vh] rounded-2xl flex flex-col shadow-2xl overflow-hidden relative" onclick="event.stopPropagation()">
+            <div class="flex justify-between items-center p-5 border-b border-white/10 bg-white/5 sticky top-0 z-10">
+                <h3 id="modal-title" class="text-lg md:text-xl font-bold font-display text-white">Modal Title</h3>
+                <button onclick="closeModal()" class="flex-shrink-0 text-white bg-white/10 hover:bg-white/20 p-2 rounded-full transition-all" aria-label="Close modal">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="18" y1="6" x2="6" y2="18"></line>
+                      <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <div id="modal-content" class="p-5 overflow-y-auto text-gray-300 text-sm leading-relaxed space-y-4">
+                <!-- Modal content injected here -->
             </div>
         </div>
     </div>
 
-
-    <!-- Modal Popup & Animation JS (Shared Logic) -->
+    <!-- JAVASCRIPT -->
     <script>
-        // --- GOOGLE APPS SCRIPT URL FOR CONTACT FORM ---
-        const CONTACT_FORM_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxxxx/exec'; 
+        // Modal content (Mapped from index.html)
+        const MODAL_CONTENT = {
+            privacy: {
+                title: 'Privacy Policy',
+                content: `
+                    <div class="space-y-4 text-sm">
+                        <p><strong>Last Updated: November 24, 2026</strong></p>
+                        <p>Welcome to zerofundedhustle. Your privacy matters to us.</p>
+                        <h4 class="text-white font-bold mt-2">1. Information We Collect</h4>
+                        <p>We collect details like your name and email when you purchase, basic usage data (IP address, browser type), and use cookies to improve site performance.</p>
+                        <h4 class="text-white font-bold mt-2">2. How We Use Your Information</h4>
+                        <p>We use your data to: Process and deliver ebook purchases, communicate with you, and improve our website.</p>
+                        <h4 class="text-white font-bold mt-2">3. Payments</h4>
+                        <p>All payments are processed securely through PayU. We don't store your card details.</p>
+                        <a href="privacypolicy.html" class="block text-blue-400 hover:text-blue-300 underline mt-4 text-sm font-medium">View full Privacy Policy →</a>
+                    </div>
+                    <div class="mt-8 pt-6 border-t border-white/10 text-xs text-gray-500">
+                        <p class="mb-2 font-bold text-white">View other policies:</p>
+                        <div class="flex flex-wrap gap-3">
+                            <button onclick="openModal('terms')" class="hover:text-blue-400 transition-colors">Terms</button>
+                            <button onclick="openModal('refund')" class="hover:text-blue-400 transition-colors">Refunds</button>
+                            <button onclick="openModal('contact')" class="hover:text-blue-400 transition-colors">Contact</button>
+                        </div>
+                    </div>
+                `
+            },
+            terms: {
+                title: 'Terms of Use',
+                content: `
+                    <div class="space-y-4 text-sm">
+                        <p><strong>Last Updated: November 24, 2026</strong></p>
+                        <p>By accessing zerofundedhustle.com, you agree to these Terms of Use.</p>
+                        <h4 class="text-white font-bold mt-2">1. Use of Our Website</h4>
+                        <p>You agree to use this website only for lawful purposes. You must not reproduce, sell, or distribute our content without permission.</p>
+                        <h4 class="text-white font-bold mt-2">2. Intellectual Property</h4>
+                        <p>All content belongs to zerofundedhustle. Purchasing the blueprint grants you a personal license to use it, not to share or resell it.</p>
+                        <a href="termsofuse.html" class="block text-blue-400 hover:text-blue-300 underline mt-4 text-sm font-medium">View full Terms of Use →</a>
+                    </div>
+                    <div class="mt-8 pt-6 border-t border-white/10 text-xs text-gray-500">
+                        <p class="mb-2 font-bold text-white">View other policies:</p>
+                        <div class="flex flex-wrap gap-3">
+                            <button onclick="openModal('privacy')" class="hover:text-blue-400 transition-colors">Privacy</button>
+                            <button onclick="openModal('refund')" class="hover:text-blue-400 transition-colors">Refunds</button>
+                            <button onclick="openModal('contact')" class="hover:text-blue-400 transition-colors">Contact</button>
+                        </div>
+                    </div>
+                `
+            },
+            refund: {
+                title: 'Refund Policy',
+                content: `
+                    <div class="space-y-4 text-sm">
+                        <p><strong>14-Day Action-Based Refund Guarantee</strong></p>
+                        <p>If you've read the blueprint, actively applied the lessons (with proof), and still feel you didn't gain value, you can request a full refund within 14 days of purchase.</p>
+                        <h4 class="text-white font-bold mt-2">Eligibility</h4>
+                        <p>Refunds will not be granted for buyers who haven't shown documented proof of effort. This policy is designed to reward action-takers.</p>
+                        <a href="refundpolicy.html" class="block text-blue-400 hover:text-blue-300 underline mt-4 text-sm font-medium">View full Refund Policy →</a>
+                    </div>
+                    <div class="mt-8 pt-6 border-t border-white/10 text-xs text-gray-500">
+                        <p class="mb-2 font-bold text-white">View other policies:</p>
+                        <div class="flex flex-wrap gap-3">
+                            <button onclick="openModal('privacy')" class="hover:text-blue-400 transition-colors">Privacy</button>
+                            <button onclick="openModal('terms')" class="hover:text-blue-400 transition-colors">Terms</button>
+                            <button onclick="openModal('contact')" class="hover:text-blue-400 transition-colors">Contact</button>
+                        </div>
+                    </div>
+                `
+            },
+            contact: {
+                title: 'Contact Us',
+                content: `
+                    <div class="space-y-4 text-sm">
+                        <p>We're here to help. Reach out — we actually read every message.</p>
+                        <h4 class="text-white font-bold mt-2">📬 Email</h4>
+                        <a href="mailto:zerofundedhustle@gmail.com" class="text-blue-400 hover:underline">zerofundedhustle@gmail.com</a>
+                        <p class="text-xs mt-1">We typically reply within 24–48 hours (Mon–Fri).</p>
+                        <a href="contactus.html" class="block text-blue-400 hover:text-blue-300 underline mt-4 text-sm font-medium">View Contact Page →</a>
+                    </div>
+                    <div class="mt-8 pt-6 border-t border-white/10 text-xs text-gray-500">
+                        <p class="mb-2 font-bold text-white">View other policies:</p>
+                        <div class="flex flex-wrap gap-3">
+                            <button onclick="openModal('privacy')" class="hover:text-blue-400 transition-colors">Privacy</button>
+                            <button onclick="openModal('terms')" class="hover:text-blue-400 transition-colors">Terms</button>
+                            <button onclick="openModal('refund')" class="hover:text-blue-400 transition-colors">Refunds</button>
+                        </div>
+                    </div>
+                `
+            }
+        };
 
         document.addEventListener('DOMContentLoaded', function() {
-            // --- CONTACT FORM LOGIC (MOCK) ---
-            const contactForm = document.getElementById('contact-form');
-            const successMessage = document.getElementById('contact-success');
-            const errorMessage = document.getElementById('contact-error-message');
-            const formContainer = document.getElementById('contact-form-container');
+            // Initialize Lucide icons
+            if (window.lucide) {
+                lucide.createIcons();
+            }
             
+            initNavbar();
+            initModal();
+            initContactForm();
+        });
+        
+        // Navbar scroll effect
+        function initNavbar() {
+            const navbar = document.getElementById('navbar');
+            if (!navbar) return;
+
+            let isScrolling = false;
+            window.addEventListener('scroll', function() {
+                if (!isScrolling) {
+                    window.requestAnimationFrame(() => {
+                        if (window.scrollY > 20) {
+                            navbar.classList.add('glass-nav', 'py-4');
+                            navbar.classList.remove('bg-transparent', 'py-6');
+                        } else {
+                            navbar.classList.remove('glass-nav', 'py-4');
+                            navbar.classList.add('bg-transparent', 'py-6');
+                        }
+                        isScrolling = false;
+                    });
+                    isScrolling = true;
+                }
+            }, { passive: true });
+        }
+        
+        // Contact Form Logic
+        function initContactForm() {
+            const contactForm = document.getElementById('contact-form');
             if (contactForm) {
                 contactForm.addEventListener('submit', function(e) {
                     e.preventDefault();
                     
                     const submitButton = this.querySelector('button[type="submit"]');
-                    const originalBtnText = submitButton.innerText;
+                    const btnText = submitButton.querySelector('.btn-text');
+                    const btnLoader = submitButton.querySelector('.btn-loader');
+                    const errorMessage = document.getElementById('contact-error-message');
+                    const formContainer = document.getElementById('contact-form-container');
+                    const successMessage = document.getElementById('contact-success');
                     
                     // START LOADING ANIMATION
-                    submitButton.classList.add('button-loading'); 
-                    submitButton.innerText = ''; 
+                    btnText.classList.add('hidden');
+                    btnLoader.classList.remove('hidden');
                     submitButton.disabled = true;
-
                     errorMessage.classList.add('hidden');
                     
-                    // Mock Fetch Call (Simulating success for this template)
+                    // Mock Fetch Call (Simulating success)
                     setTimeout(() => {
                         const success = true; 
-
                         if (success) {
                             formContainer.classList.add('hidden');
-                            successMessage.classList.remove('hidden');
-                            successMessage.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            if (successMessage) {
+                                successMessage.classList.remove('hidden');
+                                successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            }
                         } else {
-                            // Simulate Error
                             errorMessage.textContent = 'There was an issue sending your message. Please try again or email us directly.';
                             errorMessage.classList.remove('hidden');
+                            
+                            // Reset button
+                            btnText.classList.remove('hidden');
+                            btnLoader.classList.add('hidden');
+                            submitButton.disabled = false;
                         }
-                        
-                        // STOP LOADING ANIMATION
-                        submitButton.classList.remove('button-loading');
-                        submitButton.innerText = originalBtnText;
-                        submitButton.disabled = false;
-
-                    }, 1500); // Simulated delay for network response
+                    }, 1500); 
                 });
             }
-
-
-            // --- MODAL POPUP LOGIC (Generic logic for legal pages, copied for self-contained page) ---
-            const modals = {
-                'privacy-modal': document.getElementById('privacy-modal'),
-                'terms-modal': document.getElementById('terms-modal'),
-                'refund-modal': document.getElementById('refund-modal'),
-                'contact-modal': document.getElementById('contact-modal')
-            };
-
-            const openModal = (modalId) => {
-                const modal = modals[modalId];
-                if (!modal) return;
-                modal.classList.remove('hidden');
-                setTimeout(() => {
-                    modal.classList.remove('opacity-0');
-                    if(modal.querySelector('.modal-container')) {
-                        modal.querySelector('.modal-container').classList.remove('scale-95', 'opacity-0');
-                    }
-                }, 10);
-            };
-
-            const closeModal = (modalId) => {
-                const modal = modals[modalId];
-                if (!modal) return;
-                if(modal.querySelector('.modal-container')) {
-                    modal.querySelector('.modal-container').classList.add('scale-95', 'opacity-0');
-                }
-                modal.classList.add('opacity-0');
-                setTimeout(() => {
-                    modal.classList.add('hidden');
-                }, 300);
-            };
-
-            // Event Listeners for Footer Links (Open Modals on Click)
-            document.getElementById('privacy-policy-link')?.addEventListener('click', (e) => {
-                e.preventDefault();
-                openModal('privacy-modal');
-            });
-
-            document.getElementById('terms-of-use-link')?.addEventListener('click', (e) => {
-                e.preventDefault();
-                openModal('terms-modal');
-            });
-
-            document.getElementById('refund-policy-link')?.addEventListener('click', (e) => {
-                e.preventDefault();
-                openModal('refund-modal');
-            });
-
-            document.getElementById('contact-us-link')?.addEventListener('click', (e) => {
-                e.preventDefault();
-                openModal('contact-modal');
-            });
-            
-            // Close buttons and overlay click listeners
-            document.querySelectorAll('[data-close-modal]').forEach(button => {
-                button.addEventListener('click', () => {
-                    closeModal(button.dataset.closeModal);
-                });
-            });
-
-            document.querySelectorAll('.modal-overlay').forEach(overlay => {
-                overlay.addEventListener('click', (e) => {
-                    // Check if the click target is the modal overlay itself, not the content
-                    if (e.target === overlay) {
-                        // The overlay ID is the same as the modalId string
-                        closeModal(overlay.id); 
-                    }
-                });
-            });
-
-            // --- STICKY BANNER LOGIC (REMOVED) ---
-            // Removed sticky banner logic per user request.
-        });
-    </script>
-
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            {
-              "@type": "ListItem",
-              "position": 1,
-              "name": "Home",
-              "item": "https://www.zerofundedhustle.com/"
-            },
-            {
-              "@type": "ListItem",
-              "position": 2,
-              "name": "Refund Policy",
-              "item": "https://www.zerofundedhustle.com/refundpolicy"
-            }
-          ]
-        },
-        {
-          "@type": "Organization",
-          "name": "zerofundedhustle",
-          "url": "https://www.zerofundedhustle.com/",
-          "logo": "https://www.zerofundedhustle.com/favicon.png",
-          "sameAs": ["https://www.instagram.com/zerofundedhustle/"]
         }
-      ]
-    }
+        
+        // Modal
+        function initModal() {
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') closeModal();
+            });
+        }
+        
+        function openModal(type) {
+            const modal = document.getElementById('modal');
+            const title = document.getElementById('modal-title');
+            const content = document.getElementById('modal-content');
+            
+            if (!modal || !title || !content) return;
+
+            const modalData = MODAL_CONTENT[type];
+            if (!modalData) return;
+            
+            title.textContent = modalData.title;
+            content.innerHTML = modalData.content;
+            
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            
+            if (window.lucide) lucide.createIcons();
+        }
+        
+        function closeModal(event) {
+            if (event && event.target !== event.currentTarget) return;
+            const modal = document.getElementById('modal');
+            if (modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
     </script>
 </body>
 </html>
